@@ -1,0 +1,31 @@
+{
+  "name": "nextstop",
+  "version": "1.0.0",
+  "description": "A one-stop app for events, hotels, and flights",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Atlantic-Otter/NextStop.git"
+  },
+  "keywords": [
+    "Millenials"
+  ],
+  "author": "Elliot Lichtenberg, Adam Johnson, Sara Schaeffer, Jake Borromeo, Charles Leung, Jonathan Hirakawa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Atlantic-Otter/NextStop/issues"
+  },
+  "homepage": "https://github.com/Atlantic-Otter/NextStop#readme",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.6.0"
+  }
+}
