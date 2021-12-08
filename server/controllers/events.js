@@ -1,16 +1,20 @@
 const axios = require("axios");
 const { API_KEY } = require("../../config.js");
-
-const URL = `https://app.ticketmaster.com/discovery/v2/events.json?latlong=37.804363,-122.271111&radius=20&unit=miles&apikey=${API_KEY}`;
-
+const zipcodes = require("zipcodes");
 module.exports = {
   getNearbyEvents: (req, res) => {
+    const { zip, startDate, endDate } = req.params;
+    const { latitude, longitude } = zipcodes.lookup(zip);
+    const start = new Date(startDate).toISOString().slice(0, -5) + "Z";
+    const end = new Date(endDate).toISOString().slice(0, -5) + "Z";
+
     axios
-      .get(URL)
+      .get(
+        `https://app.ticketmaster.com/discovery/v2/events.json?latlong=${latitude},${longitude}&startDateTime=${start}&endDateTime=${end}&radius=20&unit=miles&apikey=${API_KEY}`
+      )
       .then((d) => {
-        // console.log(d.data);
+        // console.log(d.data._embedded);
         const { events } = d.data._embedded;
-        console.log("hehehe");
         res.status(200).send(events);
       })
       .catch((e) => console.log(e));
