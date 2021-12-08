@@ -1,3 +1,6 @@
+
+var util = require('util');
+var encoder = new util.TextEncoder('utf-8');
 const mongoose = require('mongoose');
 // connect to local instance
 require('./connect.js');
@@ -5,29 +8,23 @@ require('./connect.js');
 const itinerarySchema = new mongoose.Schema({
   destination: {
     type: String,
-
     default: null
   },
   events: {
     type: [String],
-
     default: []
   },
   travelPlan: {
     type: String,
-
     default: null
   },
   lodging: {
     type: String,
-
     default: null
   }
-
 });
 
 const Itinerary = mongoose.model('Itinerary', itinerarySchema);
-
 
 const userSchema = new mongoose.Schema({
   username: {
@@ -40,32 +37,31 @@ const userSchema = new mongoose.Schema({
   },
   currentTrip: {
     type: itinerarySchema,
-
     default: {}
   },
   previousTrips: {
     type: [itinerarySchema],
-
     default: []
   }
 });
 
 const User = mongoose.model('User', userSchema);
 
-
 User.create({
-  username: 'emptyField',
-  password: 'allMissingFields',
+  username: 'Ellito',
+  password: 'Bees'
+}).
+then(() => {
+  return User.findOne({username: 'Ellito'});
 })
-.then(() => {
-  console.log('created document!');
+.then((results) => {
+  console.log('got back from query:', results);
 })
 .catch((err) => {
-  console.log('error creating document');
-  throw err;
+  console.log('error');
 })
 
-module.exports = {
-  "User": User,
-  "Itinerary": Itinerary,
-};
+
+
+
+module.exports = User;
