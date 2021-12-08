@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 function LandingPage() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -7,6 +8,7 @@ function LandingPage() {
     startDate: null,
     endDate: null,
   });
+
   const submitSearch = () => {
     const { zip, startDate, endDate } = formData;
     navigate(
