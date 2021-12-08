@@ -1,5 +1,8 @@
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, useParams } from "react-router-dom";
+import Events from "./Events/Events.js";
+import Flights from "./Flights/Flights.js";
+import Hotels from "./Hotels/Hotels.js";
 function Dashboard() {
   return (
     <div id="dashboardContainer">
@@ -8,10 +11,10 @@ function Dashboard() {
       <Link to="flights">Flights</Link>
       <Link to="hotels">Hotels</Link>
       <Routes>
-        <Route path="/" element={<h1>Events</h1>} />
-        <Route path="/events" element={<h1>Events</h1>} />
-        <Route path="/flights" element={<h1>Flights</h1>} />
-        <Route path="/hotels" element={<h1>Hotels</h1>} />
+        <Route path="/" element={<Events />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="/flights" element={<Flights />} />
+        <Route path="/hotels" element={<Hotels />} />
       </Routes>
     </div>
   );
