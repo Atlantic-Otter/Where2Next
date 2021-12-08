@@ -1,13 +1,8 @@
-const express = require("express")
-const { events } = require('./controllers/');
+const express = require("express");
+const cors = require("cors");
+const { events } = require("./controllers");
 const app = express();
-
-
-events.getNearbyEvents()
-app.get('/nearbyEvents', events.getNearbyEvents)
-
-
+app.use(cors());
+app.get("/nearbyEvents", events.getNearbyEvents);
 
 module.exports = app;
-
-

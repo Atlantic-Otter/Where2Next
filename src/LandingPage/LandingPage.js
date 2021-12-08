@@ -9,7 +9,9 @@ function LandingPage() {
   });
   const submitSearch = () => {
     const { zip, startDate, endDate } = formData;
-    navigate(`/${zip}/?startDate=${startDate}&endDate=${endDate}`);
+    navigate(
+      `/dashboard/?zip=${zip}&startDate=${startDate}&endDate=${endDate}`
+    );
   };
   const onChange = (e) => {
     const newFormData = { ...formData };
