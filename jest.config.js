@@ -140,7 +140,7 @@ module.exports = {
 
 
   // * * * NOTE: WHEN TESTING RTL, CHANGE THIS PROPERTY TO "jsdom" * * *
-  testEnvironment: "node",
+  testEnvironment: "jsdom",
 
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},
