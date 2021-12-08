@@ -1,12 +1,14 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 function getStartAndEndDate() {
   const { search } = useLocation();
   const params = new URLSearchParams(search);
-  const result = {};
-  result.startDate = params.get("startDate");
-  result.endDate = params.get("endDate");
-  return result;
+
+  const startDate = params.get("startDate");
+  const endDate = params.get("endDate");
+  const { zip } = useParams();
+
+  return { startDate, endDate, zip };
 }
 
 export default getStartAndEndDate;

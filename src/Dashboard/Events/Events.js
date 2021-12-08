@@ -1,9 +1,7 @@
 import React from "react";
-import { useParams } from "react-router-dom";
 import getStartAndEndDate from "../../../Helpers/getStartAndEndDate";
 function Events() {
-  const { startDate, endDate } = getStartAndEndDate();
-  const { zip } = useParams();
+  const { startDate, endDate, zip } = getStartAndEndDate();
   console.log(startDate, endDate, zip);
   return <div>Events</div>;
 }
