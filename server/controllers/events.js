@@ -3,8 +3,8 @@ const { API_KEY } = require("../../config.js");
 const zipcodes = require("zipcodes");
 module.exports = {
   getNearbyEvents: (req, res) => {
-    const { zip, startDate, endDate } = req.params;
-    const { latitude, longitude } = zipcodes.lookup(zip);
+    const { city, state, startDate, endDate } = req.params;
+    const { latitude, longitude } = zipcodes.lookupByName(city, state)[0];
     const start = new Date(startDate).toISOString().slice(0, -5) + "Z";
     const end = new Date(endDate).toISOString().slice(0, -5) + "Z";
 

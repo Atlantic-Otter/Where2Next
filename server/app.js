@@ -4,6 +4,9 @@ const { events } = require("./controllers");
 const app = express();
 app.use(cors());
 
-app.get("/nearbyEvents/:zip/:startDate/:endDate", events.getNearbyEvents);
+app.get(
+  "/nearbyEvents/:city/:state/:startDate/:endDate",
+  events.getNearbyEvents
+);
 
 module.exports = app;

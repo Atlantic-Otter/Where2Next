@@ -3,11 +3,13 @@ import useSearchParams from "../../../Helpers/useSearchParams";
 import axios from "axios";
 function Events() {
   const [events, setEvents] = useState([]);
-  const { startDate, endDate, zip } = useSearchParams();
-  console.log(startDate, endDate, zip);
+  const { startDate, endDate, city, state } = useSearchParams();
+  console.log(startDate, endDate, city, state);
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/nearbyEvents/${zip}/${startDate}/${endDate}`)
+      .get(
+        `http://localhost:3000/nearbyEvents/${city}/${state}/${startDate}/${endDate}`
+      )
       .then(({ data }) => {
         setEvents(data);
       });
