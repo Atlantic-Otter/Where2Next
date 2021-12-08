@@ -5,22 +5,22 @@ require('./connect.js');
 const itinerarySchema = new mongoose.Schema({
   destination: {
     type: String,
-    required: true,
+
     default: null
   },
   events: {
     type: [String],
-    required: true,
+
     default: []
   },
   travelPlan: {
     type: String,
-    required: true,
+
     default: null
   },
   lodging: {
     type: String,
-    required: true,
+
     default: null
   }
 
@@ -40,12 +40,12 @@ const userSchema = new mongoose.Schema({
   },
   currentTrip: {
     type: itinerarySchema,
-    required: true,
-    default: null
+
+    default: {}
   },
   previousTrips: {
     type: [itinerarySchema],
-    required: true,
+
     default: []
   }
 });
@@ -56,14 +56,13 @@ const User = mongoose.model('User', userSchema);
 User.create({
   username: 'emptyField',
   password: 'allMissingFields',
-
-
 })
 .then(() => {
   console.log('created document!');
 })
-.catch(() => {
+.catch((err) => {
   console.log('error creating document');
+  throw err;
 })
 
 module.exports = {
