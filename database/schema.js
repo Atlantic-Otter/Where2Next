@@ -1,7 +1,5 @@
-
-var util = require('util');
-var encoder = new util.TextEncoder('utf-8');
 const mongoose = require('mongoose');
+const validateUnique = require('mongoose-unique-validator');
 // connect to local instance
 require('./connect.js');
 
@@ -29,10 +27,12 @@ const Itinerary = mongoose.model('Itinerary', itinerarySchema);
 const userSchema = new mongoose.Schema({
   username: {
     type: String,
+    unique: true,
     required: [true, 'username is required']
   },
   password: {
     type: String,
+    unique: true,
     required: [true, 'password is required']
   },
   currentTrip: {
@@ -45,22 +45,8 @@ const userSchema = new mongoose.Schema({
   }
 });
 
+userSchema.plugin(validateUnique);
 const User = mongoose.model('User', userSchema);
-
-User.create({
-  username: 'Ellito',
-  password: 'Bees'
-}).
-then(() => {
-  return User.findOne({username: 'Ellito'});
-})
-.then((results) => {
-  console.log('got back from query:', results);
-})
-.catch((err) => {
-  console.log('error');
-})
-
 
 
 
