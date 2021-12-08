@@ -5,10 +5,8 @@ import Dashboard from "../Dashboard/Dashboard.js";
 import LandingPage from "../LandingPage/LandingPage.js";
 import TripContext from "../TripContext";
 const App = () => {
-  const [variable, setVariable] = useState(2);
-
   return (
-    <TripContext.Provider value={{ variable, setVariable }}>
+    <TripContext.Provider value={{}}>
       <Router>
         <Routes>
           <Route path="/" element={<LandingPage />} />
