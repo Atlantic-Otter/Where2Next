@@ -1,12 +1,9 @@
-import React from "react"
-import {render, screen} from '@testing-library/react'
-import App from "./App.js"
-import '@testing-library/jest-dom'
-test('Renders the App Component on the page', () => {
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import App from "./App.js";
+import "@testing-library/jest-dom";
+test("Renders the App Component on the page", () => {
+  render(<App />);
 
-render(<App/>)
-
-
-expect(screen.getByText("testing")).toBeInTheDocument()
-
-})
+  expect(screen.getByText("HOME")).toBeInTheDocument();
+});
