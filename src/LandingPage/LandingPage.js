@@ -36,6 +36,8 @@ function LandingPage() {
   const onChange = (e) => {
     const newFormData = { ...formData };
     newFormData[e.target.name] = e.target.value;
+    newFormData.city = $("#citiesSelect").val();
+    newFormData.state = $("#statesSelect").val();
     setFormData(newFormData);
   };
 
@@ -44,9 +46,21 @@ function LandingPage() {
       <h1>HOME</h1>
 
       <label htmlFor="city">City</label>
-      <input id="citiesSelect" type="text" name="city" onChange={onChange} />
+      <input
+        id="citiesSelect"
+        value={formData.city}
+        type="text"
+        name="city"
+        onChange={onChange}
+      />
       <label htmlFor="state">State</label>
-      <input id="statesSelect" type="text" name="state" onChange={onChange} />
+      <input
+        id="statesSelect"
+        value={formData.state}
+        type="text"
+        name="state"
+        onChange={onChange}
+      />
       <label htmlFor="startDate">Start Date</label>
       <input
         type="date"
