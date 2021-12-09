@@ -15,6 +15,6 @@ app.get(
 
 app.get('/login', login.validate);
 
-app.get('/flightsToken', flights.getToken);
+app.get('/flights', flights.getFlights);
 
 module.exports = app;
