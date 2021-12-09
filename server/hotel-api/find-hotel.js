@@ -4,6 +4,8 @@ const testCalls = {
 
   fetchHotelByCity: (cityCode) => {
     amadeus.shopping.hotelOffersByHotel.get({ cityCode })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err))
   },
 
   fetchHotelByCityId: (hotelId) => {
@@ -45,4 +47,5 @@ const testCalls = {
 }
 
 // testCalls.fetchHotel('XKPARC12')
-testCalls.checkFlight()
+// testCalls.checkFlight()
+testCalls.fetchHotelByCity('LON')

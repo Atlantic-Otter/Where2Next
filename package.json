@@ -24,10 +24,12 @@
   "homepage": "https://github.com/Atlantic-Otter/NextStop#readme",
   "dependencies": {
     "@svgr/webpack": "^6.1.1",
+    "amadeus": "^5.7.1",
     "axios": "^0.24.0",
     "babel-jest": "^27.4.2",
     "cors": "^2.8.5",
     "css-loader": "^6.5.1",
+    "dotenv": "^10.0.0",
     "file-loader": "^6.2.0",
     "jest": "^27.4.3",
     "react": "^17.0.2",
