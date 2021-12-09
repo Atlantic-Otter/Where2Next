@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import FlightListItem from './FlightListItem';
 
 function Flights() {
   const [flights, setFlights] = useState([]);
@@ -15,14 +16,12 @@ function Flights() {
   }, []);
 
   const flightList = flights.map((flight) =>
-  <li key={flight.id}>{flight.id}</li>)
+  <FlightListItem key={flight.id} flight={flight}/>)
 
   return (
     <>
       <h2>Flights</h2>
-      <ul>
-        {flightList}
-      </ul>
+      <div id="scrollContainer">{flightList}</div>
     </>
   );
 }
