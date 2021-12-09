@@ -40,7 +40,7 @@ const itinerarySchema = new mongoose.Schema({
   }
 });
 
-// UPDATE: STORING USER SESSION IN LOCALHOST, DB ONLY HOLDS PAID-FOR TRIPS
+// UPDATE: STORING USER SESSION IN LOCAL STORAGE, DB ONLY HOLDS PAID-FOR TRIPS
 const userSchema = new mongoose.Schema({
   created_at: {
     type: Date,

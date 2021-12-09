@@ -12,8 +12,6 @@ import LoginButton from "../Login/LoginButton.js";
 const App = () => {
 
   //check localstorage
-
-
   const [currentTrip, setCurrentTrip] = React.useState({
     events: [],
     flights: [],
