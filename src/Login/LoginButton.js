@@ -6,7 +6,9 @@ import LoginMenu from './LoginMenu.js';
 const LoginButton = (props) => {
   var [modalView, setModalView] = React.useState(false);
   const toggleModal = (event) => {
+
     setModalView(!modalView);
+
   };
 
   return (
