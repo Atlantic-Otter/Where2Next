@@ -5,6 +5,8 @@ import helpers from './helpers.js';
   // check out useCallback OR
   // use setText as callback arg
 
+
+// For development: Username "testing", password: "test" is in database
 const LoginMenu = () => {
 
   var [text, setText] = React.useState({
@@ -42,11 +44,11 @@ const LoginMenu = () => {
       <form onSubmit={attemptLogin} >
         <label>
           Username:
-          <input id="username" type="text" onChange={updateText} />
+          <input id="username" type="text" onChange={updateText} required/>
         </label>
         <label>
           Password
-          <input id="password" type="password" onChange={updateText} />
+          <input id="password" type="password" onChange={updateText} required/>
         </label>
         <input type="submit" value="Login" />
       </form>
