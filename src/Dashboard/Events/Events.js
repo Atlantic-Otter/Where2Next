@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import useSearchParams from "../../../Helpers/useSearchParams";
 import axios from "axios";
+import EventListItem from "./EventListItem";
 function Events() {
   const [events, setEvents] = useState([]);
   const { startDate, endDate, city, state } = useSearchParams();
@@ -12,20 +13,16 @@ function Events() {
       )
       .then(({ data }) => {
         setEvents(data);
-      });
+      })
+      .catch((e) => console.log(e));
   }, []);
 
-  const eventList = events.map((event) => {
-    return (
-      <>
-        <span>{event.name}</span> <br />
-      </>
-    );
-  });
+  const eventList = events.map((event) => <EventListItem event={event} />);
 
   return (
     <>
-      <div>Events</div> {eventList}
+      <h2>Events</h2>
+      <div id="scrollContainer">{eventList}</div>
     </>
   );
 }

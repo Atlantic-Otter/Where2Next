@@ -18,6 +18,10 @@ html,
     bottom: 5%;
     right: 5%;
   }
+  .eventListImage {
+    width: 5vw;
+    height: 5vw;
+  }
 }
 
 /* MOBILE */
@@ -25,9 +29,13 @@ html,
   #yourTripButton {
     width: 15vw;
     height: 15vw;
-
     bottom: 3%;
     right: 5%;
+  }
+
+  .eventListImage {
+    height: 15vw;
+    width: 15vw;
   }
 }
 
@@ -40,6 +48,10 @@ html,
   height: 100%;
 }
 
+#scrollContainer {
+  overflow: scroll;
+  height: 80vh;
+}
 #yourTripButton {
   position: absolute;
   background-color: indigo;
@@ -47,4 +59,8 @@ html,
 
   border: none;
   border-radius: 50%;
+}
+
+.eventListImage {
+  object-fit: cover;
 }
