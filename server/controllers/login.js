@@ -1,7 +1,19 @@
+const User = require('../../database/schema.js');
+
 module.exports = {
   validate: function(req, res) {
-    // should query the db for sent username
-    // respond t/f
-    res.status(200).send('uWu');
+
+    User.findOne({
+      username: req.query.username
+    }).then((results) => {
+      console.log('recieved results:', results);
+      res.status(200).send(req.query.password === results.password);
+    })
+    .catch((err) => {
+      console.log('error querying username/password match');
+      res.status(404).send(err);
+      throw err;
+    });
+
   }
 }
