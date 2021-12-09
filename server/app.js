@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const { events, login } = require("./controllers");
+const { events, login, flights } = require("./controllers");
 const app = express();
 app.use(cors());
 
@@ -14,5 +14,7 @@ app.get(
 );
 
 app.get('/login', login.validate);
+
+app.get('/flightsToken', flights.getToken);
 
 module.exports = app;
