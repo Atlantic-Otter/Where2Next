@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const DATABASE = 'Where2Next';
+// require('regenerator-runtime/runtime');
 
 const connect = async function() {
   await mongoose.connect(`mongodb://localhost:27017/${DATABASE}`);

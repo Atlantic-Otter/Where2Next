@@ -1,15 +1,12 @@
 const mongoose = require('mongoose');
 const chai = require('chai');
-const {expect} = chai
+const { expect } = chai;
 chai.use(require('chai-shallow-deep-equal'));
-
+chai.use(require('chai-as-promised'));
 const User = require('../database/schema.js');
 
-describe('Initial schema tests', function() {
-  after(function() {
-    // TODO: add a User.remove(//some function to delete documents added from the test, perhaps add a `created_at: Date.now()` to schema - at end of test call .remove on any documents matching (Date.now() - 3000)
-    mongoose.connection.close();
-  });
+var startedAt = Date.now();
+describe('Basic storage', function() {
 
   it('should store user information', async function() {
     await User.create({
@@ -51,11 +48,32 @@ describe('Initial schema tests', function() {
       throw err;
     })
   });
+});
 
-  it('creating a documentwith missing fields should use `null` and empty array values', async function() {
+describe('Handling invalid input', function() {
+  after(function() {
+    // TODO: add a User.remove(//some function to delete documents added from the test, perhaps add a `created_at: Date.now()` to schema - at end of test call .remove on any documents matching (Date.now() - 3000)
+    var endedAt = Date.now();
+    User.deleteMany({
+      created_at: {$gte: (endedAt - startedAt)}
+    })
+    .then(() => {
+      console.log('Removed db entries added during test');
+      console.log(`Time elapsed: ${endedAt - startedAt}ms`);
+      mongoose.connection.close();
+    })
+    .catch((err) => {
+      console.error('Error deleting dummy users from test - please check your local mongosh instance for remnants of test-created documents');
+      throw err;
+    })
+
+
+  });
+
+
+  it('fills missing fields with `null` and empty array values', async function() {
     await User.findOne({username: 'Ellito'})
       .then((results) => {
-
         expect(results.currentTrip).to.shallowDeepEqual({
           destination: null,
           events: [],
@@ -70,25 +88,24 @@ describe('Initial schema tests', function() {
       });
   });
 
-  // it('should reject duplicate usernames', async function() {
-  //   await expect(User.create({
-  //     useraname: 'AdamJ',
-  //     password: 'HiFromSF'
-  //   })).rejects.toThrow('User validation failed:');
-  // });
+  it('should reject duplicate usernames', function() {
+    return expect(
+      User.create({
+        useraname: 'AdamJ',
+        password: 'HiFromSF'
+      })).to.eventually.be.rejected;
+  });
 
-  // it('should reject duplicate passwords', async function() {
-  //   await expect(User.create({
-  //     useraname: 'Charles_Arduino_weaponry',
-  //     password: 'Bees'
-  //   })).rejects.toThrow('User validation failed');
-  // });
+  it('should reject duplicate passwords', function() {
+    return expect(User.create({
+      useraname: 'Charles_Arduino_weaponry',
+      password: 'Bees'
+    })).to.eventually.be.rejected;
+  });
 
-  // it('should reject insert queries missing the required fields', async function() {
-  //   await expect(User.create({})).rejects.toThrow('username is required');
-  //   // mongoose.connection.close();
-  // })
+  it('should reject insert queries missing the required fields', function() {
+    return expect(User.create({})).to.eventually.be.rejected;
+    // mongoose.connection.close();
+  });
+
 });
-
-
-
