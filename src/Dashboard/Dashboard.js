@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { Routes, Route, Link, useLocation } from "react-router-dom";
 import Events from "./Events/Events.js";
 import Flights from "./Flights/Flights.js";
 import Hotels from "./Hotels/Hotels.js";
+import YourTripButton from "./YourTripButton/YourTripButton.js";
+import YourTripToast from "./YourTripToast/YourTripToast.js";
+
 function Dashboard() {
   const { search } = useLocation();
+  const [tripToastVisible, setTripToastVisible] = useState(false);
+  const toggleTripToast = () => {
+    setTripToastVisible((prev) => !prev);
+    console.log(tripToastVisible);
+  };
   return (
     <div id="dashboardContainer">
       <h1>DASHBOARD</h1>
@@ -17,6 +25,11 @@ function Dashboard() {
         <Route path="/flights" element={<Flights />} />
         <Route path="/hotels" element={<Hotels />} />
       </Routes>
+      <YourTripButton toggleTripToast={toggleTripToast} />
+      <YourTripToast
+        tripToastVisible={tripToastVisible}
+        toggleTripToast={toggleTripToast}
+      />
     </div>
   );
 }

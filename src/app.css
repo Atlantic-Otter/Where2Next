@@ -1,12 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html,
+#root {
+  width: 100%;
+  height: 100%;
+}
 
 /*BROWSER*/
 @media screen and (min-width: 600px) {
-
+  #yourTripButton {
+    width: 5vw;
+    height: 5vw;
+    bottom: 5%;
+    right: 5%;
+  }
 }
 
 /* MOBILE */
 @media screen and (max-width: 600px) {
+  #yourTripButton {
+    width: 15vw;
+    height: 15vw;
 
+    bottom: 3%;
+    right: 5%;
+  }
 }
 
 /* BOTH */
+
+#dashboardContainer {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+}
+
+#yourTripButton {
+  position: absolute;
+  background-color: indigo;
+  color: orange;
+
+  border: none;
+  border-radius: 50%;
+}
