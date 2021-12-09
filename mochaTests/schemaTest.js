@@ -55,10 +55,11 @@ describe('Handling invalid input', function() {
     // TODO: add a User.remove(//some function to delete documents added from the test, perhaps add a `created_at: Date.now()` to schema - at end of test call .remove on any documents matching (Date.now() - 3000)
     var endedAt = Date.now();
     User.deleteMany({
-      created_at: {$gt: (endedAt - startedAt)}
+      created_at: {$gte: (endedAt - startedAt)}
     })
     .then(() => {
-      console.log(`time elapsed: ${endedAt - startedAt}ms`);
+      console.log('Removed db entries added during test');
+      console.log(`Time elapsed: ${endedAt - startedAt}ms`);
       mongoose.connection.close();
     })
     .catch((err) => {
