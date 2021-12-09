@@ -13,8 +13,7 @@ module.exports = {
         `https://app.ticketmaster.com/discovery/v2/events.json?latlong=${latitude},${longitude}&startDateTime=${start}&endDateTime=${end}&radius=20&unit=miles&apikey=${EVENT_API_KEY}`
       )
       .then((d) => {
-        // console.log(d.data._embedded);
-        const { events } = d.data._embedded;
+        const events = d.data._embedded ? d.data._embedded.events : [];
         res.status(200).send(events);
       })
       .catch((e) => console.log(e));

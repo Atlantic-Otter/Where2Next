@@ -20,8 +20,10 @@ function LandingPage() {
     $("#statesSelect").autocomplete({ source: states });
   }, []);
   const submitSearch = () => {
-    const { city, state, startDate, endDate } = formData;
-
+    const { startDate, endDate } = formData;
+    let { city, state } = formData;
+    city = $("#citiesSelect").val();
+    state = $("#statesSelect").val();
     if (!city || !state) {
       return setErrorMessage("Please select a city and state");
     }
