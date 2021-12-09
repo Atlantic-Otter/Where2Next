@@ -3,14 +3,14 @@ const qs = require("query-string");
 const { API_CLIENT_ID, API_CLIENT_SECRET } = require("../../config.js");
 
 module.exports = {
-  getToken: (req, res) => {
+  getFlights: (req, res) => {
     const data = qs.stringify({
       'grant_type': 'client_credentials',
       'client_id': API_CLIENT_ID,
       'client_secret': API_CLIENT_SECRET
     });
 
-    const config = {
+    const getTokenConfig = {
       method: 'post',
       url: 'https://test.api.amadeus.com/v1/security/oauth2/token',
       headers: {
@@ -19,10 +19,21 @@ module.exports = {
       data : data
     };
 
-    axios(config)
+    axios(getTokenConfig)
       .then((tokenInfo) => {
-        const token = tokenInfo.data.access_token
-        res.status(200).send(token);
+        const token = tokenInfo.data.access_token;
+        const getFlightsConfig = {
+          method: 'get',
+          url: 'https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=JFK&destinationLocationCode=LAX&departureDate=2021-12-20&adults=1',
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        };
+        return axios(getFlightsConfig);
+      })
+      .then((flightInfo) => {
+        const flights = flightInfo.data.data;
+        res.status(200).send(flights)
       })
       .catch((error) => {
         console.log(error);
