@@ -1,5 +1,6 @@
 import React from 'react';
 import helpers from './helpers.js';
+import './modal.css'
 
 // TODO: move all callbacks out of function body for efficient rerendering
   // check out useCallback OR
@@ -7,7 +8,7 @@ import helpers from './helpers.js';
 
 
 // For development: Username "testing", password: "test" is in database
-const LoginMenu = () => {
+const LoginMenu = ({ toggleModal }) => {
 
   var [text, setText] = React.useState({
     username: '',
@@ -40,19 +41,24 @@ const LoginMenu = () => {
   };
 
   return (
-    <div id="login-menu">
-      <form onSubmit={attemptLogin} >
-        <label>
-          Username:
-          <input id="username" type="text" onChange={updateText} required/>
-        </label>
-        <label>
-          Password:
-          <input id="password" type="password" onChange={updateText} required/>
-        </label>
-        <input type="submit" value="Login" />
-      </form>
+
+    <div id="modal-background" onClick={toggleModal}>
+      <div id="login-menu">
+        <span id="modal-close-button" onClick={toggleModal}>&times;</span>
+        <form onSubmit={attemptLogin} >
+          <label>
+            Username:
+            <input id="username" type="text" onChange={updateText} required/>
+          </label>
+          <label>
+            Password:
+            <input id="password" type="password" onChange={updateText} required/>
+          </label>
+          <input type="submit" value="Login" />
+        </form>
+      </div>
     </div>
+
   );
 };
 

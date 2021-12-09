@@ -14,7 +14,7 @@ const LoginButton = (props) => {
       <button id="login-button" onClick={toggleModal}>
         Login
       </button>
-      {modalView ? <LoginMenu /> : <></>}
+      {modalView ? <LoginMenu toggleModal={toggleModal}/> : <></>}
     </div>
   )
 };
