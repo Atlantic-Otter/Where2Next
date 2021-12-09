@@ -8,9 +8,20 @@ import Dashboard from "../Dashboard/Dashboard.js";
 import LandingPage from "../LandingPage/LandingPage.js";
 import TripContext from "../TripContext";
 import LoginButton from "../Login/LoginButton.js";
+
 const App = () => {
+
+  //check localstorage
+
+
+  const [currentTrip, setCurrentTrip] = React.useState({
+    events: [],
+    flights: [],
+    hotels: []
+  });
+
   return (
-    <TripContext.Provider value={{ addToTrip, getTrip }}>
+    <TripContext.Provider value={{currentTrip, setCurrentTrip}}>
       <LoginButton />
       <Router>
         <Routes>

@@ -57,9 +57,9 @@ const userSchema = new mongoose.Schema({
     unique: true,
     required: [true, 'password is required']
   },
-  currentTrip: {
-    type: itinerarySchema,
-    default: {}
+  upcomingTrips: {
+    type: [itinerarySchema],
+    default: []
   },
   previousTrips: {
     type: [itinerarySchema],
