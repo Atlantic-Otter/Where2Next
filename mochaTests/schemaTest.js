@@ -5,6 +5,7 @@ chai.use(require('chai-shallow-deep-equal'));
 chai.use(require('chai-as-promised'));
 const User = require('../database/schema.js');
 
+var startedAt = Date.now();
 describe('Basic storage', function() {
 
   it('should store user information', async function() {
@@ -52,7 +53,20 @@ describe('Basic storage', function() {
 describe('Handling invalid input', function() {
   after(function() {
     // TODO: add a User.remove(//some function to delete documents added from the test, perhaps add a `created_at: Date.now()` to schema - at end of test call .remove on any documents matching (Date.now() - 3000)
-    mongoose.connection.close();
+    var endedAt = Date.now();
+    User.deleteMany({
+      created_at: {$gt: (endedAt - startedAt)}
+    })
+    .then(() => {
+      console.log(`time elapsed: ${endedAt - startedAt}ms`);
+      mongoose.connection.close();
+    })
+    .catch((err) => {
+      console.error('Error deleting dummy users from test - please check your local mongosh instance for remnants of test-created documents');
+      throw err;
+    })
+
+
   });
 
 
