@@ -3,17 +3,35 @@ const validateUnique = require('mongoose-unique-validator');
 // connect to local instance
 require('./connect.js');
 
+const eventSchema = new mongoose.Schema({
+  name: {
+    type: String,
+  },
+  imageURL: {
+    type: String,
+  },
+  startTime: {
+    type: String,
+  }
+
+});
+
+const flightSchema = new mongoose.Schema({
+  to: String,
+  from:  String,
+});
+
 const itinerarySchema = new mongoose.Schema({
   destination: {
     type: String,
     default: null
   },
   events: {
-    type: [String],
+    type: [eventSchema],
     default: []
   },
-  travelPlan: {
-    type: String,
+  flights: {
+    type: [flightSchema],
     default: null
   },
   lodging: {
@@ -22,7 +40,7 @@ const itinerarySchema = new mongoose.Schema({
   }
 });
 
-const Itinerary = mongoose.model('Itinerary', itinerarySchema);
+// const Itinerary = mongoose.model('Itinerary', itinerarySchema);
 
 const userSchema = new mongoose.Schema({
   created_at: {
