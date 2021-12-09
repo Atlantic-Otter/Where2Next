@@ -25,6 +25,10 @@ const itinerarySchema = new mongoose.Schema({
 const Itinerary = mongoose.model('Itinerary', itinerarySchema);
 
 const userSchema = new mongoose.Schema({
+  created_at: {
+    type: Date,
+    default: Date.now()
+  },
   username: {
     type: String,
     unique: true,
@@ -47,7 +51,5 @@ const userSchema = new mongoose.Schema({
 
 userSchema.plugin(validateUnique);
 const User = mongoose.model('User', userSchema);
-
-
 
 module.exports = User;
