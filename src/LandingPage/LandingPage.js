@@ -4,15 +4,16 @@ import { useNavigate } from "react-router-dom";
 function LandingPage() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    zip: "",
+    city: "",
+    state: "",
     startDate: null,
     endDate: null,
   });
 
   const submitSearch = () => {
-    const { zip, startDate, endDate } = formData;
+    const { city, state, startDate, endDate } = formData;
     navigate(
-      `/dashboard/?zip=${zip}&startDate=${startDate}&endDate=${endDate}`
+      `/dashboard/?city=${city}&state=${state}&startDate=${startDate}&endDate=${endDate}`
     );
   };
   const onChange = (e) => {
@@ -23,7 +24,8 @@ function LandingPage() {
   return (
     <div id="landingPage">
       <h1>HOME</h1>
-      <input type="number" name="zip" onChange={onChange} />
+      <input type="text" name="city" onChange={onChange} />
+      <input type="text" name="state" onChange={onChange} />
       <input type="date" name="startDate" onChange={onChange} />
       <input type="date" name="endDate" onChange={onChange} />
       <button onClick={submitSearch}>Go!</button>
