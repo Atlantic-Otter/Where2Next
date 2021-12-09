@@ -21,7 +21,7 @@ const LoginMenu = () => {
       if (data) {
         alert('Login successful');
       } else {
-        alert('Incorrect username/password combination');
+        alert('Incorrect username/password');
       }
     })
     .catch((err) => {

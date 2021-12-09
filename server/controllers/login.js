@@ -8,8 +8,11 @@ module.exports = {
       User.findOne({
         username: req.query.username
       }).then((results) => {
-        console.log('recieved results:', results);
-        res.status(200).send(req.query.password === results.password);
+        if (results === null) {
+          res.status(200).send(false);
+        } else {
+          res.status(200).send(req.query.password === results.password);
+        }
       })
       .catch((err) => {
         console.log('error querying username/password match');
