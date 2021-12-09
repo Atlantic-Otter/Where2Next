@@ -1,14 +1,16 @@
 import React from 'react';
 import helpers from './helpers.js';
 
+// TODO: move all callbacks out of function body for efficient rerendering
+  // check out useCallback OR
+  // use setText as callback arg
+
 const LoginMenu = () => {
-  // should render a menu (eventally a modal view) for user to login
 
   var [text, setText] = React.useState({
     username: '',
     password: ''
   });
-
 
   const attemptLogin = (event) => {
     event.preventDefault()
@@ -16,13 +18,16 @@ const LoginMenu = () => {
     // on success set globabl state to be the user
     helpers.requestValidation(text)
     .then(({ data }) => {
-      console.log('recieved some data: ', data);
+      if (data) {
+        alert('Login successful');
+      } else {
+        alert('Incorrect username/password combination');
+      }
     })
     .catch((err) => {
       console.log('request error on querying username/password match');
       throw err;
     })
-
   };
 
   const updateText = (event) => {
@@ -31,7 +36,6 @@ const LoginMenu = () => {
     newState[stateKey] = event.target.value;
     setText(newState);
   };
-
 
   return (
     <div id="login-menu">
@@ -47,7 +51,7 @@ const LoginMenu = () => {
         <input type="submit" value="Login" />
       </form>
     </div>
-  )
+  );
 };
 
 export default LoginMenu;
