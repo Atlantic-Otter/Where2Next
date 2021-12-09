@@ -24,9 +24,13 @@ function LandingPage() {
   return (
     <div id="landingPage">
       <h1>HOME</h1>
+      <label htmlFor="city">City</label>
       <input type="text" name="city" onChange={onChange} />
+      <label htmlFor="state">State</label>
       <input type="text" name="state" onChange={onChange} />
+      <label htmlFor="startDate">Start Date</label>
       <input type="date" name="startDate" onChange={onChange} />
+      <label htmlFor="endDate">End Date</label>
       <input type="date" name="endDate" onChange={onChange} />
       <button onClick={submitSearch}>Go!</button>
     </div>
