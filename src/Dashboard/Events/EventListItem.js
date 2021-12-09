@@ -1,5 +1,4 @@
 import React from "react";
-// import addToTrip from '../../../Helpers/addToTrip.js';
 import TripContext from '../../../src/TripContext.js';
 import { useContext } from 'react';
 
