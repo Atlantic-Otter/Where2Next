@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import citiesAndStates from "../../Helpers/usCitiesAndStates";
 
 function LandingPage() {
   const navigate = useNavigate();
   const startMin = new Date().toISOString().split("T")[0];
+
   const [errorMessage, setErrorMessage] = useState("");
   const [formData, setFormData] = useState({
     city: "",
@@ -11,7 +13,12 @@ function LandingPage() {
     startDate: startMin,
     endDate: startMin,
   });
-  console.log(formData);
+  const { cities, states } = citiesAndStates;
+
+  useEffect(() => {
+    $("#citiesSelect").autocomplete({ source: cities });
+    $("#statesSelect").autocomplete({ source: states });
+  }, []);
   const submitSearch = () => {
     const { city, state, startDate, endDate } = formData;
 
@@ -35,10 +42,11 @@ function LandingPage() {
   return (
     <div id="landingPage">
       <h1>HOME</h1>
+
       <label htmlFor="city">City</label>
-      <input type="text" name="city" onChange={onChange} />
+      <input id="citiesSelect" type="text" name="city" onChange={onChange} />
       <label htmlFor="state">State</label>
-      <input type="text" name="state" onChange={onChange} />
+      <input id="statesSelect" type="text" name="state" onChange={onChange} />
       <label htmlFor="startDate">Start Date</label>
       <input
         type="date"

@@ -43,11 +43,15 @@ html,
 
 #dashboardContainer {
   position: relative;
-
   width: 100%;
   height: 100%;
 }
 
+.ui-autocomplete {
+  max-height: 20vh;
+  overflow-x: hidden; /* add padding to account for vertical scrollbar */
+  z-index: 1000 !important;
+}
 #scrollContainer {
   overflow: scroll;
   height: 80vh;
