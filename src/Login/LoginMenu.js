@@ -47,7 +47,7 @@ const LoginMenu = () => {
           <input id="username" type="text" onChange={updateText} required/>
         </label>
         <label>
-          Password
+          Password:
           <input id="password" type="password" onChange={updateText} required/>
         </label>
         <input type="submit" value="Login" />
@@ -57,3 +57,11 @@ const LoginMenu = () => {
 };
 
 export default LoginMenu;
+
+
+
+
+// on adding things to itineraty
+  // get what was
+  //
+
