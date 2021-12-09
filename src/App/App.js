@@ -1,5 +1,7 @@
 import React from "react";
 import "../App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Dashboard from "../Dashboard/Dashboard.js";
 import LandingPage from "../LandingPage/LandingPage.js";
