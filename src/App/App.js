@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import addToTrip from "../../Helpers/addToTrip.js";
@@ -10,16 +10,26 @@ import TripContext from "../TripContext";
 import LoginButton from "../Login/LoginButton.js";
 
 const App = () => {
-
-  //check localstorage
+  ///// CLEAR STORAGE ON CHECKOUT
   const [currentTrip, setCurrentTrip] = React.useState({
     events: [],
     flights: [],
-    hotels: []
+    hotels: [],
   });
+  useEffect(() => {
+    if (window.localStorage.getItem("currentTrip")) {
+      setCurrentTrip(JSON.parse(window.localStorage.getItem("currentTrip")));
+    }
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem("currentTrip", JSON.stringify(currentTrip));
+    // console.log(window.localStorage);
+    console.log(currentTrip);
+  }, [currentTrip]);
 
   return (
-    <TripContext.Provider value={{currentTrip, setCurrentTrip}}>
+    <TripContext.Provider value={{ currentTrip, setCurrentTrip }}>
       <LoginButton />
       <Router>
         <Routes>

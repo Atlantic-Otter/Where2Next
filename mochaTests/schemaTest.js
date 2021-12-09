@@ -32,18 +32,25 @@ describe('Basic storage', function() {
     await User.create({
       username: 'AdamJ',
       password: 'FieldCouch',
-      currentTrip: {
+      upcomingTrips: [{
         destination: 'Luxembourg',
-        events: ['SchnitzelEssen', 'JazzFestSpielerZusammen 2021'],
-        travelPlan: 'Bike there',
-        lodging: 'Gemutlich Hotel'
-      }
+        events: [{
+          name: 'Really Exciting Event',
+          imageURL: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.reddit.com%2Fr%2Fphotoshopbattles%2Fcomments%2F1mc892%2Fsilly_dog_face%2F&psig=AOvVaw15wBSThVA7uToQxhjDAOZG&ust=1639175110770000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJikxKPh1_QCFQAAAAAdAAAAABAG',
+          startTime: '01-01-2022'
+        }]
+      }],
+      flights: [{
+        to: 'CrazyPlace',
+        from: 'SanePlace'
+      }],
+      lodging: 'I am lodging'
     }).
     then(() => {
       return User.findOne({username: 'AdamJ'});
     })
     .then((results) => {
-      expect(results.currentTrip.destination).to.equal('Luxembourg');
+      expect(results.upcomingTrips[0].destination).to.equal('Luxembourg');
     })
     .catch((err) => {
       console.warn('testing error');
@@ -76,12 +83,7 @@ describe('Handling invalid input', function() {
   it('fills missing fields with `null` and empty array values', async function() {
     await User.findOne({username: 'Ellito'})
       .then((results) => {
-        expect(results.currentTrip).to.shallowDeepEqual({
-          destination: null,
-          events: [],
-          travelPlan: null,
-          lodging: null
-        });
+        expect(results.upcomingTrips.length).to.equal(0);
         expect(results.previousTrips.length).to.equal(0);
       })
       .catch((err) => {
