@@ -8,12 +8,23 @@ function Flights() {
       .get(
         `http://localhost:3000/flights`
       )
-      .then((flights) => {
-        setFlights(flights)
+      .then((flightsResponse) => {
+        setFlights(flightsResponse.data)
       })
       .catch((error) => console.log(error));
   }, []);
-  return <div>Flights</div>;
+
+  const flightList = flights.map((flight) =>
+  <li key={flight.id}>{flight.id}</li>)
+
+  return (
+    <>
+      <h2>Flights</h2>
+      <ul>
+        {flightList}
+      </ul>
+    </>
+  );
 }
 
 export default Flights;
