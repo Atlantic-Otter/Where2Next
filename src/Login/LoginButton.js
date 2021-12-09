@@ -1,17 +1,20 @@
 import React from 'react';
+import LoginMenu from './LoginMenu.js';
 
-const toggleModal = (event) => {
-  setModalView(!modalView);
-};
+// todo: investigate react.useCallback
 
 const LoginButton = (props) => {
   var [modalView, setModalView] = React.useState(false);
+  const toggleModal = (event) => {
+    setModalView(!modalView);
+  };
+
   return (
     <div>
       <button id="login-button" onClick={toggleModal}>
         Login
       </button>
-
+      {modalView ? <LoginMenu /> : <></>}
     </div>
   )
 };
