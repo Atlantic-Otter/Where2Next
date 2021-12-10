@@ -17,6 +17,6 @@ app.get('/login', login.validate);
 
 app.get('/flights', flights.getFlights);
 
-app.get('/hotels', hotels.fetchHotels)
+app.get(`/hotels/:city/:state/:startDate/:endDate`, hotels.fetchHotels);
 
 module.exports = app;

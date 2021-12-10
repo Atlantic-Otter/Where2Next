@@ -68,7 +68,7 @@ module.exports = {
   },
 
   listProperties: ((destinationId, req, res) => {
-    const { startDate, endData } = req.params;
+    const { startDate, endDate } = req.params;
     const options = {
       method: 'GET',
       url: 'https://hotels4.p.rapidapi.com/properties/list',
@@ -77,7 +77,7 @@ module.exports = {
         pageNumber: '1',
         pageSize: '25',
         checkIn: startDate,
-        checkOut: startDate,
+        checkOut: endDate,
         adults1: '1',
         sortOrder: 'PRICE',
         locale: 'en_US',
