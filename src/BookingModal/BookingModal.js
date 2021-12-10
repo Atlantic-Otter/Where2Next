@@ -1,7 +1,6 @@
 import React from "react";
 import "../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Modal from 'react-modal';
 import styles from './BookingModal.css'
 
 const BookingModal = ( { closeModal, modalType }) => {

@@ -3,7 +3,6 @@ import useSearchParams from "../../../Helpers/useSearchParams";
 import axios from "axios";
 import EventListItem from "./EventListItem";
 import BookingModal from '../../BookingModal/BookingModal';
-import Modal from 'react-modal';
 
 function Events() {
   const [events, setEvents] = useState([]);
