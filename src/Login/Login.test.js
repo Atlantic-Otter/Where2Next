@@ -6,7 +6,7 @@ import "@testing-library/jest-dom";
 
 describe("Logging in", function () {
   test("A login button exists on the page", function () {
-    render(<App test={true} />);
+    render(<App />);
     expect(screen.getByText("Login")).toBeInTheDocument();
   });
 });
