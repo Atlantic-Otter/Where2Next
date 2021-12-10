@@ -19,7 +19,11 @@ const App = ({ test }) => {
     hotels: [],
   });
 
-  const [user, setUser] = React.useState({});
+  // LATER CHANGE TO INITIALiZE TO LOCAL STORAGE'S RECORDS
+    //(user should remain signed in after refreshing the page)
+  const [user, setUser] = React.useState(null);
+
+
 
   useEffect(() => {
     console.log("storage", window.localStorage);

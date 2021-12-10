@@ -4,6 +4,7 @@ import UserContext from '../UserContext.js';
 const UserIcon = () => {
   const { user, setUser } = React.useContext(UserContext);
   const goToProfilePage = () => {
+
     // if user is NOT on user page,
       // if user is logged in
         // navigate to their profile page in react router
@@ -11,7 +12,9 @@ const UserIcon = () => {
 
   return (
     <div id="user-icon" onClick={goToProfilePage} >
-      <img src={require('../icons/user-svgrepo-com.svg')} alt="user-svg"/>
+      {user ? <p>{user.username}</p> : <p>Not signed in</p>}
+      {/* fix this later: */}
+      <img src={require('../icons/user.svg')} alt="user-svg" />
     </div>
   );
 };
