@@ -12,17 +12,67 @@
 }
 
 .modal {
-  width: 500px;
-  min-height: 300px;
-  max-height: 600px;
-  /* background-color: white; */
+  width: 600px;
+  /* min-height: 300px; */
+  max-height: 300px;
   border-radius: 4px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: space-between;
   padding: 2rem;
   position: relative;
   background: #FFFFFF;
   box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.12);
   border-radius: 16px;
+}
+
+.btnContainer {
+  /* margin-top: 10%; */
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content:space-between;
+}
+
+.navBtn {
+  width: 30%;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 6px;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #FFFFFF;
+}
+
+.continueBtn {
+  width: 30%;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 6px;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #FFFFFF;
+}
+
+.closeBtn {
+  width: 30%;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 6px;
+  align-items: center;
+  padding: 10px 20px;
+  background-color:black;
+  color: white;
+}
+
+.checkoutBtn {
+  width: 30%;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 6px;
+  align-items: center;
+  padding: 10px 20px;
+  background-color:black;
+  color: white;
 }
