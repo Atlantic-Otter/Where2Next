@@ -45,20 +45,22 @@ function LandingPage() {
         <ReactSearchAutocomplete
           items={cityList}
           maxResults={10}
-          onSelect={(val) => setCity(val)}
-          onSearch={(val) => setCity(val)}
+          onSelect={(val) => {
+            setCity(val.name);
+          }}
+          onSearch={(val) => setCity(val.name)}
           onClear={() => setCity("")}
-          styling={{ zIndex: 2 }} // To display it on top of the search box below
+          styling={{ zIndex: 1 }} // To display it on top of the search box below
         />
 
         <label htmlFor="state">State</label>
         <ReactSearchAutocomplete
           items={stateList}
           maxResults={10}
-          onSelect={(val) => setState(val)}
+          onSelect={(val) => setState(val.name)}
           onClear={() => setState("")}
-          onSearch={(val) => setState(val)}
-          styling={{ zIndex: 1 }} // To display it on top of the search box below
+          onSearch={(val) => setState(val.name)}
+          styling={{ zIndex: 0 }} // To display it on top of the search box below
         />
         <label htmlFor="startDate">Start Date</label>
         <input

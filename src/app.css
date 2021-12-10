@@ -22,15 +22,6 @@ html,
     width: 5vw;
     height: 5vw;
   }
-<<<<<<< HEAD
-  #inputForm {
-    width: 50vw;
-  }
-||||||| 6f508f1
-=======
-
-
->>>>>>> main
 }
 
 /* MOBILE */
@@ -55,11 +46,6 @@ html,
   height: 100%;
 }
 
-.ui-autocomplete {
-  max-height: 20vh;
-  overflow-x: hidden; /* add padding to account for vertical scrollbar */
-  z-index: 1000 !important;
-}
 #scrollContainer {
   overflow: scroll;
   height: 80vh;
@@ -101,7 +87,7 @@ html,
 }
 
 #login-button span:after {
-  content: '\00bb';
+  content: "\00bb";
   position: absolute;
   opacity: 0;
   top: 0;
@@ -117,4 +103,3 @@ html,
   opacity: 1;
   right: 0;
 }
-
