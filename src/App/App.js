@@ -33,7 +33,7 @@ const App = () => {
   }, [currentTrip]);
 
   return (
-    <UserContext.Provider value={{ user, setUser}} >
+    <UserContext.Provider value={{ user, setUser }} >
       <TripContext.Provider value={{ currentTrip, setCurrentTrip }}>
         <LoginButton />
         <Router>
