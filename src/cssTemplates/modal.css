@@ -1,5 +1,5 @@
 /* a background overlay (sits on top of exisiting page) */
-#modal-background {
+.modal-background {
   position: fixed; /* Stay in place */
   z-index: 2; /* Sit on top of exisitng content */
   background-color: rgba(0, 0, 0, 0.4); /* see-thru */
@@ -12,7 +12,7 @@
 }
 
 /* Modal Content/Box */
-#login-menu {
+.login-menu {
   /* may want z index of 2? */
   background-color: #fefefe;
   z-index: 3;
@@ -23,15 +23,15 @@
 }
 
 /* The Close Button */
-#modal-close-button {
+.modal-close-button {
   color: #aaa;
   float: right;
   font-size: 28px;
   font-weight: bold;
 }
 
-#modal-close-button:hover,
-#modal-close-button:focus {
+.modal-close-button:hover,
+.modal-close-button:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;
