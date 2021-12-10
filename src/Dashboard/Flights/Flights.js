@@ -5,14 +5,12 @@ import FlightListItem from "./FlightListItem";
 function Flights({ test }) {
   const [flights, setFlights] = useState([]);
   useEffect(() => {
-    if (!test) {
-      axios
-        .get(`http://localhost:3000/flights`)
-        .then((flightsResponse) => {
-          setFlights(flightsResponse.data);
-        })
-        .catch((error) => console.log(error));
-    }
+    axios
+      .get(`http://localhost:3000/flights`)
+      .then((flightsResponse) => {
+        setFlights(flightsResponse.data);
+      })
+      .catch((error) => console.log(error));
   }, []);
 
   const flightList = flights.map((flight) => (

@@ -23,7 +23,7 @@ test("Renders the App Component on the page", () => {
 });
 
 test("Clicking 'Your Trip' button renders toast", async () => {
-  customRender(<Dashboard test={true} />);
+  customRender(<Dashboard />);
 
   fireEvent.click(screen.getByText("your trip"));
 

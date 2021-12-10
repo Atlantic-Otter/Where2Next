@@ -1,1 +1,5 @@
-require('regenerator-runtime/runtime');
+require("regenerator-runtime/runtime");
+
+global.$ = () => {
+  return { autocomplete: () => {} };
+};

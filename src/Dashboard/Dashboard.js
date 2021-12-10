@@ -20,9 +20,9 @@ function Dashboard() {
       <Link to={`flights${search}`}>Flights</Link>
       <Link to={`hotels${search}`}>Hotels</Link>
       <Routes>
-        <Route path="/" element={<Events test={test} />} />
-        <Route path="/events" element={<Events test={test} />} />
-        <Route path="/flights" element={<Flights test={test} />} />
+        <Route path="/" element={<Events />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="/flights" element={<Flights />} />
         <Route path="/hotels" element={<Hotels />} />
       </Routes>
       <YourTripButton toggleTripToast={toggleTripToast} />

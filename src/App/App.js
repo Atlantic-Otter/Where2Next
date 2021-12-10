@@ -9,7 +9,7 @@ import LandingPage from "../LandingPage/LandingPage.js";
 import TripContext from "../TripContext";
 import LoginButton from "../Login/LoginButton.js";
 
-const App = ({ test }) => {
+const App = () => {
   ///// CLEAR STORAGE ON CHECKOUT
   const [currentTrip, setCurrentTrip] = React.useState({
     events: [],
@@ -32,7 +32,7 @@ const App = ({ test }) => {
       <LoginButton />
       <Router>
         <Routes>
-          <Route path="/" element={<LandingPage test={test} />} />
+          <Route path="/" element={<LandingPage />} />
           <Route path="/dashboard/*" element={<Dashboard />} />
         </Routes>
       </Router>
