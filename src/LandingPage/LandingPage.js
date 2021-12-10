@@ -17,6 +17,7 @@ function LandingPage() {
   const { cityList, stateList } = citiesAndStates;
 
   const submitSearch = () => {
+    console.log(city, state);
     const { startDate, endDate } = formData;
 
     if (!city || !state) {
@@ -43,14 +44,16 @@ function LandingPage() {
       <div id="inputForm">
         <label htmlFor="city">City</label>
         <ReactSearchAutocomplete
+          autofocus
           items={cityList}
           maxResults={10}
           onSelect={(val) => {
             setCity(val.name);
           }}
-          onSearch={(val) => setCity(val.name)}
+          onSearch={(val) => setCity(val)}
           onClear={() => setCity("")}
-          styling={{ zIndex: 1 }} // To display it on top of the search box below
+          placeholder={"City"}
+          styling={{ zIndex: 1 }}
         />
 
         <label htmlFor="state">State</label>
@@ -59,7 +62,8 @@ function LandingPage() {
           maxResults={10}
           onSelect={(val) => setState(val.name)}
           onClear={() => setState("")}
-          onSearch={(val) => setState(val.name)}
+          onSearch={(val) => setState(val)}
+          placeholder={"State"}
           styling={{ zIndex: 0 }} // To display it on top of the search box below
         />
         <label htmlFor="startDate">Start Date</label>
@@ -79,6 +83,7 @@ function LandingPage() {
           onChange={onChange}
         />
         <button onClick={submitSearch}>Go!</button>
+        <span id="errorMessage">{errorMessage}</span>
       </div>
     </div>
   );
