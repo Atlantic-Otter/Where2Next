@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import citiesAndStates from "../../Helpers/usCitiesAndStates";
 
-function LandingPage() {
+function LandingPage({ test }) {
   const navigate = useNavigate();
   const startMin = new Date().toISOString().split("T")[0];
 
@@ -16,8 +16,10 @@ function LandingPage() {
   const { cities, states } = citiesAndStates;
 
   useEffect(() => {
-    $("#citiesSelect").autocomplete({ source: cities });
-    $("#statesSelect").autocomplete({ source: states });
+    if (!test) {
+      $("#citiesSelect").autocomplete({ source: cities });
+      $("#statesSelect").autocomplete({ source: states });
+    }
   }, []);
   const submitSearch = () => {
     const { startDate, endDate } = formData;
