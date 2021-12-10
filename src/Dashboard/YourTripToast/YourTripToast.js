@@ -3,11 +3,21 @@ import Toast from "react-bootstrap/Toast";
 import ToastContainer from "react-bootstrap/ToastContainer";
 import Button from "react-bootstrap/Button";
 import TripContext from "../../TripContext";
+import EventToastItem from "./EventToastItem";
+import HotelToastItem from "./HotelToastItem";
+import FlightToastItem from "./FlightToastItem";
 function YourTripToast({ tripToastVisible, toggleTripToast }) {
   const { currentTrip } = useContext(TripContext);
-  const eventList = currentTrip.events.map((event) => event.name);
-  const flightList = currentTrip.flights.map((flight) => flight.name);
-  const hotelList = currentTrip.hotels.map((hotel) => hotel.name);
+
+  const eventList = currentTrip.events.map((event) => (
+    <EventToastItem event={event} />
+  ));
+  const flightList = currentTrip.flights.map((flight) => (
+    <FlightToastItem flight={flight} />
+  ));
+  const hotelList = currentTrip.hotels.map((hotel) => (
+    <HotelToastItem hotel={hotel} />
+  ));
 
   return (
     <ToastContainer position="bottom-end">

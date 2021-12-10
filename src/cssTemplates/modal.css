@@ -1,8 +1,8 @@
 /* a background overlay (sits on top of exisiting page) */
 #modal-background {
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top of exisitng content */
-  background-color: rgba(0,0,0,0.4); /* see-thru */
+  z-index: 2; /* Sit on top of exisitng content */
+  background-color: rgba(0, 0, 0, 0.4); /* see-thru */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -15,7 +15,7 @@
 #login-menu {
   /* may want z index of 2? */
   background-color: #fefefe;
-  z-index: 2;
+  z-index: 3;
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;

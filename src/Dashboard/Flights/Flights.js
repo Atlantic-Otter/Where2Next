@@ -1,22 +1,29 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import FlightListItem from './FlightListItem';
+import FlightListItem from "./FlightListItem";
 
-function Flights() {
+function Flights({ test }) {
   const [flights, setFlights] = useState([]);
   useEffect(() => {
+    let isSubscribed = true;
     axios
-      .get(
-        `http://localhost:3000/flights`
-      )
+      .get(`http://localhost:3000/flights`)
       .then((flightsResponse) => {
-        setFlights(flightsResponse.data)
+        if (isSubscribed) {
+          setFlights(flightsResponse.data);
+        }
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        if (isSubscribed) {
+          console.log(error);
+        }
+      });
+    return () => (isSubscribed = false);
   }, []);
 
-  const flightList = flights.map((flight) =>
-  <FlightListItem key={flight.id} flight={flight}/>)
+  const flightList = flights.map((flight) => (
+    <FlightListItem key={flight.id} flight={flight} />
+  ));
 
   return (
     <>

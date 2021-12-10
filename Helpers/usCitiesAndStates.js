@@ -6803,4 +6803,13 @@ const obj = {
     "Zuni",
   ],
 };
-export default obj;
+
+const exp = {
+  stateList: obj.states.map((state, i) => {
+    return { id: i, name: state };
+  }),
+  cityList: obj.cities.map((state, i) => {
+    return { id: i, name: state };
+  }),
+};
+export default exp;

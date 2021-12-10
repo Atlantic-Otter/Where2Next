@@ -10,17 +10,27 @@ function Events() {
   const { startDate, endDate, city, state } = useSearchParams();
   console.log(startDate, endDate, city, state);
   useEffect(() => {
+    let isSubscribed = true;
     axios
       .get(
         `http://localhost:3000/nearbyEvents/${city}/${state}/${startDate}/${endDate}`
       )
       .then(({ data }) => {
-        setEvents(data);
+        if (isSubscribed) {
+          setEvents(data);
+        }
       })
-      .catch((e) => console.log(e));
+      .catch((e) => {
+        if (isSubscribed) {
+          console.log(e);
+        }
+      });
+    return () => (isSubscribed = false);
   }, []);
 
-  const eventList = events.map((event, i) => <EventListItem key={i} event={event} />);
+  const eventList = events.map((event, i) => (
+    <EventListItem key={i} event={event} />
+  ));
 
   const [modalIsOpen, setIsOpen] = useState(false);
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import Dashboard from "./Dashboard.js";
 import "@testing-library/jest-dom";
 import { HashRouter as Router, MemoryRouter } from "react-router-dom";
@@ -16,8 +16,18 @@ const customRender = (ui) => {
     </TripContext.Provider>
   );
 };
-test("Renders the App Component on the page", () => {
+test("Renders the Dashboard Component on the page", async () => {
   customRender(<Dashboard />);
+  await waitFor(() =>
+    expect(screen.getByText("DASHBOARD")).toBeInTheDocument()
+  );
+});
 
-  expect(screen.getByText("DASHBOARD")).toBeInTheDocument();
+test("Clicking 'Your Trip' button renders toast", async () => {
+  customRender(<Dashboard />);
+  fireEvent.click(screen.getByText("your trip"));
+  await waitFor(() => {
+    expect(screen.getByText("My Trip")).toBeInTheDocument();
+  });
+  // expect(screen.getByText("HOME")).toBeInTheDocument();
 });
