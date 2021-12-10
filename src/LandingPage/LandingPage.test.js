@@ -8,7 +8,7 @@ const customRender = (ui) => {
   return render(<Router>{ui}</Router>);
 };
 test("Renders the App Component on the page", () => {
-  customRender(<LandingPage />);
+  customRender(<LandingPage test={true} />);
 
   expect(screen.getByText("HOME")).toBeInTheDocument();
 });
