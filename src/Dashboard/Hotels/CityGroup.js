@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import useSearchParams from "../../../Helpers/useSearchParams";
 import axios from 'axios';
 
-function CityGroup({ data}) {
+function CityGroup({ data, updateHotelList }) {
   const { city } = useSearchParams();
   const { name, destinationId, latititude, longitude } = data
   const encodedCity = city.split(' ').join('+')
@@ -13,14 +13,11 @@ function CityGroup({ data}) {
 
   const fetchHotels = (sectionId) => {
     const url = `http://localhost:3000/hotels/${encodedCity}/${destinationId}`
-    axios.get(url)
+      axios.get(url)
       .then((response) => {
-        console.log(response.data);
+        updateHotelList(response.data)
       })
-      .catch((error) => {
-        console.log(error)
-      })
-    // console.log(url)
+      .catch((error) => console.log(err))
   }
 
   return(

@@ -6,6 +6,7 @@ import CityGroup from './CityGroup';
 function Hotels() {
 
   const [ cityGroups, setCityGroups ] = useState([]);
+  const [ hotelList, setHotelList ] = useState([])
   const { city } = useSearchParams();
   const encodedCity = city.split(' ').join('+')
 
@@ -23,11 +24,20 @@ function Hotels() {
       })
   }
 
+  const updateHotelList = (hotels) => {
+    setHotelList(hotels)
+  }
+
   return(
     <div>
       city sections
       {
-        cityGroups.map((group, idx) => <CityGroup key={idx} data={group} />)
+        cityGroups.map((group, idx) =>
+          <CityGroup
+            key={idx}
+            data={group}
+            updateHotelList={updateHotelList}
+          />)
       }
     </div>
   )
