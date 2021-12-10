@@ -7,13 +7,11 @@ import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Dashboard from "../Dashboard/Dashboard.js";
 import LandingPage from "../LandingPage/LandingPage.js";
 import ProfilePage from "../User/ProfilePage/ProfilePage.js";
-import LoginButton from "../Login/LoginButton.js";
-import UserIcon from  "../User/UserIcon.js";
+import Header from "../Login/Header.js";
 import TripContext from "../TripContext";
 import UserContext from "../UserContext";
 
-
-const App = () => {
+const App = ({ test }) => {
   ///// CLEAR STORAGE ON CHECKOUT
   const [currentTrip, setCurrentTrip] = React.useState({
     events: [],
@@ -22,9 +20,8 @@ const App = () => {
   });
 
   // LATER CHANGE TO INITIALiZE TO LOCAL STORAGE'S RECORDS
-    // user should remain signed in after refreshing the page
+  // user should remain signed in after refreshing the page
   const [user, setUser] = React.useState(null);
-
 
   useEffect(() => {
     console.log("storage", window.localStorage);
@@ -38,11 +35,10 @@ const App = () => {
   }, [currentTrip]);
 
   return (
-
-    <UserContext.Provider value={{ user, setUser }} >
+    <UserContext.Provider value={{ user, setUser }}>
       <TripContext.Provider value={{ currentTrip, setCurrentTrip }}>
-        <LoginButton />
-        <UserIcon />
+        <Header />
+
         <Router>
           <Routes>
             <Route path="/" element={<LandingPage test={test} />} />
