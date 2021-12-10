@@ -45,9 +45,9 @@ const LoginMenu = ({ toggleModal }) => {
 
   return (
 
-    <div id="modal-background" onClick={toggleModal}>
-      <div id="login-menu" onClick={(event) => { event.stopPropagation(); }}>
-        <span id="modal-close-button" onClick={toggleModal}>&times;</span>
+    <div className="modal-background" onClick={toggleModal}>
+      <div className="login-menu" onClick={(event) => { event.stopPropagation(); }}>
+        <span className="modal-close-button" onClick={toggleModal}>&times;</span>
         <form onSubmit={attemptLogin} >
           <label>
             Username:
