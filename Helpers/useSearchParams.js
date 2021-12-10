@@ -6,9 +6,10 @@ function useSearchParams() {
 
   const startDate = params.get("startDate");
   const endDate = params.get("endDate");
-  const zip = params.get("zip");
+  const city = params.get("city");
+  const state = params.get("state");
 
-  return { startDate, endDate, zip };
+  return { startDate, endDate, city, state };
 }
 
 export default useSearchParams;

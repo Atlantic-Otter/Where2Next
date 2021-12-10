@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "mocha": "npx mocha mochaTests/**/*.js",
     "dev": "webpack serve --mode=development",
     "build": "webpack",
-    "server": "npx nodemon server/index.js"
+    "server": "nodemon server/index.js"
   },
   "repository": {
     "type": "git",
@@ -27,18 +28,32 @@
     "amadeus": "^5.7.1",
     "axios": "^0.24.0",
     "babel-jest": "^27.4.2",
+    "bootstrap": "^5.1.3",
+    "chai": "^4.3.4",
+    "chai-as-promised": "^7.1.1",
+    "chai-shallow-deep-equal": "^1.4.6",
     "cors": "^2.8.5",
     "css-loader": "^6.5.1",
     "dotenv": "^10.0.0",
     "file-loader": "^6.2.0",
     "jest": "^27.4.3",
+    "jquery": "^3.6.0",
+    "mocha": "^9.1.3",
+    "mongoose": "^6.1.0",
+    "mongoose-unique-validator": "^3.0.0",
+    "nodemon": "^2.0.15",
+    "query-string": "^7.0.1",
     "react": "^17.0.2",
+    "react-bootstrap": "^2.0.3",
     "react-dom": "^17.0.2",
     "react-router-dom": "^6.0.2",
-    "style-loader": "^3.3.1"
+    "regenerator-runtime": "^0.13.9",
+    "style-loader": "^3.3.1",
+    "zipcodes": "^8.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
+    "@babel/plugin-transform-async-to-generator": "^7.16.0",
     "@babel/preset-env": "^7.16.4",
     "@babel/preset-react": "^7.16.0",
     "@testing-library/jest-dom": "^5.16.1",

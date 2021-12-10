@@ -1,12 +1,69 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html,
+#root {
+  width: 100%;
+  height: 100%;
+}
 
 /*BROWSER*/
 @media screen and (min-width: 600px) {
-
+  #yourTripButton {
+    width: 5vw;
+    height: 5vw;
+    bottom: 5%;
+    right: 5%;
+  }
+  .eventListImage {
+    width: 5vw;
+    height: 5vw;
+  }
 }
 
 /* MOBILE */
 @media screen and (max-width: 600px) {
+  #yourTripButton {
+    width: 15vw;
+    height: 15vw;
+    bottom: 3%;
+    right: 5%;
+  }
 
+  .eventListImage {
+    height: 15vw;
+    width: 15vw;
+  }
 }
 
 /* BOTH */
+#dashboardContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.ui-autocomplete {
+  max-height: 20vh;
+  overflow-x: hidden; /* add padding to account for vertical scrollbar */
+  z-index: 1000 !important;
+}
+#scrollContainer {
+  overflow: scroll;
+  height: 80vh;
+}
+#yourTripButton {
+  position: absolute;
+  background-color: indigo;
+  color: orange;
+
+  border: none;
+  border-radius: 50%;
+}
+
+.eventListImage {
+  object-fit: cover;
+}
