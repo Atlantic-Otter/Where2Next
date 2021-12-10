@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import useSearchParams from "../../../Helpers/useSearchParams";
 import axios from 'axios';
 import CityGroup from './CityGroup';
+import HotelGroup from './HotelGroup';
 
 function Hotels() {
 
@@ -39,6 +40,7 @@ function Hotels() {
             updateHotelList={updateHotelList}
           />)
       }
+      <HotelGroup list={hotelList} />
     </div>
   )
 }
