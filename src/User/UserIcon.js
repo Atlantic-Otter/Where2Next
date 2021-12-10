@@ -3,10 +3,10 @@ import UserContext from "../UserContext.js";
 
 const UserIcon = () => {
   // state for whether modal is visible
-  const { user, openProfileModal } = React.useContext(UserContext);
+  const { user, toggleProfileModal } = React.useContext(UserContext);
 
   return (
-    <div id="user-icon" onClick={openProfileModal}>
+    <div id="user-icon" onClick={toggleProfileModal}>
       {user ? <p>{user.username}</p> : <p>Not signed in</p>}
       {/* fix this later: */}
       <img src={""} alt="user-svg" />

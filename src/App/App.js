@@ -27,7 +27,7 @@ const App = ({ test }) => {
   const [profileModal, setProfileModal] = React.useState(false);
 
 
-  const openProfileModal = (event) => {
+  const toggleProfileModal = (event) => {
     // ONLY if user is logged in
     if (user) {
       // set modal state to true
@@ -48,7 +48,7 @@ const App = ({ test }) => {
   }, [currentTrip]);
 
   return (
-    <UserContext.Provider value={{ user, setUser, openProfileModal }}>
+    <UserContext.Provider value={{ user, setUser, toggleProfileModal }}>
       <TripContext.Provider value={{ currentTrip, setCurrentTrip }}>
         <Header />
         <Router>
@@ -57,7 +57,7 @@ const App = ({ test }) => {
             <Route path="/dashboard/*" element={<Dashboard test={test} />} />
           </Routes>
         </Router>
-        <ProfileModal />
+        { profileModal ? <ProfileModal /> : <></>}
       </TripContext.Provider>
     </UserContext.Provider>
   );
