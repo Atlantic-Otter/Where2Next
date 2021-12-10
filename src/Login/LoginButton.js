@@ -19,17 +19,17 @@ const LoginButton = (props) => {
 
   return (
     <div id="login">
-      {user ? <span id="logout-button" onClick={logoutUser}>Logout</span>
+      {user ? <a className="login-logout-button" onClick={logoutUser}>
+        <span>Logout</span>
+      </a>
         :
-        <a id="login-button" onClick={toggleModal}>
+        <a className="login-logout-button" onClick={toggleModal}>
           <span>Login</span>
         </a>
-
-
       }
       {modalView ? <LoginMenu toggleModal={toggleModal} /> : <></>}
     </div>
-  )
+  );
 };
 
 export default LoginButton;
