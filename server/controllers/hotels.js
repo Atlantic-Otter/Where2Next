@@ -10,7 +10,7 @@ const headers = {
 module.exports = {
 
   fetchHotels: (req, res) => {
-    const { startDate, endDate, city } = req.params;
+    const { city, state } = req.params;
     const options = {
       method: 'GET',
       url: 'https://hotels4.p.rapidapi.com/locations/v2/search',
@@ -28,7 +28,8 @@ module.exports = {
     });
   },
 
-  listProperties: (destinationId) => {
+  listProperties: ((destinationId, req, res) => {
+    const { startDate, endData } = req.params;
     const options = {
       method: 'GET',
       url: 'https://hotels4.p.rapidapi.com/properties/list',
@@ -36,8 +37,8 @@ module.exports = {
         destinationId,
         pageNumber: '1',
         pageSize: '25',
-        checkIn: '2022-01-08',
-        checkOut: '2022-01-15',
+        checkIn: startDate,
+        checkOut: startDate,
         adults1: '1',
         sortOrder: 'PRICE',
         locale: 'en_US',
