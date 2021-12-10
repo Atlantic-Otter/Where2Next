@@ -7,8 +7,7 @@ import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Dashboard from "../Dashboard/Dashboard.js";
 import LandingPage from "../LandingPage/LandingPage.js";
 import ProfilePage from "../User/ProfilePage/ProfilePage.js";
-import LoginButton from "../Login/LoginButton.js";
-import UserIcon from "../User/UserIcon.js";
+import Header from "../Login/Header.js";
 import TripContext from "../TripContext";
 import UserContext from "../UserContext";
 
@@ -36,15 +35,20 @@ const App = ({ test }) => {
   }, [currentTrip]);
 
   return (
-    <TripContext.Provider value={{ currentTrip, setCurrentTrip }}>
-      <Router>
-        <LoginButton />
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/dashboard/*" element={<Dashboard />} />
-        </Routes>
-      </Router>
-    </TripContext.Provider>
+    <UserContext.Provider value={{ user, setUser }}>
+      <TripContext.Provider value={{ currentTrip, setCurrentTrip }}>
+        <Header />
+
+        <Router>
+          <Routes>
+            <Route path="/" element={<LandingPage test={test} />} />
+            <Route path="/dashboard/*" element={<Dashboard test={test} />} />
+            {/* won't work yet - need to add a Link */}
+            <Route path="/account" element={<ProfilePage />} />
+          </Routes>
+        </Router>
+      </TripContext.Provider>
+    </UserContext.Provider>
   );
 };
 

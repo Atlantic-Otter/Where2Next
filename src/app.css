@@ -88,7 +88,7 @@ html,
   float: right;
 }
 
-#login {
+#header {
   display: flex;
   justify-content: flex-end;
 
@@ -97,6 +97,7 @@ html,
 }
 
 .login-logout-button {
+  margin: 2%;
   width: 10%;
   height: 40%;
   border: #5a175e 2px solid;
