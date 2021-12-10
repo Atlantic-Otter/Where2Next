@@ -4,7 +4,7 @@ require('dotenv').config();
 
 var amadeus = new Amadeus({
   clientId: process.env.API_KEY,
-  clientSecret: process.env.API_SECRET,
+  clientSecret: process.env.HOST,
   hostname: 'test'
 });
 
