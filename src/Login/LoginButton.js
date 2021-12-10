@@ -1,5 +1,6 @@
 import React from 'react';
 import LoginMenu from './LoginMenu.js';
+import '../App.css';
 
 // todo: investigate react.useCallback
 
@@ -12,11 +13,11 @@ const LoginButton = (props) => {
   };
 
   return (
-    <div>
-      <button id="login-button" onClick={toggleModal}>
-        Login
-      </button>
-      {modalView ? <LoginMenu toggleModal={toggleModal}/> : <></>}
+    <div id="login">
+      <a id="login-button" onClick={toggleModal}>
+        <span>Login</span>
+      </a>
+      {modalView ? <LoginMenu toggleModal={toggleModal} /> : <></>}
     </div>
   )
 };

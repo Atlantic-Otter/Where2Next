@@ -11,7 +11,7 @@ import UserIcon from  "../User/UserIcon.js";
 import TripContext from "../TripContext";
 import UserContext from "../UserContext";
 
-const App = () => {
+const App = ({ test }) => {
   ///// CLEAR STORAGE ON CHECKOUT
   const [currentTrip, setCurrentTrip] = React.useState({
     events: [],
@@ -22,6 +22,7 @@ const App = () => {
   const [user, setUser] = React.useState({});
 
   useEffect(() => {
+    console.log("storage", window.localStorage);
     if (window.localStorage.getItem("currentTrip")) {
       setCurrentTrip(JSON.parse(window.localStorage.getItem("currentTrip")));
     }
@@ -29,8 +30,6 @@ const App = () => {
 
   useEffect(() => {
     window.localStorage.setItem("currentTrip", JSON.stringify(currentTrip));
-    // console.log(window.localStorage);
-    console.log(currentTrip);
   }, [currentTrip]);
 
   return (
@@ -40,7 +39,7 @@ const App = () => {
         <UserIcon />
         <Router>
           <Routes>
-            <Route path="/" element={<LandingPage />} />
+            <Route path="/" element={<LandingPage test={test} />} />
             <Route path="/dashboard/*" element={<Dashboard />} />
           </Routes>
         </Router>

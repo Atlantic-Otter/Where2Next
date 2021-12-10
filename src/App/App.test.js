@@ -17,21 +17,7 @@ const customRender = (ui) => {
   );
 };
 test("Renders the App Component on the page", () => {
-  customRender(<App />);
+  customRender(<App test={true} />);
 
   expect(screen.getByText("HOME")).toBeInTheDocument();
-});
-
-test("Clicking 'Your Trip' button renders toast", async () => {
-  customRender(<App />);
-  fireEvent.click(screen.getByText("Go!"));
-  await waitFor(() => {
-    screen.getByText("your trip");
-  });
-  fireEvent.click(screen.getByText("your trip"));
-
-  await waitFor(() => {
-    screen.getByText("My Trip");
-  });
-  // expect(screen.getByText("HOME")).toBeInTheDocument();
 });
