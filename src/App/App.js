@@ -17,6 +17,7 @@ const App = () => {
     hotels: [],
   });
   useEffect(() => {
+    console.log("storage", window.localStorage);
     if (window.localStorage.getItem("currentTrip")) {
       setCurrentTrip(JSON.parse(window.localStorage.getItem("currentTrip")));
     }
@@ -24,8 +25,6 @@ const App = () => {
 
   useEffect(() => {
     window.localStorage.setItem("currentTrip", JSON.stringify(currentTrip));
-    // console.log(window.localStorage);
-    console.log(currentTrip);
   }, [currentTrip]);
 
   return (
