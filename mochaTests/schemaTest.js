@@ -26,6 +26,8 @@ describe('Basic storage', function() {
     })
   });
 
+
+  // UPDATE TO REFLECT SCHEMA CHANGES
   it('users should store itineraries', async function() {
     await User.create({
       username: 'AdamJ',
