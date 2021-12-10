@@ -29,8 +29,8 @@ const App = () => {
 
   return (
     <TripContext.Provider value={{ currentTrip, setCurrentTrip }}>
-      <LoginButton />
       <Router>
+        <LoginButton />
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/dashboard/*" element={<Dashboard />} />
