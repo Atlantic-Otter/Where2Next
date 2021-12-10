@@ -6,6 +6,6 @@ import "@testing-library/jest-dom";
 describe("Hotel component", function () {
   test("should render component", function () {
     render(<Hotels />);
-    expect(screen.getByText(/hotels/i)).toBeInTheDocument();
+    expect(screen.getByText('Htels')).toBeInTheDocument();
   });
 });
