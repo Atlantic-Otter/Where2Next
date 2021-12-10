@@ -10,7 +10,8 @@ const headers = {
 module.exports = {
 
   fetchCityGroups: (req, res) => {
-    const { city, state } = req.params;
+    const { city } = req.params;
+    // const { city } = req.query;
     const options = {
       method: 'GET',
       url: 'https://hotels4.p.rapidapi.com/locations/v2/search',

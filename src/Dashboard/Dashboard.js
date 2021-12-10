@@ -18,7 +18,7 @@ function Dashboard({ test }) {
       <h1>DASHBOARD</h1>
       <Link to={`events${search}`}>Events</Link>
       <Link to={`flights${search}`}>Flights</Link>
-      <Link to={`hotels${search}`}>Hotels</Link>
+      <Link to={`hotels${search}`}>Hotel</Link>
       <Routes>
         <Route path="/" element={<Events />} />
         <Route path="/events" element={<Events />} />
