@@ -41,22 +41,23 @@ function LandingPage() {
 
   return (
     <div id="landingPage">
+      <img src={require('../../images/landingScreenBackground.jpeg')} />
       <div id="inputForm">
-        <label htmlFor="city">City</label>
-        <ReactSearchAutocomplete
-          autofocus
-          items={cityList}
-          maxResults={10}
-          onSelect={(val) => {
-            setCity(val.name);
-          }}
-          onSearch={(val) => setCity(val)}
-          onClear={() => setCity("")}
-          placeholder={"City"}
-          styling={{ zIndex: 1 }}
-        />
+        <label  htmlFor="city" className="searchLabel">City</label>
+          <ReactSearchAutocomplete
+            autofocus
+            items={cityList}
+            maxResults={10}
+            onSelect={(val) => {
+              setCity(val.name);
+            }}
+            onSearch={(val) => setCity(val)}
+            onClear={() => setCity("")}
+            placeholder={"City"}
+            styling={{ zIndex: 1}}
+          />
 
-        <label htmlFor="state">State</label>
+        <label htmlFor="state" className="searchLabel">State</label>
         <ReactSearchAutocomplete
           items={stateList}
           maxResults={10}
@@ -85,7 +86,7 @@ function LandingPage() {
           onChange={onChange}
         />
         <br />
-        <button onClick={submitSearch}>Go!</button>
+        <button className="glow-on-hover" onClick={submitSearch}>Go</button>
 
         <span id="errorMessage">{errorMessage}</span>
       </div>
