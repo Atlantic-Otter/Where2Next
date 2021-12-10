@@ -16,19 +16,18 @@ const customRender = (ui) => {
     </TripContext.Provider>
   );
 };
-test("Renders the App Component on the page", () => {
+test("Renders the Dashboard Component on the page", async () => {
   customRender(<Dashboard />);
-
-  expect(screen.getByText("DASHBOARD")).toBeInTheDocument();
+  await waitFor(() =>
+    expect(screen.getByText("DASHBOARD")).toBeInTheDocument()
+  );
 });
 
 test("Clicking 'Your Trip' button renders toast", async () => {
-  customRender(<Dashboard test={true} />);
-
+  customRender(<Dashboard />);
   fireEvent.click(screen.getByText("your trip"));
-
   await waitFor(() => {
-    screen.getByText("My Trip");
+    expect(screen.getByText("My Trip")).toBeInTheDocument();
   });
   // expect(screen.getByText("HOME")).toBeInTheDocument();
 });

@@ -8,7 +8,7 @@ import HotelToastItem from "./HotelToastItem";
 import FlightToastItem from "./FlightToastItem";
 function YourTripToast({ tripToastVisible, toggleTripToast }) {
   const { currentTrip } = useContext(TripContext);
-  console.log({ currentTrip });
+
   const eventList = currentTrip.events.map((event) => (
     <EventToastItem event={event} />
   ));

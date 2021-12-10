@@ -13,7 +13,7 @@ import TripContext from "../TripContext";
 import UserContext from "../UserContext";
 
 
-const App = ({ test }) => {
+const App = () => {
   ///// CLEAR STORAGE ON CHECKOUT
   const [currentTrip, setCurrentTrip] = React.useState({
     events: [],
@@ -38,6 +38,7 @@ const App = ({ test }) => {
   }, [currentTrip]);
 
   return (
+
     <UserContext.Provider value={{ user, setUser }} >
       <TripContext.Provider value={{ currentTrip, setCurrentTrip }}>
         <LoginButton />

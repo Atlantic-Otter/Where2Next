@@ -7,8 +7,8 @@ import { HashRouter as Router, MemoryRouter } from "react-router-dom";
 const customRender = (ui) => {
   return render(<Router>{ui}</Router>);
 };
-test("Renders the App Component on the page", () => {
-  customRender(<LandingPage test={true} />);
+test("Renders the LandingPage Component on the page", () => {
+  customRender(<LandingPage />);
 
-  expect(screen.getByText("HOME")).toBeInTheDocument();
+  expect(screen.getByText("City")).toBeInTheDocument();
 });

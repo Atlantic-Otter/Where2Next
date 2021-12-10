@@ -22,8 +22,9 @@ html,
     width: 5vw;
     height: 5vw;
   }
-
-
+  #inputForm {
+    width: 30%;
+  }
 }
 
 /* MOBILE */
@@ -39,20 +40,33 @@ html,
     height: 15vw;
     width: 15vw;
   }
+  #inputForm {
+    width: 80%;
+  }
 }
 
 /* BOTH */
+
+.dateSelect {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  padding: 10px;
+  margin: 1em;
+}
+#landingPage {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 #dashboardContainer {
   position: relative;
   width: 100%;
   height: 100%;
 }
 
-.ui-autocomplete {
-  max-height: 20vh;
-  overflow-x: hidden; /* add padding to account for vertical scrollbar */
-  z-index: 1000 !important;
-}
 #scrollContainer {
   overflow: scroll;
   height: 80vh;
@@ -78,6 +92,8 @@ html,
   display: flex;
   justify-content: flex-end;
   padding: 3%;
+  width: 100%;
+  position: fixed;
 }
 
 .login-logout-button {
@@ -98,8 +114,10 @@ html,
   transition: 0.5s;
 }
 
+
 .login-logout-button span:after {
   content: '\00bb';
+
   position: absolute;
   opacity: 0;
   top: 0;
@@ -115,4 +133,3 @@ html,
   opacity: 1;
   right: 0;
 }
-
