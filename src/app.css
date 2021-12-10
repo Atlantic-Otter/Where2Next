@@ -22,6 +22,9 @@ html,
     width: 5vw;
     height: 5vw;
   }
+  #inputForm {
+    width: 50vw;
+  }
 }
 
 /* MOBILE */
