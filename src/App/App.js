@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "../App.css";
+import "../landingScreenBackground.jpeg"
 import "bootstrap/dist/css/bootstrap.min.css";
 import addToTrip from "../../Helpers/addToTrip.js";
 import getTrip from "../../Helpers/getTrip.js";
