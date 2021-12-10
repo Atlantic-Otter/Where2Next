@@ -65,12 +65,34 @@ html,
   position: relative;
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
+#listContainer {
+  border: 1px solid black;
+  padding: 1em;
+}
+.listHeader {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 #scrollContainer {
   overflow: scroll;
   height: 80vh;
 }
+
+.eventListItem {
+  border: 1px solid black;
+  margin: 1em;
+  padding: 1em;
+}
+
 #yourTripButton {
   position: absolute;
   background-color: indigo;

@@ -16,9 +16,11 @@ function Dashboard({ test }) {
   return (
     <div id="dashboardContainer">
       <h1>DASHBOARD</h1>
-      <Link to={`events${search}`}>Events</Link>
-      <Link to={`flights${search}`}>Flights</Link>
-      <Link to={`hotels${search}`}>Hotels</Link>
+      <div id="navLinks">
+        <Link to={`events${search}`}>Events</Link>
+        <Link to={`flights${search}`}>Flights</Link>
+        <Link to={`hotels${search}`}>Hotels</Link>
+      </div>
       <Routes>
         <Route path="/" element={<Events />} />
         <Route path="/events" element={<Events />} />

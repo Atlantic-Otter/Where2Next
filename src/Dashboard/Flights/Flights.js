@@ -26,10 +26,12 @@ function Flights({ test }) {
   ));
 
   return (
-    <>
-      <h2>Flights</h2>
+    <div id="listContainer">
+      <div className="listHeader">
+        <h2>Flights</h2>
+      </div>
       <div id="scrollContainer">{flightList}</div>
-    </>
+    </div>
   );
 }
 

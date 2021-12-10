@@ -26,13 +26,12 @@ const App = ({ test }) => {
   // state of the user info modal appearance
   const [profileModal, setProfileModal] = React.useState(false);
 
-
   const toggleProfileModal = (event) => {
     // ONLY if user is logged in
     if (user) {
       // set modal state to true
       setProfileModal(!profileModal);
-      console.log('switched to state: ', profileModal);
+      console.log("switched to state: ", profileModal);
     }
   };
 
@@ -57,7 +56,7 @@ const App = ({ test }) => {
             <Route path="/dashboard/*" element={<Dashboard test={test} />} />
           </Routes>
         </Router>
-        { profileModal ? <ProfileModal /> : <></>}
+        {profileModal ? <ProfileModal /> : <></>}
       </TripContext.Provider>
     </UserContext.Provider>
   );
