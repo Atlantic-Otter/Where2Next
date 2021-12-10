@@ -1,6 +1,6 @@
 import React from 'react';
 import helpers from './helpers.js';
-import './modal.css'
+import '../cssTemplates/modal.css';
 
 // TODO: move all callbacks out of function body for efficient rerendering
   // check out useCallback OR
@@ -22,7 +22,12 @@ const LoginMenu = ({ toggleModal }) => {
     helpers.requestValidation(text)
     .then(({ data }) => {
       if (data) {
-        alert('Login successful');
+        // close the modal
+        toggleModal();
+        // add status logged in
+
+        // alert('Login successful');
+
       } else {
         alert('Incorrect username/password');
       }
