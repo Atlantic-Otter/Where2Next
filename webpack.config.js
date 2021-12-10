@@ -28,18 +28,6 @@ module.exports = {
         test: /\.(png|jp(e*)g|svg|gif)$/,
         use: ['file-loader'],
       },
-      {
-        test: /\.svg$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: 'svg-url-loader',
-            options: {
-              limit: 10000,
-            },
-          },
-        ]
-      },
 
     ]
   },

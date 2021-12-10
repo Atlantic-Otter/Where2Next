@@ -11,7 +11,7 @@ const UserIcon = () => {
 
   return (
     <div id="user-icon" onClick={goToProfilePage} >
-      <img src={require('../icons/user.svg')} alt="user-svg"/>
+      <img src={require('../icons/user-svgrepo-com.svg')} alt="user-svg"/>
     </div>
   );
 };
