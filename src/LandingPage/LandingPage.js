@@ -66,7 +66,7 @@ function LandingPage() {
           placeholder={"State"}
           styling={{ zIndex: 0 }} // To display it on top of the search box below
         />
-        <label htmlFor="startDate">Start Date</label>
+        <label htmlFor="startDate">From</label>
         <input
           className="dateSelect"
           type="date"
@@ -75,7 +75,7 @@ function LandingPage() {
           value={formData.startDate}
           onChange={onChange}
         />
-        <label htmlFor="endDate">End Date</label>
+        <label htmlFor="endDate">To</label>
         <input
           className="dateSelect"
           type="date"
@@ -84,7 +84,9 @@ function LandingPage() {
           value={formData.endDate}
           onChange={onChange}
         />
+        <br />
         <button onClick={submitSearch}>Go!</button>
+
         <span id="errorMessage">{errorMessage}</span>
       </div>
     </div>
