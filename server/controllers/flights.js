@@ -1,13 +1,13 @@
 const axios = require("axios");
 const qs = require("query-string");
-const { API_CLIENT_ID, API_CLIENT_SECRET } = require("../../config.js");
+const { FLIGHT_API_CLIENT_ID, FLIGHT_API_CLIENT_SECRET } = require("../../config.js");
 
 module.exports = {
   getFlights: (req, res) => {
     const data = qs.stringify({
       'grant_type': 'client_credentials',
-      'client_id': API_CLIENT_ID,
-      'client_secret': API_CLIENT_SECRET
+      'client_id': FLIGHT_API_CLIENT_ID,
+      'client_secret': FLIGHT_API_CLIENT_SECRET
     });
 
     const getTokenConfig = {

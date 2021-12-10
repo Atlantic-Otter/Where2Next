@@ -6,7 +6,9 @@ import LoginMenu from './LoginMenu.js';
 const LoginButton = (props) => {
   var [modalView, setModalView] = React.useState(false);
   const toggleModal = (event) => {
+
     setModalView(!modalView);
+
   };
 
   return (
@@ -14,7 +16,7 @@ const LoginButton = (props) => {
       <button id="login-button" onClick={toggleModal}>
         Login
       </button>
-      {modalView ? <LoginMenu /> : <></>}
+      {modalView ? <LoginMenu toggleModal={toggleModal}/> : <></>}
     </div>
   )
 };
