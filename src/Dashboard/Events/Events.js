@@ -9,7 +9,7 @@ function Events() {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   const { startDate, endDate, city, state } = useSearchParams();
-  console.log(startDate, endDate, city, state);
+
   useEffect(() => {
     let isSubscribed = true;
     axios

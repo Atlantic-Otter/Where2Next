@@ -64,7 +64,7 @@ html,
 #dashboardContainer {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -111,7 +111,17 @@ html,
 .eventListImage {
   object-fit: cover;
 }
-
+.eventDetails {
+  display: flex;
+  flex-direction: row;
+}
+.eventText {
+  display: flex;
+  width: 70%;
+  flex-direction: column;
+  padding: 1em;
+  margin: 1em;
+}
 #user-icon {
   float: right;
 }
