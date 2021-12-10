@@ -6,7 +6,7 @@ import Hotels from "./Hotels/Hotels.js";
 import YourTripButton from "./YourTripButton/YourTripButton.js";
 import YourTripToast from "./YourTripToast/YourTripToast.js";
 
-function Dashboard() {
+function Dashboard({ test }) {
   const { search } = useLocation();
   const [tripToastVisible, setTripToastVisible] = useState(false);
   const toggleTripToast = () => {

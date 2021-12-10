@@ -45,7 +45,8 @@ const App = ({ test }) => {
         <Router>
           <Routes>
             <Route path="/" element={<LandingPage test={test} />} />
-            <Route path="/dashboard/*" element={<Dashboard />} />
+            <Route path="/dashboard/*" element={<Dashboard test={test} />} />
+            {/* won't work yet - need to add a Link */}
             <Route path="/account" element={<ProfilePage />} />
           </Routes>
         </Router>
