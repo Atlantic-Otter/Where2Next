@@ -6,8 +6,8 @@
 body,
 html,
 #root {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
 }
 
 /*BROWSER*/
@@ -22,6 +22,8 @@ html,
     width: 5vw;
     height: 5vw;
   }
+
+
 }
 
 /* MOBILE */
@@ -67,3 +69,45 @@ html,
 .eventListImage {
   object-fit: cover;
 }
+
+#login {
+  display: flex;
+  justify-content: flex-end;
+  padding: 3%;
+}
+#login-button {
+  width: 10%;
+  height: 7%;
+  border: #5a175e 2px solid;
+  border-radius: 5vw;
+  background: #5a175e;
+  color: #fff;
+  text-align: center;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+#login-button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#login-button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+#login-button:hover span {
+  padding-right: 25px;
+}
+
+#login-button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
