@@ -1,6 +1,5 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import LoginButton from "./LoginButton.js";
 import App from "../App/App.js";
 import "@testing-library/jest-dom";
 
