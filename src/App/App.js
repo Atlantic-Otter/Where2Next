@@ -13,7 +13,7 @@ import TripContext from "../TripContext";
 import UserContext from "../UserContext";
 
 
-const App = () => {
+const App = ({ test }) => {
   ///// CLEAR STORAGE ON CHECKOUT
   const [currentTrip, setCurrentTrip] = React.useState({
     events: [],
