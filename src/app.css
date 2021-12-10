@@ -74,6 +74,12 @@ html,
 #listContainer {
   border: 1px solid black;
   padding: 1em;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
 }
 .listHeader {
   width: 100%;
@@ -84,7 +90,7 @@ html,
 }
 #scrollContainer {
   overflow: scroll;
-  height: 80vh;
+  height: 90%;
 }
 
 .eventListItem {

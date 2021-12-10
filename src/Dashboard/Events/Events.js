@@ -3,9 +3,11 @@ import useSearchParams from "../../../Helpers/useSearchParams";
 import axios from "axios";
 import EventListItem from "./EventListItem";
 import BookingModal from "../../BookingModal/BookingModal";
+import FadeLoader from "react-spinners/FadeLoader";
 
 function Events() {
   const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { startDate, endDate, city, state } = useSearchParams();
   console.log(startDate, endDate, city, state);
   useEffect(() => {
@@ -16,6 +18,7 @@ function Events() {
       )
       .then(({ data }) => {
         if (isSubscribed) {
+          setLoading(false);
           setEvents(data);
         }
       })
@@ -43,14 +46,20 @@ function Events() {
 
   return (
     <div id="listContainer">
-      <div className="listHeader">
-        <button onClick={openModal}>Open Modal</button>
-        {modalIsOpen && (
-          <BookingModal modalIsOpen={modalIsOpen} closeModal={closeModal} />
-        )}
-        <h2>Events</h2>
-      </div>
-      <div id="scrollContainer">{eventList}</div>
+      {modalIsOpen && (
+        <BookingModal modalIsOpen={modalIsOpen} closeModal={closeModal} />
+      )}
+      {loading ? (
+        <FadeLoader color="orange" loading={loading} />
+      ) : (
+        <>
+          <div className="listHeader">
+            <button onClick={openModal}>Open Modal</button>
+            <h2>Events</h2>
+          </div>
+          <div id="scrollContainer">{eventList}</div>
+        </>
+      )}
     </div>
   );
 }
