@@ -27,6 +27,12 @@
   position: fixed;
 }
 
+.dateSelect {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  padding: 10px;
+  margin: 1em;
+}
 #landingPage {
   height: 100%;
   width: 100%;

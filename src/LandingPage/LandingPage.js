@@ -68,6 +68,7 @@ function LandingPage() {
         />
         <label htmlFor="startDate">Start Date</label>
         <input
+          className="dateSelect"
           type="date"
           name="startDate"
           min={startMin}
@@ -76,6 +77,7 @@ function LandingPage() {
         />
         <label htmlFor="endDate">End Date</label>
         <input
+          className="dateSelect"
           type="date"
           name="endDate"
           min={formData.startDate}
