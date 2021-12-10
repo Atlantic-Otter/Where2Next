@@ -67,3 +67,7 @@ html,
 .eventListImage {
   object-fit: cover;
 }
+
+#user-icon {
+  float: right;
+}

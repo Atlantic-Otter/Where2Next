@@ -7,6 +7,7 @@ import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Dashboard from "../Dashboard/Dashboard.js";
 import LandingPage from "../LandingPage/LandingPage.js";
 import LoginButton from "../Login/LoginButton.js";
+import UserIcon from  "../User/UserIcon.js";
 import TripContext from "../TripContext";
 import UserContext from "../UserContext";
 
@@ -36,6 +37,7 @@ const App = () => {
     <UserContext.Provider value={{ user, setUser }} >
       <TripContext.Provider value={{ currentTrip, setCurrentTrip }}>
         <LoginButton />
+        <UserIcon />
         <Router>
           <Routes>
             <Route path="/" element={<LandingPage />} />
