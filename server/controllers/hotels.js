@@ -9,7 +9,7 @@ const headers = {
 
 module.exports = {
 
-  fetchHotels: (req, res) => {
+  fetchCityGroups: (req, res) => {
     const { city, state } = req.params;
     const options = {
       method: 'GET',
@@ -20,8 +20,36 @@ module.exports = {
 
     axios.request(options)
       .then((response) => {
-      const hotelList = response.data.suggestions[1].entities;
-        // destinationId
+      const segments = response.data.suggestions[0].entities;
+      const cityGroups = segments.filter(item => item.type === 'NEIGHBORHOOD')
+      res.send(cityGroups)
+    }).catch((error) => {
+      console.error(error);
+    });
+  },
+
+  fetchHotels: (req, res) => {
+    const { destinationId } = req.params;
+    const options = {
+      method: 'GET',
+      url: 'https://hotels4.p.rapidapi.com/properties/list',
+      params: {
+        destinationId,
+        pageNumber: '1',
+        pageSize: '25',
+        // checkIn: startDate,
+        // checkOut: endDate,
+        adults1: '1',
+        sortOrder: 'PRICE',
+        locale: 'en_US',
+        currency: 'USD'
+      },
+      headers,
+    };
+
+    axios.request(options).then((response) => {
+      const hotelList = response.data.data.body.searchResults.results
+      const neighborhoodName = response.data.data.body.header
       res.send(hotelList)
     }).catch((error) => {
       console.error(error);
@@ -37,14 +65,15 @@ module.exports = {
     };
 
     axios.request(options).then((response) => {
-      console.log(response.data);
+      // console.log(response.data);
+      res.send(response.data);
     }).catch((error) => {
       console.error(error);
     });
   },
 
-  fetchHotelDetails: (destinationId) => {
-    const { startDate, endData } = req.params;
+  fetchDetail: (destinationId) => {
+    // const { startDate, endData } = req.params;
     var options = {
       method: 'GET',
       url: 'https://hotels4.p.rapidapi.com/properties/get-details',
@@ -66,31 +95,5 @@ module.exports = {
       console.error(error);
     });
   },
-
-  listProperties: ((destinationId, req, res) => {
-    const { startDate, endDate } = req.params;
-    const options = {
-      method: 'GET',
-      url: 'https://hotels4.p.rapidapi.com/properties/list',
-      params: {
-        destinationId,
-        pageNumber: '1',
-        pageSize: '25',
-        checkIn: startDate,
-        checkOut: endDate,
-        adults1: '1',
-        sortOrder: 'PRICE',
-        locale: 'en_US',
-        currency: 'USD'
-      },
-      headers,
-    };
-
-    axios.request(options).then((response) => {
-      console.log(response.data);
-    }).catch((error) => {
-      console.error(error);
-    });
-  })
 
 }
