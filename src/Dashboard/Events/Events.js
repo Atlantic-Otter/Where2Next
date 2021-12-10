@@ -17,7 +17,7 @@ function Events() {
       .catch((e) => console.log(e));
   }, []);
 
-  const eventList = events.map((event) => <EventListItem event={event} />);
+  const eventList = events.map((event, i) => <EventListItem key={i} event={event} />);
 
   return (
     <>
