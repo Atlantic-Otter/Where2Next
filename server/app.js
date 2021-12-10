@@ -20,7 +20,7 @@ app.get('/flights', flights.getFlights);
 
 // app.get(`/hotels/:city/:state/:startDate/:endDate`, hotels.fetchHotels);
 app.get(`/hotels/:city`, hotels.fetchCityGroups);
-app.get('/hotels/city/:destinationId', hotels.fetchHotels)
+app.get('/hotels/:city/:destinationId', hotels.fetchHotels)
 app.get('/hotels/city/:destinationId/photos', hotels.fetchPhotos)
 app.get('/hotels/city/:destinationId/propertyDetail', hotels.fetchDetail)
 
