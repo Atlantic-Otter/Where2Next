@@ -28,6 +28,45 @@ module.exports = {
     });
   },
 
+  fetchPhotos: (destinationId) => {
+    var options = {
+      method: 'GET',
+      url: 'https://hotels4.p.rapidapi.com/properties/get-hotel-photos',
+      params: {id: destinationId},
+      headers
+    };
+
+    axios.request(options).then((response) => {
+      console.log(response.data);
+    }).catch((error) => {
+      console.error(error);
+    });
+  },
+
+  fetchHotelDetails: (destinationId) => {
+    const { startDate, endData } = req.params;
+    var options = {
+      method: 'GET',
+      url: 'https://hotels4.p.rapidapi.com/properties/get-details',
+      params: {
+        // id: '424023',
+        id: destinationId,
+        checkIn: startDate,
+        checkOut: endDate,
+        adults1: '1',
+        currency: 'USD',
+        locale: 'en_US'
+      },
+      headers,
+    };
+
+    axios.request(options).then(function (response) {
+      console.log(response.data);
+    }).catch(function (error) {
+      console.error(error);
+    });
+  },
+
   listProperties: ((destinationId, req, res) => {
     const { startDate, endData } = req.params;
     const options = {
@@ -52,5 +91,6 @@ module.exports = {
     }).catch((error) => {
       console.error(error);
     });
-  }
+  })
+
 }
