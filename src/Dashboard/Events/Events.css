@@ -11,6 +11,37 @@
   display: none;
 }
 
+.searchLocation {
+  width: 574.98px;
+  height: 58.62px;
+  left: 262px;
+  top: 200px;
+  background: rgba(100, 8, 230, 0.19);
+  border-radius: 40px;
+  color:white;
+  padding-left: 2em;
+}
+
+.searchEvents {
+  width: 574.98px;
+  height: 58.62px;
+  left: 262px;
+  top: 200px;
+  background: rgba(100, 8, 230, 0.19);
+  border-radius: 40px;
+  color:white;
+  padding-left: 2em;
+  margin-top: 2em;
+}
+
+.searchLocation::placeholder {
+  color: white;
+}
+
+.searchEvents::placeholder {
+  color: white;
+}
+
 .eventListItem {
   background-color: #5a175e;
   border-radius: 5mm;

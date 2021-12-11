@@ -7,9 +7,9 @@ function EventListItem({ event, openModal }) {
   const { currentTrip, setCurrentTrip } = useContext(TripContext);
 
   const addEventToTrip = () => {
-    // const newTrip = { ...currentTrip };
-    // newTrip.events.push(event);
-    // setCurrentTrip(newTrip);
+    const newTrip = { ...currentTrip };
+    newTrip.events.push(event);
+    setCurrentTrip(newTrip);
 
     openModal();
   };
@@ -36,7 +36,7 @@ function EventListItem({ event, openModal }) {
           <button className="readMore">
             Read More
           </button>
-          <button className="addToTrip" onClick={addEventToTrip}>Tickets</button>
+          <button className="addToTrip" onClick={addEventToTrip}>Add to Cart</button>
         </div>
       </div>
     </div>

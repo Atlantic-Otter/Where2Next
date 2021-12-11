@@ -53,7 +53,9 @@ function Events() {
           <div className="listHeader">
             <h2>Events</h2>
           </div>
-          {/* <div id="scrollContainer">{eventList}</div> */}
+
+          <input type='text' name='locationInput' className='searchLocation' placeholder='Location'/>
+          <input type='text' name='search-events' className='searchEvents' placeholder='Enter keywords(s)'/>
           <div id="scrollContainer">
             {events.map(((event, i,) => (
               <EventListItem key={i} event={event} openModal={openModal} />)))}
