@@ -24,6 +24,11 @@
   },
   "homepage": "https://github.com/Atlantic-Otter/NextStop#readme",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-brands-svg-icons": "^5.15.4",
+    "@fortawesome/free-regular-svg-icons": "^5.15.4",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.16",
     "@svgr/webpack": "^6.1.1",
     "axios": "^0.24.0",
     "babel-jest": "^27.4.2",
