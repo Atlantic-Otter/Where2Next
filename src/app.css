@@ -107,9 +107,8 @@ html,
 }
 
 #user-icon {
-  /* float: right; */
   margin: 2% 0 2% 0;
-  width: 2%;
+  width: 6%;
   height: 40%;
   display: flex;
   flex-direction: column;
@@ -130,7 +129,7 @@ html,
 }
 
 .login-logout-button {
-  margin: 2%;
+  margin: 2% 2% 2% 0;
   width: 10%;
   height: 40%;
   border: #5a175e 2px solid;
