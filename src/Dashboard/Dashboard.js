@@ -25,7 +25,7 @@ function Dashboard({ test }) {
         <Route path="/" element={<Events />} />
         <Route path="/events" element={<Events />} />
         <Route path="/flights" element={<Flights />} />
-        <Route path="/hotels" element={<Hotels />} />
+        <Route path="/hotels/*" element={<Hotels />} />
       </Routes>
       <YourTripButton toggleTripToast={toggleTripToast} />
       <YourTripToast
