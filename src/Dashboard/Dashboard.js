@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Routes, Route, Link, useLocation } from "react-router-dom";
+import { Routes, Route, NavLink, useLocation } from "react-router-dom";
 import Events from "./Events/Events.js";
 import Flights from "./Flights/Flights.js";
 import Hotels from "./Hotels/Hotels.js";
@@ -17,9 +17,33 @@ function Dashboard({ test }) {
     <div id="dashboardContainer">
       <h1>DASHBOARD</h1>
       <div id="navLinks">
-        <Link to={`events${search}`}>Events</Link>
-        <Link to={`flights${search}`}>Flights</Link>
-        <Link to={`hotels${search}`}>Hotels</Link>
+        <NavLink
+          to={`events${search}`}
+          className={
+            "nav-link" +
+            (window.location.href.includes("events") ? " active" : "")
+          }
+        >
+          Events
+        </NavLink>
+        <NavLink
+          to={`flights${search}`}
+          className={
+            "nav-link" +
+            (window.location.href.includes("flights") ? " active" : "")
+          }
+        >
+          Flights
+        </NavLink>
+        <NavLink
+          to={`hotels${search}`}
+          className={
+            "nav-link" +
+            (window.location.href.includes("hotels") ? " active" : "")
+          }
+        >
+          Hotels
+        </NavLink>
       </div>
       <Routes>
         <Route path="/" element={<Events />} />
