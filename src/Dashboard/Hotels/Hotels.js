@@ -4,12 +4,13 @@ import axios from "axios";
 import CityGroup from "./CityGroup";
 import HotelGroup from "./HotelGroup";
 import { useParams } from "react-router-dom";
-import { ConnectionStates } from "mongoose";
+// import { ConnectionStates } from "mongoose";
 
 function Hotels() {
   const [cityGroups, setCityGroups] = useState([]);
   const [hotelList, setHotelList] = useState([]);
-  const { city } = useSearchParams();
+  let { city } = useSearchParams();
+  city = city || "";
   const encodedCity = city.split(" ").join("+");
   const neighborhood = useParams()["*"];
 
