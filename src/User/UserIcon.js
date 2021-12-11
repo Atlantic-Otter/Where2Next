@@ -11,7 +11,7 @@ const UserIcon = () => {
   return (
     <div id="user-icon" onClick={toggleProfileModal}>
       <FontAwesomeIcon icon={faUser} size="2x" />
-      {user ? <p>{user.username}</p> : <p>Not signed in</p>}
+      {user ? <p data-testid="current-user">{user.username}</p> : <p>Not signed in</p>}
     </div>
   );
 };
