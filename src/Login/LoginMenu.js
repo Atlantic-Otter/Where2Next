@@ -1,6 +1,7 @@
 import React from 'react';
 import helpers from './helpers.js';
 import '../cssTemplates/modal.css';
+import UserContext from '../UserContext.js';
 
 // TODO: move all callbacks out of function body for efficient rerendering
   // check out useCallback OR
@@ -9,7 +10,7 @@ import '../cssTemplates/modal.css';
 
 // For development: Username "testing", password: "test" is in database
 const LoginMenu = ({ toggleModal }) => {
-
+  const { user, setUser } = React.useContext(UserContext);
   var [text, setText] = React.useState({
     username: '',
     password: ''
@@ -21,15 +22,12 @@ const LoginMenu = ({ toggleModal }) => {
     // on success set globabl state to be the user
     helpers.requestValidation(text)
     .then(({ data }) => {
-      if (data) {
-        // close the modal
-        toggleModal();
-        // add status logged in
-
-        // alert('Login successful');
-
-      } else {
+      if (data === 'incorrect password') {
         alert('Incorrect username/password');
+      } else {
+        // add status logged in
+        setUser(data);
+        toggleModal();
       }
     })
     .catch((err) => {
@@ -47,9 +45,9 @@ const LoginMenu = ({ toggleModal }) => {
 
   return (
 
-    <div id="modal-background" onClick={toggleModal}>
-      <div id="login-menu" onClick={(event) => { event.stopPropagation(); }}>
-        <span id="modal-close-button" onClick={toggleModal}>&times;</span>
+    <div className="modal-background" onClick={toggleModal}>
+      <div className="login-menu" onClick={(event) => { event.stopPropagation(); }}>
+        <span className="modal-close-button" onClick={toggleModal}>&times;</span>
         <form onSubmit={attemptLogin} >
           <label>
             Username:

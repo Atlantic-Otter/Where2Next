@@ -6,7 +6,7 @@ import Hotels from "./Hotels/Hotels.js";
 import YourTripButton from "./YourTripButton/YourTripButton.js";
 import YourTripToast from "./YourTripToast/YourTripToast.js";
 
-function Dashboard() {
+function Dashboard({ test }) {
   const { search } = useLocation();
   const [tripToastVisible, setTripToastVisible] = useState(false);
   const toggleTripToast = () => {
@@ -16,9 +16,11 @@ function Dashboard() {
   return (
     <div id="dashboardContainer">
       <h1>DASHBOARD</h1>
-      <Link to={`events${search}`}>Events</Link>
-      <Link to={`flights${search}`}>Flights</Link>
-      <Link to={`hotels${search}`}>Hotels</Link>
+      <div id="navLinks">
+        <Link to={`events${search}`}>Events</Link>
+        <Link to={`flights${search}`}>Flights</Link>
+        <Link to={`hotels${search}`}>Hotels</Link>
+      </div>
       <Routes>
         <Route path="/" element={<Events />} />
         <Route path="/events" element={<Events />} />

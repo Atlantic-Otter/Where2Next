@@ -50,7 +50,7 @@ html,
 
 .dateSelect {
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
+  border-radius: 25px;
   padding: 10px;
   margin: 1em;
   background-color: rgba(90,23,94,.5);
@@ -67,7 +67,7 @@ html,
 }
 
 #landingPage {
-  height: 100%;
+  height: 90%;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -83,13 +83,41 @@ html,
 #dashboardContainer {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
+#listContainer {
+  border: 1px solid black;
+  padding: 1em;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+}
+.listHeader {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 #scrollContainer {
   overflow: scroll;
-  height: 80vh;
+  height: 90%;
 }
+
+.eventListItem {
+  border: 1px solid black;
+  margin: 1em;
+  padding: 1em;
+}
+
 #yourTripButton {
   position: absolute;
   background-color: indigo;
@@ -102,13 +130,27 @@ html,
 .eventListImage {
   object-fit: cover;
 }
+.eventDetails {
+  display: flex;
+  flex-direction: row;
+}
+.eventText {
+  display: flex;
+  width: 70%;
+  flex-direction: column;
+  padding: 1em;
+  margin: 1em;
+}
+#user-icon {
+  float: right;
+}
 
-#login {
+#header {
   display: flex;
   justify-content: flex-end;
-  padding: 3%;
+
   width: 100%;
-  position: fixed;
+  height: 10%;
 }
 
 
@@ -128,9 +170,10 @@ html,
   padding-left: 30px;
 }
 
-#login-button {
+.login-logout-button {
+  margin: 2%;
   width: 10%;
-  height: 7%;
+  height: 40%;
   border: #5a175e 2px solid;
   border-radius: 5vw;
   background: rgba(90,23,94,.5);
@@ -144,17 +187,23 @@ html,
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
-#login-button span {
+.login-logout-button span {
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
 }
 
-#login-button span:after {
+.login-logout-button span:after {
   content: "\00bb";
+
   position: absolute;
   opacity: 0;
   top: 0;
@@ -162,11 +211,11 @@ html,
   transition: 0.5s;
 }
 
-#login-button:hover span {
+.login-logout-button:hover span {
   padding-right: 25px;
 }
 
-#login-button:hover span:after {
+.login-logout-button:hover span:after {
   opacity: 1;
   right: 0;
 }
