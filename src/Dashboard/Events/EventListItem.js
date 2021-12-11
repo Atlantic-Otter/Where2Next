@@ -36,7 +36,7 @@ function EventListItem({ event, openModal }) {
           <button className="readMore">
             Read More
           </button>
-          <button className="addToTrip" onClick={addEventToTrip}>Ticket</button>
+          <button className="addToTrip" onClick={addEventToTrip}>Tickets</button>
         </div>
       </div>
     </div>
