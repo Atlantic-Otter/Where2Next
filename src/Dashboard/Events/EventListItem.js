@@ -40,7 +40,7 @@ function EventListItem({ event, openModal }) {
         <div className="infoListContainer">
           <div className="buttonsContainer">
             <a className="readMore" href={event.url} target="_blank">
-              Read More
+              <span className="readyMoreText">Read More</span>
             </a>
             <button className="addToTrip" onClick={addEventToTrip}>Add to Cart</button>
           </div>
