@@ -9,6 +9,10 @@ html,
 #root {
   width: 100vw;
   height: 100vh;
+  background-image: url('https://storage.googleapis.com/labbit-fec-limitless-images/landingBackground.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 /*BROWSER*/
@@ -48,11 +52,33 @@ html,
 
 /* BOTH */
 
+
+.dateContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.startDate {
+  display: flex;
+  flex-direction: column;
+}
+
+#rightArrow {
+  font-size: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.endDate {
+  display: flex;
+  flex-direction: column;
+}
+
 .dateSelect {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 25px;
   padding: 10px;
-  margin: 1em;
   background-color: rgba(90,23,94,.5);
   color: white;
   box-shadow: rgba(254, 1, 154, 0.5) 0px 7px 29px 0px;
@@ -74,10 +100,6 @@ html,
   align-items: center;
   justify-content: center;
   color: #fff;
-  background-image: url('https://storage.googleapis.com/labbit-fec-limitless-images/landingBackground.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
   z-index: 50;
 }
 #dashboardContainer {
@@ -187,7 +209,6 @@ html,
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -236,6 +257,8 @@ html,
   position: relative;
   z-index: 0;
   border-radius: 10px;
+  box-shadow:rgba(254, 1, 154, 0.5);
+
 }
 
 .glow-on-hover:before {
@@ -277,6 +300,16 @@ html,
   left: 0;
   top: 0;
   border-radius: 10px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#errorMessage {
+  padding-bottom: 10%;
 }
 
 @keyframes glowing {
