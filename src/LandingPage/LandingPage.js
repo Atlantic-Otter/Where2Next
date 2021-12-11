@@ -46,14 +46,14 @@ function LandingPage() {
       <div id="logo">
         <div id="logoName">
         <img src={Image} />
-        <h1>WHERE2MEET</h1>
+        <h1>WHERE2NEXT</h1>
         </div>
         <div id="slogan">
           <h3>Totally cool slogan here</h3>
         </div>
       </div>
       <div id="inputForm">
-        <label htmlFor="city" className="searchLabel">City</label>
+        <label htmlFor="city" className="searchLabel" style={{opacity: 0}}>City</label>
         <ReactSearchAutocomplete
           autofocus
           items={cityList}
@@ -64,10 +64,10 @@ function LandingPage() {
           onSearch={(val) => setCity(val)}
           onClear={() => setCity("")}
           placeholder={"City"}
-          styling={{ zIndex: 1, backgroundColor: 'rgba(90,23,94,.75)',  iconColor: 'white', color: 'white', placeholderColor: "white",}}
+          styling={{ zIndex: 2, backgroundColor: 'rgba(90,23,94,.75)', width:'50%', iconColor: 'white', color: 'white', placeholderColor: "white",}}
         />
 
-        <label htmlFor="state" className="searchLabel">State</label>
+        <label htmlFor="state" className="searchLabel" style={{opacity: 0}}>State</label>
         <ReactSearchAutocomplete
           items={stateList}
           maxResults={10}
@@ -75,20 +75,23 @@ function LandingPage() {
           onClear={() => setState("")}
           onSearch={(val) => setState(val)}
           placeholder={"State"}
-          styling={{ zIndex: 1, backgroundColor: 'rgba(90,23,94,.75)',  iconColor: 'white', color: 'white', placeholderColor: "white",}}
+          styling={{ zIndex: 1, backgroundColor: 'rgba(90,23,94,.75)', width:'50%', iconColor: 'white', color: 'white', placeholderColor: "white",}}
         />
-        <div id="selectDates">
-          <label htmlFor="startDate">From</label>
-          <input
-            className="dateSelect"
-            type="date"
-            name="startDate"
-            min={startMin}
-            value={formData.startDate}
-            onChange={onChange}
-          />
-          <label htmlFor="endDate">To</label>
-          <div id="dateContainer" >
+        <div className="dateContainer">
+          <div className="startDate">
+            <label htmlFor="startDate" style={{opacity: 0}}>From</label>
+            <input
+              className="dateSelect"
+              type="date"
+              name="startDate"
+              min={startMin}
+              value={formData.startDate}
+              onChange={onChange}
+            />
+          </div>
+          <div id="rightArrow">{'➡️'}</div>
+          <div className="endDate">
+            <label htmlFor="endDate" style={{opacity: 0}}>To</label>
             <input
               className="dateSelect"
               type="date"
@@ -100,10 +103,11 @@ function LandingPage() {
           </div>
         </div>
         <br />
-        <button className="glow-on-hover" onClick={submitSearch}>Go</button>
-
-        <span id="errorMessage">{errorMessage}</span>
       </div>
+        <div className="buttonContainer">
+          <span id="errorMessage">{errorMessage}</span>
+          <button className="glow-on-hover" onClick={submitSearch}>Go</button>
+        </div>
     </div>
   );
 }
