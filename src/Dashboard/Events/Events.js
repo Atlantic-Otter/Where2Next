@@ -4,6 +4,7 @@ import axios from "axios";
 import EventListItem from "./EventListItem";
 import BookingModal from "../../BookingModal/BookingModal";
 import FadeLoader from "react-spinners/FadeLoader";
+import styles from "./Events.css";
 
 function Events() {
   const [events, setEvents] = useState([]);
@@ -30,10 +31,6 @@ function Events() {
     return () => (isSubscribed = false);
   }, []);
 
-  const eventList = events.map((event, i) => (
-    <EventListItem key={i} event={event} />
-  ));
-
   const [modalIsOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
@@ -45,7 +42,7 @@ function Events() {
   };
 
   return (
-    <div id="listContainer">
+    <div id="listContainer" >
       {modalIsOpen && (
         <BookingModal modalIsOpen={modalIsOpen} closeModal={closeModal} />
       )}
@@ -54,10 +51,13 @@ function Events() {
       ) : (
         <>
           <div className="listHeader">
-            <button onClick={openModal}>Open Modal</button>
             <h2>Events</h2>
           </div>
-          <div id="scrollContainer">{eventList}</div>
+          {/* <div id="scrollContainer">{eventList}</div> */}
+          <div id="scrollContainer">
+            {events.map(((event, i,) => (
+              <EventListItem key={i} event={event} openModal={openModal} />)))}
+          </div>
         </>
       )}
     </div>
