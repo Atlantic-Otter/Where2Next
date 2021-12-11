@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import citiesAndStates from "../../Helpers/usCitiesAndStates";
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
+import Image from "../../images/logo.gif"
+import BackgroundImg from "../landingScreenBackground.jpeg";
 
 function LandingPage() {
   const navigate = useNavigate();
@@ -41,8 +43,17 @@ function LandingPage() {
 
   return (
     <div id="landingPage">
+      <div id="logo">
+        <div id="logoName">
+        <img src={Image} />
+        <h1>WHERE2MEET</h1>
+        </div>
+        <div id="slogan">
+          <h3>Totally cool slogan here</h3>
+        </div>
+      </div>
       <div id="inputForm">
-        <label htmlFor="city">City</label>
+        <label htmlFor="city" className="searchLabel">City</label>
         <ReactSearchAutocomplete
           autofocus
           items={cityList}
@@ -53,10 +64,10 @@ function LandingPage() {
           onSearch={(val) => setCity(val)}
           onClear={() => setCity("")}
           placeholder={"City"}
-          styling={{ zIndex: 1 }}
+          styling={{ zIndex: 1, backgroundColor: 'rgba(90,23,94,.75)',  iconColor: 'white', color: 'white', placeholderColor: "white",}}
         />
 
-        <label htmlFor="state">State</label>
+        <label htmlFor="state" className="searchLabel">State</label>
         <ReactSearchAutocomplete
           items={stateList}
           maxResults={10}
@@ -64,28 +75,32 @@ function LandingPage() {
           onClear={() => setState("")}
           onSearch={(val) => setState(val)}
           placeholder={"State"}
-          styling={{ zIndex: 0 }} // To display it on top of the search box below
+          styling={{ zIndex: 1, backgroundColor: 'rgba(90,23,94,.75)',  iconColor: 'white', color: 'white', placeholderColor: "white",}}
         />
-        <label htmlFor="startDate">From</label>
-        <input
-          className="dateSelect"
-          type="date"
-          name="startDate"
-          min={startMin}
-          value={formData.startDate}
-          onChange={onChange}
-        />
-        <label htmlFor="endDate">To</label>
-        <input
-          className="dateSelect"
-          type="date"
-          name="endDate"
-          min={formData.startDate}
-          value={formData.endDate}
-          onChange={onChange}
-        />
+        <div id="selectDates">
+          <label htmlFor="startDate">From</label>
+          <input
+            className="dateSelect"
+            type="date"
+            name="startDate"
+            min={startMin}
+            value={formData.startDate}
+            onChange={onChange}
+          />
+          <label htmlFor="endDate">To</label>
+          <div id="dateContainer" >
+            <input
+              className="dateSelect"
+              type="date"
+              name="endDate"
+              min={formData.startDate}
+              value={formData.endDate}
+              onChange={onChange}
+            />
+          </div>
+        </div>
         <br />
-        <button onClick={submitSearch}>Go!</button>
+        <button className="glow-on-hover" onClick={submitSearch}>Go</button>
 
         <span id="errorMessage">{errorMessage}</span>
       </div>
