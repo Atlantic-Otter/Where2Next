@@ -106,3 +106,5 @@ dist
 # other
 config.js
 user.svg
+.DS_Store
+src/.DS_Store
