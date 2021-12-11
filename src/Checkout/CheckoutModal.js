@@ -6,10 +6,12 @@
 
 import React from 'react';
 import TripContext from '../TripContext.js';
+import CheckoutTile from './CheckoutTile.js';
 
 const CheckoutModal = () => {
 
   const { toggleCheckoutModal } = React.useContext(TripContext);
+  const { events, flights, hotels } = JSON.parse(window.localStorage.currentTrip);
 
   return (
     <div className="modal-background" onClick={toggleCheckoutModal}>
@@ -17,12 +19,20 @@ const CheckoutModal = () => {
         <div className="modal-close-box">
           <span className="modal-close-button" onClick={toggleCheckoutModal}>&times;</span>
         </div>
+        <div id="checkout-categories">
+          {events.map((event, i) =>
+            <CheckoutTile key={i} service="event" info={event} />
 
-        <p>in localstorage:</p>
-        <p>{window.localStorage.currentTrip}</p>
+          )}
 
+          {flights.map((flight, i) =>
+            <CheckoutTile key={i} service="flight" info={flight} />
+          )}
 
-
+          {hotels.map((hotel, i) =>
+            <CheckoutTile key={i} service="hotel" info={hotel} />
+          )}
+        </div>
       </div>
     </div>
     );
