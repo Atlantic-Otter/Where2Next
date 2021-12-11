@@ -10,8 +10,8 @@ const UserIcon = () => {
 
   return (
     <div id="user-icon" onClick={toggleProfileModal}>
-      {user ? <p>{user.username}</p> : <p>Not signed in</p>}
       <FontAwesomeIcon icon={faUser} size="2x" />
+      {user ? <p>{user.username}</p> : <p>Not signed in</p>}
     </div>
   );
 };

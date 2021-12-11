@@ -107,7 +107,18 @@ html,
 }
 
 #user-icon {
-  float: right;
+  /* float: right; */
+  margin: 2% 0 2% 0;
+  width: 2%;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#user-icon > * {
+  margin: 2%;
 }
 
 #header {

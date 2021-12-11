@@ -12,20 +12,33 @@
 }
 
 /* Modal Content/Box */
-.login-menu {
+.modal-window {
   /* may want z index of 2? */
   background-color: #fefefe;
   z-index: 3;
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  border-radius: 5vw;
+  width: 40%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-close-box {
+  /* width: 20%; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3% 0 3%;
 }
 
 /* The Close Button */
 .modal-close-button {
   color: #aaa;
-  float: right;
   font-size: 28px;
   font-weight: bold;
 }
@@ -36,3 +49,18 @@
   text-decoration: none;
   cursor: pointer;
 }
+
+#login-form {
+  margin-left: 2%;
+  display: flex;
+  flex-direction:  row;
+  justify-content: space-between;
+
+
+}
+
+#username, #password {
+  border-radius: 5vw;
+}
+
+
