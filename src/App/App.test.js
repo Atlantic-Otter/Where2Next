@@ -19,5 +19,5 @@ const customRender = (ui) => {
 test("Renders the App Component on the page", () => {
   customRender(<App />);
 
-  expect(screen.getByText("Login")).toBeInTheDocument();
+  expect(screen.getByText("Sign in")).toBeInTheDocument();
 });

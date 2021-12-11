@@ -4,7 +4,8 @@ import userEvent from '@testing-library/user-event';
 import App from "../App/App.js";
 import Header from "./Header.js";
 import "@testing-library/jest-dom";
-// import renderWithContext from "./RenderForTests.js";
+// runs the file to produce a test dummy in case it's not there
+// require('../../database/schema.js');
 
 describe("Signing in", function () {
   test("A sign-in button exists on the page", function () {
@@ -31,7 +32,7 @@ describe("Signing in", function () {
     userEvent.click(screen.getByTestId('login-button'));
     await waitFor(() => {
       expect(screen.getByTestId("current-user").innerHTML).toBe('testing');
-    }
+    });
   })
 
 });

@@ -5,8 +5,11 @@ chai.use(require('chai-shallow-deep-equal'));
 chai.use(require('chai-as-promised'));
 const User = require('../database/schema.js');
 
-var startedAt = Date.now();
+var startedAt;
 describe('Basic storage', function() {
+  before(() => {
+    startedAt = Date.now();
+  });
 
   it('should store user information', async function() {
     await User.create({
@@ -61,12 +64,14 @@ describe('Basic storage', function() {
   });
 });
 
+
 describe('Handling invalid input', function() {
   after(function() {
-    // TODO: add a User.remove(//some function to delete documents added from the test, perhaps add a `created_at: Date.now()` to schema - at end of test call .remove on any documents matching (Date.now() - 3000)
     var endedAt = Date.now();
+    console.log('ended at:', endedAt);
+    console.log('started at:', startedAt);
     User.deleteMany({
-      created_at: {$gte: (endedAt - startedAt)}
+      created_at: {$gte: startedAt - 100}
     })
     .then(() => {
       console.log('Removed db entries added during test');
