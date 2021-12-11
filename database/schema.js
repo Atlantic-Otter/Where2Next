@@ -51,6 +51,11 @@ const userSchema = new mongoose.Schema({
     unique: true,
     required: [true, 'username is required']
   },
+  email: {
+    type: String,
+    unique: true,
+    required: [true, 'email is required']
+  },
   password: {
     type: String,
     unique: true,
@@ -71,7 +76,12 @@ const User = mongoose.model('User', userSchema);
 
 
 // for dev purposes:
-var testDummy = {username: 'testing', password: 'test'};
+var testDummy = {
+  username: 'testing',
+  password: 'test'
+  email: 'test@testing.com'
+};
+
 User.findOne(testDummy)
 .then((results) => {
   if (results === null) {
