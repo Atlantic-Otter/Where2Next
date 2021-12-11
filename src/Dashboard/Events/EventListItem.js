@@ -16,7 +16,7 @@ function EventListItem({ event, openModal }) {
 
   console.log(event);
   const date = new Date(event.dates.start.dateTime).toLocaleString();
-  const imgURL = event.images[0].url;
+  const imgURL = event.images[5].url;
   let minPrice = event.priceRanges ? event.priceRanges[0].min.toFixed(2) : "";
   let maxPrice = event.priceRanges ? event.priceRanges[0].max.toFixed(2) : "";
   minPrice = minPrice ? `$${minPrice}` : "No price listed";
@@ -28,15 +28,22 @@ function EventListItem({ event, openModal }) {
       <div className="eventDetails">
         <img className="eventListImage" src={imgURL} />
         <div className="eventText">
+          {event.classifications[0].genre.name !== "Undefined" &&
+          <span>{event.classifications[0].genre.name}</span>}
+          <span>{event._embedded.venues[0].name}</span>
+          <span>{event._embedded.venues[0].address.line1}</span>
+
           <span>{date}</span>
 
           <span>{price}</span>
         </div>
-        <div className="buttonsContainer">
-          <button className="readMore">
-            Read More
-          </button>
-          <button className="addToTrip" onClick={addEventToTrip}>Add to Cart</button>
+        <div className="infoListContainer">
+          <div className="buttonsContainer">
+            <a className="readMore" href={event.url} target="_blank">
+              Read More
+            </a>
+            <button className="addToTrip" onClick={addEventToTrip}>Add to Cart</button>
+          </div>
         </div>
       </div>
     </div>
