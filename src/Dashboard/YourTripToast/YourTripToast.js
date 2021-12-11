@@ -6,7 +6,6 @@ import TripContext from "../../TripContext";
 import EventToastItem from "./EventToastItem";
 import HotelToastItem from "./HotelToastItem";
 import FlightToastItem from "./FlightToastItem";
-import CheckoutModal from '../../Checkout/CheckoutModal.js';
 
 function YourTripToast({ tripToastVisible, toggleTripToast }) {
   const showCheckoutModal = {
@@ -14,7 +13,7 @@ function YourTripToast({ tripToastVisible, toggleTripToast }) {
   }
 
 
-  const { currentTrip } = useContext(TripContext);
+  const { currentTrip, toggleCheckoutModal } = useContext(TripContext);
 
   const eventList = currentTrip.events.map((event) => (
     <EventToastItem event={event} />
@@ -35,7 +34,7 @@ function YourTripToast({ tripToastVisible, toggleTripToast }) {
           {flightList}
           {hotelList}
         </Toast.Body>
-        <Button /* onClick={showCheckoutModal} */ >
+        <Button onClick={toggleCheckoutModal} >
           Check Out!
         </Button>
       </Toast>
