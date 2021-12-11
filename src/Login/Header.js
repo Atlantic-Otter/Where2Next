@@ -23,11 +23,11 @@ const Header = (props) => {
       <UserIcon />
       {user ? (
         <a className="login-logout-button" onClick={logoutUser}>
-          <span>Logout</span>
+          <span>Sign out</span>
         </a>
       ) : (
         <a className="login-logout-button" onClick={toggleModal}>
-          <span>Login</span>
+          <span>Sign in</span>
         </a>
       )}
       {modalView ? <LoginMenu toggleModal={toggleModal} /> : <></>}

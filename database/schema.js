@@ -43,13 +43,18 @@ const itinerarySchema = new mongoose.Schema({
 // UPDATE: STORING USER SESSION IN LOCAL STORAGE, DB ONLY HOLDS PAID-FOR TRIPS
 const userSchema = new mongoose.Schema({
   created_at: {
-    type: Date,
+    type: Number,
     default: Date.now()
   },
   username: {
     type: String,
     unique: true,
     required: [true, 'username is required']
+  },
+  email: {
+    type: String,
+    unique: true,
+    required: [true, 'email is required']
   },
   password: {
     type: String,
@@ -70,18 +75,6 @@ userSchema.plugin(validateUnique);
 const User = mongoose.model('User', userSchema);
 
 
-// for dev purposes:
-var testDummy = {username: 'testing', password: 'test'};
-User.findOne(testDummy)
-.then((results) => {
-  if (results === null) {
-    User.create(testDummy);
-  }
-})
-.catch((err) => {
-  console.log('No test dummy - add to your db manually');
-  throw err;
-});
 
 
 module.exports = User;

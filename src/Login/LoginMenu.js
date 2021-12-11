@@ -46,9 +46,8 @@ const LoginMenu = ({ toggleModal }) => {
   return (
 
     <div className="modal-background" onClick={toggleModal}>
-      <div className="login-menu" onClick={(event) => { event.stopPropagation(); }}>
-        <span className="modal-close-button" onClick={toggleModal}>&times;</span>
-        <form onSubmit={attemptLogin} >
+      <div className="modal-window" onClick={(event) => { event.stopPropagation(); }}>
+        <form id="login-form" onSubmit={attemptLogin} >
           <label>
             Username:
             <input id="username" type="text" onChange={updateText} required/>
@@ -57,8 +56,11 @@ const LoginMenu = ({ toggleModal }) => {
             Password:
             <input id="password" type="password" onChange={updateText} required/>
           </label>
-          <input type="submit" value="Login" />
+          <input id="submit-button" type="submit" value="Login" data-testid="login-button" />
         </form>
+        <div className="modal-close-box">
+        <span className="modal-close-button" onClick={toggleModal}>&times;</span>
+      </div>
       </div>
     </div>
 
