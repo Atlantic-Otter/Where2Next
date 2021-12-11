@@ -26,6 +26,7 @@ const App = ({ test }) => {
 
   // state of the user info modal appearance
   const [profileModal, setProfileModal] = React.useState(false);
+  const [checkoutModal, setCheckoutModal] = React.useState(false);
 
   const toggleProfileModal = (event) => {
     // ONLY if user is logged in
