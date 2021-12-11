@@ -1,13 +1,7 @@
-import React from 'react';
+import React from "react";
 
-const HotelItem = ({ data }) => {
-
-
-  return (
-    <div className="hotel-item">
-      {data.name}
-    </div>
-  )
-}
+const HotelItem = ({ hotel }) => {
+  return <div className="hotel-item">{hotel.name}</div>;
+};
 
 export default HotelItem;
