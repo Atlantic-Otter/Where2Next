@@ -164,7 +164,17 @@ html,
   margin: 1em;
 }
 #user-icon {
-  float: right;
+  margin: 2% 0 2% 0;
+  width: 6%;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#user-icon > * {
+  margin: 2%;
 }
 
 #header {
@@ -193,7 +203,7 @@ html,
 }
 
 .login-logout-button {
-  margin: 2%;
+  margin: 2% 2% 2% 0;
   width: 10%;
   height: 40%;
   border: #5a175e 2px solid;
