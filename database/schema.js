@@ -78,7 +78,7 @@ const User = mongoose.model('User', userSchema);
 // for dev purposes:
 var testDummy = {
   username: 'testing',
-  password: 'test'
+  password: 'test',
   email: 'test@testing.com'
 };
 

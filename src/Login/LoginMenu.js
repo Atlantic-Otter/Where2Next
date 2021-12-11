@@ -56,7 +56,7 @@ const LoginMenu = ({ toggleModal }) => {
             Password:
             <input id="password" type="password" onChange={updateText} required/>
           </label>
-          <input type="submit" value="Login" />
+          <input id="submit-button" type="submit" value="Login" />
         </form>
         <div className="modal-close-box">
         <span className="modal-close-button" onClick={toggleModal}>&times;</span>
