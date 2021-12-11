@@ -25,7 +25,6 @@ function EventListItem({ event }) {
         <img className="eventListImage" src={imgURL} />
         <div className="eventText">
           <span>{date}</span>
-
           <span>{price}</span>
         </div>
         <button className="addToTrip" onClick={addEventToTrip}>

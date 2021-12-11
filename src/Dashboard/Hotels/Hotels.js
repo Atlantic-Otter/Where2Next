@@ -47,12 +47,16 @@ function Hotels() {
   };
 
   return (
-    <div>
-      city sections
-      {cityGroups.map((group, idx) => (
-        <CityGroup key={idx} data={group} setHotelList={setHotelList} />
-      ))}
-      <HotelGroup list={hotelList} />
+    <div className="hotel-main" id="listContainer">
+      <div className="neighborhoods">
+        Neighborhoods
+        {cityGroups.map((group, idx) => (
+          <CityGroup key={idx} data={group} setHotelList={setHotelList} />
+        ))}
+      </div>
+      <div id="scrollContainer">
+        <HotelGroup list={hotelList} />
+      </div>
     </div>
   );
 }

@@ -317,3 +317,19 @@ html,
   50% { background-position: 400% 0; }
   100% { background-position: 0 0; }
 }
+
+.hotel-main {
+  color: gray;
+}
+
+.neighborhoods {
+  display: flex;
+  flex-direction: column;
+}
+
+.hotel-text {
+  display: flex;
+  width: 70%;
+  flex-direction: row;
+  margin-left: 1em;
+}
