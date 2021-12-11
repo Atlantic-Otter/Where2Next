@@ -28,7 +28,7 @@ const BookingModal = ({ closeModal, modalType }) => {
 
   const onNavigate = (path) => {
     closeModal();
-    console.log("path");
+
     navigate("../" + path + search);
   };
   const renderButtons = (modalType) => {
