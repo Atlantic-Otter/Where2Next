@@ -16,23 +16,25 @@ const CheckoutModal = () => {
   return (
     <div className="modal-background" onClick={toggleCheckoutModal}>
       <div className="modal-window" onClick={(event) => { event.stopPropagation(); }}>
-        <div className="modal-close-box">
-          <span className="modal-close-button" onClick={toggleCheckoutModal}>&times;</span>
-        </div>
+
         <div id="checkout-categories">
           {events.map((event, i) =>
-            <CheckoutTile key={i} service="event" info={event} />
-
+            <CheckoutTile key={i} service="event" infoObj={event} />
           )}
 
           {flights.map((flight, i) =>
-            <CheckoutTile key={i} service="flight" info={flight} />
+            <CheckoutTile key={i} service="flight" infoObj={flight} />
           )}
 
           {hotels.map((hotel, i) =>
-            <CheckoutTile key={i} service="hotel" info={hotel} />
+            <CheckoutTile key={i} service="hotel" infoObj={hotel} />
           )}
         </div>
+
+        <div className="modal-close-box">
+          <span className="modal-close-button" onClick={toggleCheckoutModal}>&times;</span>
+        </div>
+
       </div>
     </div>
     );
