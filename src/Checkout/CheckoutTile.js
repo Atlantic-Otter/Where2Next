@@ -6,49 +6,64 @@ const CheckoutTile = ({ service, infoObj }) => {
   // props should include
     // name of service (flight, hotel, event)
     // the object itself
+    const dateOptions = {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: 'numeric',
+      minute:'2-digit'
+    };
+
+    var title, dateTime, price;
+
     switch (service) {
       case 'event':
-        const date = new Date(infoObj.dates.start.dateTime).toLocaleString();
+
         let minPrice = infoObj.priceRanges ? infoObj.priceRanges[0].min.toFixed(2) : "";
         let maxPrice = infoObj.priceRanges ? infoObj.priceRanges[0].max.toFixed(2) : "";
         minPrice = minPrice ? `$${minPrice}` : "No price listed";
-        const price = maxPrice > minPrice ? `$${maxPrice}` : `${minPrice}`;
 
-        return (
-          <div className="checkout-tile">
-            <h4>{infoObj.name}</h4>
-            <p>{date}</p>
-            {/* style price to be on right side */}
-            <p>{price}</p>
-          </div>
-        )
+        title = infoObj.name
+        price = maxPrice > minPrice ? `$${maxPrice}` : `$${minPrice}`;
+        dateTime = new Date(infoObj.dates.start.dateTime).toLocaleString([], dateOptions);
+
+      break;
       case 'flight':
-        const segments = infoObj.itineraries[0].segments;
-        const departTime = segments[0].departure.at;
-        const arriveTime = segments[segments.length - 1].arrival.at;
-        // &emsp;
+        let segments = infoObj.itineraries[0].segments;
+        let departTime = new Date(segments[0].departure.at).toLocaleString([], dateOptions);
+        let arriveTime = new Date(segments[segments.length - 1].arrival.at).toLocaleString([], dateOptions);
 
-        return (
-          <div className="checkout-tile">
-            <h4>{segments[0].departure.iataCode} to {segments[segments.length - 1].arrival.iataCode}</h4>
-            <p>
-              {departTime} - {arriveTime}
-            </p>
-            <p>
-              Total: {infoObj.price.total}
-            </p>
+        title = `${segments[0].departure.iataCode} to ${segments[segments.length - 1].arrival.iataCode}`;
+        dateTime = (
+          <>
+            <b>Departure:</b> &emsp; {departTime} <b>Arrival:</b> &emsp; {arriveTime}
+          </>
+        );
+        price = '$' + infoObj.price.total
 
-          </div>
-        )
+      break;
       case 'hotel':
         return (
           <div className="checkout-tile">
             hotel
           </div>
         )
-      default:
-        return (<p>Please specify tile type</p>)
     }
+
+
+    return(
+      <div id="checkout-tile">
+        <h4>
+          {title}
+        </h4>
+        <span>{dateTime}</span>
+
+        {/* will float right: */}
+        <span>{price}</span>
+      </div>
+    );
+
+
 };
 
 export default CheckoutTile;
