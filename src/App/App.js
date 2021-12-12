@@ -11,6 +11,7 @@ import ProfileModal from "../User/ProfileModal";
 import Header from "../Login/Header.js";
 import TripContext from "../TripContext";
 import UserContext from "../UserContext";
+import CheckoutModal from '../Checkout/CheckoutModal';
 
 const App = ({ test }) => {
   ///// CLEAR STORAGE ON CHECKOUT
@@ -26,6 +27,11 @@ const App = ({ test }) => {
 
   // state of the user info modal appearance
   const [profileModal, setProfileModal] = React.useState(false);
+  const [checkoutModal, setCheckoutModal] = React.useState(false);
+
+  const toggleCheckoutModal = (event) => {
+    setCheckoutModal(!checkoutModal);
+  };
 
   const toggleProfileModal = (event) => {
     // ONLY if user is logged in
@@ -49,7 +55,7 @@ const App = ({ test }) => {
 
   return (
     <UserContext.Provider value={{ user, setUser, toggleProfileModal }}>
-      <TripContext.Provider value={{ currentTrip, setCurrentTrip }}>
+      <TripContext.Provider value={{ currentTrip, setCurrentTrip, toggleCheckoutModal }}>
         <Header />
         <Router>
           <Routes>
@@ -58,6 +64,7 @@ const App = ({ test }) => {
           </Routes>
         </Router>
         {profileModal ? <ProfileModal /> : <></>}
+        {checkoutModal ? <CheckoutModal /> : <></>}
       </TripContext.Provider>
     </UserContext.Provider>
   );

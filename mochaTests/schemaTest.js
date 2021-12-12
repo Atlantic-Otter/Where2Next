@@ -5,11 +5,15 @@ chai.use(require('chai-shallow-deep-equal'));
 chai.use(require('chai-as-promised'));
 const User = require('../database/schema.js');
 
-var startedAt = Date.now();
+var startedAt;
 describe('Basic storage', function() {
+  before(() => {
+    startedAt = Date.now();
+  });
 
   it('should store user information', async function() {
     await User.create({
+      email: 'elliotL@gmail.com',
       username: 'Ellito',
       password: 'Bees'
     }).
@@ -30,6 +34,7 @@ describe('Basic storage', function() {
   // UPDATE TO REFLECT SCHEMA CHANGES
   it('users should store itineraries', async function() {
     await User.create({
+      email: 'adamJreact@gmail.com',
       username: 'AdamJ',
       password: 'FieldCouch',
       upcomingTrips: [{
@@ -59,12 +64,14 @@ describe('Basic storage', function() {
   });
 });
 
+
 describe('Handling invalid input', function() {
   after(function() {
-    // TODO: add a User.remove(//some function to delete documents added from the test, perhaps add a `created_at: Date.now()` to schema - at end of test call .remove on any documents matching (Date.now() - 3000)
     var endedAt = Date.now();
+    console.log('ended at:', endedAt);
+    console.log('started at:', startedAt);
     User.deleteMany({
-      created_at: {$gte: (endedAt - startedAt)}
+      created_at: {$gte: startedAt - 100}
     })
     .then(() => {
       console.log('Removed db entries added during test');
@@ -75,8 +82,6 @@ describe('Handling invalid input', function() {
       console.error('Error deleting dummy users from test - please check your local mongosh instance for remnants of test-created documents');
       throw err;
     })
-
-
   });
 
 
@@ -96,7 +101,8 @@ describe('Handling invalid input', function() {
     return expect(
       User.create({
         useraname: 'AdamJ',
-        password: 'HiFromSF'
+        password: 'HiFromSF',
+        email: 'egg@gmail.com'
       })).to.eventually.be.rejected;
   });
 
@@ -106,6 +112,14 @@ describe('Handling invalid input', function() {
       password: 'Bees'
     })).to.eventually.be.rejected;
   });
+
+  it('should reject duplicate emails', function() {
+    return expect(User.create({
+      username: 'newPerson',
+      password: 'newPassword',
+      email: 'elliotL@gmail.com'
+    })).to.eventually.be.rejected;
+  })
 
   it('should reject insert queries missing the required fields', function() {
     return expect(User.create({})).to.eventually.be.rejected;

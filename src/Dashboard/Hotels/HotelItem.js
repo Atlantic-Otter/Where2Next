@@ -15,6 +15,10 @@ const HotelItem = ({ hotel, tripDuration }) => {
     if (hotel.guestReviews.rating !== undefined) setRating(hotel.guestReviews.rating)
     if (hotel.guestReviews.badgeText !== undefined) setBadgeText(hotel.guestReviews.badgeText)
     if (hotel.optimizedThumbUrls.srpDesktop !== undefined) setThumbnail(hotel.optimizedThumbUrls.srpDesktop)
+    // price = price || '';
+    // rating = rating || '';
+    // badgeText = badgeText || '';
+    // thumbnail = thumbnail || '';
 
   }, [])
 

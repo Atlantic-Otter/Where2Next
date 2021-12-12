@@ -1,17 +1,28 @@
 import React from "react";
 import TripContext from "../../../src/TripContext.js";
 import { useContext } from "react";
+import styles from "./Events.css";
 
-function EventListItem({ event }) {
+function EventListItem({ event, openModal }) {
   const { currentTrip, setCurrentTrip } = useContext(TripContext);
 
   const addEventToTrip = () => {
     const newTrip = { ...currentTrip };
     newTrip.events.push(event);
     setCurrentTrip(newTrip);
+
+    openModal();
   };
+
   console.log(event);
-  const date = new Date(event.dates.start.dateTime).toLocaleString();
+  const date = new Date(event.dates.start.dateTime).toLocaleString([], {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+  });
+
   const imgURL = event.images[0].url;
   let minPrice = event.priceRanges ? event.priceRanges[0].min.toFixed(2) : "";
   let maxPrice = event.priceRanges ? event.priceRanges[0].max.toFixed(2) : "";
@@ -20,16 +31,19 @@ function EventListItem({ event }) {
     maxPrice > minPrice ? `From ${minPrice} to $${maxPrice}` : `${minPrice}`;
   return (
     <div className="eventListItem">
-      <h4>{event.name}</h4>
+      <h4 className="name">{event.name}</h4>
       <div className="eventDetails">
         <img className="eventListImage" src={imgURL} />
         <div className="eventText">
           <span>{date}</span>
           <span>{price}</span>
         </div>
-        <button className="addToTrip" onClick={addEventToTrip}>
-          Add to Trip
-        </button>
+        <div className="buttonsContainer">
+          <button className="readMore">Read More</button>
+          <button className="addToTrip" onClick={addEventToTrip}>
+            Add to Cart
+          </button>
+        </div>
       </div>
     </div>
   );

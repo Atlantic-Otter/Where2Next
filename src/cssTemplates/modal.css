@@ -12,20 +12,39 @@
 }
 
 /* Modal Content/Box */
-.login-menu {
+.modal-window {
   /* may want z index of 2? */
-  background-color: #fefefe;
+  background: rgb(9,7,156);
+  background: -moz-radial-gradient(circle, rgba(9,7,156,1) 0%, rgba(31,18,51,1) 100%);
+  background: -webkit-radial-gradient(circle, rgba(9,7,156,1) 0%, rgba(31,18,51,1) 100%);
+  background: radial-gradient(circle, rgba(9,7,156,1) 0%, rgba(31,18,51,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#09079c",endColorstr="#1f1233",GradientType=1);
+
+  color: #fefefe;
   z-index: 3;
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  border-radius: 5vw;
+  /* width: 40%; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-close-box {
+  /* width: 20%; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3% 0 3%;
 }
 
 /* The Close Button */
 .modal-close-button {
   color: #aaa;
-  float: right;
   font-size: 28px;
   font-weight: bold;
 }
@@ -36,3 +55,27 @@
   text-decoration: none;
   cursor: pointer;
 }
+
+#login-form {
+  margin-left: 2%;
+  display: flex;
+  flex-direction:  row;
+  justify-content: space-between;
+
+}
+
+#submit-button {
+  padding: 0.3em 0.5em 0.3em 0.5em;
+  border-radius: 5vw;
+}
+
+#login-form > * {
+  margin: auto 3% auto 3%;
+}
+
+
+#username, #password {
+  border-radius: 5vw;
+}
+
+

@@ -6,7 +6,7 @@ import HotelGroup from "./HotelGroup";
 import getTripLength from "../../../Helpers/getTripLength";
 import FadeLoader from "react-spinners/FadeLoader";
 import { useParams } from "react-router-dom";
-import { ConnectionStates } from "mongoose";
+// import { ConnectionStates } from "mongoose";
 
 
 function Hotels() {
@@ -14,6 +14,7 @@ function Hotels() {
   const [hotelList, setHotelList] = useState([]);
   const [loading, setLoading] = useState(true);
   const { city, state, endDate, startDate} = useSearchParams();
+  city = city || "";
   const encodedCity = city.split(" ").join("+");
   const neighborhood = useParams()["*"];
 
