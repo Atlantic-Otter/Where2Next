@@ -6,7 +6,7 @@ function CityGroup({ data }) {
 
   return (
     <Link to={`${name}${search}`}>
-      <div className="neighorhoods">{name}</div>
+      <div className="neighborhood">{name}</div>
     </Link>
   );
 }

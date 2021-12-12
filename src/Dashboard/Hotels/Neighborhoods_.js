@@ -3,11 +3,11 @@ import HotelItem from "./HotelItem";
 
 function HotelGroup({ list }) {
   return (
-    <div name="hotel-group">
+    <div name="neighborhood-item">
       {list.map((hotel, idx) => (
         <HotelItem hotel={hotel} key={idx} />
       ))}
-      
+
     </div>
   );
 }

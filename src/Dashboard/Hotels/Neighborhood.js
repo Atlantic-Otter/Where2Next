@@ -11,4 +11,4 @@ function Neighborhood({ data }) {
   );
 }
 
-export default Neighborhood;
+// export default Neighborhood;
