@@ -23,20 +23,33 @@ function EventListItem({ event, openModal }) {
     minute: "2-digit",
   });
 
-  const imgURL = event.images[0].url;
+  // const imgURL = event.images[0].url;
+
+  const chooseImage = (event) => {
+    let imgURL = '';
+    event.images.forEach((image) => {
+      if (image.ratio === '4_3') {
+        imgURL = image.url;
+      }
+    })
+    return imgURL;
+  }
+
+
   let minPrice = event.priceRanges ? event.priceRanges[0].min.toFixed(2) : "";
   let maxPrice = event.priceRanges ? event.priceRanges[0].max.toFixed(2) : "";
   minPrice = minPrice ? `$${minPrice}` : "No price listed";
   const price =
     maxPrice > minPrice ? `From ${minPrice} to $${maxPrice}` : `${minPrice}`;
+
   return (
     <div className="eventListItem">
       <h4 className="name">{event.name}</h4>
       <div className="eventDetails">
-        <img className="eventListImage" src={imgURL} />
+        <img className="eventListImage" src={chooseImage(event)} />
         <div className="eventText">
-          {event.classifications[0].genre.name !== "Undefined" &&
-          <span>{event.classifications[0].genre.name}</span>}
+          {/* {event.classifications[0].genre.name !== undefined &&
+          <span>{event.classifications[0].genre.name}</span>} */}
           <span>{event._embedded.venues[0].name}</span>
           <span>{event._embedded.venues[0].address.line1}</span>
 

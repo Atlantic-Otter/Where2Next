@@ -27,10 +27,11 @@
   height: 58.62px;
   left: 262px;
   top: 200px;
-  background: rgba(100, 8, 230, 0.19);
+  background: rgba(100, 8, 230, 0.1);
   border-radius: 40px;
   color:white;
   padding-left: 2em;
+  border-color: white;
 }
 
 .searchEvents {
@@ -38,11 +39,12 @@
   height: 58.62px;
   left: 262px;
   top: 200px;
-  background: rgba(100, 8, 230, 0.19);
+  background: rgba(100, 8, 230, 0.1);
   border-radius: 40px;
   color:white;
   padding-left: 2em;
   margin-top: 2em;
+  border-color: white;
 }
 
 .searchLocation::placeholder {
