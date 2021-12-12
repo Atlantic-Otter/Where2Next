@@ -15,6 +15,7 @@ function EventListItem({ event, openModal }) {
   };
 
   console.log(event);
+
   const date = new Date(event.dates.start.dateTime).toLocaleString([], {
     year: "numeric",
     month: "long",
@@ -22,8 +23,6 @@ function EventListItem({ event, openModal }) {
     hour: "numeric",
     minute: "2-digit",
   });
-
-  // const imgURL = event.images[0].url;
 
   const chooseImage = (event) => {
     let imgURL = '';
@@ -34,7 +33,6 @@ function EventListItem({ event, openModal }) {
     })
     return imgURL;
   }
-
 
   let minPrice = event.priceRanges ? event.priceRanges[0].min.toFixed(2) : "";
   let maxPrice = event.priceRanges ? event.priceRanges[0].max.toFixed(2) : "";
