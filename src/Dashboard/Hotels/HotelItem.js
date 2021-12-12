@@ -36,6 +36,7 @@ const HotelItem = ({ hotel, tripDuration }) => {
         <div className="hotel-detail-price">
           <h5>{price}</h5>
           <div>Add to Cart</div>
+          total: {'$'+Number(price.split('').splice(1).join('')) * tripDuration}
 
         </div>
       </div>
