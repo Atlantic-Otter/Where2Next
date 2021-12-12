@@ -3,15 +3,17 @@ import useSearchParams from "../../../Helpers/useSearchParams";
 import axios from "axios";
 import CityGroup from "./CityGroup";
 import HotelGroup from "./HotelGroup";
+import getTripLength from "../../../Helpers/getTripLength";
 import FadeLoader from "react-spinners/FadeLoader";
 import { useParams } from "react-router-dom";
 import { ConnectionStates } from "mongoose";
+
 
 function Hotels() {
   const [cityGroups, setCityGroups] = useState([]);
   const [hotelList, setHotelList] = useState([]);
   const [loading, setLoading] = useState(true);
-  const { city } = useSearchParams();
+  const { city, state, endDate, startDate} = useSearchParams();
   const encodedCity = city.split(" ").join("+");
   const neighborhood = useParams()["*"];
 
@@ -27,6 +29,8 @@ function Hotels() {
       fetchHotels(neighborhoodId);
     }
   }, [cityGroups, neighborhood]);
+
+  const tripDuration = getTripLength(startDate, endDate);
 
   const fetchNeighborhoods = (city) => {
     axios
@@ -49,19 +53,30 @@ function Hotels() {
       .catch((err) => console.log(err));
   };
 
+  // const handlePagination = (e) => {
+  //   const page = e.target.value
+  //   const header = {params: {page}}
+  //   axios
+  //   .get(url, header)
+  //   .then((response) => {
+  //     setHotelList(response.data);
+  //   })
+  //   .catch((err) => console.log(err));
+  // }
+
   return (
     <div className="hotel-main" id="listContainer">
 
       <h3>Neighborhoods</h3>
       <div className="neighborhoods">
-      <FadeLoader color="orange" loading={loading} />
-      {cityGroups.map((group, idx) => (
-        <CityGroup key={idx} data={group} setHotelList={setHotelList} />
-      ))}
+        <FadeLoader color="orange" loading={loading} />
+        {cityGroups.map((group, idx) => (
+          <CityGroup key={idx} data={group} setHotelList={setHotelList} />
+        ))}
       </div>
 
       <div id="scrollContainer">
-        <HotelGroup list={hotelList} />
+        <HotelGroup list={hotelList} tripDuration={tripDuration} />
       </div>
 
       <nav aria-label="hotel-pagination">

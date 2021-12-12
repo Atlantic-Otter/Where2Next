@@ -3,11 +3,11 @@ import HotelItem from "./HotelItem";
 
 // const [loading, setLoading] = useState(true);
 
-function HotelGroup({ list }) {
+function HotelGroup({ list, tripDuration }) {
   return (
     <div className="hotel-group">
       {list.map((hotel, idx) => (
-        <HotelItem hotel={hotel} key={idx} />
+        <HotelItem hotel={hotel} key={idx} tripDuration={tripDuration} />
       ))}
     </div>
   );

@@ -322,12 +322,6 @@ html,
   color: gray;
 }
 
-.neighborhood {
-  display: flex;
-  flex-direction: row;
-  margin-right: 2em;
-}
-
 .hotel-item-detail {
   display: flex;
   flex-direction: row;
@@ -339,7 +333,8 @@ html,
 
 
 .hotel-detail-img {
-  /* border: 1px solid white; */
+  width: 180px;     /* change to % */
+  object-fit: cover;
   margin-right: 1em;
 }
 
@@ -347,14 +342,21 @@ html,
   display: flex;
   flex-direction: column;
   align-self: stetch;
-  flex-grow: 2;
-  /* border: 1px solid white; */
-
+  flex-grow: 1;
+  font-size: .6em;
 }
 
 .hotel-detail-price {
   display: flex;
-  /* align-items: flex-end; */
+  flex-direction: column;
   align-self: flex-end;
-  /* border: 1px solid white; */
+  font-size: .7em;
+  /* align-items: flex-end; */
 }
+
+.neighborhoods {
+  display: flex;
+  flex-direction: row;
+  margin-right: 1em;
+}
+
