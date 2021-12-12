@@ -84,14 +84,14 @@ function Events() {
   };
 
   return (
-    <div id="listContainer" >
+    <div id="eventsPage" >
       {modalIsOpen && (
         <BookingModal modalIsOpen={modalIsOpen} closeModal={closeModal} />
       )}
       {loading ? (
         <FadeLoader color="orange" loading={loading} />
       ) : (
-        <>
+        <div id="eventsList">
           <div className="listHeader">
             <h2>Events</h2>
           </div>
@@ -102,7 +102,7 @@ function Events() {
           <div id="scrollContainer">
             {filterEvents()}
           </div>
-        </>
+        </div>
       )}
     </div>
   );
