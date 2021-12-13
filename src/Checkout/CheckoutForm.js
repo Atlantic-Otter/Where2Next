@@ -2,36 +2,49 @@ import React from 'react';
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-const CheckoutForm = ({ handleSubmit }) => {
+const CheckoutForm = ({ handleSubmit, updateText, validated }) => {
 
   return (
     <div id="checkout-form-container" >
-      <Form id="checkout-form" >
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form id="checkout-form" noValidate validated={validated} onSubmit={handleSubmit}>
+
+        <Form.Group className="mb-3" controlId="validationCustom01" >
           <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" required/>
+          <Form.Control required type="email" placeholder="Enter email" onChange={updateText} />
+          <Form.Control.Feedback type="invalid">
+            Email is required.
+          </Form.Control.Feedback>
           <Form.Text className="text-muted">
             We won't spam you.
           </Form.Text>
         </Form.Group>
 
-        <Form.Group className="mb-3" >
+        <Form.Group className="mb-3" controlId="validationCustom02">
           <Form.Label>Credit card:</Form.Label>
-          <Form.Control type="text" placeholder="Card number" required />
+          <Form.Control required type="text" placeholder="Card number" onChange={updateText} />
+          <Form.Control.Feedback type="invalid">
+            Credit card is required
+          </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group className="mb-3" >
+        <Form.Group className="mb-3" controlId="validationCustom03">
           <Form.Label>Expires:</Form.Label>
-          <Form.Control type="password" placeholder="MM/YYYY" required />
+          <Form.Control required type="text" placeholder="MM/YYYY" onChange={updateText} />
+          <Form.Control.Feedback type="invalid">
+            Expiration date required.
+          </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group className="mb-3" >
+        <Form.Group className="mb-3" controlId="validationCustom04" >
           <Form.Label>Security code:</Form.Label>
-          <Form.Control type="password" placeholder="CVV" required />
+          <Form.Control required type="password" placeholder="CVV" onChange={updateText} />
+          <Form.Control.Feedback type="invalid">
+              CVV security code required.
+          </Form.Control.Feedback>
         </Form.Group>
 
 
-        <Button id="checkout-button" variant="primary" type="submit" onClick={handleSubmit}>
+        <Button id="checkout-button" variant="primary" type="submit" >
           Checkout
         </Button>
       </Form>

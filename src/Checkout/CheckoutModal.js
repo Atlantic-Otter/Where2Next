@@ -14,7 +14,8 @@ const CheckoutModal = () => {
     cvv: ''
   });
 
-  const [paid, setPaid] = React.useState(false);
+
+
 
   const updateText = (event) => {
     var stateKey = event.target.id;
@@ -23,19 +24,26 @@ const CheckoutModal = () => {
     setText(newState);
   };
 
+  const [validated, setValidated] = React.useState(false);
+  const [paid, setPaid] = React.useState(false);
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    setCurrentTrip({
-      events: [],
-      flights: [],
-      hotels: []
-    });
 
-    setPaid(!paid);
+    const form = event.currentTarget
+    if (form.checkValidity()) {
+      setCurrentTrip({
+        events: [],
+        flights: [],
+        hotels: []
+      });
+      setPaid(!paid);
+    }
+
+    setValidated(true);
   };
 
   return (
-
     <div className="modal-background" onClick={toggleCheckoutModal}>
       <div className="checkout-modal-window" onClick={(event) => { event.stopPropagation(); }}>
         <div id="checkout-close-box">
@@ -69,7 +77,11 @@ const CheckoutModal = () => {
 
             </div>
 
-            <CheckoutForm handleSubmit={handleSubmit}/>
+            <CheckoutForm
+              handleSubmit={handleSubmit}
+              updateText={updateText}
+              validated={validated}
+              />
           </div>
       </>
       }
