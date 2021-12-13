@@ -1,0 +1,109 @@
+/*BROWSER*/
+@media screen and (min-width: 600px) {
+  .eventListImage {
+    width: 10vw;
+    height: 10vw;
+  }
+}
+
+/* MOBILE */
+@media screen and (max-width: 600px) {
+  .eventListImage {
+    height: 15vw;
+    width: 15vw;
+  }
+}
+.listItem {
+  background-color: #5a175e;
+  border-radius: 5mm;
+  border: 1px solid black;
+  margin: 1em;
+  padding: 1em;
+}
+
+.listItem:nth-child(even) {
+  background: #67084f;
+}
+
+.name {
+  color: white;
+}
+
+.listDetails {
+  color: white;
+  display: flex;
+  flex-direction: row;
+}
+
+.infoListContainer {
+  width: 100%;
+}
+
+#scrollContainer {
+  margin-top: 2em;
+  overflow: scroll;
+  height: 90%;
+  width: 80%;
+}
+#loaderContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#scrollContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.eventsList {
+  align-self: center;
+  height: 100%;
+  width: 80%;
+  padding: 1em;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.buttonsContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.addToTrip {
+  width: 8em;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 6px;
+  align-items: center;
+  padding: 10px 10px;
+  background-color: black;
+  color: white;
+}
+
+.readMore {
+  width: 8em;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 6px;
+  align-items: center;
+  padding: 10px 10px;
+  background-color: #ffffff;
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.readyMoreText {
+  font-weight: bold;
+}
