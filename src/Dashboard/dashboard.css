@@ -1,8 +1,10 @@
 /*BROWSER*/
 @media screen and (min-width: 600px) {
   .eventListImage {
-    width: 10vw;
-    height: 10vw;
+    width: 100%;
+    height: 100%;
+    max-width: 20vw;
+    border-radius: 2em;
   }
 }
 
@@ -41,6 +43,25 @@
 
 .infoListContainer {
   width: 100%;
+}
+
+.quantityPicker {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color:#dd9a33
+}
+
+.quantityIndicator {
+  font-weight: bold;
+  font-size: 2em;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.quantityBtn:active {
+  opacity: 0.5;
 }
 
 #scrollContainer {
