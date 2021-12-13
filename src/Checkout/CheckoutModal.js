@@ -13,7 +13,7 @@ import ThankYou from './ThankYou';
 
 const CheckoutModal = () => {
 
-  const { setCurrentTrip, toggleCheckoutModal } = React.useContext(TripContext);
+  const { currentTrip, setCurrentTrip, toggleCheckoutModal } = React.useContext(TripContext);
   const { events, flights, hotels } = JSON.parse(window.localStorage.currentTrip);
   const [text, setText] = React.useState({
     creditCard: '',
@@ -37,18 +37,15 @@ const CheckoutModal = () => {
     // localStorage.setItem('currentTrip', '{}');
     // console.log('localstorage: ', localStorage.currentTrip);
 
-    setCurrentTrip({
-      events: [],
-      flights: [],
-      hotels: []
-    });
 
+      setCurrentTrip({
+        events: [],
+        flights: [],
+        hotels: []
+      });
 
+      setPaid(!paid);
 
-    // console.log(' type of localstorage: ', typeof localStorage.currentTrip);
-
-    // should re-render the form to display a thank you message
-    setPaid(!paid);
   };
 
 
