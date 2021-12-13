@@ -106,8 +106,8 @@ describe.only('Handling invalid/incomplete input', function() {
   it('fills missing fields with `null` and empty array values', function(done) {
     User.findOne(userWithoutItinerary)
     .then((results) => {
-      expect(results.upcomingTrips.length).to.eql(0);
-      expect(results.previousTrips.length).to.eql(0);
+      expect(results.upcomingTrips.length).to.equal(0);
+      expect(results.previousTrips.length).to.equal(0);
       done();
     })
     .catch((err) => {
