@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import TripContext from "../../../src/TripContext.js";
 import { useContext } from "react";
 import "./Events.css";
+// import "../dashboard.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusCircle, faMinusCircle } from '@fortawesome/free-solid-svg-icons'
 
@@ -13,7 +14,8 @@ function EventListItem({ event, openModal }) {
     const newTrip = { ...currentTrip };
     newTrip.events.push(event);
     setCurrentTrip(newTrip);
-    openModal();
+
+    openModal(quantity);
   };
 
   console.log(event);
@@ -53,12 +55,9 @@ function EventListItem({ event, openModal }) {
     <div className="listItem">
       <h4 className="name">{event.name}</h4>
       <div className="listDetails">
-        <img className="eventListImage" src={chooseImage(event)} style={{
-          width: '100%',
-          height: '100%',
-          maxWidth: '20vw',
-          borderRadius: '2em',
-        }}/>
+        <img className="eventListImage"
+        src={chooseImage(event)}
+        />
         <div className="eventText">
           <span>{event._embedded.venues[0].name}</span>
           <span>{event._embedded.venues[0].address.line1}</span>

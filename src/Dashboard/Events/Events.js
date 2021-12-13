@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import useSearchParams from "../../../Helpers/useSearchParams";
 import axios from "axios";
 import EventListItem from "./EventListItem";
 import BookingModal from "../../BookingModal/BookingModal";
 import FadeLoader from "react-spinners/FadeLoader";
-// import "../dashboard.css";
-import "./Events.css";
+import "../dashboard.css";
+// import "./Events.css";
 
 function Events() {
   const [events, setEvents] = useState([]);
@@ -13,6 +13,8 @@ function Events() {
   const [loading, setLoading] = useState(true);
   const [keywords, setKeywords] = useState([]);
   const { startDate, endDate, city, state } = useSearchParams();
+
+  const selectedQuantity = useRef(0);
 
   useEffect(() => {
     let isSubscribed = true;
@@ -36,11 +38,14 @@ function Events() {
 
   const [modalIsOpen, setIsOpen] = useState(false);
 
-  const openModal = () => {
+  const openModal = (quantity) => {
+    // setSelectedQuantity(quantity);
+    selectedQuantity.current = quantity;
     setIsOpen(true);
   };
 
   const closeModal = () => {
+    // selectedQuantity = 0;
     setIsOpen(false);
   };
 
@@ -100,7 +105,7 @@ function Events() {
   return (
     <div id="eventsPage" >
       {modalIsOpen && (
-        <BookingModal modalIsOpen={modalIsOpen} closeModal={closeModal} />
+        <BookingModal modalIsOpen={modalIsOpen} closeModal={closeModal} quantity={selectedQuantity.current}/>
       )}
       {loading ? (
         <FadeLoader color="orange" loading={loading} />
