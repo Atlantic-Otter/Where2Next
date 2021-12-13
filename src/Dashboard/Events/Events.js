@@ -4,8 +4,8 @@ import axios from "axios";
 import EventListItem from "./EventListItem";
 import BookingModal from "../../BookingModal/BookingModal";
 import FadeLoader from "react-spinners/FadeLoader";
+// import "../dashboard.css";
 import "./Events.css";
-import "../dashboard.css";
 
 function Events() {
   const [events, setEvents] = useState([]);
@@ -47,6 +47,7 @@ function Events() {
   const keywordsOnChange = (e) => {
     let input = e.target.value.replaceAll(',', ' ');
     let inputs = input.split(' ');
+    console.log(inputs)
     setKeywords(inputs);
   };
 
@@ -54,19 +55,16 @@ function Events() {
     let matchedEvents = [];
     let eventsCopy = events.slice();
 
-    if (keywords.join(",").length >= 3) {
+    if (keywords.join(',').length >= 3) {
       eventsCopy.forEach((event) => {
-        for (let i = 0; i < keywords.length; i++) {
+        for (let i = 0; i < keywords.length; i ++) {
           const keyword = keywords[i];
-          if (
-            keyword.length >= 3 &&
-            event.name.toLowerCase().includes(keyword.toLowerCase())
-          ) {
+          if (keyword.length >= 3 && event.name.toLowerCase().includes(keyword.toLowerCase())) {
             matchedEvents.push(event);
             break;
           }
         }
-      });
+      })
       return renderEventList(matchedEvents);
     } else {
       return renderEventList();
@@ -100,7 +98,7 @@ function Events() {
   };
 
   return (
-    <div id="eventsPage">
+    <div id="eventsPage" >
       {modalIsOpen && (
         <BookingModal modalIsOpen={modalIsOpen} closeModal={closeModal} />
       )}
@@ -121,29 +119,7 @@ function Events() {
             </div>
           }
         </div>
-        <input
-          type="text"
-          name="locationInput"
-          className="searchLocation"
-          placeholder="Location"
-        />
-        <input
-          type="text"
-          name="search-events"
-          className="searchEvents"
-          placeholder="Enter keywords(s)"
-          onChange={keywordsOnChange}
-        />
-        <div id="scrollContainer">
-          {loading ? (
-            <div id="loaderContainer">
-              <FadeLoader color="orange" loading={loading} />
-            </div>
-          ) : (
-            filterEvents()
-          )}
-        </div>
-      </div>
+      )}
     </div>
   );
 }

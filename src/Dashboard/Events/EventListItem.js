@@ -53,7 +53,12 @@ function EventListItem({ event, openModal }) {
     <div className="listItem">
       <h4 className="name">{event.name}</h4>
       <div className="listDetails">
-        <img className="eventListImage" src={chooseImage(event)} />
+        <img className="eventListImage" src={chooseImage(event)} style={{
+          width: '100%',
+          height: '100%',
+          maxWidth: '20vw',
+          borderRadius: '2em',
+        }}/>
         <div className="eventText">
           <span>{event._embedded.venues[0].name}</span>
           <span>{event._embedded.venues[0].address.line1}</span>
@@ -64,9 +69,9 @@ function EventListItem({ event, openModal }) {
         </div>
         <div className="infoListContainer">
           <div className="quantityPicker">
-            <FontAwesomeIcon icon={faMinusCircle} size="2x" onClick={decreaseQuantity}/>
+            <FontAwesomeIcon icon={faMinusCircle} size="2x" onClick={decreaseQuantity} className="quantityBtn"/>
             <span className="quantityIndicator">{quantity}</span>
-            <FontAwesomeIcon icon={faPlusCircle} size="2x" onClick={increaseQuantity}/>
+            <FontAwesomeIcon icon={faPlusCircle} size="2x" onClick={increaseQuantity} className="quantityBtn"/>
           </div>
           <div className="buttonsContainer">
             <a className="readMore" href={event.url} target="_blank">
