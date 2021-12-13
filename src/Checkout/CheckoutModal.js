@@ -38,25 +38,34 @@ const CheckoutModal = () => {
 
     <div className="modal-background" onClick={toggleCheckoutModal}>
       <div className="checkout-modal-window" onClick={(event) => { event.stopPropagation(); }}>
-        <span className="independent-close-button" onClick={toggleCheckoutModal}>&times;</span>
+        <div id="checkout-close-box">
+          <span className="modal-close-button" onClick={toggleCheckoutModal}>&times;</span>
+
+        </div>
         {paid ? <ThankYou /> :
         <>
           <div id="checkout-top">
             <div id="checkout-categories">
-              <h3>Events:</h3>
-              {events.map((event, i) =>
-                <CheckoutTile key={i} service="event" infoObj={event} />
-              )}
+              <div className="given-category">
+                <h3>Events:</h3>
+                {events.map((event, i) =>
+                  <CheckoutTile key={i} service="event" infoObj={event} />
+                )}
+              </div>
 
-              <h3>Flights:</h3>
-              {flights.map((flight, i) =>
-                <CheckoutTile key={i} service="flight" infoObj={flight} />
-              )}
+              <div className="given-category">
+                <h3>Flights:</h3>
+                {flights.map((flight, i) =>
+                  <CheckoutTile key={i} service="flight" infoObj={flight} />
+                )}
+              </div>
 
-              <h3>Hotels:</h3>
-              {hotels.map((hotel, i) =>
-                <CheckoutTile key={i} service="hotel" infoObj={hotel} />
-              )}
+              <div className="given-category">
+                <h3>Hotels:</h3>
+                {hotels.map((hotel, i) =>
+                  <CheckoutTile key={i} service="hotel" infoObj={hotel} />
+                )}
+              </div>
 
             </div>
 

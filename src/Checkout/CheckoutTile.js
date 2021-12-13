@@ -21,10 +21,10 @@ const CheckoutTile = ({ service, infoObj }) => {
 
         let minPrice = infoObj.priceRanges ? infoObj.priceRanges[0].min.toFixed(2) : "";
         let maxPrice = infoObj.priceRanges ? infoObj.priceRanges[0].max.toFixed(2) : "";
-        minPrice = minPrice ? `$${minPrice}` : "No price listed";
+        minPrice = minPrice ? `$${minPrice}` : "This one's on us!";
 
         title = infoObj.name
-        price = maxPrice > minPrice ? `$${maxPrice}` : `$${minPrice}`;
+        price = maxPrice > minPrice ? `$${maxPrice}` : `${minPrice}`;
         dateTime = new Date(infoObj.dates.start.dateTime).toLocaleString([], dateOptions);
 
       break;
@@ -43,23 +43,22 @@ const CheckoutTile = ({ service, infoObj }) => {
 
       break;
       case 'hotel':
-        return (
-          <div className="checkout-tile">
-            hotel
-          </div>
-        )
+        title = 'Hotels'
+        dateTime = 'tbd'
+        price = 'tbd'
+      break;
     }
 
 
     return(
-      <div id="checkout-tile">
-        <h4>
+      <div className="checkout-tile">
+        <h5>
           {title}
-        </h4>
+        </h5>
         <span>{dateTime}</span>
 
         {/* will float right: */}
-        <span>{price}</span>
+        <span className="tile-price">{price}</span>
       </div>
     );
 
