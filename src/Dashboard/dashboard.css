@@ -107,3 +107,12 @@
 .readyMoreText {
   font-weight: bold;
 }
+
+.hotel-text {
+  display: flex;
+  flex-direction: column;
+  align-self: stetch;
+  flex-grow: 1;
+  font-size: .6em;
+  margin-right: 1em;
+}

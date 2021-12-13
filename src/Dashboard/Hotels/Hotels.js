@@ -6,6 +6,7 @@ import HotelGroup from "./HotelGroup";
 import getTripLength from "../../../Helpers/getTripLength";
 import FadeLoader from "react-spinners/FadeLoader";
 import { useParams } from "react-router-dom";
+import '../dashboard.css'
 // import { ConnectionStates } from "mongoose";
 
 
@@ -65,8 +66,9 @@ function Hotels() {
   //   .catch((err) => console.log(err));
   // }
 
+  //listContainer <=hotel-main
   return (
-    <div className="hotel-main" id="listContainer">
+    <div className="eventsList">
 
       <h3>Neighborhoods</h3>
       <div className="neighborhoods">
