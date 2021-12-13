@@ -15,7 +15,6 @@ const CheckoutForm = ({ handleSubmit }) => {
           </Form.Text>
         </Form.Group>
 
-
         <Form.Group className="mb-3" >
           <Form.Label>Credit card:</Form.Label>
           <Form.Control type="text" placeholder="Card number" required />
