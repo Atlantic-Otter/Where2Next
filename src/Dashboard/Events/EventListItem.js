@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import TripContext from "../../../src/TripContext.js";
 import { useContext } from "react";
 import styles from "./Events.css";
@@ -7,6 +7,7 @@ import { faPlusCircle, faMinusCircle } from '@fortawesome/free-solid-svg-icons'
 
 function EventListItem({ event, openModal }) {
   const { currentTrip, setCurrentTrip } = useContext(TripContext);
+  const [ quantity, setQuantity ] = useState(0);
 
   const addEventToTrip = () => {
     const newTrip = { ...currentTrip };
@@ -35,6 +36,16 @@ function EventListItem({ event, openModal }) {
     return imgURL;
   };
 
+  const increaseQuantity = () => {
+    setQuantity(quantity + 1)
+  }
+
+  const decreaseQuantity = () => {
+    if (quantity > 0) {
+      setQuantity(quantity - 1)
+    }
+  }
+
   let minPrice = event.priceRanges ? event.priceRanges[0].min.toFixed(2) : "";
   let maxPrice = event.priceRanges ? event.priceRanges[0].max.toFixed(2) : "";
   minPrice = minPrice ? `$${minPrice}` : "No price listed";
@@ -47,8 +58,6 @@ function EventListItem({ event, openModal }) {
       <div className="listDetails">
         <img className="eventListImage" src={chooseImage(event)} />
         <div className="eventText">
-          {/* {event.classifications[0].genre.name !== undefined &&
-          <span>{event.classifications[0].genre.name}</span>} */}
           <span>{event._embedded.venues[0].name}</span>
           <span>{event._embedded.venues[0].address.line1}</span>
 
@@ -57,9 +66,10 @@ function EventListItem({ event, openModal }) {
           <span>{price}</span>
         </div>
         <div className="infoListContainer">
-          <div className="quantityIndicator">
-            <FontAwesomeIcon icon={faPlusCircle} size="2x" />
-            <FontAwesomeIcon icon={faMinusCircle} size="2x" />
+          <div className="quantityPicker">
+            <FontAwesomeIcon icon={faMinusCircle} size="2x" onClick={decreaseQuantity}/>
+            <span className="quantityIndicator">{quantity}</span>
+            <FontAwesomeIcon icon={faPlusCircle} size="2x" onClick={increaseQuantity}/>
           </div>
           <div className="buttonsContainer">
             <a className="readMore" href={event.url} target="_blank">
