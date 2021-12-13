@@ -13,7 +13,7 @@ function Hotels() {
   const [cityGroups, setCityGroups] = useState([]);
   const [hotelList, setHotelList] = useState([]);
   const [loading, setLoading] = useState(true);
-  let { city, state, endDate, startDate} = useSearchParams();
+  const { city, state, endDate, startDate} = useSearchParams();
   city = city || "";
   const encodedCity = city.split(" ").join("+");
   const neighborhood = useParams()["*"];
