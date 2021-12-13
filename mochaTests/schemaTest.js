@@ -6,6 +6,37 @@ chai.use(require('chai-as-promised'));
 const User = require('../database/schema.js');
 
 
+// populate users (array)
+const addUsersBefore = function(users) {
+  return function(done) {
+    User.create([...arguments])
+    .then(() => {
+      done();
+    })
+    .catch((err) => {
+      done(err);
+    });
+  };
+};
+
+// delete users (array)
+const removeUsersAfter = function(usernames) {
+  return function(done) {
+    // remove all entries
+    User.deleteMany({
+      username: { $in: usernames }
+    })
+    .then(() => {
+      done();
+    })
+    .catch((err) => {
+      done(err);
+    });
+  };
+};
+
+
+
 const userWithoutItinerary = {
   email: 'elliotL@gmail.com',
   username: 'Ellito',
@@ -34,24 +65,25 @@ const userWithItinerary = {
 const duplicateEmail = {
   username: 'newPerson',
   password: 'newPassword',
-  email: 'elliotL@gmail.com'
+  email: 'duplicate@gmail.com'
 };
 
 const duplicateUsername = {
 
-  useraname: 'AdamJ',
+  username: 'someUser',
   password: 'HiFromSF',
   email: 'egg@gmail.com'
 
 };
 
 const duplicatePassword = {
-  useraname: 'Charles_Arduino_weaponry',
-  password: 'Bees'
+  username: 'Charles_Arduino_weaponry',
+  password: 'memory',
+  email: 'stylemaster@gmail.com'
 };
 
 
-describe.only('Basic storage', function() {
+describe('Basic storage', function() {
   before(function (done) {
     // add userWith and userWithout
     User.create([userWithItinerary, userWithoutItinerary])
@@ -112,55 +144,65 @@ describe.only('Basic storage', function() {
 });
 
 
-describe('Handling invalid input', function() {
-  after(function() {
-    var endedAt = Date.now();
-
-    User.deleteMany({
-      created_at: {$gte: startedAt - 100}
-    })
+describe.only('Handling invalid/incomplete input', function() {
+  before(function (done) {
+    // add userWith and userWithout
+    User.create([userWithoutItinerary, duplicateEmail, duplicatePassword, duplicateUsername])
     .then(() => {
-      // console.log('Removed db entries added during test');
-
-      mongoose.connection.close();
+      done();
     })
     .catch((err) => {
-      console.error('Error deleting dummy users from test - please check your local mongosh instance for remnants of test-created documents');
+      console.log('asdfasdfasdfasdfasdf');
+      done(err);
+    });
+  });
 
+  after(function(done) {
+    // remove all entries
+    User.deleteMany({
+      username: { $in: ['Ellito', 'newPerson', 'someUser', 'Charles_Arduino_weaponry']}
     })
+    .then(() => {
+      mongoose.connection.close();
+      done();
+    })
+    .catch((err) => {
+      mongoose.connection.close();
+      done(err);
+    });
   });
 
 
-  it('fills missing fields with `null` and empty array values', function() {
-    User.findOne({username: 'Ellito'})
+  it('fills missing fields with `null` and empty array values', function(done) {
+    User.findOne(userWithoutItinerary)
     .then((results) => {
-      console.log('results ', results)
-      expect(results.upcomingTrips.length).to.equal(0);
-      expect(results.previousTrips.length).to.equal(456);
+      expect(results.upcomingTrips.length).to.eql(0);
+      expect(results.previousTrips.length).to.eql(0);
+      done();
     })
     .catch((err) => {
       console.warn('testing error');
       console.warn(err);
-
+      done(err);
     });
   });
 
   it('should reject duplicate usernames', function() {
+    return expect(User.create(duplicateUsername)).to.eventually.be.rejected;
+  });
+
+  it('should reject duplicate passwords', function() {
     return expect(
-      User.create()).to.eventually.be.rejected;
-    });
+      User.create(duplicatePassword)).to.eventually.be.rejected;
+  });
 
-    it('should reject duplicate passwords', function() {
-      return expect(User.create()).to.eventually.be.rejected;
-    });
+  it('should reject duplicate emails', function() {
+    return expect(User.create(duplicateEmail)).to.eventually.be.rejected;
+  })
 
-    it('should reject duplicate emails', function() {
-      return expect(User.create()).to.eventually.be.rejected;
-    })
-
-    it('should reject insert queries missing the required fields', function() {
-      return expect(User.create({})).to.eventually.be.rejected;
-      // mongoose.connection.close();
-    });
+  it('should reject insert queries missing the required fields', function() {
+    return expect(User.create({})).to.eventually.be.rejected;
 
   });
+
+});
