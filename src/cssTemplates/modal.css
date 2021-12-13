@@ -27,8 +27,8 @@
   padding: 50px;
   border: 1px solid #888;
   border-radius: 15px;
-  /* width: 40%; */
-  display: flex;
+
+  display: inline-flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -39,7 +39,7 @@
 }
 
 #checkout-top {
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
