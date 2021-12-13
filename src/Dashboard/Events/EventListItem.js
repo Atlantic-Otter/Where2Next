@@ -9,7 +9,6 @@ function EventListItem({ event, openModal }) {
     const newTrip = { ...currentTrip };
     newTrip.events.push(event);
     setCurrentTrip(newTrip);
-
     openModal();
   };
 

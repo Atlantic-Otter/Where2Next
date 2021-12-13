@@ -19,9 +19,9 @@ const { toggleProfileModal } = React.useContext(UserContext);
           <PreviousTrips />
         </div>
 
-        <div className="modal-close-box">
+        {/* <div className="modal-close-box"> */}
           <span className="modal-close-button" onClick={toggleProfileModal}>&times;</span>
-        </div>
+        {/* </div> */}
       </div>
     </div>
   )

@@ -8,11 +8,6 @@ import HotelToastItem from "./HotelToastItem";
 import FlightToastItem from "./FlightToastItem";
 
 function YourTripToast({ tripToastVisible, toggleTripToast }) {
-  const showCheckoutModal = {
-
-  }
-
-
   const { currentTrip, toggleCheckoutModal } = useContext(TripContext);
 
   const eventList = currentTrip.events.map((event) => (
