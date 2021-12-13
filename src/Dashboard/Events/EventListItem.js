@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TripContext from "../../../src/TripContext.js";
 import { useContext } from "react";
-import styles from "./Events.css";
+import "./Events.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusCircle, faMinusCircle } from '@fortawesome/free-solid-svg-icons'
 
@@ -46,11 +46,8 @@ function EventListItem({ event, openModal }) {
     }
   }
 
-  let minPrice = event.priceRanges ? event.priceRanges[0].min.toFixed(2) : "";
-  let maxPrice = event.priceRanges ? event.priceRanges[0].max.toFixed(2) : "";
-  minPrice = minPrice ? `$${minPrice}` : "No price listed";
-  const price =
-    maxPrice > minPrice ? `From ${minPrice} to $${maxPrice}` : `${minPrice}`;
+  let price = event.priceRanges ?
+    `$${((event.priceRanges[0].min + event.priceRanges[0].max) / 2).toFixed(2)}`: "Free";
 
   return (
     <div className="listItem">

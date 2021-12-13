@@ -4,7 +4,6 @@ import axios from "axios";
 import EventListItem from "./EventListItem";
 import BookingModal from "../../BookingModal/BookingModal";
 import FadeLoader from "react-spinners/FadeLoader";
-
 import "./Events.css";
 import "../dashboard.css";
 
