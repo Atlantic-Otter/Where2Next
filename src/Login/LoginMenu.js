@@ -32,7 +32,8 @@ const LoginMenu = ({ toggleModal }) => {
     })
     .catch((err) => {
       console.log('request error on querying username/password match');
-      throw err;
+      console.log(err);
+      // throw err;
     })
   };
 

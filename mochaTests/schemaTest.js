@@ -26,7 +26,6 @@ describe('Basic storage', function() {
     })
     .catch((err) => {
       console.warn('testing error');
-      throw err;
     })
   });
 
@@ -59,7 +58,7 @@ describe('Basic storage', function() {
     })
     .catch((err) => {
       console.warn('testing error');
-      throw err;
+
     })
   });
 });
@@ -80,7 +79,7 @@ describe('Handling invalid input', function() {
     })
     .catch((err) => {
       console.error('Error deleting dummy users from test - please check your local mongosh instance for remnants of test-created documents');
-      throw err;
+
     })
   });
 
@@ -93,7 +92,7 @@ describe('Handling invalid input', function() {
       })
       .catch((err) => {
         console.warn('testing error');
-        throw err;
+
       });
   });
 

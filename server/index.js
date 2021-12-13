@@ -22,6 +22,7 @@ User.findOne(testDummy)
 })
 .catch((err) => {
   console.log('No test dummy - add to your db manually');
-  throw err;
+  console.warn(err);
+  // throw err;
 });
 
