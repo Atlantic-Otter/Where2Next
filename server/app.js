@@ -7,21 +7,19 @@ app.use(cors());
 app.use(express.static("dist"));
 app.use(express.json());
 
-
 app.get(
   "/nearbyEvents/:city/:state/:startDate/:endDate",
   events.getNearbyEvents
 );
 
-app.get('/login', login.validate);
+app.get("/login", login.validate);
 
-app.get('/flights', flights.getFlights);
-
+app.get("/flights/:arrivalCode", flights.getFlights);
 
 // app.get(`/hotels/:city/:state/:startDate/:endDate`, hotels.fetchHotels);
 app.get(`/hotels/:city`, hotels.fetchCityGroups);
-app.get('/hotels/:city/:destinationId', hotels.fetchHotels)
-app.get('/hotels/city/:destinationId/photos', hotels.fetchPhotos)
-app.get('/hotels/city/:destinationId/propertyDetail', hotels.fetchDetail)
+app.get("/hotels/:city/:destinationId", hotels.fetchHotels);
+app.get("/hotels/city/:destinationId/photos", hotels.fetchPhotos);
+app.get("/hotels/city/:destinationId/propertyDetail", hotels.fetchDetail);
 
 module.exports = app;

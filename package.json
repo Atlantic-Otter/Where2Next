@@ -30,6 +30,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.16",
     "@svgr/webpack": "^6.1.1",
+    "airport-codes": "^1.0.2",
     "amadeus": "^5.7.1",
     "axios": "^0.24.0",
     "babel-jest": "^27.4.2",
