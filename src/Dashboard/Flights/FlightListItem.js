@@ -19,8 +19,12 @@ function FlightListItem({ flight }) {
   const { total: price, currency } = flight.price;
   return (
     <div className="listItem">
-      <h4 className="name">{flight.id}</h4>
-      <button onClick={addFlightToTrip}>Add to Trip</button>
+      <h4 className="name">
+        {departureCode} to {arrivalCode}
+      </h4>
+      <button className="addToTrip" onClick={addFlightToTrip}>
+        Add to Trip
+      </button>
     </div>
   );
 }
