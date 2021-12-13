@@ -1,12 +1,23 @@
 #eventsPage {
   background-image: url("https://storage.googleapis.com/labbit-fec-limitless-images/images/mt-1486-home-parallax1_xl_1980x959.jpeg");
   width: 100%;
-  height: 100%;
+  height:86%;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+#eventsList {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  align-items: center;
+  align-content: center;
+  max-height: 100%;
+  width: 100%;
 }
 
 .eventListImage {
@@ -45,4 +56,95 @@
 
 .searchEvents::placeholder {
   color: white;
+}
+
+.emptyList {
+  align-self: center;
+  margin-top: 5em;
+  margin-left: 1em;
+  color: #dd9a33;
+}
+
+.eventListItem {
+  background-color: #5a175e;
+  border-radius: 5mm;
+  align-self: center;
+}
+
+.eventListItem:nth-child(even) {
+  background: #67084f;
+}
+
+.name {
+  color: white
+}
+
+.eventDetails {
+  color: white;
+  display: flex;
+  flex-direction: row;
+}
+
+.infoListContainer {
+  width: 100%;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.quantityPicker {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color:#dd9a33
+}
+
+.quantityIndicator {
+  font-weight: bold;
+  font-size: 2em;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.quantityBtn:active {
+  opacity: 0.5;
+}
+
+.buttonsContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:space-evenly;
+}
+
+.addToTrip {
+  width: 8em;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 6px;
+  align-items: center;
+  padding: 10px 10px;
+  background-color:black;
+  color: white;
+}
+
+.readMore {
+  width: 8em;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 6px;
+  align-items: center;
+  padding: 10px 10px;
+  background-color: #FFFFFF;
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.readyMoreText {
+  font-weight: bold;
 }

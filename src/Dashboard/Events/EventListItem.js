@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import TripContext from "../../../src/TripContext.js";
 import { useContext } from "react";
 import "./Events.css";
+// import "../dashboard.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlusCircle, faMinusCircle } from '@fortawesome/free-solid-svg-icons'
+
 function EventListItem({ event, openModal }) {
   const { currentTrip, setCurrentTrip } = useContext(TripContext);
+  const [ quantity, setQuantity ] = useState(0);
 
   const addEventToTrip = () => {
     const newTrip = { ...currentTrip };
     newTrip.events.push(event);
     setCurrentTrip(newTrip);
-    openModal();
+
+    openModal(quantity);
   };
 
   console.log(event);
@@ -32,20 +38,27 @@ function EventListItem({ event, openModal }) {
     return imgURL;
   };
 
-  let minPrice = event.priceRanges ? event.priceRanges[0].min.toFixed(2) : "";
-  let maxPrice = event.priceRanges ? event.priceRanges[0].max.toFixed(2) : "";
-  minPrice = minPrice ? `$${minPrice}` : "No price listed";
-  const price =
-    maxPrice > minPrice ? `From ${minPrice} to $${maxPrice}` : `${minPrice}`;
+  const increaseQuantity = () => {
+    setQuantity(quantity + 1)
+  }
+
+  const decreaseQuantity = () => {
+    if (quantity > 0) {
+      setQuantity(quantity - 1)
+    }
+  }
+
+  let price = event.priceRanges ?
+    `$${((event.priceRanges[0].min + event.priceRanges[0].max) / 2).toFixed(2)}`: "Free";
 
   return (
     <div className="listItem">
       <h4 className="name">{event.name}</h4>
       <div className="listDetails">
-        <img className="eventListImage" src={chooseImage(event)} />
+        <img className="eventListImage"
+        src={chooseImage(event)}
+        />
         <div className="eventText">
-          {/* {event.classifications[0].genre.name !== undefined &&
-          <span>{event.classifications[0].genre.name}</span>} */}
           <span>{event._embedded.venues[0].name}</span>
           <span>{event._embedded.venues[0].address.line1}</span>
 
@@ -54,6 +67,11 @@ function EventListItem({ event, openModal }) {
           <span>{price}</span>
         </div>
         <div className="infoListContainer">
+          <div className="quantityPicker">
+            <FontAwesomeIcon icon={faMinusCircle} size="2x" onClick={decreaseQuantity} className="quantityBtn"/>
+            <span className="quantityIndicator">{quantity}</span>
+            <FontAwesomeIcon icon={faPlusCircle} size="2x" onClick={increaseQuantity} className="quantityBtn"/>
+          </div>
           <div className="buttonsContainer">
             <a className="readMore" href={event.url} target="_blank">
               <span className="readyMoreText">Read More</span>
