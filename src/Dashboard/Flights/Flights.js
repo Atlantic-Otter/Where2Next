@@ -35,7 +35,7 @@ function Flights({ test }) {
   }, []);
 
   const flightList = flights.map((flight) => (
-    <FlightListItem key={flight.id} flight={flight} />
+    <FlightListItem arrivalCode={arrivalCode} key={flight.id} flight={flight} />
   ));
 
   return (
