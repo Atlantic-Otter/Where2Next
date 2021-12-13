@@ -1,7 +1,10 @@
 import React from "react";
 import TripContext from "../../../src/TripContext.js";
 import { useContext } from "react";
-import "./Events.css";
+import styles from "./Events.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlusCircle, faMinusCircle } from '@fortawesome/free-solid-svg-icons'
+
 function EventListItem({ event, openModal }) {
   const { currentTrip, setCurrentTrip } = useContext(TripContext);
 
@@ -54,6 +57,10 @@ function EventListItem({ event, openModal }) {
           <span>{price}</span>
         </div>
         <div className="infoListContainer">
+          <div className="quantityIndicator">
+            <FontAwesomeIcon icon={faPlusCircle} size="2x" />
+            <FontAwesomeIcon icon={faMinusCircle} size="2x" />
+          </div>
           <div className="buttonsContainer">
             <a className="readMore" href={event.url} target="_blank">
               <span className="readyMoreText">Read More</span>

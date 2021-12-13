@@ -46,10 +46,8 @@ function Events() {
   };
 
   const keywordsOnChange = (e) => {
-    let input = e.target.value.replaceAll(",", " ");
-    // console.log(input)
-    let inputs = input.split(" ");
-    console.log(inputs);
+    let input = e.target.value.replaceAll(',', ' ');
+    let inputs = input.split(' ');
     setKeywords(inputs);
   };
 
@@ -78,13 +76,27 @@ function Events() {
 
   const renderEventList = (matchedEvents) => {
     if (matchedEvents) {
-      return matchedEvents.map((event, i) => (
-        <EventListItem key={i} event={event} openModal={openModal} />
-      ));
+      if (matchedEvents.length > 0) {
+        return matchedEvents.map(((event, i,) => (
+          <EventListItem key={i} event={event} openModal={openModal} />)
+        ))
+      } else {
+        return (
+          <div className="emptyList">
+            <h2>Sorry! There are no events matching your keyword(s).</h2>
+          </div>
+        )
+      }
     } else {
-      return events.map((event, i) => (
-        <EventListItem key={i} event={event} openModal={openModal} />
-      ));
+      if (events.length > 0) {
+        return events.map(((event, i,) => (
+          <EventListItem key={i} event={event} openModal={openModal} />)
+        ))
+      } else {
+        <div className="emptyList">
+          <h2>Sorry! There are no events matching your specified location and time.</h2>
+        </div>
+      }
     }
   };
 
@@ -93,9 +105,22 @@ function Events() {
       {modalIsOpen && (
         <BookingModal modalIsOpen={modalIsOpen} closeModal={closeModal} />
       )}
-      <div className="eventsList">
-        <div className="listHeader">
-          <h2>Events</h2>
+      {loading ? (
+        <FadeLoader color="orange" loading={loading} />
+      ) : (
+        <div id="eventsList">
+
+          <input type='text' name='locationInput' className='searchLocation' placeholder='Location'/>
+          <input type='text' name='search-events' className='searchEvents' placeholder='Enter keywords(s)' onChange={keywordsOnChange}/>
+
+          {events.length > 0 ?
+            <div id="scrollContainer">
+              {filterEvents()}
+            </div>:
+            <div className="emptyList">
+              <h2>Sorry! There are no events matching your specified location and time.</h2>
+            </div>
+          }
         </div>
         <input
           type="text"
