@@ -4,83 +4,13 @@ const { expect } = chai;
 chai.use(require('chai-shallow-deep-equal'));
 chai.use(require('chai-as-promised'));
 const User = require('../database/schema.js');
-
-
-// populate users (array)
-const addUsersBefore = function(users) {
-  return function(done) {
-    User.create([...arguments])
-    .then(() => {
-      done();
-    })
-    .catch((err) => {
-      done(err);
-    });
-  };
-};
-
-// delete users (array)
-const removeUsersAfter = function(usernames) {
-  return function(done) {
-    // remove all entries
-    User.deleteMany({
-      username: { $in: usernames }
-    })
-    .then(() => {
-      done();
-    })
-    .catch((err) => {
-      done(err);
-    });
-  };
-};
-
-
-
-const userWithoutItinerary = {
-  email: 'elliotL@gmail.com',
-  username: 'Ellito',
-  password: 'Bees'
-};
-
-const userWithItinerary = {
-  email: 'adamJreact@gmail.com',
-  username: 'AdamJ',
-  password: 'FieldCouch',
-  upcomingTrips: [{
-    destination: 'Luxembourg',
-    events: [{
-      name: 'Really Exciting Event',
-      imageURL: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.reddit.com%2Fr%2Fphotoshopbattles%2Fcomments%2F1mc892%2Fsilly_dog_face%2F&psig=AOvVaw15wBSThVA7uToQxhjDAOZG&ust=1639175110770000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJikxKPh1_QCFQAAAAAdAAAAABAG',
-      startTime: '01-01-2022'
-    }]
-  }],
-  flights: [{
-    to: 'CrazyPlace',
-    from: 'SanePlace'
-  }],
-  lodging: 'I am lodging'
-};
-
-const duplicateEmail = {
-  username: 'newPerson',
-  password: 'newPassword',
-  email: 'duplicate@gmail.com'
-};
-
-const duplicateUsername = {
-
-  username: 'someUser',
-  password: 'HiFromSF',
-  email: 'egg@gmail.com'
-
-};
-
-const duplicatePassword = {
-  username: 'Charles_Arduino_weaponry',
-  password: 'memory',
-  email: 'stylemaster@gmail.com'
-};
+const {
+  duplicatePassword,
+  duplicateUsername,
+  duplicateEmail,
+  userWithItinerary,
+  userWithoutItinerary
+} = require('./testDummies.js');
 
 
 describe('Basic storage', function() {
@@ -206,3 +136,35 @@ describe.only('Handling invalid/incomplete input', function() {
   });
 
 });
+
+
+
+// throws errors for some reason
+
+// const addUsersBefore = function(users) {
+//   return function(done) {
+//     User.create([...arguments])
+//     .then(() => {
+//       done();
+//     })
+//     .catch((err) => {
+//       done(err);
+//     });
+//   };
+// };
+
+// const removeUsersAfter = function(usernames) {
+//   return function(done) {
+//     // remove all entries
+//     User.deleteMany({
+//       username: { $in: usernames }
+//     })
+//     .then(() => {
+//       done();
+//     })
+//     .catch((err) => {
+//       done(err);
+//     });
+//   };
+// };
+
