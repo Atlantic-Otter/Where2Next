@@ -27,12 +27,14 @@ const HotelItem = ({ hotel, tripDuration }) => {
   }
 
   return(
-    // <div className="eventListItem">
-      <div className="hotel-item-detail">
+      <div className="eventListItem">
+      <div className="eventDetails">
         <div>
-          <img className="hotel-detail-img" src={thumbnail} />
+          {/* <img className="hotel-detail-img" src={thumbnail} /> */}
+          <img className="eventListImage" src={thumbnail} />
         </div>
-        <div className="hotel-detail-desc">
+        {/* <div className="hotel-detail-desc"> */}
+        <div className="">
           <h5>{hotel.name}</h5>
           <span><ReactStars count={5} value={Number(rating)} edit={false} ifHalf={true} />{hotel.guestReviews.rating / 2} / 5 {badgeText}</span>
           {hotel.landmarks[1].label} {hotel.landmarks[1].distance}
@@ -44,7 +46,7 @@ const HotelItem = ({ hotel, tripDuration }) => {
 
         </div>
       </div>
-    // </div>
+    </div>
   )
 };
 
