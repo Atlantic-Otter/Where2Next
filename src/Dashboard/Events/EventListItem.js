@@ -1,8 +1,7 @@
 import React from "react";
 import TripContext from "../../../src/TripContext.js";
 import { useContext } from "react";
-import styles from "./Events.css";
-
+import "./Events.css";
 function EventListItem({ event, openModal }) {
   const { currentTrip, setCurrentTrip } = useContext(TripContext);
 
@@ -25,14 +24,14 @@ function EventListItem({ event, openModal }) {
   });
 
   const chooseImage = (event) => {
-    let imgURL = '';
+    let imgURL = "";
     event.images.forEach((image) => {
-      if (image.ratio === '4_3') {
+      if (image.ratio === "4_3") {
         imgURL = image.url;
       }
-    })
+    });
     return imgURL;
-  }
+  };
 
   let minPrice = event.priceRanges ? event.priceRanges[0].min.toFixed(2) : "";
   let maxPrice = event.priceRanges ? event.priceRanges[0].max.toFixed(2) : "";
@@ -41,9 +40,9 @@ function EventListItem({ event, openModal }) {
     maxPrice > minPrice ? `From ${minPrice} to $${maxPrice}` : `${minPrice}`;
 
   return (
-    <div className="eventListItem">
+    <div className="listItem">
       <h4 className="name">{event.name}</h4>
-      <div className="eventDetails">
+      <div className="listDetails">
         <img className="eventListImage" src={chooseImage(event)} />
         <div className="eventText">
           {/* {event.classifications[0].genre.name !== undefined &&
@@ -59,7 +58,9 @@ function EventListItem({ event, openModal }) {
             <a className="readMore" href={event.url} target="_blank">
               <span className="readyMoreText">Read More</span>
             </a>
-            <button className="addToTrip" onClick={addEventToTrip}>Add to Cart</button>
+            <button className="addToTrip" onClick={addEventToTrip}>
+              Add to Cart
+            </button>
           </div>
         </div>
       </div>
