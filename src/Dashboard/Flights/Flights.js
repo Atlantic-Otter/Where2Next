@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import FlightListItem from "./FlightListItem";
 import FadeLoader from "react-spinners/FadeLoader";
-
+import "../dashboard.css";
 function Flights({ test }) {
   const [loading, setLoading] = useState(false);
   const [flights, setFlights] = useState([]);
@@ -30,7 +30,7 @@ function Flights({ test }) {
   ));
 
   return (
-    <div id="listContainer">
+    <div className="eventsList">
       <div className="listHeader">
         <h2>Flights</h2>
       </div>

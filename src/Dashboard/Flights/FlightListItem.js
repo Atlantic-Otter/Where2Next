@@ -4,17 +4,22 @@ import { useContext } from "react";
 
 function FlightListItem({ flight }) {
   const { currentTrip, setCurrentTrip } = useContext(TripContext);
-
+  console.log({ flight });
   const addFlightToTrip = () => {
     const newTrip = { ...currentTrip };
     newTrip.flights.push(flight);
     setCurrentTrip(newTrip);
     console.log("new state of current trip:", currentTrip);
   };
-
+  const { arrival, departure } = flight.itineraries[0].segments[0];
+  const departureCode = departure.iataCode;
+  const arrivalCode = arrival.iataCode;
+  const departureTime = departure.at;
+  const arrivalTime = arrival.at;
+  const { total: price, currency } = flight.price;
   return (
-    <div>
-      <h4>{flight.id}</h4>
+    <div className="listItem">
+      <h4 className="name">{flight.id}</h4>
       <button onClick={addFlightToTrip}>Add to Trip</button>
     </div>
   );
