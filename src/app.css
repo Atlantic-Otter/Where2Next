@@ -23,10 +23,7 @@ html,
     bottom: 5%;
     right: 5%;
   }
-  .eventListImage {
-    width: 5vw;
-    height: 5vw;
-  }
+
   #inputForm {
     width: 50%;
   }
@@ -41,10 +38,6 @@ html,
     right: 5%;
   }
 
-  .eventListImage {
-    height: 15vw;
-    width: 15vw;
-  }
   #inputForm {
     width: 80%;
   }
@@ -111,22 +104,32 @@ html,
   justify-content: center;
 }
 
-#listContainer {
-  /* border: 1px solid black; */
-  padding: 1em;
+/* #listContainer { */
+/* border: 1px solid black; */
+/* padding: 1em;
   height: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 60%;
-}
+  width: 60%; */
+/* } */
 .listHeader {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+#scrollContainer {
+  overflow-y: scroll;
+  height: 90%;
+}
+
+.eventListItem {
+  border: 1px solid black;
+  margin: 1em;
+  padding: 1em;
 }
 
 #yourTripButton {
@@ -138,9 +141,6 @@ html,
   border-radius: 50%;
 }
 
-.eventListImage {
-  object-fit: cover;
-}
 .eventDetails {
   display: flex;
   flex-direction: row;
@@ -342,13 +342,50 @@ html,
 }
 
 @keyframes glowing {
-  0% {
-    background-position: 0 0;
-  }
-  50% {
-    background-position: 400% 0;
-  }
-  100% {
-    background-position: 0 0;
-  }
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
 }
+
+.hotel-main {
+  color: gray;
+}
+
+.hotel-item-detail {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid black;
+  /* justify-content: space-between; */
+  margin: 1em;
+  padding: 1em;
+}
+
+
+.hotel-detail-img {
+  width: 180px;     /* change to % */
+  object-fit: cover;
+  margin-right: 1em;
+}
+
+.hotel-detail-desc {
+  display: flex;
+  flex-direction: column;
+  align-self: stetch;
+  flex-grow: 1;
+  font-size: .6em;
+}
+
+.hotel-detail-price {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+  font-size: .7em;
+  /* align-items: flex-end; */
+}
+
+.neighborhoods {
+  display: flex;
+  flex-direction: row;
+  margin-right: 1em;
+}
+

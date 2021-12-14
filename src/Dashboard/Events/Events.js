@@ -146,7 +146,8 @@ function Events() {
   };
 
   return (
-    <div id="eventsPage">
+    // <div id="eventsPage">
+    <div className="listContainer">
       {modalIsOpen && (
         <BookingModal
           modalIsOpen={modalIsOpen}
@@ -211,6 +212,7 @@ function Events() {
         </div>
       )}
     </div>
+    // </div>
   );
 }
 

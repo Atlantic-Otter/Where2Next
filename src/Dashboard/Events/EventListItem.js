@@ -63,7 +63,6 @@ function EventListItem({ event, openModal }) {
           <span>{event._embedded.venues[0].address.line1}</span>
 
           <span>{date}</span>
-
           <span>{price}</span>
         </div>
         <div className="infoListContainer">
