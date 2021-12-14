@@ -58,7 +58,7 @@ function Hotels() {
       })
       .catch((err) => {
         if (err.name === 'AbortError') {
-          console.log(err.message)
+          console.log('Fetch Aborted')
         }
       });
   };

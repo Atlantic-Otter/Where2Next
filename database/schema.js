@@ -21,6 +21,11 @@ const flightSchema = new mongoose.Schema({
   from:  String,
 });
 
+const hotelSchema = new mongoose.Schema({
+  name: {type: String},
+  tripLength: {type: Number},
+})
+
 const itinerarySchema = new mongoose.Schema({
   destination: {
     type: String,
@@ -35,7 +40,7 @@ const itinerarySchema = new mongoose.Schema({
     default: null
   },
   lodging: {
-    type: String,
+    type: [hotelSchema],
     default: null
   }
 });

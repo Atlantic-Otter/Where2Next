@@ -1,8 +1,10 @@
 import React, {useState, useEffect, useContext} from "react";
 import ReactStars from "react-rating-stars-component";
 import TripContext from "../../../src/TripContext";
+import FadeLoader from "react-spinners/FadeLoader";
 
 const HotelItem = ({ hotel, tripDuration }) => {
+  const [loading, setLoading] = useState(true)
   let [price, setPrice] = useState('Call for Pricing')
   let [rating, setRating] = useState(3.5)
   let [badgeText, setBadgeText] = useState('unavailable')
@@ -15,6 +17,7 @@ const HotelItem = ({ hotel, tripDuration }) => {
     if (hotel.guestReviews.rating !== undefined) setRating(Number(hotel.guestReviews.rating))
     if (hotel.guestReviews.badgeText !== undefined) setBadgeText(hotel.guestReviews.badgeText)
     if (hotel.optimizedThumbUrls.srpDesktop !== undefined) setThumbnail(hotel.optimizedThumbUrls.srpDesktop)
+    setLoading(false)
     // price = price || '';
     // rating = rating || 3.5;
     // badgeText = badgeText || '';
@@ -36,6 +39,7 @@ const HotelItem = ({ hotel, tripDuration }) => {
 
   return(
       <div className="listItem">
+        <FadeLoader color="orange" loading={loading} />
         <div className="listDetails">
         <div>
           {/* <img className="hotel-detail-img" src={thumbnail} /> */}
