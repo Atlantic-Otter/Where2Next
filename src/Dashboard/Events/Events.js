@@ -6,6 +6,9 @@ import BookingModal from "../../BookingModal/BookingModal";
 import FadeLoader from "react-spinners/FadeLoader";
 import "../dashboard.css";
 // import "./Events.css";
+import styles from "./Events.css";
+import moment from "moment";
+import Carousel from "react-bootstrap/Carousel";
 
 function Events() {
   const [events, setEvents] = useState([]);
@@ -13,11 +16,13 @@ function Events() {
   const [loading, setLoading] = useState(true);
   const [keywords, setKeywords] = useState([]);
   const { startDate, endDate, city, state } = useSearchParams();
+  const [currentEvents, setCurrentEvents] = useState([]);
 
   const selectedQuantity = useRef(0);
 
   useEffect(() => {
     let isSubscribed = true;
+    console.log("startdate", startDate);
     axios
       .get(
         `http://localhost:3000/nearbyEvents/${city}/${state}/${startDate}/${endDate}`
@@ -26,6 +31,7 @@ function Events() {
         if (isSubscribed) {
           setLoading(false);
           setEvents(data);
+          renderTodayEvents();
         }
       })
       .catch((e) => {
@@ -108,15 +114,105 @@ function Events() {
     }
   };
 
+  const renderTodayEvents = () => {
+    console.log("dates", events);
+
+    const today = moment().add(0, "days").format("YYYY-MM-DD");
+    const tomorrow = moment().add(1, "days").format("YYYY-MM-DD");
+
+    console.log("today", today);
+    console.log("tomorrow", tomorrow);
+
+    axios
+      .get(
+        `http://localhost:3000/nearbyEvents/${city}/${state}/${today}/${tomorrow}`
+      )
+      .then(({ data }) => {
+        console.log(data);
+        setCurrentEvents(data);
+      })
+      .catch((e) => {
+        console.log(e);
+        return <div>I</div>;
+      });
+  };
+
+  const findLargestPhoto = (photoArray) => {
+    let photos16_9 = photoArray.filter((aphoto) => aphoto.ratio === "16_9");
+    let largePhoto = photos16_9.reduce((prev, current) =>
+      prev.width > current.width ? prev : current
+    );
+    return largePhoto.url;
+  };
+
   return (
+
     // <div id="eventsPage">
     <div className="listContainer">
+
       {modalIsOpen && (
         <BookingModal
           modalIsOpen={modalIsOpen}
           closeModal={closeModal}
           quantity={selectedQuantity.current}
         />
+
+      )}
+      {loading ? (
+        <FadeLoader color="orange" loading={loading} />
+      ) : (
+        <div id="eventsList">
+          <input
+            type="text"
+            name="locationInput"
+            className="searchLocation"
+            placeholder="Location"
+          />
+          <div>
+            {currentEvents.length ? (
+              <Carousel>
+                {currentEvents.map((event) => {
+                  return (
+                    <Carousel.Item interval={10000}>
+                      <img
+                        src={findLargestPhoto(event.images)}
+                        class="d-block mx-auto"
+                        width="400vw"
+                      />
+                      <Carousel.Caption>
+                        <h4>{event.name}</h4>
+                        <p>
+                          {event.dates.start.localDate} |{" "}
+                          {event.dates.start.localTime}
+                        </p>
+                      </Carousel.Caption>
+                    </Carousel.Item>
+                  );
+                })}
+              </Carousel>
+            ) : (
+              <h1>No events happening today</h1>
+            )}
+          </div>
+
+          <input
+            type="text"
+            name="search-events"
+            className="searchEvents"
+            placeholder="Enter keywords(s)"
+            onChange={keywordsOnChange}
+          />
+          {events.length > 0 ? (
+            <div id="scrollContainer">{filterEvents()}</div>
+          ) : (
+            <div className="emptyList">
+              <h2>
+                Sorry! There are no events matching your specified location and
+                time.
+              </h2>
+            </div>
+          )}
+        </div>
       )}
       <div className="listHeader"></div>
       <input
