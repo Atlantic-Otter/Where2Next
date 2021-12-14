@@ -104,16 +104,6 @@ html,
   justify-content: center;
 }
 
-/* #listContainer { */
-/* border: 1px solid black; */
-/* padding: 1em;
-  height: 80%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 60%; */
-/* } */
 .listHeader {
   width: 100%;
   display: flex;
@@ -191,10 +181,12 @@ html,
   border-radius: 5px;
   box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.3);
   margin: 1em;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: black !important;
 }
 
 .active {
-  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.4);
+  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
 }
 #logoName h1 {
   font-size: 4rem;
@@ -342,9 +334,15 @@ html,
 }
 
 @keyframes glowing {
-  0% { background-position: 0 0; }
-  50% { background-position: 400% 0; }
-  100% { background-position: 0 0; }
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
 }
 
 .hotel-main {
@@ -360,9 +358,8 @@ html,
   padding: 1em;
 }
 
-
 .hotel-detail-img {
-  width: 180px;     /* change to % */
+  width: 180px; /* change to % */
   object-fit: cover;
   margin-right: 1em;
 }
@@ -372,14 +369,14 @@ html,
   flex-direction: column;
   align-self: stetch;
   flex-grow: 1;
-  font-size: .6em;
+  font-size: 0.6em;
 }
 
 .hotel-detail-price {
   display: flex;
   flex-direction: column;
   align-self: flex-end;
-  font-size: .7em;
+  font-size: 0.7em;
   /* align-items: flex-end; */
 }
 
@@ -388,4 +385,3 @@ html,
   flex-direction: row;
   margin-right: 1em;
 }
-

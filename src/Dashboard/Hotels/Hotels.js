@@ -77,17 +77,19 @@ function Hotels() {
   //   .catch((err) => console.log(err));
   // }
 
-  //listContainer <=hotel-main
   return (
-    <>
-      <div className="eventsList">
-        <h3>Neighborhoods</h3>
-        <div className="neighborhoods">
-          <FadeLoader color="orange" loading={loading} />
-          {cityGroups.map((group, idx) => (
-            <CityGroup key={idx} data={group} setHotelList={setHotelList} />
-          ))}
-        </div>
+
+    <div className="listContainer">
+      <h3>Neighborhoods</h3>
+      <div className="neighborhoods">
+        <FadeLoader color="whitesmoke" loading={loading} />
+        {cityGroups.map((group, idx) => (
+          <CityGroup key={idx} data={group} setHotelList={setHotelList} />
+        ))}
+      </div>
+      <div id="scrollContainer">
+        <HotelGroup list={hotelList} tripDuration={tripDuration} />
+
       </div>
         <div className="listContainer">
           <HotelGroup list={hotelList} tripDuration={tripDuration} />
@@ -112,7 +114,7 @@ function Hotels() {
             </li>
           </ul>
         </nav>
-    </>
+    </div>
   );
 }
 
