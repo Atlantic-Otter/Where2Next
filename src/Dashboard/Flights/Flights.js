@@ -43,8 +43,10 @@ function Flights({ test }) {
       <div className="listHeader"></div>
       {loading ? (
         <>
-          <h4>Just a moment while we pull up some flights for you...</h4>
-          <FadeLoader color={"orange"} loading={loading} />
+          <h4 id="flightsLoading">
+            Just a moment while we pull up some flights for you...
+          </h4>
+          <FadeLoader color={"whitesmoke"} loading={loading} />
         </>
       ) : (
         <div id="scrollContainer">{flightList}</div>

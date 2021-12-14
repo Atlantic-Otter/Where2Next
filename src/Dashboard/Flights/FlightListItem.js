@@ -18,17 +18,45 @@ function FlightListItem({ flight, arrivalCode }) {
   console.log(segment);
   const { arrival, departure } = segment;
   const departureCode = departure.iataCode;
-  const departureTime = departure.at;
-  const arrivalTime = arrival.at;
+  const departureTime = new Date(departure.at).toLocaleString([], {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+  });
+  const arrivalTime = new Date(arrival.at).toLocaleString([], {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+  });
+  let duration = new Date(arrival.at) - new Date(departure.at);
+  const hours = Math.floor(duration / (1000 * 60 * 60));
+  const minutes = Math.floor((duration % (1000 * 60 * 60)) / (1000 * 60));
   const { total: price, currency } = flight.price;
   return (
-    <div className="listItem">
+    <div className="listItem flightItem">
       <h4 className="name">
         {departureCode} to {arrivalCode}
       </h4>
-      <button className="addToTrip" onClick={addFlightToTrip}>
-        Add to Trip
-      </button>
+      <div className="listDetails">
+        <div className="eventText">
+          <b>{"Departure: "}</b>
+          {departureTime}
+          <br />
+          <b>{"Arrival: "}</b>
+          {arrivalTime}
+          <br />
+          <b>{"Duration: "}</b>
+          {`${hours} hours and ${minutes} minutes`}
+        </div>
+
+        <button className="addToTrip" onClick={addFlightToTrip}>
+          Add to Trip
+        </button>
+      </div>
     </div>
   );
 }
