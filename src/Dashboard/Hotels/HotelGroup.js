@@ -5,7 +5,7 @@ import HotelItem from "./HotelItem";
 
 function HotelGroup({ list, tripDuration }) {
   return (
-    <div className="hotel-group">
+    <div id="scrollContainer">
       {list.map((hotel, idx) => (
         <HotelItem hotel={hotel} key={idx} tripDuration={tripDuration} />
       ))}
