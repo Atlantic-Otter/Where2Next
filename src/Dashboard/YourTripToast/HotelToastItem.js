@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import TripContext from '../../TripContext.js';
 
 function HotelToastItem({ hotel }) {
-
   const { currentTrip, setCurrentTrip } = useContext(TripContext);
 
   const removeEventFromTrip = () => {
     const newTrip = { ...currentTrip };
-    newTrip.hotels = newTrip.hotels.filter((e) => e.id !== hotel.id);
+    newTrip.hotels = newTrip.hotels.filter((h) => h.hotelId !== hotel.hotelId);
     setCurrentTrip(newTrip);
-    console.log(currentTrip);
+    // console.log(currentTrip);
   };
 
   return (
