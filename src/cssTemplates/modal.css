@@ -43,10 +43,8 @@
 }
 
 .checkout-modal-window {
-  max-height: 60vh;
   padding-top: 0;
   display: block;
-
 }
 
 #checkout-close-box {
