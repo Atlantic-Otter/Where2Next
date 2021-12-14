@@ -23,4 +23,3 @@ const CheckoutTile = ({ service, infoObj }) => {
 };
 
 export default CheckoutTile;
-
