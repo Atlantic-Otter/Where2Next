@@ -35,6 +35,7 @@
   margin-left: 1em;
   color: white;
   padding-left: 2em;
+  margin-bottom: 2em;
   border-color: white;
 }
 
@@ -148,3 +149,41 @@
 .readyMoreText {
   font-weight: bold;
 }
+
+.carousel .item img {
+  left: -9999px;  /*important */
+  right: -9999px;  /*important */
+  margin: 0 auto;  /*important */
+  max-width: none;  /*important */
+  min-width: 100%;
+  position: absolute;
+}
+.carousel-inner {
+
+}
+
+/* .carousel-inner {
+  padding-top: 5%;
+  margin-right: 15%;
+  margin-left: 15%;
+}
+
+.carousel-caption {
+  margin-right: 15%;
+  margin-left: 15%;
+}
+
+.carousel.slide {
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-control-next {
+  right: 7%;
+} */
+
+/* .carousel.slide {
+  width: auto;
+  height: 30%;
+  margin: auto;
+} */
