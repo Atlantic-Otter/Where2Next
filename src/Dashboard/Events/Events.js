@@ -222,19 +222,20 @@ function Events() {
               <h1>No events happening today</h1>
             )}
           </div>
-
-          <input
-            type="text"
-            name="search-events"
-            className="searchEvents"
-            placeholder="Enter keywords(s)"
-            onChange={keywordsOnChange}
-          />
-          <select onChange={sortEvents}>
-            <option value="date">Sort by date</option>
-            <option value="price">Sort by price</option>
-            <option value="distance">Sort by distance</option>
-          </select>
+          <div className="filterAndSortContainer">
+            <input
+              type="text"
+              name="search-events"
+              className="searchEvents"
+              placeholder="Enter keywords(s)"
+              onChange={keywordsOnChange}
+            />
+            <select onChange={sortEvents} className="dropdown">
+              <option value="date">Sort By Date</option>
+              <option value="price">Sort By Price</option>
+              <option value="distance">Sort By Distance</option>
+            </select>
+          </div>
           {events.length > 0 ? (
             <div id="scrollContainer">{filterEvents()}</div>
           ) : (
