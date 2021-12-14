@@ -16,22 +16,10 @@
 
 /* Modal Content/Box */
 .modal-window, .checkout-modal-window, .login-modal-window {
-  /* may want z index of 2? */
-  /* background: rgb(9,7,156);
-  background: -moz-radial-gradient(circle, rgba(9,7,156,1) 0%, rgba(31,18,51,1) 100%);
-  background: -webkit-radial-gradient(circle, rgba(9,7,156,1) 0%, rgba(31,18,51,1) 100%);
-  background: radial-gradient(circle, rgba(9,7,156,1) 0%, rgba(31,18,51,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#09079c",endColorstr="#1f1233",GradientType=1); */
   background-color: #FFFFFF;
   box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.12);
-
-
   width: 50%;
-  /* height: 50%; */
-  /* color: #fefefe; */
   z-index: 3;
-  /* margin: 15% auto; 15% from the top and centered */
-
   padding: 3%;
   border: 1px solid #000000;
   border-radius: 15px;
@@ -43,14 +31,16 @@
 }
 
 .checkout-modal-window {
-  padding-top: 0;
+  /* padding: 0 3% 0 3%; */
   display: block;
+  max-height: 60vh;
 }
 
 #checkout-close-box {
   margin: 1%;
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 #checkout-top {
@@ -58,7 +48,7 @@
   flex-direction: row;
   justify-content: space-evenly;
   align-items: flex-start;
-  height: -webkit-fill-available;
+  max-height: 45vh;
 }
 
 
@@ -144,12 +134,13 @@
 
 
 
-#checkout-form-container, #checkout-categories {
+#checkout-form-container, #checkout-rundown-container {
   padding: 3%;
   flex: 0 0 30%;
   height: inherit;
 }
 
+/* wont't work with bootstrap? */
 #checkout-form {
   display: flex;
   flex-direction: column;
@@ -160,20 +151,32 @@
   margin-top: 10%;
   background-color: black;
   color: white;
-  align-self: flex-end;
+  /* align-self: flex-end; */
+  width: 100%
 }
 
+
+#checkout-rundown-container {
+
+  flex: 0 0 70%;
+  margin-right: 2%;
+  display: flex;
+  flex-direction: column;
+  max-height: inherit;
+
+}
+
+#checkout-rundown-container > h3 {
+  margin-top: 3%;
+}
 
 #checkout-categories {
   border-left: 1px solid black;
   border-top: 1px solid black;
   border-radius: 20px;
-  flex: 0 0 70%;
-  margin-right: 5%;
   overflow: scroll;
   overflow-x: hidden;
 }
-
 
 
 /*
@@ -183,5 +186,13 @@
 
 #thank-you {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
+#celebrate {
+  font-weight: bold;
+  font-size: 20pt;
+}
