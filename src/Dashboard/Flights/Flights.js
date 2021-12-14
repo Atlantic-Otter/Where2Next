@@ -39,10 +39,8 @@ function Flights({ test }) {
   ));
 
   return (
-    <div className="eventsList">
-      <div className="listHeader">
-        <h2>Flights</h2>
-      </div>
+    <div className="listContainer">
+      <div className="listHeader"></div>
       {loading ? (
         <>
           <h4>Just a moment while we pull up some flights for you...</h4>

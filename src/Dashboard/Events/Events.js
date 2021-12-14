@@ -146,13 +146,17 @@ function Events() {
   };
 
   return (
-    <div id="eventsPage">
+
+    // <div id="eventsPage">
+    <div className="listContainer">
+
       {modalIsOpen && (
         <BookingModal
           modalIsOpen={modalIsOpen}
           closeModal={closeModal}
           quantity={selectedQuantity.current}
         />
+
       )}
       {loading ? (
         <FadeLoader color="orange" loading={loading} />
@@ -210,7 +214,31 @@ function Events() {
           )}
         </div>
       )}
+      <div className="listHeader"></div>
+      <input
+        type="text"
+        name="locationInput"
+        className="searchLocation"
+        placeholder="Location"
+      />
+      <input
+        type="text"
+        name="search-events"
+        className="searchEvents"
+        placeholder="Enter keywords(s)"
+        onChange={keywordsOnChange}
+      />
+      <div id="scrollContainer">
+        {loading ? (
+          <div id="loaderContainer">
+            <FadeLoader color="orange" loading={loading} />
+          </div>
+        ) : (
+          filterEvents()
+        )}
+      </div>
     </div>
+    // </div>
   );
 }
 
