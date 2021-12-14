@@ -76,9 +76,8 @@ function Hotels() {
   //   .catch((err) => console.log(err));
   // }
 
-  //listContainer <=hotel-main
   return (
-    <div className="eventsList">
+    <div className="listContainer">
       <h3>Neighborhoods</h3>
       <div className="neighborhoods">
         <FadeLoader color="whitesmoke" loading={loading} />
