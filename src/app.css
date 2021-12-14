@@ -9,12 +9,14 @@ html,
 #root {
   width: 100vw;
   height: 100vh;
+}
+
+#root {
   background-image: url("https://storage.googleapis.com/labbit-fec-limitless-images/landingBackground.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
-
 /*BROWSER*/
 @media screen and (min-width: 600px) {
   #yourTripButton {
@@ -26,6 +28,12 @@ html,
 
   #inputForm {
     width: 50%;
+  }
+  #logoName h1 {
+    font-size: 4rem;
+  }
+  #rightArrow {
+    font-size: 2em;
   }
 }
 
@@ -41,6 +49,28 @@ html,
   #inputForm {
     width: 80%;
   }
+
+  #logoName h1 {
+    font-size: 2rem;
+  }
+
+  #logoImg {
+    width: 4em;
+  }
+  #slogan {
+    width: 100%;
+  }
+  .dateSelect {
+    width: 100%;
+    font-size: 0.7em;
+  }
+  #rightArrow {
+    font-size: 1em;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-60%, 85%);
+  }
 }
 
 /* BOTH */
@@ -48,15 +78,17 @@ html,
 .dateContainer {
   display: flex;
   justify-content: space-between;
+  position: relative;
+  width: 100%;
 }
 
 .startDate {
   display: flex;
   flex-direction: column;
+  width: 45%;
 }
 
 #rightArrow {
-  font-size: 2em;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -65,12 +97,14 @@ html,
 .endDate {
   display: flex;
   flex-direction: column;
+  width: 45%;
 }
 
 .dateSelect {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 25px;
   padding: 10px;
+
   background-color: rgba(90, 23, 94, 0.5);
   color: white;
   box-shadow: rgba(254, 1, 154, 0.5) 0px 7px 29px 0px;
@@ -187,9 +221,6 @@ html,
 
 .active {
   box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
-}
-#logoName h1 {
-  font-size: 4rem;
 }
 
 #slogan {
