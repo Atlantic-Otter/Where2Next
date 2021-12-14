@@ -85,11 +85,11 @@ const helpers = {
     console.log('all:', all);
     var total = 0;
 
-    for (num of all) {
-      total += num;
+    for (var count = 0; count < all.length; count++) {
+      total += all[count];
     }
 
-    return total;
+    return { count, total: total.toFixed(2) };
   }
 
 

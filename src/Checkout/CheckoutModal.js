@@ -15,9 +15,6 @@ const CheckoutModal = () => {
     cvv: ''
   });
 
-
-
-
   const updateText = (event) => {
     var stateKey = event.target.id;
     var newState = {...text};
@@ -45,13 +42,15 @@ const CheckoutModal = () => {
   };
 
 
-
+  const {count, total } = extractTotal(currentTrip);
+  const headerCount = count === 1 ? `${count} item in your cart` : `${count} items in your cart`;
 
   return (
     <div className="modal-background" onClick={toggleCheckoutModal}>
       <div className="checkout-modal-window" onClick={(event) => { event.stopPropagation(); }}>
         <div id="checkout-close-box">
-          <span className="modal-close-button" onClick={toggleCheckoutModal}>&times;</span>
+          <h2>{headerCount}</h2>
+          <span className="independent-close-button" onClick={toggleCheckoutModal}>&times;</span>
 
         </div>
         {paid ? <ThankYou /> :
@@ -84,7 +83,7 @@ const CheckoutModal = () => {
 
               </div>
               <h3 id="checkout-total">
-                Total: ${extractTotal(currentTrip).toFixed(2)}
+                Total: ${total}
               </h3>
 
             </div>
