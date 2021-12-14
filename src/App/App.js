@@ -30,7 +30,17 @@ const App = ({ test }) => {
   const [checkoutModal, setCheckoutModal] = React.useState(false);
 
   const toggleCheckoutModal = (event) => {
+    const { events, flights, hotels } = currentTrip;
+
+    if (!checkoutModal) {
+      if (!events.length && !flights.length && !hotels.length ) {
+        alert('Please add some items to your cart.');
+        return;
+      }
+    }
+
     setCheckoutModal(!checkoutModal);
+
   };
 
   const toggleProfileModal = (event) => {

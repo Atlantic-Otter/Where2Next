@@ -20,7 +20,7 @@ module.exports = {
       .catch((err) => {
         console.log('error querying username/password match');
         res.status(404).send(err);
-        throw err;
+        // throw err;
       });
     }
   }
