@@ -36,6 +36,16 @@ function Hotels() {
 
   const tripDuration = getTripLength(startDate, endDate);
 
+
+  // attach url search params while inside router context
+  const addDates = (hotelArray) => {
+    for (var i = 0; i < hotelArray.length; i++) {
+      hotelArray[i].startDate = startDate;
+      hotelArray[i].endDate = endDate;
+    }
+    return hotelArray;
+  }
+
   const fetchNeighborhoods = (city) => {
     axios
       .get(`http://localhost:3000/hotels/${encodedCity}`, {
@@ -57,7 +67,9 @@ function Hotels() {
     axios
       .get(url)
       .then((response) => {
-        setHotelList(response.data);
+        console.log('response data:', response.data);
+        var withDates = addDates(response.data)
+        setHotelList(withDates);
       })
       .catch((err) => {
         if (err.name === "AbortError") {
