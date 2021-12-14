@@ -3,6 +3,7 @@ import TripContext from '../TripContext.js';
 import CheckoutTile from './CheckoutTile.js';
 import CheckoutForm from './CheckoutForm.js';
 import ThankYou from './ThankYou';
+import { extractTotal } from './helpers.js';
 
 const CheckoutModal = () => {
 
@@ -43,6 +44,9 @@ const CheckoutModal = () => {
     setValidated(true);
   };
 
+
+
+
   return (
     <div className="modal-background" onClick={toggleCheckoutModal}>
       <div className="checkout-modal-window" onClick={(event) => { event.stopPropagation(); }}>
@@ -53,27 +57,35 @@ const CheckoutModal = () => {
         {paid ? <ThankYou /> :
         <>
           <div id="checkout-top">
-            <div id="checkout-categories">
-              <div className="given-category">
-                <h3>Events:</h3>
-                {events.map((event, i) =>
-                  <CheckoutTile key={i} service="event" infoObj={event} />
-                )}
-              </div>
 
-              <div className="given-category">
-                <h3>Flights:</h3>
-                {flights.map((flight, i) =>
-                  <CheckoutTile key={i} service="flight" infoObj={flight} />
-                )}
-              </div>
+            <div id="checkout-rundown-container">
 
-              <div className="given-category">
-                <h3>Hotels:</h3>
-                {hotels.map((hotel, i) =>
-                  <CheckoutTile key={i} service="hotel" infoObj={hotel} />
-                )}
+              <div id="checkout-categories">
+                <div className="given-category">
+                  <h3>Events:</h3>
+                  {events.map((event, i) =>
+                    <CheckoutTile key={i} service="event" infoObj={event}/>
+                  )}
+                </div>
+
+                <div className="given-category">
+                  <h3>Flights:</h3>
+                  {flights.map((flight, i) =>
+                    <CheckoutTile key={i} service="flight" infoObj={flight} />
+                  )}
+                </div>
+
+                <div className="given-category">
+                  <h3>Hotels:</h3>
+                  {hotels.map((hotel, i) =>
+                    <CheckoutTile key={i} service="hotel" infoObj={hotel} />
+                  )}
+                </div>
+
               </div>
+              <h3 id="checkout-total">
+                Total: ${extractTotal(currentTrip).toFixed(2)}
+              </h3>
 
             </div>
 

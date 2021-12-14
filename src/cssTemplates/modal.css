@@ -144,7 +144,7 @@
 
 
 
-#checkout-form-container, #checkout-categories {
+#checkout-form-container, #checkout-rundown-container {
   padding: 3%;
   flex: 0 0 30%;
   height: inherit;
@@ -164,17 +164,19 @@
 }
 
 
-#checkout-categories {
-  border-left: 1px solid black;
-  border-top: 1px solid black;
-  border-radius: 20px;
+#checkout-rundown-container {
+
   flex: 0 0 70%;
   margin-right: 5%;
   overflow: scroll;
   overflow-x: hidden;
 }
 
-
+#checkout-categories {
+  border-left: 1px solid black;
+  border-top: 1px solid black;
+  border-radius: 20px;
+}
 
 /*
 ::-webkit-scrollbar {
