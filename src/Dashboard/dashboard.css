@@ -15,6 +15,9 @@
     width: 15vw;
   }
 }
+.eventListImage {
+  object-fit: cover;
+}
 .listItem {
   background-color: #5a175e;
   border-radius: 5mm;
@@ -35,6 +38,7 @@
   color: white;
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .infoListContainer {
@@ -79,7 +83,7 @@
   display: none;
 }
 
-.eventsList {
+.listContainer {
   align-self: center;
   height: 100%;
   width: 80%;
