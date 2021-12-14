@@ -22,7 +22,7 @@ const HotelItem = ({ hotel, tripDuration }) => {
 
   }, [])
 
-  const addToCart = () => {
+  const handleClick = () => {
     const newTrip = { ...currentTrip };
   }
 
@@ -31,7 +31,7 @@ const HotelItem = ({ hotel, tripDuration }) => {
         <div className="listDetails">
         <div>
           {/* <img className="hotel-detail-img" src={thumbnail} /> */}
-          <img className="eventListImage" src={thumbnail} />
+          <img className="hotelListImage" src={thumbnail} />
         </div>
         {/* <div className="hotel-detail-desc"> */}
         <div className="hotel-text">
@@ -41,8 +41,8 @@ const HotelItem = ({ hotel, tripDuration }) => {
         </div>
         <div className="hotel-detail-price">
           <h5>{price}</h5>
-          <div>Add to Cart</div>
           total: {'$'+Number(price.split('').splice(1).join('')) * tripDuration}
+          <button className="addToTrip" onClick={handleClick}>Add to Trip</button>
 
         </div>
       </div>
