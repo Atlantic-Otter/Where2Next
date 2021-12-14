@@ -66,9 +66,7 @@ const helpers = {
 
   },
 
-
-
-  extractTotal: ({ events, flights, hotels }) => {
+  extractTotal: function({ events, flights, hotels }) {
   // get all prices
     var eventPrices = events.map((event) => {
       var { price } = helpers.getInfo(event, 'event');

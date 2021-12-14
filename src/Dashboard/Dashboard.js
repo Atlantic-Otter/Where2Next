@@ -50,7 +50,7 @@ function Dashboard({ test }) {
         <Route path="/flights" element={<Flights />} />
         <Route path="/hotels/*" element={<Hotels />} />
       </Routes>
-      <YourTripButton toggleTripToast={toggleTripToast} />
+      <YourTripButton toggleTripToast={toggleTripToast} data-testid="toast-button"/>
       <YourTripToast
         tripToastVisible={tripToastVisible}
         toggleTripToast={toggleTripToast}

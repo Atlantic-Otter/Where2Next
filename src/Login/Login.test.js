@@ -4,8 +4,7 @@ import userEvent from '@testing-library/user-event';
 import App from "../App/App.js";
 import Header from "./Header.js";
 import "@testing-library/jest-dom";
-// runs the file to produce a test dummy in case it's not there
-// require('../../database/schema.js');
+
 
 describe("Signing in", function () {
   test("A sign-in button exists on the page", function () {
