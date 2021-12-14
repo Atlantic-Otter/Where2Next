@@ -156,7 +156,7 @@ function Events() {
         />
       )}
       {loading ? (
-        <FadeLoader color="orange" loading={loading} />
+        <FadeLoader color="whitesmoke" loading={loading} />
       ) : (
         <div id="eventsList">
           <input
@@ -173,7 +173,7 @@ function Events() {
                     <Carousel.Item interval={10000}>
                       <img
                         src={findLargestPhoto(event.images)}
-                        class="d-block mx-auto"
+                        className="d-block mx-auto"
                         width="400vw"
                       />
                       <Carousel.Caption>
