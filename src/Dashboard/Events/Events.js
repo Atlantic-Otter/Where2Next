@@ -17,7 +17,9 @@ function Events() {
   const [keywords, setKeywords] = useState([]);
   const { startDate, endDate, city, state } = useSearchParams();
   const [currentEvents, setCurrentEvents] = useState([]);
+  const [ selected, setSelected ] = useState('date');
 
+  const eventsByDate = useRef([]);
   const selectedQuantity = useRef(0);
 
   useEffect(() => {
@@ -30,6 +32,7 @@ function Events() {
       .then(({ data }) => {
         if (isSubscribed) {
           setLoading(false);
+          eventsByDate.current = data;
           setEvents(data);
           renderTodayEvents();
         }
@@ -113,6 +116,34 @@ function Events() {
       }
     }
   };
+
+  const sortEvents = (e) => {
+    let sortedEvents = [];
+    let eventsCopy = events.slice();
+
+    const method = e.target.value;
+    setSelected(method);
+    console.log(method)
+
+    if (method === 'date') {
+      setEvents(eventsByDate.current);
+    } else if (method === 'price') {
+      eventsCopy.sort((a, b) => {
+        let aPrice = a.priceRanges ?
+          ((a.priceRanges[0].min + a.priceRanges[0].max) / 2).toFixed(2): 0;
+        let bPrice = b.priceRanges ?
+          ((b.priceRanges[0].min + b.priceRanges[0].max) / 2).toFixed(2): 0;
+
+        return aPrice - bPrice;
+      })
+      setEvents(eventsCopy);
+    } else if (method === 'distance') {
+      eventsCopy.sort((a, b) => {
+        return a.distance - b.distance;
+      });
+      setEvents(eventsCopy);
+    }
+  }
 
   const renderTodayEvents = () => {
     console.log("dates", events);
@@ -199,13 +230,17 @@ function Events() {
             placeholder="Enter keywords(s)"
             onChange={keywordsOnChange}
           />
+          <select onChange={sortEvents}>
+            <option value="date">Sort by date</option>
+            <option value="price">Sort by price</option>
+            <option value="distance">Sort by distance</option>
+          </select>
           {events.length > 0 ? (
             <div id="scrollContainer">{filterEvents()}</div>
           ) : (
             <div className="emptyList">
               <h2>
-                Sorry! There are no events matching your specified location and
-                time.
+                Sorry! There are no events matching your specified location and time.
               </h2>
             </div>
           )}

@@ -18,7 +18,7 @@ function EventListItem({ event, openModal }) {
     openModal(quantity);
   };
 
-  console.log(event);
+  // console.log(event);
 
   const date = new Date(event.dates.start.dateTime).toLocaleString([], {
     year: "numeric",
@@ -61,6 +61,7 @@ function EventListItem({ event, openModal }) {
         <div className="eventText">
           <span>{event._embedded.venues[0].name}</span>
           <span>{event._embedded.venues[0].address.line1}</span>
+          <span>{event.distance}mi</span>
 
           <span>{date}</span>
           <span>{price}</span>
