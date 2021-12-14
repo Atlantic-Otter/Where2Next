@@ -1,3 +1,5 @@
+import React from 'react';
+
 const dateOptions = {
   year: 'numeric',
   month: '2-digit',
@@ -97,4 +99,4 @@ const helpers = {
 
 };
 
-module.exports = helpers;
+export default helpers;

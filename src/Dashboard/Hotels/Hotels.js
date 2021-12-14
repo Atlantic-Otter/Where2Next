@@ -31,6 +31,7 @@ function Hotels() {
     axios
       .get(`http://localhost:3000/hotels/${encodedCity}`)
       .then((response) => {
+        console.log('cityGroups recieved: ', cityGroups)
         setCityGroups(response.data);
       })
       .catch((error) => {
