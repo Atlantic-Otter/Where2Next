@@ -186,5 +186,13 @@
 
 #thank-you {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
+#celebrate {
+  font-weight: bold;
+  font-size: 20pt;
+}

@@ -48,13 +48,17 @@ const CheckoutModal = () => {
   return (
     <div className="modal-background" onClick={toggleCheckoutModal}>
       <div className="checkout-modal-window" onClick={(event) => { event.stopPropagation(); }}>
-        <div id="checkout-close-box">
-          <h2>{headerCount}</h2>
+
+
           <span className="independent-close-button" onClick={toggleCheckoutModal}>&times;</span>
 
-        </div>
+
         {paid ? <ThankYou /> :
         <>
+          <div id="checkout-header">
+            <h2>{headerCount}</h2>
+          </div>
+
           <div id="checkout-top">
 
             <div id="checkout-rundown-container">
