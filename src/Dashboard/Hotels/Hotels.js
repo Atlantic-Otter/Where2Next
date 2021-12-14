@@ -6,14 +6,14 @@ import HotelGroup from "./HotelGroup";
 import getTripLength from "../../../Helpers/getTripLength";
 import FadeLoader from "react-spinners/FadeLoader";
 import { useParams } from "react-router-dom";
-import '../dashboard.css'
+import "../dashboard.css";
 // import { ConnectionStates } from "mongoose";
 
 function Hotels() {
   const [cityGroups, setCityGroups] = useState([]);
   const [hotelList, setHotelList] = useState([]);
   const [loading, setLoading] = useState(true);
-  let { city, state, endDate, startDate} = useSearchParams();
+  let { city, state, endDate, startDate } = useSearchParams();
   city = city || "";
   const encodedCity = city.split(" ").join("+");
   const neighborhood = useParams()["*"];
@@ -38,14 +38,16 @@ function Hotels() {
 
   const fetchNeighborhoods = (city) => {
     axios
-      .get(`http://localhost:3000/hotels/${encodedCity}`, {signal: abortFetch.signal})
+      .get(`http://localhost:3000/hotels/${encodedCity}`, {
+        signal: abortFetch.signal,
+      })
       .then((response) => {
         setCityGroups(response.data);
-        setLoading(false)
+        setLoading(false);
       })
       .catch((error) => {
-        if (err.name === 'AbortError') {
-        console.log(error);
+        if (err.name === "AbortError") {
+          console.log(error);
         }
       });
   };
@@ -57,8 +59,8 @@ function Hotels() {
         setHotelList(response.data);
       })
       .catch((err) => {
-        if (err.name === 'AbortError') {
-          console.log(err.message)
+        if (err.name === "AbortError") {
+          console.log(err.message);
         }
       });
   };
@@ -79,7 +81,7 @@ function Hotels() {
     <div className="eventsList">
       <h3>Neighborhoods</h3>
       <div className="neighborhoods">
-        <FadeLoader color="orange" loading={loading} />
+        <FadeLoader color="whitesmoke" loading={loading} />
         {cityGroups.map((group, idx) => (
           <CityGroup key={idx} data={group} setHotelList={setHotelList} />
         ))}
