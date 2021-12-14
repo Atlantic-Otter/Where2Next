@@ -42,6 +42,7 @@ function Hotels() {
         signal: abortFetch.signal,
       })
       .then((response) => {
+        console.log('cityGroups recieved: ', cityGroups)
         setCityGroups(response.data);
         setLoading(false);
       })
@@ -78,38 +79,40 @@ function Hotels() {
 
   //listContainer <=hotel-main
   return (
-    <div className="eventsList">
-      <h3>Neighborhoods</h3>
-      <div className="neighborhoods">
-        <FadeLoader color="whitesmoke" loading={loading} />
-        {cityGroups.map((group, idx) => (
-          <CityGroup key={idx} data={group} setHotelList={setHotelList} />
-        ))}
+    <>
+      <div className="eventsList">
+        <h3>Neighborhoods</h3>
+        <div className="neighborhoods">
+          <FadeLoader color="orange" loading={loading} />
+          {cityGroups.map((group, idx) => (
+            <CityGroup key={idx} data={group} setHotelList={setHotelList} />
+          ))}
+        </div>
       </div>
-      <div id="scrollContainer">
-        <HotelGroup list={hotelList} tripDuration={tripDuration} />
-      </div>
+        <div className="listContainer">
+          <HotelGroup list={hotelList} tripDuration={tripDuration} />
+        </div>
 
-      <nav aria-label="hotel-pagination">
-        <ul className="pagination">
-          <li className="page-item">
-            <a className="page-link" href="#" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
-              <span className="sr-only">Previous</span>
-            </a>
-          </li>
-          <li className="page-item page-link">1</li>
-          <li className="page-item page-link">2</li>
-          <li className="page-item">3</li>
-          <li className="page-item">
-            <a className="page-link" href="#" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-              <span className="sr-only">Next</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
+        <nav aria-label="hotel-pagination">
+          <ul className="pagination">
+            <li className="page-item">
+              <a className="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                <span className="sr-only">Previous</span>
+              </a>
+            </li>
+            <li className="page-item page-link">1</li>
+            <li className="page-item page-link">2</li>
+            <li className="page-item">3</li>
+            <li className="page-item">
+              <a className="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                <span className="sr-only">Next</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+    </>
   );
 }
 

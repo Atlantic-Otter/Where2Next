@@ -3,7 +3,7 @@ import TripContext from '../TripContext.js';
 import CheckoutTile from './CheckoutTile.js';
 import CheckoutForm from './CheckoutForm.js';
 import ThankYou from './ThankYou';
-import { extractTotal } from './helpers.js';
+import helpers from './helpers.js';
 
 const CheckoutModal = () => {
 
@@ -42,7 +42,7 @@ const CheckoutModal = () => {
   };
 
 
-  const {count, total } = extractTotal(currentTrip);
+  const {count, total } = helpers.extractTotal(currentTrip);
   const headerCount = count === 1 ? `${count} item in your cart` : `${count} items in your cart`;
 
   return (
