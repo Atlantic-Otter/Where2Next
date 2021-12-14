@@ -1,13 +1,13 @@
 // a tile to represent ONE item in cart
 
 import React from 'react';
-import { getInfo } from './helpers.js';
+import helpers from './helpers.js';
 
 const CheckoutTile = ({ service, infoObj }) => {
   // props should include
     // name of service (flight, hotel, event)
     // the object itself
-    const { title, dateTime, price } = getInfo(infoObj, service)
+    const { title, dateTime, price } = helpers.getInfo(infoObj, service)
 
     return(
       <div className="checkout-tile">

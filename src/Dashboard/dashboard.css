@@ -158,6 +158,10 @@
   font-weight: bold;
 }
 
+.hotel-group {
+  overflow: scroll;
+}
+
 .hotel-text {
   display: flex;
   flex-direction: column;
