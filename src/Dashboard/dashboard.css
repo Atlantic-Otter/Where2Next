@@ -6,12 +6,20 @@
     max-width: 20vw;
     border-radius: 2em;
   }
+  .hotelListImage {
+    width: 15vw;
+    height: 10vw;
+  }
 }
 
 /* MOBILE */
 @media screen and (max-width: 600px) {
   .eventListImage {
     height: 15vw;
+    width: 15vw;
+  }
+  .eventListImage {
+    height: 20vw;
     width: 15vw;
   }
 }
@@ -39,6 +47,9 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+
+  align-items: center;
+
 }
 
 .infoListContainer {
@@ -131,4 +142,30 @@
 
 .readyMoreText {
   font-weight: bold;
+}
+
+.hotel-text {
+  display: flex;
+  flex-direction: column;
+  align-self: stetch;
+  flex-grow: 1;
+  font-size: .9em;
+  margin-left: 2em;
+}
+
+.neighborhoods {
+  display: flex;
+  text-align: center;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-name {
+  margin-right: 1em;
+  text-align: justify;
+}
+
+.hotelListImage {
+  border-radius: 1em;
 }

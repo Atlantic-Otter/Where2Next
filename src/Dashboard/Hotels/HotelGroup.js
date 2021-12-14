@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import HotelItem from "./HotelItem";
 
-function HotelGroup({ list }) {
+// const [loading, setLoading] = useState(true);
+
+function HotelGroup({ list, tripDuration }) {
   return (
-    <div name="hotel-group">
+    <div className="hotel-group">
       {list.map((hotel, idx) => (
-        <HotelItem hotel={hotel} key={idx} />
+        <HotelItem hotel={hotel} key={idx} tripDuration={tripDuration} />
       ))}
     </div>
   );
