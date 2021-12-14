@@ -35,6 +35,7 @@ const helpers = {
         title = `${segments[0].departure.iataCode} to ${segments[segments.length - 1].arrival.iataCode}`;
         dateTime = (
           <>
+          {/* div for full block-level */}
             <div><b>Depart:</b> &nbsp; {departTime}</div>
             <span><b>Arrive:</b> &nbsp; {arriveTime}</span>
           </>
