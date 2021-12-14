@@ -23,10 +23,7 @@ html,
     bottom: 5%;
     right: 5%;
   }
-  .eventListImage {
-    width: 5vw;
-    height: 5vw;
-  }
+
   #inputForm {
     width: 50%;
   }
@@ -41,10 +38,6 @@ html,
     right: 5%;
   }
 
-  .eventListImage {
-    height: 15vw;
-    width: 15vw;
-  }
   #inputForm {
     width: 80%;
   }
@@ -111,16 +104,16 @@ html,
   justify-content: center;
 }
 
-#listContainer {
-  /* border: 1px solid black; */
-  padding: 1em;
+/* #listContainer { */
+/* border: 1px solid black; */
+/* padding: 1em;
   height: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 60%;
-}
+  width: 60%; */
+/* } */
 .listHeader {
   width: 100%;
   display: flex;
@@ -148,9 +141,6 @@ html,
   border-radius: 50%;
 }
 
-.eventListImage {
-  object-fit: cover;
-}
 .eventDetails {
   display: flex;
   flex-direction: row;

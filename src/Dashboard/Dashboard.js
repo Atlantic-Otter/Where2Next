@@ -15,7 +15,6 @@ function Dashboard({ test }) {
   };
   return (
     <div id="dashboardContainer">
-      <h1>DASHBOARD</h1>
       <div id="navLinks">
         <NavLink
           to={`events${search}`}
