@@ -1,5 +1,6 @@
 import React from 'react';
 import TripContext from '../TripContext.js';
+// import useSearchParams from '../../Helpers/useSearchParams.js';
 import CheckoutTile from './CheckoutTile.js';
 import CheckoutForm from './CheckoutForm.js';
 import ThankYou from './ThankYou';
@@ -44,6 +45,8 @@ const CheckoutModal = () => {
 
   const {count, total } = helpers.extractTotal(currentTrip);
   const headerCount = count === 1 ? `${count} item in your cart` : `${count} items in your cart`;
+
+  // var searchParams = useSearchParams();
 
   return (
     <div className="modal-background" onClick={toggleCheckoutModal}>

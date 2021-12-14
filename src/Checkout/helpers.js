@@ -11,7 +11,6 @@ const dateOptions = {
 const helpers = {
 
   getInfo: function(infoObj, service) {
-
     var title, dateTime, price;
 
     switch (service) {
@@ -44,10 +43,16 @@ const helpers = {
 
       break;
       case 'hotel':
-        title = 'Hotels'
-        dateTime = 'tbd'
-        price = 0;
+        var duration = infoObj.tripDuration === 1 ? `${infoObj.tripDuration} day` : `${infoObj.tripDuration} days`;
+
+        var start = new Date(infoObj.startDate).toLocaleDateString();
+        var end = new Date(infoObj.endDate).toLocaleDateString();
+
+        title = infoObj.hotelName;
+        dateTime = `${start} - ${end} (${duration})`;
+        price = infoObj.dailyRate;
       break;
+
     }
 
     return {title, dateTime, price};

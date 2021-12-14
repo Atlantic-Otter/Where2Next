@@ -30,6 +30,9 @@ const HotelItem = ({ hotel, tripDuration }) => {
     hotelName: hotel.name,
     hotelId: hotel.id,
     dailyRate: price,
+    tripDuration: tripDuration,
+    startDate: hotel.startDate,
+    endDate: hotel.endDate
   };
 
   const handleClick = () => {
