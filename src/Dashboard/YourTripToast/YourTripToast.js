@@ -9,7 +9,8 @@ import FlightToastItem from "./FlightToastItem";
 
 function YourTripToast({ tripToastVisible, toggleTripToast }) {
   const { currentTrip, toggleCheckoutModal } = useContext(TripContext);
-
+  console.log('RERENDER TOAST');
+  console.log('HOTELS LENGTH:', currentTrip.hotels.length);
   const eventList = currentTrip.events.map((event) => (
     <EventToastItem event={event} />
   ));
