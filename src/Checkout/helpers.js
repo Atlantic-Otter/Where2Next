@@ -44,9 +44,9 @@ const helpers = {
 
       break;
       case 'hotel':
-        title = 'Hotels'
+        title = infoObj.hotelName
         dateTime = 'tbd'
-        price = 0;
+        price = infoObj.dailyRate;
       break;
     }
 
