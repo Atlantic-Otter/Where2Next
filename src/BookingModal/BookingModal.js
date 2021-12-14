@@ -3,7 +3,7 @@ import "../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./BookingModal.css";
 import { useNavigate, useLocation } from "react-router-dom";
-const BookingModal = ({ closeModal, modalType }) => {
+const BookingModal = ({ closeModal, modalType, quantity }) => {
   modalType = "both";
   const navigate = useNavigate();
   const { search } = useLocation();
@@ -83,7 +83,7 @@ const BookingModal = ({ closeModal, modalType }) => {
   return (
     <div className={"modalBG"}>
       <div className="modal">
-        <h4>The event has been added to your cart!</h4>
+        <h4>{quantity} items have been added to your cart!</h4>
         {renderMessage(modalType)}
         {renderButtons(modalType)}
       </div>

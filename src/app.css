@@ -23,10 +23,7 @@ html,
     bottom: 5%;
     right: 5%;
   }
-  .eventListImage {
-    width: 5vw;
-    height: 5vw;
-  }
+
   #inputForm {
     width: 50%;
   }
@@ -41,10 +38,6 @@ html,
     right: 5%;
   }
 
-  .eventListImage {
-    height: 15vw;
-    width: 15vw;
-  }
   #inputForm {
     width: 80%;
   }
@@ -111,16 +104,16 @@ html,
   justify-content: center;
 }
 
-#listContainer {
-  border: 1px solid black;
-  padding: 1em;
+/* #listContainer { */
+/* border: 1px solid black; */
+/* padding: 1em;
   height: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 60%;
-}
+  width: 60%; */
+/* } */
 .listHeader {
   width: 100%;
   display: flex;
@@ -129,7 +122,7 @@ html,
   justify-content: center;
 }
 #scrollContainer {
-  overflow: scroll;
+  overflow-y: scroll;
   height: 90%;
 }
 
@@ -148,12 +141,10 @@ html,
   border-radius: 50%;
 }
 
-.eventListImage {
-  object-fit: cover;
-}
 .eventDetails {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 .eventText {
   display: flex;
@@ -214,6 +205,7 @@ html,
 }
 
 .login-logout-button {
+  text-decoration: none;
   margin: 2% 2% 2% 0;
   width: 10%;
   height: 40%;
@@ -223,6 +215,14 @@ html,
   color: #fff;
   text-align: center;
   box-shadow: rgba(254, 1, 154, 0.2) 0px 7px 29px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-logout-button:hover {
+  text-decoration: none;
 }
 
 #selectDates {
@@ -342,13 +342,50 @@ html,
 }
 
 @keyframes glowing {
-  0% {
-    background-position: 0 0;
-  }
-  50% {
-    background-position: 400% 0;
-  }
-  100% {
-    background-position: 0 0;
-  }
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
 }
+
+.hotel-main {
+  color: gray;
+}
+
+.hotel-item-detail {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid black;
+  /* justify-content: space-between; */
+  margin: 1em;
+  padding: 1em;
+}
+
+
+.hotel-detail-img {
+  width: 180px;     /* change to % */
+  object-fit: cover;
+  margin-right: 1em;
+}
+
+.hotel-detail-desc {
+  display: flex;
+  flex-direction: column;
+  align-self: stetch;
+  flex-grow: 1;
+  font-size: .6em;
+}
+
+.hotel-detail-price {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+  font-size: .7em;
+  /* align-items: flex-end; */
+}
+
+.neighborhoods {
+  display: flex;
+  flex-direction: row;
+  margin-right: 1em;
+}
+

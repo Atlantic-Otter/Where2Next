@@ -4,9 +4,16 @@ function CityGroup({ data }) {
   const { name } = data;
   const { search } = useLocation();
 
+  const initial = name.split(' ').map(n=>n[0]).join('');
+
   return (
     <Link to={`${name}${search}`}>
-      <div name="city-section">{name}</div>
+      <div className="neighborhoods">
+        <div className="section-container">
+          {/* <div className="city-section"><h4>{initial}</h4></div> */}
+          <div className="addToTrip">{name}</div>
+        </div>
+      </div>
     </Link>
   );
 }

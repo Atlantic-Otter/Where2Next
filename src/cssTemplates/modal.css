@@ -2,44 +2,93 @@
 .modal-background {
   position: fixed; /* Stay in place */
   z-index: 2; /* Sit on top of exisitng content */
-  background-color: rgba(0, 0, 0, 0.4); /* see-thru */
+  background-color: rgba(0, 0, 0, 0.7); /* see-thru */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   left: 0;
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
+  /* overflow: auto; Enable scroll if needed */
   /* background-color: rgb(0,0,0);  */
 }
 
 /* Modal Content/Box */
-.modal-window {
-  /* may want z index of 2? */
-  background: rgb(9,7,156);
-  background: -moz-radial-gradient(circle, rgba(9,7,156,1) 0%, rgba(31,18,51,1) 100%);
-  background: -webkit-radial-gradient(circle, rgba(9,7,156,1) 0%, rgba(31,18,51,1) 100%);
-  background: radial-gradient(circle, rgba(9,7,156,1) 0%, rgba(31,18,51,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#09079c",endColorstr="#1f1233",GradientType=1);
-
-  color: #fefefe;
+.modal-window, .checkout-modal-window, .login-modal-window {
+  background-color: #FFFFFF;
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.12);
+  width: 50%;
   z-index: 3;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  border-radius: 5vw;
-  /* width: 40%; */
+  padding: 3%;
+  border: 1px solid #000000;
+  border-radius: 15px;
+
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
-.modal-close-box {
-  /* width: 20%; */
+.checkout-modal-window {
+  /* padding: 0 3% 0 3%; */
+  display: block;
+  max-height: 60vh;
+}
+
+#checkout-close-box {
+  margin: 1%;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  justify-content: space-between;
+}
+
+#checkout-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  max-height: 45vh;
+}
+
+
+
+.given-category {
+  margin: 3%;
+}
+
+.given-category > h3 {
+  text-decoration: underline;
+}
+
+.checkout-tile {
+  margin: 3% 0 3% 0;
+}
+
+.tile-price {
+  float: right;
+}
+
+
+
+
+#checkout-bottom {
+  display: flex;
+  flex-direction: row;
   justify-content: center;
-  padding: 0 3% 0 3%;
+}
+
+.login-modal-window {
+  border-radius: 5vw;
+}
+
+.modal-close-box {
+  width: 20%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  /* padding: 0 3% 0 3%; */
 }
 
 /* The Close Button */
@@ -47,6 +96,17 @@
   color: #aaa;
   font-size: 28px;
   font-weight: bold;
+  align-self: flex-start;
+  /* margin: 25px; */
+}
+
+
+
+.independent-close-button {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  float: right;
 }
 
 .modal-close-button:hover,
@@ -61,21 +121,78 @@
   display: flex;
   flex-direction:  row;
   justify-content: space-between;
-
 }
 
-#submit-button {
+/* #submit-button {
   padding: 0.3em 0.5em 0.3em 0.5em;
   border-radius: 5vw;
-}
+} */
 
 #login-form > * {
   margin: auto 3% auto 3%;
 }
 
 
-#username, #password {
-  border-radius: 5vw;
+
+#checkout-form-container, #checkout-rundown-container {
+  padding: 3%;
+  flex: 0 0 30%;
+  height: inherit;
+}
+
+/* wont't work with bootstrap? */
+#checkout-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+#checkout-button {
+  margin-top: 10%;
+  background-color: black;
+  color: white;
+  /* align-self: flex-end; */
+  width: 100%
 }
 
 
+#checkout-rundown-container {
+
+  flex: 0 0 70%;
+  margin-right: 2%;
+  display: flex;
+  flex-direction: column;
+  max-height: inherit;
+
+}
+
+#checkout-rundown-container > h3 {
+  margin-top: 3%;
+}
+
+#checkout-categories {
+  border-left: 1px solid black;
+  border-top: 1px solid black;
+  border-radius: 20px;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+
+/*
+::-webkit-scrollbar {
+  display: none;
+} */
+
+#thank-you {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#celebrate {
+  font-weight: bold;
+  font-size: 20pt;
+}
