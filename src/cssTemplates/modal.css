@@ -43,14 +43,15 @@
 }
 
 .checkout-modal-window {
-  padding-top: 0;
+  padding: 0 3% 0 3%;
   display: block;
+  max-height: 60vh;
 }
 
 #checkout-close-box {
   margin: 1%;
-  display: flex;
-  flex-direction: row-reverse;
+  /* display: flex;
+  flex-direction: row-reverse; */
 }
 
 #checkout-top {
@@ -58,7 +59,7 @@
   flex-direction: row;
   justify-content: space-evenly;
   align-items: flex-start;
-  height: -webkit-fill-available;
+  max-height: 45vh;
 }
 
 
@@ -150,6 +151,7 @@
   height: inherit;
 }
 
+/* wont't work with bootstrap? */
 #checkout-form {
   display: flex;
   flex-direction: column;
@@ -167,16 +169,25 @@
 #checkout-rundown-container {
 
   flex: 0 0 70%;
-  margin-right: 5%;
-  overflow: scroll;
-  overflow-x: hidden;
+  margin-right: 2%;
+  display: flex;
+  flex-direction: column;
+  max-height: inherit;
+
+}
+
+#checkout-rundown-container > h3 {
+  margin-top: 3%;
 }
 
 #checkout-categories {
   border-left: 1px solid black;
   border-top: 1px solid black;
   border-radius: 20px;
+  overflow: scroll;
+  overflow-x: hidden;
 }
+
 
 /*
 ::-webkit-scrollbar {
