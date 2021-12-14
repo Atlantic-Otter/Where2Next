@@ -9,7 +9,6 @@ import { useParams } from "react-router-dom";
 import '../dashboard.css'
 // import { ConnectionStates } from "mongoose";
 
-
 function Hotels() {
   const [cityGroups, setCityGroups] = useState([]);
   const [hotelList, setHotelList] = useState([]);
@@ -18,9 +17,11 @@ function Hotels() {
   city = city || "";
   const encodedCity = city.split(" ").join("+");
   const neighborhood = useParams()["*"];
+  const abortFetch = new AbortController();
 
   useEffect(() => {
     fetchNeighborhoods(city);
+    return () => abortFetch.abort();
   }, []);
 
   useEffect(() => {
@@ -30,19 +31,22 @@ function Hotels() {
       )[0].destinationId;
       fetchHotels(neighborhoodId);
     }
+    return () => abortFetch.abort();
   }, [cityGroups, neighborhood]);
 
   const tripDuration = getTripLength(startDate, endDate);
 
   const fetchNeighborhoods = (city) => {
     axios
-      .get(`http://localhost:3000/hotels/${encodedCity}`)
+      .get(`http://localhost:3000/hotels/${encodedCity}`, {signal: abortFetch.signal})
       .then((response) => {
         setCityGroups(response.data);
         setLoading(false)
       })
       .catch((error) => {
+        if (err.name === 'AbortError') {
         console.log(error);
+        }
       });
   };
   const fetchHotels = (id) => {
@@ -52,7 +56,11 @@ function Hotels() {
       .then((response) => {
         setHotelList(response.data);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        if (err.name === 'AbortError') {
+          console.log(err.message)
+        }
+      });
   };
 
   // const handlePagination = (e) => {
@@ -69,7 +77,6 @@ function Hotels() {
   //listContainer <=hotel-main
   return (
     <div className="eventsList">
-
       <h3>Neighborhoods</h3>
       <div className="neighborhoods">
         <FadeLoader color="orange" loading={loading} />
@@ -77,7 +84,6 @@ function Hotels() {
           <CityGroup key={idx} data={group} setHotelList={setHotelList} />
         ))}
       </div>
-
       <div id="scrollContainer">
         <HotelGroup list={hotelList} tripDuration={tripDuration} />
       </div>
@@ -101,7 +107,6 @@ function Hotels() {
           </li>
         </ul>
       </nav>
-
     </div>
   );
 }
