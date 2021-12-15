@@ -4,7 +4,7 @@ const TripTile = ({ trip }) => {
   // should map over trip and return a list of each category
   const { destination, dates, events, flights, lodging } = trip;
   return (
-    <div>
+    <div className="trip-tile">
       <h6>{destination} &nbsp; {dates}</h6>
 
       <div className="given-category">

@@ -15,7 +15,8 @@
 }
 
 /* Modal Content/Box */
-.modal-window, .checkout-modal-window, .login-modal-window {
+.modal-window, .checkout-modal-window, .login-modal-window,
+.profile-modal-window {
   background-color: #FFFFFF;
   box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.12);
   width: 40%;
@@ -34,6 +35,10 @@
   /* padding: 0 3% 0 3%; */
   display: block;
   max-height: 60vh;
+}
+
+.profile-modal-window {
+  max-height: 70vh;
 }
 
 .login-modal-window {
@@ -206,4 +211,14 @@
 #celebrate {
   font-weight: bold;
   font-size: 20pt;
+}
+
+#my-trips {
+  max-height: inherit;
+}
+
+
+#upcoming-trips {
+  max-height: inherit;
+  overflow: scroll;
 }

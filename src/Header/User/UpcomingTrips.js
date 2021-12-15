@@ -5,7 +5,7 @@ const UpcomingTrips = ({ trips }) => {
   console.log('upcoming trips:', trips);
 
   return (
-    <div id="upcoming-tips">
+    <div id="upcoming-trips">
       <h4>Upcoming Trips:</h4>
       {trips.map(trip => <TripTile trip={trip}/>)}
     </div>
