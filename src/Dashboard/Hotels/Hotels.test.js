@@ -22,4 +22,5 @@ describe("Hotel component", function () {
     customRender(<Hotels />);
     expect(screen.getByText("city sections")).toBeInTheDocument();
   });
+  test("s")
 });

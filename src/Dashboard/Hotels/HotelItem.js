@@ -14,8 +14,7 @@ const HotelItem = ({ hotel, tripDuration }) => {
     if (hotel.ratePlan) setPrice(hotel.ratePlan.price.current);
     if (hotel.guestReviews) setRating(Number(hotel.guestReviews.rating));
     if (hotel.guestReviews) setBadgeText(hotel.guestReviews.badgeText);
-    if (hotel.optimizedThumbUrls.srpDesktop !== undefined)
-      setThumbnail(hotel.optimizedThumbUrls.srpDesktop);
+    if (hotel.optimizedThumbUrls) setThumbnail(hotel.optimizedThumbUrls.srpDesktop);
 
     return () => abortFetch.abort();
   }, []);
@@ -61,7 +60,7 @@ const HotelItem = ({ hotel, tripDuration }) => {
         <div className="hotel-detail-price">
           <h5>{price}</h5>
           Total:{" "}
-          {"$" + Number(price.split("").splice(1).join("")) * tripDuration}
+          {"$" + Number(price.split("").splice(1).join("")) * tripDuration }
           <button className="addToTrip" onClick={handleClick}>
             Add to Trip
           </button>
