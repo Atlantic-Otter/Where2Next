@@ -2,6 +2,8 @@ import React from 'react';
 import helpers from './helpers.js';
 import '../../cssTemplates/modal.css';
 import UserContext from '../../UserContext.js';
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 // TODO: move all callbacks out of function body for efficient rerendering
   // check out useCallback OR
@@ -48,22 +50,35 @@ const LoginMenu = ({ toggleModal }) => {
 
     <div className="modal-background" onClick={toggleModal}>
       <div className="login-modal-window" onClick={(event) => { event.stopPropagation(); }}>
-        <form id="login-form" onSubmit={attemptLogin} >
-          <label>
-            Username:
-            <input id="username" type="text" onChange={updateText} required/>
-          </label>
-          <label>
-            Password:
-            <input id="password" type="password" onChange={updateText} required/>
-          </label>
-          <input id="submit-button" type="submit" value="Login" data-testid="login-button" />
-        </form>
+        <Form id="login-form" onSubmit={attemptLogin} >
+
+          <Form.Group className="mb-3" controlId="usernameLogin" >
+            <Form.Label>Username:</Form.Label>
+            <Form.Control required id="username" type="text" onChange={updateText} />
+            <Form.Control.Feedback type="invalid">
+              Required field.
+            </Form.Control.Feedback>
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="passwordLogin">
+            <Form.Label>Credit Password:</Form.Label>
+            <Form.Control required id="password" type="password" onChange={updateText} />
+            <Form.Control.Feedback type="invalid">
+              Required field.
+            </Form.Control.Feedback>
+          </Form.Group>
+
+          <Button id="submit-button" type="submit" data-testid="login-button">
+            Login
+          </Button>
+        </Form>
         {/* <div className="modal-close-box"> */}
           <span className="modal-close-button" onClick={toggleModal}>&times;</span>
         {/* </div> */}
       </div>
     </div>
+
+
 
   );
 };
