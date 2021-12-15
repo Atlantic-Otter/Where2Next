@@ -3,9 +3,11 @@ import TripContext from "../../../src/TripContext.js";
 import { useContext } from "react";
 
 function FlightListItem({ flight, arrivalCode }) {
-  const { currentTrip, setCurrentTrip } = useContext(TripContext);
+  const { currentTrip, setCurrentTrip, unvisited, setUnvisited } = useContext(TripContext);
   console.log({ flight });
   const addFlightToTrip = () => {
+    let newUnvisited = unvisited.filter((el) => el !== 'flights');
+    setUnvisited(newUnvisited);
     const newTrip = { ...currentTrip };
     newTrip.flights.push(flight);
     setCurrentTrip(newTrip);
@@ -16,25 +18,29 @@ function FlightListItem({ flight, arrivalCode }) {
     (seg) => seg.arrival.iataCode === arrivalCode
   )[0];
   console.log(segment);
+  if(!segment) return null;
   const { arrival, departure } = segment;
   const departureCode = departure.iataCode;
-  const departureTime = new Date(departure.at).toLocaleString([], {
+  const departureTime = departure ? new Date(departure.at).toLocaleString([], {
     year: "numeric",
     month: "long",
     day: "numeric",
     hour: "numeric",
     minute: "2-digit",
-  });
-  const arrivalTime = new Date(arrival.at).toLocaleString([], {
+  })
+  : null
+  const arrivalTime = arrival ? new Date(arrival.at).toLocaleString([], {
     year: "numeric",
     month: "long",
     day: "numeric",
     hour: "numeric",
     minute: "2-digit",
-  });
-  let duration = new Date(arrival.at) - new Date(departure.at);
+  })
+  : null
+  let duration = arrival && departure ?new Date(arrival.at) - new Date(departure.at) : null
   const hours = Math.floor(duration / (1000 * 60 * 60));
   const minutes = Math.floor((duration % (1000 * 60 * 60)) / (1000 * 60));
+
   const { total: price, currency } = flight.price;
   return (
     <div className="listItem flightItem">
