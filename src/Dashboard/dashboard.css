@@ -40,6 +40,7 @@
   justify-content: center;
   align-items: center;
   width: 60%;
+  height: 30%;
 }
 .listItem:nth-child(even) {
   background: #67084f;
