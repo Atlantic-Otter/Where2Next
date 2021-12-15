@@ -79,7 +79,6 @@ function Hotels() {
 
   return (
     <div className="listContainer">
-      <h3>Neighborhoods</h3>
       <div className="neighborhoods">
         <FadeLoader color="whitesmoke" loading={loading} />
         {cityGroups.map((group, idx) => (

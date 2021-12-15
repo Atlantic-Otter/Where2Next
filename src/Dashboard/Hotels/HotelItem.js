@@ -11,12 +11,9 @@ const HotelItem = ({ hotel, tripDuration }) => {
   const { currentTrip, setCurrentTrip } = useContext(TripContext);
 
   useEffect(() => {
-    if (hotel.ratePlan.price.current !== undefined)
-      setPrice(hotel.ratePlan.price.current);
-    if (hotel.guestReviews.rating !== undefined)
-      setRating(Number(hotel.guestReviews.rating));
-    if (hotel.guestReviews.badgeText !== undefined)
-      setBadgeText(hotel.guestReviews.badgeText);
+    if (hotel.ratePlan) setPrice(hotel.ratePlan.price.current);
+    if (hotel.guestReviews) setRating(Number(hotel.guestReviews.rating));
+    if (hotel.guestReviews) setBadgeText(hotel.guestReviews.badgeText);
     if (hotel.optimizedThumbUrls.srpDesktop !== undefined)
       setThumbnail(hotel.optimizedThumbUrls.srpDesktop);
 
@@ -29,7 +26,7 @@ const HotelItem = ({ hotel, tripDuration }) => {
     dailyRate: price,
     tripDuration: tripDuration,
     startDate: hotel.startDate,
-    endDate: hotel.endDate
+    endDate: hotel.endDate,
   };
 
   const handleClick = () => {
