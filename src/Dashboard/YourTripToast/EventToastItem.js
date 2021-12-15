@@ -11,8 +11,6 @@ function EventToastItem({ event }) {
         if (e.quantity > 1) {
           e.quantity -= 1;
           return e;
-        } else {
-          // return;
         }
       } else {
         return e;

@@ -6,7 +6,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import TripContext from "../../src/TripContext";
 
 const BookingModal = ({ closeModal, quantity }) => {
-  const { currentTrip, setCurrentTrip, unvisited, setUnvisited } = useContext(TripContext);
+  const { currentTrip, setCurrentTrip, unvisited, setUnvisited, toggleCheckoutModal } = useContext(TripContext);
   const navigate = useNavigate();
   const { search } = useLocation();
   console.log(useContext(TripContext))
@@ -42,6 +42,12 @@ const BookingModal = ({ closeModal, quantity }) => {
 
     navigate("../" + path + search);
   };
+
+  const onCheckout = () => {
+    closeModal();
+    toggleCheckoutModal();
+  };
+
   const renderButtons = () => {
     if (unvisited.includes("hotels") && !unvisited.includes("flights")) {
       return (
@@ -85,7 +91,7 @@ const BookingModal = ({ closeModal, quantity }) => {
           <button className={"continueBtn"} onClick={closeModal}>
             Continue
           </button>
-          <button className={"checkoutBtn"}>Checkout</button>
+          <button className={"checkoutBtn"} onClick={onCheckout}>Checkout</button>
         </div>
       );
     }

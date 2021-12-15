@@ -42,7 +42,6 @@ function EventListItem({ event, openModal }) {
   };
 
   const increaseQuantity = () => {
-    console.log('TRIPS: ' + JSON.stringify(currentTrip))
     setQuantity(quantity + 1)
   }
 
