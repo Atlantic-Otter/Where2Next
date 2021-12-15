@@ -8,7 +8,7 @@ const CheckoutForm = ({ handleSubmit, updateText, validated }) => {
     <div id="checkout-form-container" >
       <Form id="checkout-form" noValidate validated={validated} onSubmit={handleSubmit}>
 
-        <Form.Group className="mb-3" controlId="validationCustom01" >
+        <Form.Group className="mb-3" >
           <Form.Label>Email address</Form.Label>
           <Form.Control
             required
@@ -25,7 +25,7 @@ const CheckoutForm = ({ handleSubmit, updateText, validated }) => {
           </Form.Text>
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="validationCustom02">
+        <Form.Group className="mb-3" >
           <Form.Label>Credit card:</Form.Label>
           <Form.Control
             required
@@ -39,7 +39,7 @@ const CheckoutForm = ({ handleSubmit, updateText, validated }) => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="validationCustom03">
+        <Form.Group className="mb-3">
           <Form.Label>Expires:</Form.Label>
           <Form.Control
             required type="text"
@@ -52,7 +52,7 @@ const CheckoutForm = ({ handleSubmit, updateText, validated }) => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="validationCustom04" >
+        <Form.Group className="mb-3" >
           <Form.Label>Security code:</Form.Label>
           <Form.Control
             required

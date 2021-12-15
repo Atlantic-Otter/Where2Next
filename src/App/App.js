@@ -23,9 +23,24 @@ const App = ({ test }) => {
 
   const [ unvisited, setUnvisited ] = useState(['flights', 'hotels']);
 
-  // LATER CHANGE TO INITIALiZE TO LOCAL STORAGE'S RECORDS
-  // user should remain signed in after refreshing the page
-  const [user, setUser] = React.useState(null);
+
+  var initUserState;
+  var localUser = JSON.parse(window.localStorage.getItem('user'));
+  if (localUser) {
+    initUserState = localUser;
+    localStorage.setItem('user', JSON.stringify(localUser));
+  } else {
+    initUserState = null;
+    localStorage.setItem('user', JSON.stringify(null));
+  }
+
+  const [user, setUser] = React.useState(initUserState);
+
+  useEffect(() => {
+    console.log('infinite loop?')
+    window.localStorage.setItem('user', JSON.stringify(user));
+  }, [user])
+
 
   // state of the user info modal appearance
   const [profileModal, setProfileModal] = React.useState(false);
@@ -69,6 +84,9 @@ const App = ({ test }) => {
   useEffect(() => {
     window.localStorage.setItem("currentTrip", JSON.stringify(currentTrip));
   }, [currentTrip]);
+
+
+
 
   return (
     <UserContext.Provider value={{ user, setUser, toggleProfileModal}}>
