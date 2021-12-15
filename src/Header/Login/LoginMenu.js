@@ -18,25 +18,34 @@ const LoginMenu = ({ toggleModal }) => {
     password: ''
   });
 
+  // NOTE: "validated" state refers to front-end form validation, helpers.requestValidation is server-handled
+  const [validated, setValidated] = React.useState(false);
+
+
   const attemptLogin = (event) => {
     event.preventDefault()
-    // make api request to query the db for matching username and password
-    // on success set globabl state to be the user
-    helpers.requestValidation(text)
-    .then(({ data }) => {
-      if (data === 'incorrect password') {
-        alert('Incorrect username/password');
-      } else {
-        // add status logged in
-        setUser(data);
-        toggleModal();
-      }
-    })
-    .catch((err) => {
-      console.log('request error on querying username/password match');
-      console.log(err);
-      // throw err;
-    })
+    const form = event.currentTarget;
+
+    if (form.checkValidity()) {
+      helpers.requestValidation(text)
+      .then(({ data }) => {
+        if (data === 'incorrect password') {
+          alert('Incorrect username/password');
+        } else {
+          // add status logged in
+          setUser(data);
+          toggleModal();
+        }
+      })
+      .catch((err) => {
+        console.log('request error on querying username/password match');
+        console.log(err);
+        // throw err;
+      })
+    }
+
+    setValidated(true);
+
   };
 
   const updateText = (event) => {
@@ -46,12 +55,12 @@ const LoginMenu = ({ toggleModal }) => {
     setText(newState);
   };
 
+
   return (
 
     <div className="modal-background" onClick={toggleModal}>
       <div className="login-modal-window" onClick={(event) => { event.stopPropagation(); }}>
-        <Form id="login-form" onSubmit={attemptLogin} >
-
+        <Form className="login-form" noValidate validated={validated} onSubmit={attemptLogin} >
           <Form.Group className="mb-3" controlId="usernameLogin" >
             <Form.Label>Username:</Form.Label>
             <Form.Control required id="username" type="text" onChange={updateText} />
@@ -73,7 +82,7 @@ const LoginMenu = ({ toggleModal }) => {
           </Button>
         </Form>
         {/* <div className="modal-close-box"> */}
-          <span className="modal-close-button" onClick={toggleModal}>&times;</span>
+          <span id="login-modal-close-button" onClick={toggleModal}>&times;</span>
         {/* </div> */}
       </div>
     </div>
