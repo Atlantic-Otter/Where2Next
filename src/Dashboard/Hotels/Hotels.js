@@ -62,6 +62,7 @@ function Hotels() {
       });
   };
   const fetchHotels = (id) => {
+    setLoading(true);
     const url = `http://localhost:3000/hotels/${encodedCity}/${id}`;
     axios
       .get(url)
@@ -69,6 +70,7 @@ function Hotels() {
         console.log("response data:", response.data);
         var withDates = addDates(response.data);
         setHotelList(withDates);
+        setLoading(false);
       })
       .catch((err) => {
         if (err.name === "AbortError") {
@@ -79,15 +81,20 @@ function Hotels() {
 
   return (
     <div className="listContainer">
-      <div className="neighborhoods">
-        <FadeLoader color="whitesmoke" loading={loading} />
-        {cityGroups.map((group, idx) => (
-          <CityGroup key={idx} data={group} setHotelList={setHotelList} />
-        ))}
-      </div>
-      <div id="scrollContainer">
-        <HotelGroup list={hotelList} tripDuration={tripDuration} />
-      </div>
+      {
+        loading ? <FadeLoader color="whitesmoke" loading={loading} /> :
+      (<>
+        <div className="neighborhoods">
+          {/* <FadeLoader color="whitesmoke" loading={loading} /> */}
+          {cityGroups.map((group, idx) => (
+            <CityGroup key={idx} data={group} setHotelList={setHotelList} />
+          ))}
+        </div>
+        <div id="scrollContainer">
+          <HotelGroup list={hotelList} tripDuration={tripDuration} />
+        </div>
+      </>)
+      }
     </div>
   );
 }
