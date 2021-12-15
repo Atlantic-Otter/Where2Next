@@ -61,7 +61,7 @@ const HotelItem = ({ hotel, tripDuration }) => {
         </div>
         <div className="hotel-detail-price">
           <h5>{price}</h5>
-          total:{" "}
+          Total:{" "}
           {"$" + Number(price.split("").splice(1).join("")) * tripDuration}
           <button className="addToTrip" onClick={handleClick}>
             Add to Trip

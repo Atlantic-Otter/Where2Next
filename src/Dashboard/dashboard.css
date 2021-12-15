@@ -163,7 +163,7 @@
   flex-direction: column;
   align-self: stetch;
   flex-grow: 1;
-  font-size: 0.9em;
+  font-size: 0.7em;
   margin-left: 1em;
 }
 
@@ -184,7 +184,7 @@
   border-radius: 1em;
 }
 
-.hotel-item-price {
-  margin-left: 1em;
+.hotel-detail-price {
+  margin: 0 0 1em 1em;
   align-items: center;
 }
