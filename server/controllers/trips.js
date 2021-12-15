@@ -17,11 +17,14 @@ module.exports = {
 
   // req body needs:
     // username
+      // string
     // events/flights/hotels being purchased
+      // each an array
     // destination city
+      // string
     // trip duration
+      // number
   addTrips: function(req, res) {
-    const {username, events, flights, hotels, destinationCity, duration} = req.body
     const required = [
       'username',
       'events',
@@ -38,13 +41,37 @@ module.exports = {
     if (!validRequest) {
       res.status(400).send('Missing query parameters');
     } else {
-      // find the user
-        // then
-        // add a new itinerary with given info to that user's upcoming trips
-          // then
-          // res 200
 
-      res.status(200).send('hey world from addToTrips');
+      const {username, events, flights, hotels, destinationCity, duration} = req.body
+
+      const find = {username: username};
+      const add = {
+        $push: {
+          upcomingTrips: {
+            destination: destinationCity,
+            duration: duration,
+            events: events,
+            flights: flights,
+            lodging: hotels
+          }
+        }
+      };
+
+      // find the user
+      User.findOneAndUpdate(find, add, {new: true})
+        .then((updatedUser) => {
+          console.log('updated to:', updatedUser);
+            // then
+            // res 200 with the updated user
+            res.status(201).send(updatedUser);
+
+        })
+        .catch((err) => {
+          console.error(err);
+          res.status(404).send('Not found');
+        });
+
+      // res.status(200).send('hey world from addToTrips');
 
     }
   }
