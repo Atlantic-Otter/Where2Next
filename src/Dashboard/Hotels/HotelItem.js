@@ -50,7 +50,7 @@ const HotelItem = ({ hotel, tripDuration }) => {
           <img className="hotelListImage" src={thumbnail} />
         </div>
         <div className="hotel-text">
-          <h5>{hotel.name}</h5>
+          <h4>{hotel.name}</h4>
           {hotel.guestReviews && (
             <span>
               <ReactStars
