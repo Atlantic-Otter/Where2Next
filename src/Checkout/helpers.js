@@ -92,7 +92,6 @@ const helpers = {
     });
 
     var all = (eventPrices.concat(flightPrices, hotelPrices));
-    console.log('all:', all);
     var total = 0;
 
     for (var count = 0; count < all.length; count++) {
@@ -107,8 +106,8 @@ const helpers = {
     const body = {
       username: username,
       destinationCity: destination,
-      startDate: startDate.toLocaleDateString(),
-      endDate: endDate.toLocaleDateString(),
+      startDate: new Date(startDate).toLocaleDateString(),
+      endDate: new Date(endDate).toLocaleDateString(),
       events: events,
       flights: flights,
       hotels: hotels

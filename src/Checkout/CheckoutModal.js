@@ -74,11 +74,10 @@ const CheckoutModal = ({ toggleLoginModal }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.currentTarget
-
     if (form.checkValidity()) {
 
       if (user) {
-        updateUserDataAndPay()
+        updateUserDataAndPay();
       } else {
         toggleLoginModal();
       }
