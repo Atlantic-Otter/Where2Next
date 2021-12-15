@@ -11,7 +11,7 @@ import Form from "react-bootstrap/Form";
 
 
 // For development: Username "testing", password: "test" is in database
-const LoginMenu = ({ toggleModal }) => {
+const LoginMenu = ({ toggleLoginModal }) => {
   const { user, setUser } = React.useContext(UserContext);
   var [text, setText] = React.useState({
     username: '',
@@ -34,7 +34,7 @@ const LoginMenu = ({ toggleModal }) => {
         } else {
           // add status logged in
           setUser(data);
-          toggleModal();
+          toggleLoginModal();
         }
       })
       .catch((err) => {
@@ -58,7 +58,7 @@ const LoginMenu = ({ toggleModal }) => {
 
   return (
 
-    <div className="modal-background" onClick={toggleModal}>
+    <div className="login-modal-background" onClick={toggleLoginModal}>
       <div className="login-modal-window" onClick={(event) => { event.stopPropagation(); }}>
         <Form className="login-form" noValidate validated={validated} onSubmit={attemptLogin} >
           <Form.Group className="mb-3" controlId="usernameLogin" >
@@ -82,7 +82,7 @@ const LoginMenu = ({ toggleModal }) => {
           </Button>
         </Form>
         {/* <div className="modal-close-box"> */}
-          <span id="login-modal-close-button" onClick={toggleModal}>&times;</span>
+          <span id="login-modal-close-button" onClick={toggleLoginModal}>&times;</span>
         {/* </div> */}
       </div>
     </div>

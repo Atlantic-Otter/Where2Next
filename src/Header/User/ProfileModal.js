@@ -24,7 +24,7 @@ const { toggleProfileModal } = React.useContext(UserContext);
         {/* </div> */}
       </div>
     </div>
-  )
+  );
 }
 
 export default ProfileModal;

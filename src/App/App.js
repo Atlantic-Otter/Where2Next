@@ -28,6 +28,11 @@ const App = ({ test }) => {
   // state of the user info modal appearance
   const [profileModal, setProfileModal] = React.useState(false);
   const [checkoutModal, setCheckoutModal] = React.useState(false);
+  const [loginModal, setLoginModal] = React.useState(false);
+
+  const toggleLoginModal = (event) => {
+    setLoginModal(!loginModal);
+  };
 
   const toggleCheckoutModal = (event) => {
     const { events, flights, hotels } = currentTrip;
@@ -66,7 +71,7 @@ const App = ({ test }) => {
   return (
     <UserContext.Provider value={{ user, setUser, toggleProfileModal }}>
       <TripContext.Provider value={{ currentTrip, setCurrentTrip, toggleCheckoutModal }}>
-        <Header />
+        <Header loginModal={loginModal} toggleLoginModal={toggleLoginModal} />
         <Router>
           <Routes>
             <Route path="/" element={<LandingPage test={test} />} />
@@ -74,7 +79,7 @@ const App = ({ test }) => {
           </Routes>
         </Router>
         {profileModal ? <ProfileModal /> : <></>}
-        {checkoutModal ? <CheckoutModal /> : <></>}
+        {checkoutModal ? <CheckoutModal toggleLoginModal={toggleLoginModal}/> : <></>}
       </TripContext.Provider>
     </UserContext.Provider>
   );

@@ -1,14 +1,16 @@
 import React from 'react';
 import TripContext from '../TripContext.js';
-// import useSearchParams from '../../Helpers/useSearchParams.js';
+import UserContext from '../UserContext.js';
 import CheckoutTile from './CheckoutTile.js';
 import CheckoutForm from './CheckoutForm.js';
 import ThankYou from './ThankYou';
 import helpers from './helpers.js';
 
-const CheckoutModal = () => {
+const CheckoutModal = ({ toggleLoginModal }) => {
 
   const { currentTrip, setCurrentTrip, toggleCheckoutModal } = React.useContext(TripContext);
+  const { user } = React.useContext(UserContext);
+
   const { events, flights, hotels } = JSON.parse(window.localStorage.currentTrip);
   const [text, setText] = React.useState({
     creditCard: '',
@@ -26,17 +28,36 @@ const CheckoutModal = () => {
   const [validated, setValidated] = React.useState(false);
   const [paid, setPaid] = React.useState(false);
 
+  const updateUserDataAndPay = () => {
+    // get whatever's in localstorage
+    // post request it to be added to user profile
+
+      // on success, clear localstorage
+    // setPaid
+
+
+    setCurrentTrip({
+      events: [],
+      flights: [],
+      hotels: []
+    });
+    setPaid(!paid);
+
+
+  }
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
-
     const form = event.currentTarget
+
     if (form.checkValidity()) {
-      setCurrentTrip({
-        events: [],
-        flights: [],
-        hotels: []
-      });
-      setPaid(!paid);
+
+      if (user) {
+        updateUserDataAndPay()
+      } else {
+        toggleLoginModal();
+      }
     }
 
     setValidated(true);

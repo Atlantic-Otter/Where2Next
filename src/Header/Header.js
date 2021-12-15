@@ -7,13 +7,8 @@ import ShareButtons from './SocialMedia/ShareButtons.js';
 
 // todo: investigate react.useCallback
 
-const Header = (props) => {
+const Header = ({ loginModal, toggleLoginModal}) => {
   const { user, setUser } = React.useContext(UserContext);
-
-  var [modalView, setModalView] = React.useState(false);
-  const toggleModal = (event) => {
-    setModalView(!modalView);
-  };
 
   const logoutUser = (event) => {
     setUser(null);
@@ -29,11 +24,11 @@ const Header = (props) => {
           <span>Sign out</span>
         </a>
       ) : (
-        <a className="login-logout-button" onClick={toggleModal}>
+        <a className="login-logout-button" onClick={toggleLoginModal}>
           <span>Sign in</span>
         </a>
       )}
-      {modalView ? <LoginMenu toggleModal={toggleModal} /> : <></>}
+      {loginModal ? <LoginMenu toggleLoginModal={toggleLoginModal} /> : <></>}
     </div>
   );
 };
