@@ -8,7 +8,7 @@ import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Dashboard from "../Dashboard/Dashboard.js";
 import LandingPage from "../LandingPage/LandingPage.js";
 import ProfileModal from "../Header/User/ProfileModal";
-import Header from "../Header/Login/Header.js";
+import Header from "../Header/Header.js";
 import TripContext from "../TripContext";
 import UserContext from "../UserContext";
 import CheckoutModal from '../Checkout/CheckoutModal';
