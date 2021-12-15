@@ -166,6 +166,7 @@ html,
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  color: #fefefe;
 }
 #user-icon > * {
   margin: 2%;

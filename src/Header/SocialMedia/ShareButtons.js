@@ -1,10 +1,10 @@
 import React from 'react';
 import {
   FacebookShareButton,
-  PinterestShareButton,
+
   TwitterShareButton,
   FacebookIcon,
-  PinterestIcon,
+
   TwitterIcon
 } from 'react-share';
 
@@ -16,9 +16,7 @@ const ShareButtons = () => {
       <FacebookShareButton url={shareUrl}>
         <FacebookIcon round size={size} />
       </FacebookShareButton>
-      <PinterestShareButton url={shareUrl}>
-        <PinterestIcon round size={size} />
-      </PinterestShareButton>
+
       <TwitterShareButton url={shareUrl}>
         <TwitterIcon round size={size} />
       </TwitterShareButton>
