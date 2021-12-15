@@ -77,20 +77,8 @@ function Hotels() {
       });
   };
 
-  // const handlePagination = (e) => {
-  //   const page = e.target.value
-  //   const header = {params: {page}}
-  //   axios
-  //   .get(url, header)
-  //   .then((response) => {
-  //     setHotelList(response.data);
-  //   })
-  //   .catch((err) => console.log(err));
-  // }
-
   return (
     <div className="listContainer">
-      <h3>Neighborhoods</h3>
       <div className="neighborhoods">
         <FadeLoader color="whitesmoke" loading={loading} />
         {cityGroups.map((group, idx) => (
@@ -100,26 +88,6 @@ function Hotels() {
       <div id="scrollContainer">
         <HotelGroup list={hotelList} tripDuration={tripDuration} />
       </div>
-
-      <nav aria-label="hotel-pagination">
-        <ul className="pagination">
-          <li className="page-item">
-            <a className="page-link" href="#" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
-              <span className="sr-only">Previous</span>
-            </a>
-          </li>
-          <li className="page-item page-link">1</li>
-          <li className="page-item page-link">2</li>
-          <li className="page-item">3</li>
-          <li className="page-item">
-            <a className="page-link" href="#" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-              <span className="sr-only">Next</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
     </div>
   );
 }
