@@ -26,6 +26,10 @@ const itinerarySchema = new mongoose.Schema({
     type: String,
     default: null
   },
+  duration: {
+    type: Number,
+    default: 0
+  },
   events: {
     type: [eventSchema],
     default: []
