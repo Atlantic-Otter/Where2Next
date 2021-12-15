@@ -185,6 +185,6 @@
 }
 
 .hotel-detail-price {
-  margin-left: 1em;
+  margin: 0 0 1em 1em;
   align-items: center;
 }
