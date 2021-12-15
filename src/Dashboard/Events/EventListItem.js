@@ -7,12 +7,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusCircle, faMinusCircle } from '@fortawesome/free-solid-svg-icons'
 
 function EventListItem({ event, openModal }) {
-  const { currentTrip, setCurrentTrip } = useContext(TripContext);
+  const { currentTrip, setCurrentTrip, unvisited, setUnvisited } = useContext(TripContext);
   const [ quantity, setQuantity ] = useState(0);
 
   const addEventToTrip = () => {
     const newTrip = { ...currentTrip };
-    newTrip.events.push(event);
+    let eventWithQuantity = {...event, quantity};
+    newTrip.events.push(eventWithQuantity);
     setCurrentTrip(newTrip);
 
     openModal(quantity);
@@ -39,6 +40,7 @@ function EventListItem({ event, openModal }) {
   };
 
   const increaseQuantity = () => {
+    console.log('TRIPS: ' + JSON.stringify(currentTrip))
     setQuantity(quantity + 1)
   }
 

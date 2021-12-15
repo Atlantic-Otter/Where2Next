@@ -8,7 +8,16 @@ const HotelItem = ({ hotel, tripDuration }) => {
   let [badgeText, setBadgeText] = useState("unavailable");
   let [thumbnail, setThumbnail] = useState("unavailable");
   const abortFetch = new AbortController();
-  const { currentTrip, setCurrentTrip } = useContext(TripContext);
+  const { currentTrip, setCurrentTrip, unvisited, setUnvisited } = useContext(TripContext);
+
+  const addHotelToTrip = () => {
+    let newUnvisited = unvisited.filter((el) => el !== 'hotels');
+    setUnvisited(newUnvisited);
+    const newTrip = { ...currentTrip };
+    newTrip.hotels.push(hotel);
+    setCurrentTrip(newTrip);
+  };
+
 
   useEffect(() => {
     if (hotel.ratePlan) setPrice(hotel.ratePlan.price.current);
@@ -38,10 +47,8 @@ const HotelItem = ({ hotel, tripDuration }) => {
     <div className="listItem">
       <div className="listDetails">
         <div>
-          {/* <img className="hotel-detail-img" src={thumbnail} /> */}
           <img className="hotelListImage" src={thumbnail} />
         </div>
-        {/* <div className="hotel-detail-desc"> */}
         <div className="hotel-text">
           <h5>{hotel.name}</h5>
           {hotel.guestReviews && (

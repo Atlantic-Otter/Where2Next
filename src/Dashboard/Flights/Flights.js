@@ -10,7 +10,7 @@ function Flights({ test }) {
   const [flights, setFlights] = useState([]);
   const { startDate, endDate, city, state } = useSearchParams();
 
-  const arrivalCode = airports.findWhere({ city: city }).get("iata");
+  let arrivalCode = airports.findWhere({ city: city }).get("iata");
   if (city === "Los Angeles") {
     arrivalCode = "LAX";
   }
