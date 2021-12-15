@@ -1,5 +1,5 @@
 import React from "react";
-import UserContext from "../UserContext.js";
+import UserContext from "../../UserContext.js";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 

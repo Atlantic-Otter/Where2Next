@@ -1,5 +1,5 @@
 import React from 'react';
-import UserContext from '../UserContext.js';
+import UserContext from '../../UserContext.js';
 import UpcomingTrips from './UpcomingTrips.js';
 import PreviousTrips from './PreviousTrips.js';
 import PersonalInfo from './PersonalInfo.js';
