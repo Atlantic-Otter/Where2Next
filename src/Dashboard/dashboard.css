@@ -164,7 +164,7 @@
   align-self: stetch;
   flex-grow: 1;
   font-size: 0.9em;
-  margin-left: 2em;
+  margin-left: 1em;
 }
 
 .neighborhoods {
@@ -182,4 +182,9 @@
 
 .hotelListImage {
   border-radius: 1em;
+}
+
+.hotel-item-price {
+  margin-left: 1em;
+  align-items: center;
 }

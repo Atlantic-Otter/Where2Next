@@ -19,10 +19,7 @@ const HotelItem = ({ hotel, tripDuration }) => {
       setBadgeText(hotel.guestReviews.badgeText);
     if (hotel.optimizedThumbUrls.srpDesktop !== undefined)
       setThumbnail(hotel.optimizedThumbUrls.srpDesktop);
-    // price = price || '';
-    // rating = rating || 3.5;
-    // badgeText = badgeText || '';
-    // thumbnail = thumbnail || '';
+
     return () => abortFetch.abort();
   }, []);
 
