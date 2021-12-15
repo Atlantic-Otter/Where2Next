@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import userEvent from '@testing-library/user-event';
-import App from "../App/App.js";
+import App from "../../App/App.js";
 import Header from "./Header.js";
 import "@testing-library/jest-dom";
 // runs the file to produce a test dummy in case it's not there

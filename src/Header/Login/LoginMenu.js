@@ -1,7 +1,7 @@
 import React from 'react';
 import helpers from './helpers.js';
-import '../cssTemplates/modal.css';
-import UserContext from '../UserContext.js';
+import '../../cssTemplates/modal.css';
+import UserContext from '../../UserContext.js';
 
 // TODO: move all callbacks out of function body for efficient rerendering
   // check out useCallback OR

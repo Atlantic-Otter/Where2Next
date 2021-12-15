@@ -1,8 +1,9 @@
 import React from "react";
 import LoginMenu from "./LoginMenu.js";
-import "../App.css";
-import UserContext from "../UserContext.js";
+import "../../App.css";
+import UserContext from "../../UserContext.js";
 import UserIcon from "../User/UserIcon.js";
+// import ShareButtons from ''
 
 // todo: investigate react.useCallback
 
@@ -20,6 +21,8 @@ const Header = (props) => {
 
   return (
     <div id="header">
+      {/* social media share buttons */}
+      {/* <ShareButtons /> */}
       <UserIcon />
       {user ? (
         <a className="login-logout-button" onClick={logoutUser}>
