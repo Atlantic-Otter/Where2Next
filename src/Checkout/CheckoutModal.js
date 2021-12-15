@@ -11,6 +11,7 @@ const CheckoutModal = ({ toggleLoginModal }) => {
 
   const { currentTrip, setCurrentTrip, toggleCheckoutModal } = React.useContext(TripContext);
   const { user, setUser } = React.useContext(UserContext);
+  const  { startDate, endDate, city, state } = useSearchParams();
 
   const { events, flights, hotels } = JSON.parse(window.localStorage.currentTrip);
   const [text, setText] = React.useState({
@@ -29,34 +30,45 @@ const CheckoutModal = ({ toggleLoginModal }) => {
   const [validated, setValidated] = React.useState(false);
   const [paid, setPaid] = React.useState(false);
 
+  const getTitles = (serviceArrayName, serviceName) => {
+    return currentTrip[serviceArrayName].map((item) => {
+      var {title} = helpers.getInfo(item, serviceName);
+      return title;
+    });
+  };
+
   const updateUserDataAndPay = () => {
     // get whatever's in localstorage
     // post request it to be added to user profile
 
       // on success, clear localstorage
     // setPaid
-    const  { startDate, endDate, city, state } = useSearchParams();
+
     const username = user.username;
     const destination = `${city}, ${state}`;
-    const duration = startDate + ' and ' + endDate;
-    console.log(duration)
-    // helpers.addTrip(username, destination, currentTrip)
-    //   .then(({ data }) => {
-    //     // clear localstorage
-    //     setCurrentTrip({
-    //       events: [],
-    //       flights: [],
-    //       hotels: []
-    //     });
-    //     setPaid(!paid);
-    //     setUser(data);
+    const tripItemTitles = {
+      events: getTitles('events', 'event'),
+      flights: getTitles('flights', 'flight'),
+      hotels: getTitles('hotels', 'hotel')
+    };
 
-    //   })
-    //   .catch((err) => {
-    //     console.error(err);
-    //   });
+    helpers.addTrip(username, startDate, endDate, destination, tripItemTitles)
+      .then(({ data }) => {
+        // clear localstorage
+        setCurrentTrip({
+          events: [],
+          flights: [],
+          hotels: []
+        });
+        setPaid(!paid);
+        setUser(data);
 
-  }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+
+  };
 
 
   const handleSubmit = (event) => {

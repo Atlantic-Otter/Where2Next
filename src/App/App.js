@@ -77,9 +77,9 @@ const App = ({ test }) => {
             <Route path="/" element={<LandingPage test={test} />} />
             <Route path="/dashboard/*" element={<Dashboard test={test} />} />
           </Routes>
-        </Router>
         {profileModal ? <ProfileModal /> : <></>}
         {checkoutModal ? <CheckoutModal toggleLoginModal={toggleLoginModal}/> : <></>}
+        </Router>
       </TripContext.Provider>
     </UserContext.Provider>
   );

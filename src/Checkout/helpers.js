@@ -102,17 +102,19 @@ const helpers = {
     return { count, total: total.toFixed(2) };
   },
 
-  addTrip: function(username, destination, trip) {
-    const {events, flights, hotels} = trip
+  addTrip: function(username, startDate, endDate, destination, tripItemTitles) {
+    const {events, flights, hotels} = tripItemTitles;
     const body = {
       username: username,
       destinationCity: destination,
+      startDate: startDate.toLocaleDateString(),
+      endDate: endDate.toLocaleDateString(),
       events: events,
       flights: flights,
       hotels: hotels
     };
 
-    return axios.post('http://localhost:3000', body);
+    return axios.post('http://localhost:3000/trips', body);
   }
 
 
