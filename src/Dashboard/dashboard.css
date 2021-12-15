@@ -32,6 +32,8 @@
   border: 1px solid black;
   margin: 1em;
   padding: 1em;
+  /*  */
+  width: 100%;
 }
 
 .flightItem {
@@ -163,8 +165,10 @@
   flex-direction: column;
   align-self: stetch;
   flex-grow: 1;
-  font-size: 0.7em;
+  font-size: 0.9em;
   margin-left: 1em;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .neighborhoods {

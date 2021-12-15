@@ -23,8 +23,7 @@ const HotelItem = ({ hotel, tripDuration }) => {
     if (hotel.ratePlan) setPrice(hotel.ratePlan.price.current);
     if (hotel.guestReviews) setRating(Number(hotel.guestReviews.rating));
     if (hotel.guestReviews) setBadgeText(hotel.guestReviews.badgeText);
-    if (hotel.optimizedThumbUrls.srpDesktop !== undefined)
-      setThumbnail(hotel.optimizedThumbUrls.srpDesktop);
+    if (hotel.optimizedThumbUrls) setThumbnail(hotel.optimizedThumbUrls.srpDesktop);
 
     return () => abortFetch.abort();
   }, []);
@@ -48,12 +47,10 @@ const HotelItem = ({ hotel, tripDuration }) => {
     <div className="listItem">
       <div className="listDetails">
         <div>
-          {/* <img className="hotel-detail-img" src={thumbnail} /> */}
           <img className="hotelListImage" src={thumbnail} />
         </div>
-        {/* <div className="hotel-detail-desc"> */}
         <div className="hotel-text">
-          <h5>{hotel.name}</h5>
+          <h4>{hotel.name}</h4>
           {hotel.guestReviews && (
             <span>
               <ReactStars
@@ -70,7 +67,7 @@ const HotelItem = ({ hotel, tripDuration }) => {
         <div className="hotel-detail-price">
           <h5>{price}</h5>
           Total:{" "}
-          {"$" + Number(price.split("").splice(1).join("")) * tripDuration}
+          {"$" + Number(price.split("").splice(1).join("")) * tripDuration }
           <button className="addToTrip" onClick={handleClick}>
             Add to Trip
           </button>
