@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../App.css";
 import "../landingScreenBackground.jpeg"
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -20,6 +20,8 @@ const App = ({ test }) => {
     flights: [],
     hotels: [],
   });
+
+  const [ unvisited, setUnvisited ] = useState(['flights', 'hotels']);
 
   // LATER CHANGE TO INITIALiZE TO LOCAL STORAGE'S RECORDS
   // user should remain signed in after refreshing the page
@@ -69,8 +71,8 @@ const App = ({ test }) => {
   }, [currentTrip]);
 
   return (
-    <UserContext.Provider value={{ user, setUser, toggleProfileModal }}>
-      <TripContext.Provider value={{ currentTrip, setCurrentTrip, toggleCheckoutModal }}>
+    <UserContext.Provider value={{ user, setUser, toggleProfileModal}}>
+      <TripContext.Provider value={{ currentTrip, setCurrentTrip, toggleCheckoutModal, unvisited, setUnvisited  }}>
         <Header loginModal={loginModal} toggleLoginModal={toggleLoginModal} />
         <Router>
           <Routes>
