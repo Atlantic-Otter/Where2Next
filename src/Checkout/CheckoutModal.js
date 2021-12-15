@@ -105,11 +105,8 @@ const CheckoutModal = ({ toggleLoginModal }) => {
           <div id="checkout-header">
             <h2>{headerCount}</h2>
           </div>
-
           <div id="checkout-top">
-
             <div id="checkout-rundown-container">
-
               <div id="checkout-categories">
                 <div className="given-category">
                   <h3>Events:</h3>
@@ -136,9 +133,7 @@ const CheckoutModal = ({ toggleLoginModal }) => {
               <h3 id="checkout-total">
                 Total: ${total}
               </h3>
-
             </div>
-
             <CheckoutForm
               handleSubmit={handleSubmit}
               updateText={updateText}

@@ -5,17 +5,17 @@ import PreviousTrips from './PreviousTrips.js';
 import PersonalInfo from './PersonalInfo.js';
 
 const ProfileModal = () => {
-const { toggleProfileModal } = React.useContext(UserContext);
+const { user, toggleProfileModal } = React.useContext(UserContext);
 
   return(
     <div className="modal-background" onClick={toggleProfileModal}>
       <div className="modal-window" onClick={(event) => { event.stopPropagation(); }}>
 
         {/* username */}
-        <PersonalInfo />
+        <PersonalInfo user={user}/>
         <h3>My trips:</h3>
         <div id="my-trips">
-          <UpcomingTrips />
+          <UpcomingTrips trips={user.upcomingTrips}/>
           <PreviousTrips />
         </div>
 
