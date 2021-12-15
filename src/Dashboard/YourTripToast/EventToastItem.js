@@ -14,6 +14,8 @@ function EventToastItem({ event }) {
         } else {
           // return;
         }
+      } else {
+        return e;
       }
     });
     newTrip.events = newTrip.events.filter(Boolean);
