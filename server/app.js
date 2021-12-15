@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const { events, login, flights, hotels } = require("./controllers");
+const { events, login, flights, hotels, trips } = require("./controllers");
 const app = express();
 app.use(cors());
 
@@ -12,7 +12,9 @@ app.get(
   events.getNearbyEvents
 );
 
-app.get("/login", login.validate);
+app.get('/login', login.validate);
+app.get('/trips', trips.getTrips);
+app.post('/trips', trips.addTrips);
 
 app.get("/flights/:arrivalCode", flights.getFlights);
 

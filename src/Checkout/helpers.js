@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 const dateOptions = {
   year: 'numeric',
@@ -91,7 +92,6 @@ const helpers = {
     });
 
     var all = (eventPrices.concat(flightPrices, hotelPrices));
-    console.log('all:', all);
     var total = 0;
 
     for (var count = 0; count < all.length; count++) {
@@ -99,6 +99,21 @@ const helpers = {
     }
 
     return { count, total: total.toFixed(2) };
+  },
+
+  addTrip: function(username, startDate, endDate, destination, tripItemTitles) {
+    const {events, flights, hotels} = tripItemTitles;
+    const body = {
+      username: username,
+      destinationCity: destination,
+      startDate: new Date(startDate).toLocaleDateString(),
+      endDate: new Date(endDate).toLocaleDateString(),
+      events: events,
+      flights: flights,
+      hotels: hotels
+    };
+
+    return axios.post('http://localhost:3000/trips', body);
   }
 
 

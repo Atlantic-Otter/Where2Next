@@ -1,13 +1,13 @@
 import React from 'react';
-import UserContext from '../../UserContext.js';
+import TripTile from './TripTile.js';
 
-const UpcomingTrips = () => {
-  const { user } = React.useContext(UserContext);
+const UpcomingTrips = ({ trips }) => {
+  console.log('upcoming trips:', trips);
 
   return (
-    <div>
-      Upcoming:
-      {/* render tiles */}
+    <div id="upcoming-trips">
+      <h4>Upcoming Trips:</h4>
+      {trips.map(trip => <TripTile trip={trip}/>)}
     </div>
   )
 };
