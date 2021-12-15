@@ -114,6 +114,7 @@ function Events() {
     }
   };
 
+
   const renderTodayEvents = () => {
     console.log("dates", events);
 
