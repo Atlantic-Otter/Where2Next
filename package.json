@@ -57,6 +57,7 @@
     "react-responsive-carousel": "^3.2.22",
     "react-router-dom": "^6.0.2",
     "react-search-autocomplete": "^5.4.4",
+    "react-share": "^4.4.0",
     "react-spinners": "^0.11.0",
     "regenerator-runtime": "^0.13.9",
     "style-loader": "^3.3.1",
