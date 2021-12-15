@@ -28,6 +28,7 @@ html,
 
   #inputForm {
     width: 50%;
+    z-index: 0;
   }
   #logoName h1 {
     font-size: 4rem;
@@ -48,6 +49,7 @@ html,
 
   #inputForm {
     width: 80%;
+    z-index: 0;
   }
 
   #logoName h1 {
@@ -126,7 +128,7 @@ html,
   align-items: center;
   justify-content: center;
   color: #fff;
-  z-index: 50;
+  z-index: 0;
 }
 #dashboardContainer {
   position: relative;
@@ -177,26 +179,39 @@ html,
   padding: 1em;
   margin: 1em;
 }
+
+
+#header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  width: 100%;
+  height: 10%;
+
+}
+#header > * {
+  margin: 2%;
+}
 #user-icon {
-  margin: 2% 0 2% 0;
+  margin-right: 0;
   width: 6%;
   height: 40%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  color: #fefefe;
 }
-
 #user-icon > * {
   margin: 2%;
 }
 
-#header {
+#share-buttons-container {
+  margin-right: auto;
+  /* margin-left: 2%; */
+  width: 8%;
   display: flex;
-  justify-content: flex-end;
-
-  width: 100%;
-  height: 10%;
+  justify-content: space-evenly;
 }
 
 #logoName {

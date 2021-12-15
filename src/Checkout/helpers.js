@@ -1,3 +1,5 @@
+import React from 'react';
+
 const dateOptions = {
   year: 'numeric',
   month: '2-digit',
@@ -9,7 +11,6 @@ const dateOptions = {
 const helpers = {
 
   getInfo: function(infoObj, service) {
-
     var title, dateTime, price;
 
     switch (service) {
@@ -33,17 +34,25 @@ const helpers = {
         title = `${segments[0].departure.iataCode} to ${segments[segments.length - 1].arrival.iataCode}`;
         dateTime = (
           <>
-            <b>Departure:</b> &emsp; {departTime} <b>Arrival:</b> &emsp; {arriveTime}
+          {/* div for full block-level */}
+            <div><b>Depart:</b> &nbsp; {departTime}</div>
+            <span><b>Arrive:</b> &nbsp; {arriveTime}</span>
           </>
         );
         price = '$' + infoObj.price.total
 
       break;
       case 'hotel':
-        title = 'Hotels'
-        dateTime = 'tbd'
-        price = 0;
+        var duration = infoObj.tripDuration === 1 ? `${infoObj.tripDuration} day` : `${infoObj.tripDuration} days`;
+
+        var start = new Date(infoObj.startDate).toLocaleDateString();
+        var end = new Date(infoObj.endDate).toLocaleDateString();
+
+        title = infoObj.hotelName;
+        dateTime = `${start} - ${end} (${duration})`;
+        price = infoObj.dailyRate;
       break;
+
     }
 
     return {title, dateTime, price};
@@ -63,8 +72,8 @@ const helpers = {
   },
 
 
-// pass in the array of objects corresponing to each param
-  extractTotal: function({ events, flights, hotels }) {
+
+  extractTotal: ({ events, flights, hotels }) => {
   // get all prices
     var eventPrices = events.map((event) => {
       var { price } = helpers.getInfo(event, 'event');
@@ -93,8 +102,6 @@ const helpers = {
   }
 
 
-
-
 };
 
-module.exports = helpers;
+export default helpers;

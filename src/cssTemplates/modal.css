@@ -18,7 +18,7 @@
 .modal-window, .checkout-modal-window, .login-modal-window {
   background-color: #FFFFFF;
   box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.12);
-  width: 50%;
+  width: 40%;
   z-index: 3;
   padding: 3%;
   border: 1px solid #000000;
@@ -34,6 +34,11 @@
   /* padding: 0 3% 0 3%; */
   display: block;
   max-height: 60vh;
+}
+
+.login-modal-window {
+  border-radius: 5vw;
+  justify-content: space-between;
 }
 
 #checkout-close-box {
@@ -78,9 +83,6 @@
   justify-content: center;
 }
 
-.login-modal-window {
-  border-radius: 5vw;
-}
 
 .modal-close-box {
   width: 20%;
@@ -92,12 +94,16 @@
 }
 
 /* The Close Button */
-.modal-close-button {
+#login-modal-close-button, .modal-close-button {
   color: #aaa;
   font-size: 28px;
   font-weight: bold;
   align-self: flex-start;
-  /* margin: 25px; */
+  cursor: pointer;
+}
+
+#login-modal-close-button {
+  align-self: center;
 }
 
 
@@ -116,7 +122,7 @@
   cursor: pointer;
 }
 
-#login-form {
+.login-form {
   margin-left: 2%;
   display: flex;
   flex-direction:  row;
@@ -128,7 +134,7 @@
   border-radius: 5vw;
 } */
 
-#login-form > * {
+.login-form > * {
   margin: auto 3% auto 3%;
 }
 
