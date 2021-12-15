@@ -22,8 +22,10 @@ module.exports = {
       // each an array
     // destination city
       // string
-    // trip duration
-      // number
+    // startDate
+      // string
+    // endDate
+      // string
   addTrips: function(req, res) {
     const required = [
       'username',
@@ -31,7 +33,8 @@ module.exports = {
       'flights',
       'hotels',
       'destinationCity',
-      'duration'
+      'startDate',
+      'endDate'
     ];
 
     const validRequest = required.every((key) => (
@@ -39,17 +42,17 @@ module.exports = {
     ))
 
     if (!validRequest) {
-      res.status(400).send('Missing query parameters');
+      res.status(400).send('Missing/incorrect query parameters');
     } else {
 
-      const {username, events, flights, hotels, destinationCity, duration} = req.body
+      const {username, events, flights, hotels, destinationCity, startDate, endDate} = req.body
 
       const find = {username: username};
       const add = {
         $push: {
           upcomingTrips: {
             destination: destinationCity,
-            duration: duration,
+            dates: `${startDate} - ${endDate}`,
             events: events,
             flights: flights,
             lodging: hotels

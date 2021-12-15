@@ -4,12 +4,13 @@ import UserContext from '../UserContext.js';
 import CheckoutTile from './CheckoutTile.js';
 import CheckoutForm from './CheckoutForm.js';
 import ThankYou from './ThankYou';
+import useSearchParams from '../../Helpers/useSearchParams.js';
 import helpers from './helpers.js';
 
 const CheckoutModal = ({ toggleLoginModal }) => {
 
   const { currentTrip, setCurrentTrip, toggleCheckoutModal } = React.useContext(TripContext);
-  const { user } = React.useContext(UserContext);
+  const { user, setUser } = React.useContext(UserContext);
 
   const { events, flights, hotels } = JSON.parse(window.localStorage.currentTrip);
   const [text, setText] = React.useState({
@@ -34,15 +35,26 @@ const CheckoutModal = ({ toggleLoginModal }) => {
 
       // on success, clear localstorage
     // setPaid
+    const  { startDate, endDate, city, state } = useSearchParams();
+    const username = user.username;
+    const destination = `${city}, ${state}`;
+    const duration = startDate + ' and ' + endDate;
+    console.log(duration)
+    // helpers.addTrip(username, destination, currentTrip)
+    //   .then(({ data }) => {
+    //     // clear localstorage
+    //     setCurrentTrip({
+    //       events: [],
+    //       flights: [],
+    //       hotels: []
+    //     });
+    //     setPaid(!paid);
+    //     setUser(data);
 
-
-    setCurrentTrip({
-      events: [],
-      flights: [],
-      hotels: []
-    });
-    setPaid(!paid);
-
+    //   })
+    //   .catch((err) => {
+    //     console.error(err);
+    //   });
 
   }
 
