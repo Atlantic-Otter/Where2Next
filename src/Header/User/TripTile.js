@@ -5,37 +5,46 @@ const TripTile = ({ trip }) => {
   const { destination, dates, events, flights, lodging } = trip;
   return (
     <div className="trip-tile">
-      <h6>{destination} &nbsp; {dates}</h6>
+      <h5>{destination} &nbsp; {dates}</h5>
 
+      {events.length ?
       <div className="given-category">
-        <h3>Events:</h3>
+        <h6>Events:</h6>
         <ul>
           {events.map((event, i) =>
             <li key={i} >{event}</li>
           )}
-
         </ul>
       </div>
+      :
+      <></>
+      }
 
+      {flights.length ?
       <div className="given-category">
-        <h3>Flights:</h3>
+        <h6>Flights:</h6>
         <ul>
           {flights.map((flight, i) =>
             <li key={i} >{flight}</li>
           )}
-
         </ul>
-    </div>
+      </div>
+      :
+      <></>
+      }
 
+      {lodging.length ?
       <div className="given-category">
-        <h3>Lodging:</h3>
+        <h6>Lodging:</h6>
         <ul>
           {lodging.map((hotel, i) =>
             <li key={i} >{hotel}</li>
           )}
-
         </ul>
       </div>
+      :
+      <></>
+      }
 
     </div>
 

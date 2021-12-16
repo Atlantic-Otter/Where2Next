@@ -4,10 +4,12 @@ const PersonalInfo = ({ user }) => {
 
   return (
     <div id="user-info">
-      <h3>My Info:</h3>
-      <p>Username: {user.username}</p>
-      <p>Email: {user.email}</p>
-      <p>Date Joined: {new Date(user.created_at).toLocaleDateString()}</p>
+      <h4>My Info:</h4>
+      <p>
+        Username: {user.username} <br />
+        Email: {user.email} <br />
+        Date Joined: {new Date(user.created_at).toLocaleDateString()}
+      </p>
 
     </div>
   )
