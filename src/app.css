@@ -224,7 +224,7 @@ html,
 #share-buttons-container {
   margin-right: auto;
   /* margin-left: 2%; */
-  width: 8%;
+  /* width: 8%; */
   display: flex;
   justify-content: space-evenly;
 }
