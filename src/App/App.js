@@ -38,6 +38,7 @@ const App = ({ test }) => {
     window.localStorage.setItem("user", JSON.stringify(user));
   }, [user]);
 
+
   // state of the user info modal appearance
   const [profileModal, setProfileModal] = React.useState(false);
   const [checkoutModal, setCheckoutModal] = React.useState(false);
