@@ -156,8 +156,8 @@
   border-radius: 5vw;
 } */
 
-.login-form > * {
-  margin: auto 3% auto 3%;
+.login-form > button {
+  background-color: black;
 }
 
 
