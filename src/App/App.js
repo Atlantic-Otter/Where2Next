@@ -37,7 +37,7 @@ const App = ({ test }) => {
   const [user, setUser] = React.useState(initUserState);
 
   useEffect(() => {
-    console.log('infinite loop?')
+    console.log('useEffect for user');
     window.localStorage.setItem('user', JSON.stringify(user));
   }, [user])
 

@@ -63,15 +63,15 @@ const LoginMenu = ({ toggleLoginModal }) => {
         <Form className="login-form" noValidate validated={validated} onSubmit={attemptLogin} >
           <Form.Group className="mb-3" >
             <Form.Label>Username:</Form.Label>
-            <Form.Control required id="username" type="text" onChange={updateText} />
+            <Form.Control required id="username" data-testid="login-username" type="text" onChange={updateText} />
             <Form.Control.Feedback type="invalid">
               Required field.
             </Form.Control.Feedback>
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label>Credit Password:</Form.Label>
-            <Form.Control required id="password" type="password" onChange={updateText} />
+            <Form.Label>Password:</Form.Label>
+            <Form.Control required id="password" data-testid="login-password" type="password" onChange={updateText} />
             <Form.Control.Feedback type="invalid">
               Required field.
             </Form.Control.Feedback>

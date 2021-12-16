@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import userEvent from '@testing-library/user-event';
 import App from "../../App/App.js";
-import Header from "./Header.js";
+import Header from "../Header.js";
 import "@testing-library/jest-dom";
 // runs the file to produce a test dummy in case it's not there
 // require('../../database/schema.js');
@@ -14,7 +14,7 @@ describe("Signing in", function () {
   });
 
   test("Clicking the login button renders a modal", function() {
-    // render(<Header />);
+
     render(<App />);
     fireEvent.click(screen.getByText("Sign in"));
     expect(screen.getByText("Username:")).toBeInTheDocument();
@@ -25,13 +25,14 @@ describe("Signing in", function () {
     render(<App />);
     fireEvent.click(screen.getByText("Sign in"));
 
-    const usernameinput = screen.getByLabelText('Username:');
-    const passwordInput = screen.getByLabelText('Password:');
+    const usernameinput = screen.getByTestId('login-username');
+    const passwordInput = screen.getByTestId('login-password');
     userEvent.type(usernameinput, 'testing');
     userEvent.type(passwordInput, 'test');
     userEvent.click(screen.getByTestId('login-button'));
     await waitFor(() => {
-      expect(screen.getByTestId("current-user").innerHTML).toBe('testing');
+      var userIcon = document.getElementsByClassName('user-initials-icon')[0];
+      expect(userIcon).toBeInTheDocument();
     });
   })
 
