@@ -79,5 +79,8 @@
     "webpack": "^5.65.0",
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.6.0"
+  },
+  "msw": {
+    "workerDirectory": "src/Dashboard/Hotels"
   }
 }
