@@ -5,16 +5,23 @@ import FadeLoader from "react-spinners/FadeLoader";
 import "../dashboard.css";
 import useSearchParams from "../../../Helpers/useSearchParams";
 import airports from "airport-codes";
+import { ReactSearchAutocomplete } from "react-search-autocomplete";
+
+import citiesAndStates from "../../../Helpers/usCitiesAndStates";
+
 function Flights({ test }) {
   const [loading, setLoading] = useState(false);
   const [flights, setFlights] = useState([]);
+  const [renderedFlights, setRenderedFlights] = useState(flights);
   const { startDate, endDate, city, state } = useSearchParams();
+  const { cityList, stateList } = citiesAndStates;
+  const [destination, setDestination] = useState(city);
+  const [origin, setOrigin] = useState('');
 
   let arrivalCode = airports.findWhere({ city: city }).get("iata");
   if (city === "Los Angeles") {
     arrivalCode = "LAX";
   }
-  console.log(arrivalCode);
   useEffect(() => {
     setLoading(true);
     let isSubscribed = true;
@@ -24,6 +31,7 @@ function Flights({ test }) {
         if (isSubscribed) {
           setLoading(false);
           setFlights(flightsResponse.data);
+
         }
       })
       .catch((error) => {
@@ -34,7 +42,25 @@ function Flights({ test }) {
     return () => (isSubscribed = false);
   }, []);
 
-  const flightList = flights.map((flight) => (
+  useEffect(() => {
+    if (origin) {
+      let departureCode = airports.findWhere({ city: origin }).get("iata");
+      setRenderedFlights(flights.filter( (flight) =>  {
+        return flight.itineraries[0].segments.some( (segment) => {
+          return segment.arrival.iataCode === arrivalCode && segment.departure.iataCode === departureCode;
+        })
+      }))
+
+    } else {
+      setRenderedFlights(flights);
+    }
+  }, [origin])
+
+  useEffect( () => {
+    setRenderedFlights(flights)
+  }, [flights])
+
+  const flightList = renderedFlights.map((flight) => (
     <FlightListItem arrivalCode={arrivalCode} key={flight.id} flight={flight} />
   ));
 
@@ -49,7 +75,34 @@ function Flights({ test }) {
           <FadeLoader color={"whitesmoke"} loading={loading} />
         </>
       ) : (
-        <div id="scrollContainer">{flightList}</div>
+        <>
+          <h3 style={{color: 'white'}}>Your flights to {city} from:</h3>
+          <div style={{width: '100%', display: 'flex', justifyContent: 'center', marginTop: '1%'}}>
+            <div style={{width: '33%'}}>
+              <ReactSearchAutocomplete
+                autofocus
+                items={cityList}
+                maxResults={10}
+                onSelect={(val) => {
+                  console.log('hi', val)
+                  setOrigin(val.name);
+                }}
+                // onSearch={(val) => setOrigin(val)}
+                onClear={() => setOrigin("")}
+                placeholder={"Origin"}
+                styling={{
+                  zIndex: 2,
+                  backgroundColor: "rgba(90,23,94,.75)",
+                  width: "50%",
+                  iconColor: "white",
+                  color: "white",
+                  placeholderColor: "white",
+                }}
+              />
+            </div>
+          </div>
+          <div id="scrollContainer">{flightList}</div>
+        </>
       )}
     </div>
   );
