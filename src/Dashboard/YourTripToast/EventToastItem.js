@@ -1,6 +1,7 @@
 import React from "react";
 import TripContext from "../../../src/TripContext.js";
 import { useContext } from "react";
+import Button from "react-bootstrap/Button";
 function EventToastItem({ event }) {
   const { currentTrip, setCurrentTrip } = useContext(TripContext);
 
@@ -18,17 +19,17 @@ function EventToastItem({ event }) {
     });
     newTrip.events = newTrip.events.filter(Boolean);
     setCurrentTrip(newTrip);
-    console.log(newTrip.events);
   };
 
   return (
-    <div>
+    <div className="toastItem">
       <strong>{event.name}</strong>
       <span>{event.quantity}</span>
-      <button onClick={removeEventFromTrip}>REMOVE</button>
+      <Button variant="outline-dark" onClick={removeEventFromTrip}>
+        REMOVE
+      </Button>
     </div>
   );
-
 }
 
 export default EventToastItem;

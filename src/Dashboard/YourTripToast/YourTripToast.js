@@ -9,8 +9,7 @@ import FlightToastItem from "./FlightToastItem";
 
 function YourTripToast({ tripToastVisible, toggleTripToast }) {
   const { currentTrip, toggleCheckoutModal } = useContext(TripContext);
-  console.log('RERENDER TOAST');
-  console.log('HOTELS LENGTH:', currentTrip.hotels.length);
+
   const eventList = currentTrip.events.map((event) => (
     <EventToastItem event={event} />
   ));
@@ -30,9 +29,7 @@ function YourTripToast({ tripToastVisible, toggleTripToast }) {
           {flightList}
           {hotelList}
         </Toast.Body>
-        <Button onClick={toggleCheckoutModal} >
-          Check Out!
-        </Button>
+        <Button onClick={toggleCheckoutModal}>Check Out!</Button>
       </Toast>
     </ToastContainer>
   );
