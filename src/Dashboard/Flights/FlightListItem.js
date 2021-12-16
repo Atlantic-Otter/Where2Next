@@ -1,6 +1,8 @@
 import React from "react";
 import TripContext from "../../../src/TripContext.js";
 import { useContext } from "react";
+import AmericanAirlines from '../../../images/americanairlines.png';
+import JetBlue from '../../../images/jetblue.png';
 
 function FlightListItem({ flight, arrivalCode }) {
   const { currentTrip, setCurrentTrip, unvisited, setUnvisited } = useContext(TripContext);
@@ -40,6 +42,7 @@ function FlightListItem({ flight, arrivalCode }) {
   let duration = arrival && departure ?new Date(arrival.at) - new Date(departure.at) : null
   const hours = Math.floor(duration / (1000 * 60 * 60));
   const minutes = Math.floor((duration % (1000 * 60 * 60)) / (1000 * 60));
+  const airlineImage = flight.id % 2 === 0 ? AmericanAirlines : JetBlue;
 
   const { total: price, currency } = flight.price;
   return (
@@ -48,6 +51,9 @@ function FlightListItem({ flight, arrivalCode }) {
         {departureCode} to {arrivalCode}
       </h4>
       <div className="listDetails">
+      <div>
+          <img className="flightListimage" src={airlineImage} />
+        </div>
         <div className="eventText">
           <b>{"Departure: "}</b>
           {departureTime}

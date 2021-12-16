@@ -11,12 +11,14 @@ function EventListItem({ event, openModal }) {
   const [ quantity, setQuantity ] = useState(0);
 
   const addEventToTrip = () => {
-    const newTrip = { ...currentTrip };
-    let eventWithQuantity = {...event, quantity};
-    newTrip.events.push(eventWithQuantity);
-    setCurrentTrip(newTrip);
+    if (quantity > 0) {
+      const newTrip = { ...currentTrip };
+      let eventWithQuantity = {...event, quantity};
+      newTrip.events.push(eventWithQuantity);
+      setCurrentTrip(newTrip);
 
-    openModal(quantity);
+      openModal(quantity);
+    }
   };
 
   // console.log(event);
@@ -40,7 +42,6 @@ function EventListItem({ event, openModal }) {
   };
 
   const increaseQuantity = () => {
-    console.log('TRIPS: ' + JSON.stringify(currentTrip))
     setQuantity(quantity + 1)
   }
 
