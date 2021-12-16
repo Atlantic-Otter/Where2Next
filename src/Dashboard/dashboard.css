@@ -116,8 +116,8 @@
 
 .listContainer {
   align-self: center;
-  max-height: 100%;
-  min-height: 100%;
+  max-height: 90%;
+  min-height: 90%;
   width: 80%;
   padding: 1em;
 
@@ -218,6 +218,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 1em;
 }
 .toast-body {
   width: 100%;
