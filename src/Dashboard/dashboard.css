@@ -10,6 +10,11 @@
     width: 15vw;
     height: 10vw;
   }
+  .flightListimage {
+    width: 15vw;
+    height: 10vw;
+    border-radius: 1em;
+  }
 }
 
 /* MOBILE */
@@ -41,7 +46,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 60%;
+  /* width: 60%; */
 }
 .listItem:nth-child(even) {
   background: #67084f;
