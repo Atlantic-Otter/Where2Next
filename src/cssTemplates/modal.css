@@ -76,6 +76,11 @@
 
 .given-category {
   margin: 3%;
+
+}
+
+.given-category > ul {
+  list-style-type: square;
 }
 
 .given-category > h3 {
