@@ -232,4 +232,8 @@
     align-self: center;
   }
 
+  .infoListContainer {
+    margin-top: 0;
+  }
+
 }
