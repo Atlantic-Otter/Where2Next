@@ -61,7 +61,7 @@ const LoginMenu = ({ toggleLoginModal }) => {
     <div className="login-modal-background" onClick={toggleLoginModal}>
       <div className="login-modal-window" onClick={(event) => { event.stopPropagation(); }}>
         <Form className="login-form" noValidate validated={validated} onSubmit={attemptLogin} >
-          <Form.Group className="mb-3" controlId="usernameLogin" >
+          <Form.Group className="mb-3" >
             <Form.Label>Username:</Form.Label>
             <Form.Control required id="username" type="text" onChange={updateText} />
             <Form.Control.Feedback type="invalid">
@@ -69,7 +69,7 @@ const LoginMenu = ({ toggleLoginModal }) => {
             </Form.Control.Feedback>
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="passwordLogin">
+          <Form.Group className="mb-3">
             <Form.Label>Credit Password:</Form.Label>
             <Form.Control required id="password" type="password" onChange={updateText} />
             <Form.Control.Feedback type="invalid">
