@@ -54,7 +54,6 @@ function Events() {
   };
 
   const closeModal = () => {
-    // selectedQuantity = 0;
     setIsOpen(false);
   };
 
