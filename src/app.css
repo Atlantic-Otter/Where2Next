@@ -10,7 +10,9 @@ html,
   width: 100vw;
   height: 100vh;
 }
-
+button {
+  cursor: pointer;
+}
 #root {
   background-image: url("https://storage.googleapis.com/labbit-fec-limitless-images/landingBackground.png");
   background-size: cover;
@@ -133,7 +135,7 @@ html,
 #dashboardContainer {
   position: relative;
   width: 100%;
-  height: 90%;
+  height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -180,14 +182,12 @@ html,
   margin: 1em;
 }
 
-
 #header {
   display: flex;
   justify-content: flex-end;
   align-items: baseline;
   width: 100%;
-  height: 10%;
-
+  height: 10vh;
 }
 #header > * {
   margin: 2%;
@@ -203,23 +203,21 @@ html,
 } */
 
 .user-initials-icon {
-
   width: 2.5em;
   height: 2.5em;
   cursor: pointer;
   border-radius: 100%;
   background-color: #db6d13ee;
-  box-sizing:border-box;
+  box-sizing: border-box;
 }
 
 .user-initials-icon div {
-  color:#fff;
-  height:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  color: #fff;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
 
 #share-buttons-container {
   margin-right: auto;
@@ -228,7 +226,6 @@ html,
   display: flex;
   justify-content: space-evenly;
 }
-
 
 #logoName {
   display: flex;
@@ -447,4 +444,3 @@ html,
   flex-direction: row;
   margin-right: 1em;
 }
-
