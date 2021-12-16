@@ -1,7 +1,14 @@
 import React from "react";
 
 function FlightToastItem({ flight }) {
-  return <div></div>;
+  const { arrivalCode, departureCode } = flight;
+  return (
+    <div>
+      {departureCode}
+      {" to "}
+      {arrivalCode}.
+    </div>
+  );
 }
 
 export default FlightToastItem;
