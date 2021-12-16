@@ -4,20 +4,17 @@ import { useContext } from "react";
 
 function FlightListItem({ flight, arrivalCode }) {
   const { currentTrip, setCurrentTrip, unvisited, setUnvisited } = useContext(TripContext);
-  console.log({ flight });
   const addFlightToTrip = () => {
     let newUnvisited = unvisited.filter((el) => el !== 'flights');
     setUnvisited(newUnvisited);
     const newTrip = { ...currentTrip };
     newTrip.flights.push(flight);
     setCurrentTrip(newTrip);
-    console.log("new state of current trip:", currentTrip);
   };
 
   const segment = flight.itineraries[0].segments.filter(
     (seg) => seg.arrival.iataCode === arrivalCode
   )[0];
-  console.log(segment);
   if(!segment) return null;
   const { arrival, departure } = segment;
   const departureCode = departure.iataCode;
