@@ -22,8 +22,8 @@ button {
 /*BROWSER*/
 @media screen and (min-width: 600px) {
   #yourTripButton {
-    width: 5vw;
-    height: 5vw;
+    width: 8vw;
+    height: 8vw;
     bottom: 5%;
     right: 5%;
   }
@@ -163,13 +163,17 @@ button {
 
 #yourTripButton {
   position: absolute;
-  background-color: indigo;
-  color: orange;
 
+  background: radial-gradient(ellipse at top, #83488f, #1e1422),
+    radial-gradient(ellipse at bottom, #5e3969, #83488f);
+  color: orange;
+  padding: 1em;
   border: none;
   border-radius: 50%;
 }
-
+#yourTripButton:hover {
+  background: radial-gradient(ellipse at bottom, #1e1422, #83488f);
+}
 .eventDetails {
   display: flex;
   flex-direction: row;
@@ -242,6 +246,7 @@ button {
   display: flex;
   flex-direction: row;
   height: 10%;
+  margin-bottom: 5em;
 }
 
 .nav-link {
