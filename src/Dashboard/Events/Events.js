@@ -199,7 +199,7 @@ function Events() {
           /> */}
           <>
             {currentEvents.length ? (
-              <Carousel style={{ width: "30%" }}>
+              <Carousel style={{ width: "30%", marginTop: "3%" }}>
                 {currentEvents.map((event) => {
                   return (
                     <Carousel.Item interval={3000}>
@@ -207,7 +207,6 @@ function Events() {
                         src={findLargestPhoto(event.images)}
                         className="d-block mx-auto carouselImage"
                         width="100%"
-                        // height="50%"
                       />
                       <Carousel.Caption>
                         <h4>{event.name}</h4>
