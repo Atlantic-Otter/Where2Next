@@ -200,11 +200,11 @@ function Events() {
               <Carousel>
                 {currentEvents.map((event) => {
                   return (
-                    <Carousel.Item interval={10000}>
+                    <Carousel.Item interval={5000}>
                       <img
                         src={findLargestPhoto(event.images)}
                         className="d-block mx-auto"
-                        width="400vw"
+                        width="50%"
                       />
                       <Carousel.Caption>
                         <h4>{event.name}</h4>

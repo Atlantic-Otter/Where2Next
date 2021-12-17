@@ -171,16 +171,14 @@
   font-weight: bold;
 }
 
-.carousel .item img {
-  left: -9999px; /*important */
-  right: -9999px; /*important */
-  margin: 0 auto; /*important */
-  max-width: none; /*important */
+/* .carousel .item img {
+  left: -9999px;
+  right: -9999px;
+  margin: 0 auto;
+  max-width: none;
   min-width: 100%;
   position: absolute;
-}
-.carousel-inner {
-}
+} */
 
 /* .carousel-inner {
   padding-top: 5%;

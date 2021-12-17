@@ -443,8 +443,6 @@ button {
   flex-direction: row;
   margin-right: 1em;
 }
-<<<<<<< HEAD
-=======
 
 :root {
   --clr-neon: hsl(317 100% 54%);
@@ -545,4 +543,3 @@ body {
 .neon-button:focus::after {
   opacity: 1;
 }
->>>>>>> 2c0698c (added neon buttons and fixed some formatting for navbar and events page)
