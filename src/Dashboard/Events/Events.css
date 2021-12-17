@@ -157,6 +157,17 @@
   color: white;
 }
 
+.addToTripAgain {
+  width: 8em;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 6px;
+  align-items: center;
+  padding: 10px 10px;
+  background-color:#dd9a33;
+  color: black;
+}
+
 .readMore {
   width: 8em;
   border: 1px solid #000000;
