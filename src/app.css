@@ -176,11 +176,15 @@ button {
 }
 .eventText {
   display: flex;
-  width: 40%;
+  width: fit-content;
   flex-direction: column;
   padding: 1em;
   margin: 1em;
   height: 30%;
+  /* sara messing around */
+  box-sizing: inherit;
+  word-wrap: break-word;
+  font-size: smaller;
 }
 
 #header {

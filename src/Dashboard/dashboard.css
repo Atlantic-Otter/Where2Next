@@ -46,12 +46,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-<<<<<<< HEAD
-  width: 60%;
-  height: 30%;
-=======
   /* width: 60%; */
->>>>>>> c63bc50e34170afc8d6624d5aed3108cf5b34a09
 }
 .listItem:nth-child(even) {
   background: #67084f;
