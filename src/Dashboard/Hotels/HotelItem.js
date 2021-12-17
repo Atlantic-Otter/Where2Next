@@ -50,19 +50,21 @@ const HotelItem = ({ hotel, tripDuration }) => {
           <img className="hotelListImage" src={thumbnail} />
         </div>
         <div className="hotel-text">
-          <h5>{hotel.name}</h5>
+          <h4>{hotel.name}</h4>
+          {hotel.address.locality} | {hotel.address.streetAddress}
           {hotel.guestReviews && (
-            <span>
+            <span className="hotelRating">
               <ReactStars
                 count={5}
-                value={Number(rating)}
+                value={hotel.guestReviews.rating / 2}
                 edit={false}
                 ifHalf={true}
               />
-              {hotel.guestReviews.rating / 2} / 5 {badgeText}
+              &nbsp;&nbsp;{hotel.guestReviews.rating / 2} / 5 {badgeText}
             </span>
           )}
-          {hotel.landmarks[1].label} {hotel.landmarks[1].distance}
+          {hotel.landmarks[1].distance} from {hotel.landmarks[1].label}<br />
+          {hotel.landmarks[0].distance} from {hotel.landmarks[0].label}
         </div>
         <div className="hotel-detail-price">
           <h5>{price}</h5>

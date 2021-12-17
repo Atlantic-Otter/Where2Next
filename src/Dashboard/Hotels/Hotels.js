@@ -83,7 +83,7 @@ function Hotels() {
     <div className="listContainer">
       {loading ? (
         <>
-          <h4 style={{color: 'white'}}>Nice choice! Finding hotels in that area...</h4>
+          <h4 style={{color: 'white'}}>Finding hotels in that area...</h4>
           <FadeLoader color="whitesmoke" loading={loading} />
         </>
         ) : (

@@ -169,6 +169,10 @@
   justify-content: flex-start;
 }
 
+.hotelRating {
+  display: flex;
+}
+
 .neighborhoods {
   display: flex;
   text-align: center;
