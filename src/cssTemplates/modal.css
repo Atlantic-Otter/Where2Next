@@ -37,6 +37,7 @@
   width: 80%;
 }
 
+/* more width in mobile */
 .profile-modal-window {
   /* max-height: none; */
   width: 60%;
@@ -276,5 +277,18 @@
 @media screen and (max-width: 600px) {
   .profile-modal-window {
     font-size: smaller;
+    width: 80%;
+  }
+
+  .checkout-modal-window {
+    height: 80%;
+    width: 80%;
+  }
+
+  #checkout-top {
+    flex-direction: column;
+    height: revert;
+    overflow: scroll;
+
   }
 }
