@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
-import TripContext from '../../TripContext.js';
+import TripContext from "../../TripContext.js";
+import Button from "react-bootstrap/Button";
 
 function HotelToastItem({ hotel }) {
   const { currentTrip, setCurrentTrip } = useContext(TripContext);
 
-  const removeEventFromTrip = () => {
+  const removeHotelFromTrip = () => {
     const newTrip = { ...currentTrip };
     newTrip.hotels = newTrip.hotels.filter((h) => h.hotelId !== hotel.hotelId);
     setCurrentTrip(newTrip);
@@ -12,12 +13,13 @@ function HotelToastItem({ hotel }) {
   };
 
   return (
-    <div>
+    <div className="toastItem">
       <strong>{hotel.hotelName}</strong>
-      <button onClick={removeEventFromTrip}>REMOVE</button>
+      <Button variant="outline-dark" onClick={removeHotelFromTrip}>
+        REMOVE
+      </Button>
     </div>
   );
-
 }
 
 export default HotelToastItem;
