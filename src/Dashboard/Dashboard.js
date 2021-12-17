@@ -23,7 +23,7 @@ function Dashboard({ test }) {
             (window.location.href.includes("events") ? " active" : "")
           }
         >
-          Events
+          <a href="#" className={"neon-button" + (window.location.href.includes("events") ? " active" : "")}>Events</a>
         </NavLink>
         <NavLink
           to={`flights${search}`}
@@ -32,7 +32,7 @@ function Dashboard({ test }) {
             (window.location.href.includes("flights") ? " active" : "")
           }
         >
-          Flights
+          <a href="#" className={"neon-button" + (window.location.href.includes("flights") ? " active" : "")}>Flights</a>
         </NavLink>
         <NavLink
           to={`hotels${search}`}
@@ -41,7 +41,7 @@ function Dashboard({ test }) {
             (window.location.href.includes("hotels") ? " active" : "")
           }
         >
-          Hotels
+          <a href="#" className={"neon-button" + (window.location.href.includes("hotels") ? " active" : "")}>Hotels</a>
         </NavLink>
       </div>
       <Routes>
