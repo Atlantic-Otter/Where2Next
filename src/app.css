@@ -75,6 +75,7 @@ button {
     left: 50%;
     transform: translate(-60%, 85%);
   }
+
 }
 
 /* BOTH */
@@ -221,10 +222,13 @@ button {
 
 #share-buttons-container {
   margin-right: auto;
-  /* margin-left: 2%; */
-  width: 8%;
+  width: 20%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+}
+
+#share-buttons-container > * {
+  margin: 0 4%
 }
 
 #logoName {
@@ -254,6 +258,7 @@ button {
   padding-left: 30px;
 }
 
+/* unset in mobile view */
 .login-logout-button {
   text-decoration: none;
   margin: 2% 2% 2% 0;
@@ -285,6 +290,7 @@ button {
   justify-content: center;
 }
 
+/* unset in mobile view */
 .login-logout-button span {
   cursor: pointer;
   display: inline-block;
@@ -310,6 +316,24 @@ button {
   opacity: 1;
   right: 0;
 }
+
+/* mobile view for login/logout button */
+@media screen and (max-width: 600px) {
+  .login-logout-button {
+    width: auto;
+    margin-right: 4%;
+  }
+
+  .login-logout-button > * {
+    all: unset;
+  }
+
+  .login-logout-button > span {
+    border-radius: 5vw;
+  }
+
+}
+
 
 .searchLabel {
   padding: 2% 0 2% 0;

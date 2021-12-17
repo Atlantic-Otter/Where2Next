@@ -94,14 +94,13 @@ const CheckoutModal = ({ toggleLoginModal }) => {
 
   return (
     <div className="modal-background" onClick={toggleCheckoutModal}>
-      <div className="checkout-modal-window" onClick={(event) => { event.stopPropagation(); }}>
 
+
+      {paid ? <ThankYou toggleCheckoutModal={toggleCheckoutModal}/> :
+
+        <div className="checkout-modal-window" onClick={(event) => { event.stopPropagation(); }}>
 
           <span className="independent-close-button" onClick={toggleCheckoutModal}>&times;</span>
-
-
-        {paid ? <ThankYou /> :
-        <>
           <div id="checkout-header">
             <h2>{headerCount}</h2>
           </div>
@@ -140,11 +139,10 @@ const CheckoutModal = ({ toggleLoginModal }) => {
               validated={validated}
               />
           </div>
-      </>
-      }
       </div>
-
+        }
     </div>
+
     );
 };
 

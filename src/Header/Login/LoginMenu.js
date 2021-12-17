@@ -60,18 +60,19 @@ const LoginMenu = ({ toggleLoginModal }) => {
 
     <div className="login-modal-background" onClick={toggleLoginModal}>
       <div className="login-modal-window" onClick={(event) => { event.stopPropagation(); }}>
+        <span id="login-modal-close-button" onClick={toggleLoginModal}>&times;</span>
         <Form className="login-form" noValidate validated={validated} onSubmit={attemptLogin} >
           <Form.Group className="mb-3" >
             <Form.Label>Username:</Form.Label>
-            <Form.Control required id="username" type="text" onChange={updateText} />
+            <Form.Control required id="username" data-testid="login-username" type="text" onChange={updateText} />
             <Form.Control.Feedback type="invalid">
               Required field.
             </Form.Control.Feedback>
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label>Credit Password:</Form.Label>
-            <Form.Control required id="password" type="password" onChange={updateText} />
+            <Form.Label>Password:</Form.Label>
+            <Form.Control required id="password" data-testid="login-password" type="password" onChange={updateText} />
             <Form.Control.Feedback type="invalid">
               Required field.
             </Form.Control.Feedback>
@@ -81,9 +82,9 @@ const LoginMenu = ({ toggleLoginModal }) => {
             Login
           </Button>
         </Form>
-        {/* <div className="modal-close-box"> */}
-          <span id="login-modal-close-button" onClick={toggleLoginModal}>&times;</span>
-        {/* </div> */}
+
+
+
       </div>
     </div>
 

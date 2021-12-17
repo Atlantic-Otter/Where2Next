@@ -10,6 +10,8 @@
     width: 15vw;
     height: 10vw;
   }
+
+  /* mobile: width in % */
   .flightListimage {
     width: 15vw;
     height: 10vw;
@@ -17,17 +19,7 @@
   }
 }
 
-/* MOBILE */
-@media screen and (max-width: 600px) {
-  .eventListImage {
-    height: 15vw;
-    width: 15vw;
-  }
-  .eventListImage {
-    height: 20vw;
-    width: 15vw;
-  }
-}
+
 .eventListImage {
   object-fit: cover;
 }
@@ -165,6 +157,7 @@
   font-weight: bold;
 }
 
+/* added margin to children in mobile view */
 .hotel-text {
   display: flex;
   flex-direction: column;
@@ -193,6 +186,7 @@
   border-radius: 1em;
 }
 
+/* added margin in mobile view */
 .hotel-detail-price {
   margin: 0 0 1em 1em;
   align-items: center;
@@ -229,4 +223,56 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+
+
+/* MOBILE */
+@media screen and (max-width: 600px) {
+  .eventListImage {
+    height: 15vw;
+    width: 15vw;
+  }
+
+  .listItem {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .listDetails {
+    flex-direction: column;
+  }
+
+  .listDetails > * {
+    font-size: smaller;
+  }
+
+  .buttonsContainer > * {
+    width: 35%
+  }
+
+  .flightListimage {
+    width: 45%;
+    align-self: center;
+  }
+
+  .flight-image-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+  }
+
+  .flight-origin-search {
+    min-width: 55%;
+  }
+
+  .hotel-text > * {
+    margin: 8% 0;
+  }
+
+  .hotel-detail-price {
+    margin-top: 8%;
+  }
+
 }

@@ -5,7 +5,7 @@ const TripTile = ({ trip }) => {
   const { destination, dates, events, flights, lodging } = trip;
   return (
     <div className="trip-tile">
-      <h5>{destination} &nbsp; {dates}</h5>
+      <h5>{destination}: {dates}</h5>
 
       {events.length ?
       <div className="given-category">
