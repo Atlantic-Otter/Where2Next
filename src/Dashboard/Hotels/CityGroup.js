@@ -8,7 +8,7 @@ function CityGroup({ data }) {
 
   return (
     <Link to={`${name}${search}`}>
-      <div className="neighborhoods">
+      <div className="neighborhoods" data-testid="neighborhoods">
         <div className="section-container">
           <div className="addToTrip">{name}</div>
         </div>

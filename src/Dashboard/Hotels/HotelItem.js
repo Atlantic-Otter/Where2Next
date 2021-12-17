@@ -53,15 +53,15 @@ const HotelItem = ({ hotel, tripDuration }) => {
           <h5>{hotel.name}</h5>
           {hotel.address.streetAddress}, {hotel.address.locality}
           {hotel.guestReviews && (
-            <span>
+            <div className="hotelRating">
               <ReactStars
                 count={5}
                 value={Number(hotel.guestReviews.rating) / 2}
                 edit={false}
                 ifHalf={true}
               />
-              {hotel.guestReviews.rating / 2} / 5 {badgeText}
-            </span>
+              &nbsp;&nbsp;{hotel.guestReviews.rating / 2} / 5 {badgeText}
+            </div>
           )}
           {hotel.landmarks[1].distance} from {hotel.landmarks[1].label}<br />
           {/* {hotel.landmarks[0].distance} from {hotel.landmarks[0].label} */}

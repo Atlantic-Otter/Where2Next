@@ -193,6 +193,10 @@
   border-radius: 1em;
 }
 
+.hotelRating {
+  display: flex;
+}
+
 .hotel-detail-price {
   margin: 0 0 1em 1em;
   align-items: center;

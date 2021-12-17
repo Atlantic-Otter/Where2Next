@@ -80,7 +80,7 @@ function Hotels() {
   };
 
   return (
-    <div className="listContainer">
+    <div className="listContainer" data-testid="hotelComponent">
       {loading ? (
         <>
           <h4 style={{color: 'white'}}>Nice choice! Finding hotels in that area...</h4>
@@ -88,13 +88,13 @@ function Hotels() {
         </>
         ) : (
       <>
-        <div className="neighborhoods">
+        <div className="neighborhoods" data-testid="neighborhoods">
           {/* <FadeLoader color="whitesmoke" loading={loading} /> */}
           {cityGroups.map((group, idx) => (
             <CityGroup key={idx} data={group} setHotelList={setHotelList} />
           ))}
         </div>
-        <div id="scrollContainer">
+        <div id="scrollContainer" data-testid="scrollContainer">
           <HotelGroup list={hotelList} tripDuration={tripDuration} />
         </div>
       </>)}
