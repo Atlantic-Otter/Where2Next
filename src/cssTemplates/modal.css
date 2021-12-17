@@ -281,14 +281,32 @@
   }
 
   .checkout-modal-window {
-    height: 80%;
+    height: 500px;
     width: 80%;
+    overflow: scroll;
   }
+
+  #checkout-rundown-container {
+    flex: unset;
+    overflow: scroll;
+  }
+
+  #checkout-form-container {
+    flex: unset;
+  }
+
 
   #checkout-top {
     flex-direction: column;
-    height: revert;
-    overflow: scroll;
+    height: unset;
 
+    align-items: center;
+
+  }
+
+
+
+  #checkout-total {
+    margin-top: 5%;
   }
 }
