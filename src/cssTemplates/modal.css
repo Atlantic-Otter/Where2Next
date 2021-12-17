@@ -10,13 +10,12 @@
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
-  /* overflow: auto; Enable scroll if needed */
-  /* background-color: rgb(0,0,0);  */
+
 }
 
 /* Modal Content/Box */
 .modal-window, .checkout-modal-window, .login-modal-window,
-.profile-modal-window {
+.profile-modal-window, .thank-you-modal{
   background-color: #FFFFFF;
   box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.12);
   width: 40%;
@@ -31,10 +30,11 @@
   align-items: center;
 }
 
-.checkout-modal-window {
+.checkout-modal-window, .thank-you-modal {
   /* padding: 0 3% 0 3%; */
   display: block;
-  max-height: 60vh;
+  height: 70%;
+  width: 80%;
 }
 
 .profile-modal-window {
@@ -46,8 +46,11 @@
 }
 
 .login-modal-window {
+  flex-direction: column;
   border-radius: 5vw;
-  justify-content: space-between;
+  width: initial;
+  /* justify-content: space-between; */
+  padding: 2% 4% 4% 4%;
   z-index: 5;
 }
 
@@ -67,13 +70,17 @@
   flex-direction: row;
   justify-content: space-evenly;
   align-items: flex-start;
-  max-height: 45vh;
+  height: 90%
 }
-
 
 
 .given-category {
   margin: 3%;
+
+}
+
+.given-category > ul {
+  list-style-type: square;
 }
 
 .given-category > h3 {
@@ -90,12 +97,12 @@
 
 
 
-
+/*
 #checkout-bottom {
   display: flex;
   flex-direction: row;
   justify-content: center;
-}
+} */
 
 #checkout-total {
   margin-top: auto;
@@ -112,7 +119,7 @@
 }
 
 /* The Close Button */
-#login-modal-close-button, .modal-close-button #profile-close-button {
+#login-modal-close-button, .modal-close-button, #profile-close-button {
   color: #aaa;
   font-size: 28px;
   font-weight: bold;
@@ -121,7 +128,7 @@
 }
 
 #login-modal-close-button {
-  align-self: center;
+  align-self: flex-end;
 }
 
 
@@ -145,8 +152,8 @@
 .login-form {
   margin-left: 2%;
   display: flex;
-  flex-direction:  row;
-  justify-content: space-between;
+  flex-direction: column;
+  /* justify-content: space-between; */
 }
 
 /* #submit-button {
@@ -154,16 +161,16 @@
   border-radius: 5vw;
 } */
 
-.login-form > * {
-  margin: auto 3% auto 3%;
+.login-form > button {
+  background-color: black;
 }
 
 
 
 #checkout-form-container, #checkout-rundown-container {
-  padding: 3%;
+  padding: 2%;
   flex: 0 0 30%;
-  max-height: inherit;
+  height: 100%;
 }
 
 /* wont't work with bootstrap? */
@@ -171,8 +178,10 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  overflow: scroll;
-  max-height: inherit;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: inherit;
+  padding: 0 5% 0 5%;
 }
 
 #checkout-button {
@@ -187,20 +196,21 @@
 #checkout-rundown-container {
 
   flex: 0 0 70%;
-  margin-right: 2%;
+  /* margin-right: 2%; */
   display: flex;
   flex-direction: column;
-  max-height: inherit;
-
+  height: 100%;
 }
 
 
 #checkout-categories {
   border-left: 1px solid black;
   border-top: 1px solid black;
-  border-radius: 20px;
-  overflow: scroll;
+  border-radius: 20px 0 0 20px;
+
+  overflow-y: scroll;
   overflow-x: hidden;
+  height: 80%;
 }
 
 
@@ -208,6 +218,10 @@
 ::-webkit-scrollbar {
   display: none;
 } */
+
+.thank-you-modal {
+  height: auto;
+}
 
 #thank-you {
   text-align: center;
@@ -257,4 +271,10 @@
   max-height: 40vh;
   overflow-y: scroll;
   overflow-x: hidden;
+}
+
+@media screen and (max-width: 600px) {
+  .profile-modal-window {
+    font-size: smaller;
+  }
 }

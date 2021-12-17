@@ -78,7 +78,8 @@ function Flights({ test }) {
         <>
           <h3 style={{color: 'white'}}>Your flights to {city} from:</h3>
           <div style={{width: '100%', display: 'flex', justifyContent: 'center', marginTop: '1%'}}>
-            <div style={{width: '33%'}}>
+            {/* added a className for mobile styling */}
+            <div className="flight-origin-search" style={{width: '33%'}}>
               <ReactSearchAutocomplete
                 autofocus
                 items={cityList}

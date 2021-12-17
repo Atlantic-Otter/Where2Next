@@ -6,7 +6,12 @@ const UpcomingTrips = ({ trips }) => {
     <>
       <h4>Upcoming Trips:</h4>
       <div id="upcoming-trips">
-        {trips.map((trip, i) => <TripTile trip={trip} key={i} />)}
+        {trips.map((trip, i) => (
+         <>
+          <TripTile trip={trip} key={i} />
+          {i !== trips.length - 1 ? <hr /> : <></>}
+         </>))
+        }
       </div>
     </>
   )
