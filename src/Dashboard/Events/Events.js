@@ -17,7 +17,7 @@ function Events() {
   const [keywords, setKeywords] = useState([]);
   const { startDate, endDate, city, state } = useSearchParams();
   const [currentEvents, setCurrentEvents] = useState([]);
-  const [ selected, setSelected ] = useState('date');
+  const [selected, setSelected] = useState("date");
 
   const eventsByDate = useRef([]);
   const selectedQuantity = useRef(0);
@@ -122,27 +122,29 @@ function Events() {
 
     const method = e.target.value;
     setSelected(method);
-    console.log(method)
+    console.log(method);
 
-    if (method === 'date') {
+    if (method === "date") {
       setEvents(eventsByDate.current);
-    } else if (method === 'price') {
+    } else if (method === "price") {
       eventsCopy.sort((a, b) => {
-        let aPrice = a.priceRanges ?
-          ((a.priceRanges[0].min + a.priceRanges[0].max) / 2).toFixed(2): 0;
-        let bPrice = b.priceRanges ?
-          ((b.priceRanges[0].min + b.priceRanges[0].max) / 2).toFixed(2): 0;
+        let aPrice = a.priceRanges
+          ? ((a.priceRanges[0].min + a.priceRanges[0].max) / 2).toFixed(2)
+          : 0;
+        let bPrice = b.priceRanges
+          ? ((b.priceRanges[0].min + b.priceRanges[0].max) / 2).toFixed(2)
+          : 0;
 
         return aPrice - bPrice;
-      })
+      });
       setEvents(eventsCopy);
-    } else if (method === 'distance') {
+    } else if (method === "distance") {
       eventsCopy.sort((a, b) => {
         return a.distance - b.distance;
       });
       setEvents(eventsCopy);
     }
-  }
+  };
 
   const renderTodayEvents = () => {
     console.log("dates", events);
@@ -195,16 +197,17 @@ function Events() {
             className="searchLocation"
             placeholder="Location"
           /> */}
-          <div>
+          <>
             {currentEvents.length ? (
-              <Carousel>
+              <Carousel style={{ width: "30%" }}>
                 {currentEvents.map((event) => {
                   return (
-                    <Carousel.Item interval={5000}>
+                    <Carousel.Item interval={3000}>
                       <img
                         src={findLargestPhoto(event.images)}
-                        className="d-block mx-auto"
-                        width="50%"
+                        className="d-block mx-auto carouselImage"
+                        width="100%"
+                        // height="50%"
                       />
                       <Carousel.Caption>
                         <h4>{event.name}</h4>
@@ -220,7 +223,7 @@ function Events() {
             ) : (
               <h1>No events happening today</h1>
             )}
-          </div>
+          </>
           <div className="filterAndSortContainer">
             <input
               type="text"
@@ -240,7 +243,8 @@ function Events() {
           ) : (
             <div className="emptyList">
               <h2>
-                Sorry! There are no events matching your specified location and time.
+                Sorry! There are no events matching your specified location and
+                time.
               </h2>
             </div>
           )}

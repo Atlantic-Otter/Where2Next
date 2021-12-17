@@ -237,13 +237,11 @@ button {
 #navLinks {
   display: flex;
   flex-direction: row;
-
+  height: 10%;
 }
 
 .nav-link {
-
   margin: 2em;
-
 }
 
 /* .active {
