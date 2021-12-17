@@ -189,12 +189,12 @@ function Events() {
         <FadeLoader color="whitesmoke" loading={loading} />
       ) : (
         <div id="eventsList">
-          <input
+          {/* <input
             type="text"
             name="locationInput"
             className="searchLocation"
             placeholder="Location"
-          />
+          /> */}
           <div>
             {currentEvents.length ? (
               <Carousel>
