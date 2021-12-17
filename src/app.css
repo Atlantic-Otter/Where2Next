@@ -75,6 +75,9 @@ button {
     left: 50%;
     transform: translate(-60%, 85%);
   }
+
+
+
 }
 
 /* BOTH */
@@ -221,10 +224,13 @@ button {
 
 #share-buttons-container {
   margin-right: auto;
-  /* margin-left: 2%; */
-  /* width: 8%; */
+  width: 20%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+}
+
+#share-buttons-container > * {
+  margin: 0 4%
 }
 
 #logoName {

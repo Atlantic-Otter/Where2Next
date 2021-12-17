@@ -53,7 +53,7 @@ function FlightListItem({ flight, arrivalCode }) {
         {departureCode} to {arrivalCode}
       </h4>
       <div className="listDetails">
-        <div>
+        <div className="flight-image-container">
           <img className="flightListimage" src={airlineImage} />
         </div>
         <div className="eventText">

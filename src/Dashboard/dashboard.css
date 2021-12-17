@@ -229,7 +229,6 @@
     width: 15vw;
   }
 
-
   .listItem {
     width: 100%;
     display: flex;
@@ -249,21 +248,19 @@
     width: 35%
   }
 
+  .flightListimage {
+    width: 45%;
+    align-self: center;
+  }
 
-  /* .eventListImage {
-    height: 20vw;
-    width: 15vw;
-  } */
+  .flight-image-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+  }
 
-  /* .listItem {
-    background-color: #5a175e;
-    border-radius: 5mm;
-    border: 1px solid black;
-    margin: 1em;
-    padding: 1em;
-    /*  */
-    /* width: 100%;
-  } */
-
+  .flight-origin-search {
+    min-width: 55%;
+  }
 
 }
