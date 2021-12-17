@@ -10,6 +10,11 @@
     width: 15vw;
     height: 10vw;
   }
+  .flightListimage {
+    width: 15vw;
+    height: 10vw;
+    border-radius: 1em;
+  }
 }
 
 /* MOBILE */
@@ -32,6 +37,8 @@
   border: 1px solid black;
   margin: 1em;
   padding: 1em;
+  /*  */
+  width: 100%;
 }
 
 .flightItem {
@@ -39,8 +46,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+<<<<<<< HEAD
   width: 60%;
   height: 30%;
+=======
+  /* width: 60%; */
+>>>>>>> c63bc50e34170afc8d6624d5aed3108cf5b34a09
 }
 .listItem:nth-child(even) {
   background: #67084f;
@@ -87,7 +98,7 @@
 }
 
 #scrollContainer {
-  margin-top: 2em;
+  margin-top: 1em;
   overflow: scroll;
   height: 90%;
   width: 80%;
@@ -110,7 +121,8 @@
 
 .listContainer {
   align-self: center;
-  height: 100%;
+  max-height: 90%;
+  min-height: 90%;
   width: 80%;
   padding: 1em;
 
@@ -158,17 +170,15 @@
   font-weight: bold;
 }
 
-.hotel-group {
-  overflow: scroll;
-}
-
 .hotel-text {
   display: flex;
   flex-direction: column;
   align-self: stetch;
   flex-grow: 1;
   font-size: 0.9em;
-  margin-left: 2em;
+  margin-left: 1em;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .neighborhoods {
@@ -186,4 +196,42 @@
 
 .hotelListImage {
   border-radius: 1em;
+}
+
+.hotel-detail-price {
+  margin: 0 0 1em 1em;
+  align-items: center;
+}
+
+.toastItem {
+  width: 100%;
+  height: 5vh;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.9);
+  padding: 0.5em;
+  margin: 0.5em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.toast {
+  width: 30vw;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 1em;
+}
+.toast-body {
+  width: 100%;
+}
+.toast-header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }

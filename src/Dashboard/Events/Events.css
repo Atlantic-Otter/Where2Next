@@ -1,7 +1,7 @@
 #eventsPage {
   background-image: url("https://storage.googleapis.com/labbit-fec-limitless-images/images/mt-1486-home-parallax1_xl_1980x959.jpeg");
   width: 100%;
-  height:86%;
+  height: 86%;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -27,36 +27,57 @@
   border-radius: 2em;
 }
 
+.filterAndSortContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80%;
+}
+
 .searchLocation {
   width: 574.98px;
   height: 58.62px;
   background: rgba(100, 8, 230, 0.1);
   border-radius: 40px;
+  border-style: solid;
   margin-left: 1em;
   color: white;
   padding-left: 2em;
   margin-bottom: 2em;
-  border-color: white;
+  border-color: gray;
 }
 
 .searchEvents {
-  width: 574.98px;
-  height: 58.62px;
+  width: 500px;
+  height: 2.25em;
   background: rgba(100, 8, 230, 0.1);
   border-radius: 40px;
+  border-style: solid;
   color: white;
   padding-left: 2em;
-  margin-top: 2em;
-  margin-left: 1em;
-  border-color: white;
+  margin-top: 1em;
+  margin-left: 3%;
+  border-color: gray;
 }
 
 .searchLocation::placeholder {
-  color: white;
+  color: gray;
 }
 
 .searchEvents::placeholder {
-  color: white;
+  color: gray;
+}
+
+.dropdown {
+  color: gray;
+  background-color: rgba(100, 8, 230, 0.1);
+  border-radius: 10px;
+  border-color: gray;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  align-self: flex-end;
+  margin-right: 3%;
+  height: 2.25em;
 }
 
 .emptyList {
@@ -77,7 +98,7 @@
 }
 
 .name {
-  color: white
+  color: white;
 }
 
 .eventDetails {
@@ -97,7 +118,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  color:#dd9a33
+  color: #dd9a33;
 }
 
 .quantityIndicator {
@@ -117,7 +138,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
 }
 
 .addToTrip {
@@ -127,7 +148,7 @@
   border-radius: 6px;
   align-items: center;
   padding: 10px 10px;
-  background-color:black;
+  background-color: black;
   color: white;
 }
 
@@ -138,7 +159,7 @@
   border-radius: 6px;
   align-items: center;
   padding: 10px 10px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   text-decoration: none;
   color: black;
   display: flex;
@@ -150,17 +171,14 @@
   font-weight: bold;
 }
 
-.carousel .item img {
-  left: -9999px;  /*important */
-  right: -9999px;  /*important */
-  margin: 0 auto;  /*important */
-  max-width: none;  /*important */
+/* .carousel .item img {
+  left: -9999px;
+  right: -9999px;
+  margin: 0 auto;
+  max-width: none;
   min-width: 100%;
   position: absolute;
-}
-.carousel-inner {
-
-}
+} */
 
 /* .carousel-inner {
   padding-top: 5%;

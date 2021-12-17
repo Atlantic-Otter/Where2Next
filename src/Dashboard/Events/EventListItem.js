@@ -7,18 +7,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusCircle, faMinusCircle } from '@fortawesome/free-solid-svg-icons'
 
 function EventListItem({ event, openModal }) {
-  const { currentTrip, setCurrentTrip } = useContext(TripContext);
+  const { currentTrip, setCurrentTrip, unvisited, setUnvisited } = useContext(TripContext);
   const [ quantity, setQuantity ] = useState(0);
 
   const addEventToTrip = () => {
-    const newTrip = { ...currentTrip };
-    newTrip.events.push(event);
-    setCurrentTrip(newTrip);
+    if (quantity > 0) {
+      const newTrip = { ...currentTrip };
+      let eventWithQuantity = {...event, quantity};
+      newTrip.events.push(eventWithQuantity);
+      setCurrentTrip(newTrip);
 
-    openModal(quantity);
+      openModal(quantity);
+    }
   };
 
-  console.log(event);
+  // console.log(event);
 
   const date = new Date(event.dates.start.dateTime).toLocaleString([], {
     year: "numeric",
@@ -61,6 +64,7 @@ function EventListItem({ event, openModal }) {
         <div className="eventText">
           <span>{event._embedded.venues[0].name}</span>
           <span>{event._embedded.venues[0].address.line1}</span>
+          <span>{event.distance}mi</span>
 
           <span>{date}</span>
           <span>{price}</span>

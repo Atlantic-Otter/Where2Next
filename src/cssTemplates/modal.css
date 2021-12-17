@@ -1,5 +1,5 @@
 /* a background overlay (sits on top of exisiting page) */
-.modal-background {
+.modal-background, .login-modal-background {
   position: fixed; /* Stay in place */
   z-index: 2; /* Sit on top of exisitng content */
   background-color: rgba(0, 0, 0, 0.7); /* see-thru */
@@ -15,10 +15,11 @@
 }
 
 /* Modal Content/Box */
-.modal-window, .checkout-modal-window, .login-modal-window {
+.modal-window, .checkout-modal-window, .login-modal-window,
+.profile-modal-window {
   background-color: #FFFFFF;
   box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.12);
-  width: 50%;
+  width: 40%;
   z-index: 3;
   padding: 3%;
   border: 1px solid #000000;
@@ -34,6 +35,24 @@
   /* padding: 0 3% 0 3%; */
   display: block;
   max-height: 60vh;
+}
+
+.profile-modal-window {
+  /* max-height: none; */
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: unset;
+}
+
+.login-modal-window {
+  border-radius: 5vw;
+  justify-content: space-between;
+  z-index: 5;
+}
+
+.login-modal-background {
+  z-index: 4;
 }
 
 #checkout-close-box {
@@ -78,9 +97,10 @@
   justify-content: center;
 }
 
-.login-modal-window {
-  border-radius: 5vw;
+#checkout-total {
+  margin-top: auto;
 }
+
 
 .modal-close-box {
   width: 20%;
@@ -92,12 +112,16 @@
 }
 
 /* The Close Button */
-.modal-close-button {
+#login-modal-close-button, .modal-close-button #profile-close-button {
   color: #aaa;
   font-size: 28px;
   font-weight: bold;
   align-self: flex-start;
-  /* margin: 25px; */
+  cursor: pointer;
+}
+
+#login-modal-close-button {
+  align-self: center;
 }
 
 
@@ -107,6 +131,8 @@
   font-size: 28px;
   font-weight: bold;
   float: right;
+  cursor: pointer;
+
 }
 
 .modal-close-button:hover,
@@ -116,7 +142,7 @@
   cursor: pointer;
 }
 
-#login-form {
+.login-form {
   margin-left: 2%;
   display: flex;
   flex-direction:  row;
@@ -128,7 +154,7 @@
   border-radius: 5vw;
 } */
 
-#login-form > * {
+.login-form > * {
   margin: auto 3% auto 3%;
 }
 
@@ -137,7 +163,7 @@
 #checkout-form-container, #checkout-rundown-container {
   padding: 3%;
   flex: 0 0 30%;
-  height: inherit;
+  max-height: inherit;
 }
 
 /* wont't work with bootstrap? */
@@ -145,6 +171,8 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  overflow: scroll;
+  max-height: inherit;
 }
 
 #checkout-button {
@@ -166,9 +194,6 @@
 
 }
 
-#checkout-rundown-container > h3 {
-  margin-top: 3%;
-}
 
 #checkout-categories {
   border-left: 1px solid black;
@@ -195,4 +220,41 @@
 #celebrate {
   font-weight: bold;
   font-size: 20pt;
+}
+
+#profile-header {
+  display: flex;
+  justify-content: center;
+
+}
+#profile-close-button {
+  margin-left: auto;
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+
+}
+
+#user-info {
+  margin-left: 5%;
+}
+
+.user-info-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.user-info-value {
+  margin-left: auto;
+  margin-right: 10%;
+}
+
+#upcoming-trips {
+  margin-top: 3%;
+  margin-bottom: 3%;
+  max-height: 40vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }

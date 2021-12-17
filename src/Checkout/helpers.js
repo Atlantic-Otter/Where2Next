@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 const dateOptions = {
   year: 'numeric',
@@ -11,7 +12,6 @@ const dateOptions = {
 const helpers = {
 
   getInfo: function(infoObj, service) {
-
     var title, dateTime, price;
 
     switch (service) {
@@ -44,10 +44,16 @@ const helpers = {
 
       break;
       case 'hotel':
-        title = 'Hotels'
-        dateTime = 'tbd'
-        price = 0;
+        var duration = infoObj.tripDuration === 1 ? `${infoObj.tripDuration} day` : `${infoObj.tripDuration} days`;
+
+        var start = new Date(infoObj.startDate).toLocaleDateString();
+        var end = new Date(infoObj.endDate).toLocaleDateString();
+
+        title = infoObj.hotelName;
+        dateTime = `${start} - ${end} (${duration})`;
+        price = infoObj.dailyRate;
       break;
+
     }
 
     return {title, dateTime, price};
@@ -86,7 +92,6 @@ const helpers = {
     });
 
     var all = (eventPrices.concat(flightPrices, hotelPrices));
-    console.log('all:', all);
     var total = 0;
 
     for (var count = 0; count < all.length; count++) {
@@ -94,6 +99,21 @@ const helpers = {
     }
 
     return { count, total: total.toFixed(2) };
+  },
+
+  addTrip: function(username, startDate, endDate, destination, tripItemTitles) {
+    const {events, flights, hotels} = tripItemTitles;
+    const body = {
+      username: username,
+      destinationCity: destination,
+      startDate: new Date(startDate).toLocaleDateString(),
+      endDate: new Date(endDate).toLocaleDateString(),
+      events: events,
+      flights: flights,
+      hotels: hotels
+    };
+
+    return axios.post('http://localhost:3000/trips', body);
   }
 
 

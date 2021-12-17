@@ -36,13 +36,22 @@ function Hotels() {
 
   const tripDuration = getTripLength(startDate, endDate);
 
+  // attach url search params while inside router context
+  const addDates = (hotelArray) => {
+    for (var i = 0; i < hotelArray.length; i++) {
+      hotelArray[i].startDate = startDate;
+      hotelArray[i].endDate = endDate;
+    }
+    return hotelArray;
+  };
+
   const fetchNeighborhoods = (city) => {
     axios
       .get(`http://localhost:3000/hotels/${encodedCity}`, {
         signal: abortFetch.signal,
       })
       .then((response) => {
-        console.log('cityGroups recieved: ', cityGroups)
+        console.log("cityGroups recieved: ", cityGroups);
         setCityGroups(response.data);
         setLoading(false);
       })
@@ -53,11 +62,15 @@ function Hotels() {
       });
   };
   const fetchHotels = (id) => {
+    setLoading(true);
     const url = `http://localhost:3000/hotels/${encodedCity}/${id}`;
     axios
       .get(url)
       .then((response) => {
-        setHotelList(response.data);
+        console.log("response data:", response.data);
+        var withDates = addDates(response.data);
+        setHotelList(withDates);
+        setLoading(false);
       })
       .catch((err) => {
         if (err.name === "AbortError") {
@@ -66,53 +79,23 @@ function Hotels() {
       });
   };
 
-  // const handlePagination = (e) => {
-  //   const page = e.target.value
-  //   const header = {params: {page}}
-  //   axios
-  //   .get(url, header)
-  //   .then((response) => {
-  //     setHotelList(response.data);
-  //   })
-  //   .catch((err) => console.log(err));
-  // }
-
-  //listContainer <=hotel-main
   return (
-    <>
-      <div className="eventsList">
-        <h3>Neighborhoods</h3>
+    <div className="listContainer">
+      {
+        loading ? <FadeLoader color="whitesmoke" loading={loading} /> :
+      (<>
         <div className="neighborhoods">
-          <FadeLoader color="orange" loading={loading} />
+          {/* <FadeLoader color="whitesmoke" loading={loading} /> */}
           {cityGroups.map((group, idx) => (
             <CityGroup key={idx} data={group} setHotelList={setHotelList} />
           ))}
         </div>
-      </div>
-        <div className="listContainer">
+        <div id="scrollContainer">
           <HotelGroup list={hotelList} tripDuration={tripDuration} />
         </div>
-
-        <nav aria-label="hotel-pagination">
-          <ul className="pagination">
-            <li className="page-item">
-              <a className="page-link" href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-                <span className="sr-only">Previous</span>
-              </a>
-            </li>
-            <li className="page-item page-link">1</li>
-            <li className="page-item page-link">2</li>
-            <li className="page-item">3</li>
-            <li className="page-item">
-              <a className="page-link" href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-                <span className="sr-only">Next</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
-    </>
+      </>)
+      }
+    </div>
   );
 }
 

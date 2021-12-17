@@ -9,12 +9,16 @@ html,
 #root {
   width: 100vw;
   height: 100vh;
+}
+button {
+  cursor: pointer;
+}
+#root {
   background-image: url("https://storage.googleapis.com/labbit-fec-limitless-images/landingBackground.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
-
 /*BROWSER*/
 @media screen and (min-width: 600px) {
   #yourTripButton {
@@ -26,6 +30,13 @@ html,
 
   #inputForm {
     width: 50%;
+    z-index: 0;
+  }
+  #logoName h1 {
+    font-size: 4rem;
+  }
+  #rightArrow {
+    font-size: 2em;
   }
 }
 
@@ -40,6 +51,29 @@ html,
 
   #inputForm {
     width: 80%;
+    z-index: 0;
+  }
+
+  #logoName h1 {
+    font-size: 2rem;
+  }
+
+  #logoImg {
+    width: 4em;
+  }
+  #slogan {
+    width: 100%;
+  }
+  .dateSelect {
+    width: 100%;
+    font-size: 0.7em;
+  }
+  #rightArrow {
+    font-size: 1em;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-60%, 85%);
   }
 }
 
@@ -48,15 +82,17 @@ html,
 .dateContainer {
   display: flex;
   justify-content: space-between;
+  position: relative;
+  width: 100%;
 }
 
 .startDate {
   display: flex;
   flex-direction: column;
+  width: 45%;
 }
 
 #rightArrow {
-  font-size: 2em;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -65,12 +101,14 @@ html,
 .endDate {
   display: flex;
   flex-direction: column;
+  width: 45%;
 }
 
 .dateSelect {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 25px;
   padding: 10px;
+
   background-color: rgba(90, 23, 94, 0.5);
   color: white;
   box-shadow: rgba(254, 1, 154, 0.5) 0px 7px 29px 0px;
@@ -92,28 +130,18 @@ html,
   align-items: center;
   justify-content: center;
   color: #fff;
-  z-index: 50;
+  z-index: 0;
 }
 #dashboardContainer {
   position: relative;
   width: 100%;
-  height: 90%;
+  height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-/* #listContainer { */
-/* border: 1px solid black; */
-/* padding: 1em;
-  height: 80%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 60%; */
-/* } */
 .listHeader {
   width: 100%;
   display: flex;
@@ -154,26 +182,50 @@ html,
   margin: 1em;
   height: 30%;
 }
-#user-icon {
-  margin: 2% 0 2% 0;
-  width: 6%;
-  height: 40%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-#user-icon > * {
-  margin: 2%;
-}
 
 #header {
   display: flex;
   justify-content: flex-end;
-
+  align-items: baseline;
   width: 100%;
-  height: 10%;
+  height: 10vh;
+}
+#header > * {
+  margin: 2%;
+}
+
+/* #user-icon > * {
+  margin: 2%;
+} */
+
+/* #user-icon {
+  height: 100%;
+  width: 100%;
+} */
+
+.user-initials-icon {
+  width: 2.5em;
+  height: 2.5em;
+  cursor: pointer;
+  border-radius: 100%;
+  background-color: #db6d13ee;
+  box-sizing: border-box;
+}
+
+.user-initials-icon div {
+  color: #fff;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#share-buttons-container {
+  margin-right: auto;
+  /* margin-left: 2%; */
+  width: 8%;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 #logoName {
@@ -186,20 +238,18 @@ html,
 #navLinks {
   display: flex;
   flex-direction: row;
+
 }
 
 .nav-link {
-  border-radius: 5px;
-  box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.3);
-  margin: 1em;
+
+  margin: 2em;
+
 }
 
-.active {
-  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.4);
-}
-#logoName h1 {
-  font-size: 4rem;
-}
+/* .active {
+  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+} */
 
 #slogan {
   padding-left: 30px;
@@ -343,9 +393,15 @@ html,
 }
 
 @keyframes glowing {
-  0% { background-position: 0 0; }
-  50% { background-position: 400% 0; }
-  100% { background-position: 0 0; }
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
 }
 
 .hotel-main {
@@ -361,9 +417,8 @@ html,
   padding: 1em;
 }
 
-
 .hotel-detail-img {
-  width: 180px;     /* change to % */
+  width: 180px; /* change to % */
   object-fit: cover;
   margin-right: 1em;
 }
@@ -373,14 +428,14 @@ html,
   flex-direction: column;
   align-self: stetch;
   flex-grow: 1;
-  font-size: .6em;
+  font-size: 0.6em;
 }
 
 .hotel-detail-price {
   display: flex;
   flex-direction: column;
   align-self: flex-end;
-  font-size: .7em;
+  font-size: 0.7em;
   /* align-items: flex-end; */
 }
 
@@ -390,3 +445,102 @@ html,
   margin-right: 1em;
 }
 
+:root {
+  --clr-neon: hsl(317 100% 54%);
+  --clr-bg: hsl(323 21% 16%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: var(--clr-bg);
+  font-family: "Balsamiq Sans", cursive;
+  color: var(--clr-neon);
+  padding-right: 10rem;
+}
+
+.neon-button {
+  font-size: 1.75rem;
+  width: 1em;
+  height: 1em;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--clr-neon);
+  border: var(--clr-neon) 0.125em solid;
+  padding: 0.25em 1em;
+  border-radius: 0.25em;
+
+  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+
+  box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
+
+  position: relative;
+}
+
+.neon-button.active {
+  font-size: 1.75rem;
+  width: 1em;
+  height: 1em;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--clr-bg);
+  background-color: var(--clr-neon);
+  border: var(--clr-neon) 0.125em solid;
+  padding: 0.25em 1em;
+  border-radius: 0.25em;
+  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+  box-shadow: 0 0 2em 0.5em var(--clr-neon);
+  position: relative;
+}
+
+.neon-button::before {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  background: var(--clr-neon);
+  top: 120%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  transform: perspective(1em) rotateX(40deg) scale(1, 0.35);
+  filter: blur(1em);
+  opacity: 0.7;
+}
+
+.neon-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0 2em 0.5em var(--clr-neon);
+  opacity: 0;
+  background-color: var(--clr-neon);
+  z-index: -1;
+  transition: opacity 100ms linear;
+}
+
+.neon-button:hover,
+.neon-button:focus {
+  color: var(--clr-bg);
+  z-index: 1;
+  text-shadow: none;
+}
+
+.neon-button:hover::before,
+.neon-button:focus::before {
+  opacity: 1;
+}
+.neon-button:hover::after,
+.neon-button:focus::after {
+  opacity: 1;
+}

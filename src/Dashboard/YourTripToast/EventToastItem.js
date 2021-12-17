@@ -1,20 +1,33 @@
 import React from "react";
 import TripContext from "../../../src/TripContext.js";
 import { useContext } from "react";
+import Button from "react-bootstrap/Button";
 function EventToastItem({ event }) {
   const { currentTrip, setCurrentTrip } = useContext(TripContext);
 
   const removeEventFromTrip = () => {
     const newTrip = { ...currentTrip };
-    newTrip.events = newTrip.events.filter((e) => e.id !== event.id);
+    newTrip.events = newTrip.events.map((e) => {
+      if (e.id === event.id) {
+        if (e.quantity > 1) {
+          e.quantity -= 1;
+          return e;
+        }
+      } else {
+        return e;
+      }
+    });
+    newTrip.events = newTrip.events.filter(Boolean);
     setCurrentTrip(newTrip);
-    console.log(currentTrip);
   };
 
   return (
-    <div>
+    <div className="toastItem">
       <strong>{event.name}</strong>
-      <button onClick={removeEventFromTrip}>REMOVE</button>
+      <span>{event.quantity}</span>
+      <Button variant="outline-dark" onClick={removeEventFromTrip}>
+        REMOVE
+      </Button>
     </div>
   );
 }

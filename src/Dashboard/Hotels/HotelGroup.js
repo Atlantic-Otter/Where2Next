@@ -4,6 +4,7 @@ import HotelItem from "./HotelItem";
 // const [loading, setLoading] = useState(true);
 
 function HotelGroup({ list, tripDuration }) {
+  console.log('tripDuration', tripDuration);
   return (
     <div id="scrollContainer">
       {list.map((hotel, idx) => (
