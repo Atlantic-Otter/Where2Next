@@ -76,8 +76,6 @@ button {
     transform: translate(-60%, 85%);
   }
 
-
-
 }
 
 /* BOTH */
@@ -318,6 +316,24 @@ button {
   right: 0;
 }
 
+
+@media screen and (max-width: 600px) {
+  .login-logout-button {
+    width: auto;
+    margin-right: 4%;
+  }
+
+  .login-logout-button > * {
+    all: unset;
+  }
+
+  .login-logout-button > span {
+    border-radius: 5vw;
+  }
+
+}
+
+
 .searchLabel {
   padding: 2% 0 2% 0;
 }
@@ -450,3 +466,5 @@ button {
   flex-direction: row;
   margin-right: 1em;
 }
+
+
