@@ -265,4 +265,13 @@
     min-width: 55%;
   }
 
+  .hotel-text > * {
+    margin: 8% 0;
+
+  }
+
+  .hotel-detail-price {
+    margin-top: 8%;
+  }
+
 }
