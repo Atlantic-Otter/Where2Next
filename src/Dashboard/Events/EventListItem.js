@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TripContext from "../../../src/TripContext.js";
 import { useContext } from "react";
 import "./Events.css";
@@ -9,6 +9,7 @@ import { faPlusCircle, faMinusCircle } from '@fortawesome/free-solid-svg-icons'
 function EventListItem({ event, openModal }) {
   const { currentTrip, setCurrentTrip, unvisited, setUnvisited } = useContext(TripContext);
   const [ quantity, setQuantity ] = useState(0);
+  const [ added, setAdded ] = useState(false);
 
   const addEventToTrip = () => {
     if (quantity > 0) {
@@ -16,7 +17,6 @@ function EventListItem({ event, openModal }) {
       let eventWithQuantity = {...event, quantity};
       newTrip.events.push(eventWithQuantity);
       setCurrentTrip(newTrip);
-
       openModal(quantity);
     }
   };
@@ -51,6 +51,16 @@ function EventListItem({ event, openModal }) {
     }
   }
 
+  const renderAddToCartButton = () => {
+
+    console.log('some:', currentTrip.events.some( e => e.id === event.id))
+     setAdded(currentTrip.events.some( e => e.id === event.id))
+  };
+
+  useEffect(() => {
+    renderAddToCartButton();
+  }, [currentTrip]);
+
   let price = event.priceRanges ?
     `$${((event.priceRanges[0].min + event.priceRanges[0].max) / 2).toFixed(2)}`: "Free";
 
@@ -79,9 +89,14 @@ function EventListItem({ event, openModal }) {
             <a className="readMore" href={event.url} target="_blank">
               <span className="readyMoreText">Read More</span>
             </a>
-            <button className="addToTrip" onClick={addEventToTrip}>
-              Add to Cart
-            </button>
+            {added?
+              <button className="addToTripAgain" onClick={addEventToTrip}>
+                Add to Cart
+              </button>:
+              <button className="addToTrip" onClick={addEventToTrip}>
+                Add to Cart
+              </button>
+            }
           </div>
         </div>
       </div>
