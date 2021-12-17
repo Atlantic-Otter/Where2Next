@@ -188,7 +188,7 @@ button {
   justify-content: flex-end;
   align-items: baseline;
   width: 100%;
-  height: 10vh;
+  height: 7vh;
 }
 #header > * {
   margin: 2%;
@@ -241,13 +241,11 @@ button {
 #navLinks {
   display: flex;
   flex-direction: row;
-
+  height: 10%;
 }
 
 .nav-link {
-
   margin: 2em;
-
 }
 
 /* .active {
