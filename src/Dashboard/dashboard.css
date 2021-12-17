@@ -34,7 +34,8 @@
 .listItem {
   background-color: #5a175e;
   border-radius: 5mm;
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  box-shadow: 1px 1px 15px rgba(253, 106, 204, 0.7);
   margin: 1em;
   padding: 1em;
   /*  */
