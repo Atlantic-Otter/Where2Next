@@ -157,6 +157,7 @@
   font-weight: bold;
 }
 
+/* added margin to children in mobile view */
 .hotel-text {
   display: flex;
   flex-direction: column;
@@ -185,6 +186,7 @@
   border-radius: 1em;
 }
 
+/* added margin in mobile view */
 .hotel-detail-price {
   margin: 0 0 1em 1em;
   align-items: center;
@@ -267,7 +269,6 @@
 
   .hotel-text > * {
     margin: 8% 0;
-
   }
 
   .hotel-detail-price {

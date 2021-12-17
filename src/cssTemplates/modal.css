@@ -272,3 +272,9 @@
   overflow-y: scroll;
   overflow-x: hidden;
 }
+
+@media screen and (max-width: 600px) {
+  .profile-modal-window {
+    font-size: smaller;
+  }
+}
