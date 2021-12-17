@@ -94,7 +94,6 @@
 }
 
 #scrollContainer {
-  margin-top: 1em;
   overflow: scroll;
   height: 90%;
   width: 80%;
