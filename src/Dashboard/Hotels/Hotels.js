@@ -81,9 +81,13 @@ function Hotels() {
 
   return (
     <div className="listContainer">
-      {
-        loading ? <FadeLoader color="whitesmoke" loading={loading} /> :
-      (<>
+      {loading ? (
+        <>
+          <h4 style={{color: 'white'}}>Finding hotels in that area...</h4>
+          <FadeLoader color="whitesmoke" loading={loading} />
+        </>
+        ) : (
+      <>
         <div className="neighborhoods">
           {/* <FadeLoader color="whitesmoke" loading={loading} /> */}
           {cityGroups.map((group, idx) => (
@@ -93,8 +97,7 @@ function Hotels() {
         <div id="scrollContainer">
           <HotelGroup list={hotelList} tripDuration={tripDuration} />
         </div>
-      </>)
-      }
+      </>)}
     </div>
   );
 }
