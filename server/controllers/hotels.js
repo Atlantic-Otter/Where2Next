@@ -17,7 +17,6 @@ module.exports = {
       params: { query: city, locale: "en_US", currency: "USD" },
       headers,
     };
-
     axios
       .request(options)
       .then((response) => {
@@ -31,7 +30,6 @@ module.exports = {
         console.error(error);
       });
   },
-
   fetchHotels: (req, res) => {
     const { destinationId } = req.params;
     const options = {
@@ -50,7 +48,6 @@ module.exports = {
       },
       headers,
     };
-
     axios
       .request(options)
       .then((response) => {
@@ -62,7 +59,6 @@ module.exports = {
         console.error(error);
       });
   },
-
   fetchPhotos: (destinationId) => {
     var options = {
       method: "GET",
@@ -70,7 +66,6 @@ module.exports = {
       params: { id: destinationId },
       headers,
     };
-
     axios
       .request(options)
       .then((response) => {
@@ -81,7 +76,6 @@ module.exports = {
         console.error(error);
       });
   },
-
   fetchDetail: (destinationId) => {
     // const { startDate, endData } = req.params;
     var options = {
@@ -98,7 +92,6 @@ module.exports = {
       },
       headers,
     };
-
     axios
       .request(options)
       .then(function (response) {

@@ -17,17 +17,13 @@ const HotelItem = ({ hotel, tripDuration }) => {
     newTrip.hotels.push(hotel);
     setCurrentTrip(newTrip);
   };
-
-
   useEffect(() => {
     if (hotel.ratePlan) setPrice(hotel.ratePlan.price.current);
     if (hotel.guestReviews) setRating(Number(hotel.guestReviews.rating));
     if (hotel.guestReviews) setBadgeText(hotel.guestReviews.badgeText);
     if (hotel.optimizedThumbUrls) setThumbnail(hotel.optimizedThumbUrls.srpDesktop);
-
     return () => abortFetch.abort();
   }, []);
-
   const tripData = {
     hotelName: hotel.name,
     hotelId: hotel.id,
@@ -36,13 +32,11 @@ const HotelItem = ({ hotel, tripDuration }) => {
     startDate: hotel.startDate,
     endDate: hotel.endDate,
   };
-
   const handleClick = () => {
     const newTrip = { ...currentTrip };
     newTrip.hotels.push(tripData);
     setCurrentTrip(newTrip);
   };
-
   return (
     <div className="listItem">
       <div className="listDetails">
