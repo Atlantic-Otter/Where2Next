@@ -8,18 +8,26 @@ A multi-booking trip organizer
 - MongoDB
 
 ### API &nbsp; 🔌
-`GET /nearbyEvents/:city/:state/:startDate/:endDate`
-`city`: string
-`state`: string
-`startDate`: string (YYYY-MM-DD)
-`endDate`: string (YYYY-MM-DD)
 
-`GET /flights/:arrivalCode`
-`arrivalCode`: string (3-letter airport abbreviation code)
+
+`GET /nearbyEvents/:city/:state/:startDate/:endDate` <br />
+| Request parameter  | type | format |
+| --- | --- | --- | 
+| `city`  | string | Capitalize |
+| `state`: string | Capitalize |
+| `startDate` | string | YYYY-MM-DD |
+| `endDate` | string | YYYY-MM-DD |
+
+`GET /flights/:arrivalCode` <br />
+| Request parameter  | type | format |
+| --- | --- | --- | 
+| `arrivalCode` | string | (3-letter airport abbreviation code) |
 
 `GET /hotels/:city/:destinationId`
-`city`: string (case-sensitive)
-`destinationId`: number -> retrieved and queried on protocol for https://hotels4.p.rapidapi.com/properties/list
+| Request parameter  | type | format |
+| --- | --- | --- | 
+| `city`  | string | Capitalize |
+| `destinationId` | number | retrieved and queried on protocol for https://hotels4.p.rapidapi.com/properties/list |
 
 ### Landing page and header &nbsp; 🏠
 - Enter the location and time frame you're looking to book through
