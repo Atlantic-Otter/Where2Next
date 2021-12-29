@@ -1,17 +1,20 @@
 # Where2Next
-
 A multi-booking trip organizer &nbsp;
 
 ### Built with &nbsp;
+- React
+- React Router
+- Node/Express
+- MongoDB
 
-### Landing page and header &nbsp; 🏠
+### Landing page and header &nbsp;
 Enter the location and time frame you're looking to book through
 Fuzzy searching via <a href="https://github.com/reactjs/react-autocomplete">React Autocomplete</a>
 
 Login via the header button - optional until checkout
 The link updates based to reflect search parameters - share it via the header's social media buttons at any time while browsing.
 
-### Events
+### Events &nbsp;
 - Lists upcoming events in the selected timeframe and destination
 - Users may add events to their trip, see more info, and sort by date, price, or distance
 
@@ -29,4 +32,3 @@ Access your selected items via the button in the lower right corner. Any selecti
 ### Your account: &nbsp;
 - View your personal information
 - Rundown of your purchased trips, listed by destination
-
