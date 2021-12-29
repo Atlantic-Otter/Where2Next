@@ -38,6 +38,27 @@ const CheckoutModal = ({ toggleLoginModal }) => {
   };
 
   const updateUserDataAndPay = () => {
+    //C: what happens on checkout?
+          // always need to be updated on purchased trips
+    //   need to be signed in (we want users to have access to their bookings on-site)
+
+
+    //A. Put together states and order of operations
+      // user
+      // validated
+      // paid
+
+      // 1. prompt sign in if not already
+      // 2. on next checkout-attempt get user state
+      // 3. transfer localstorage to user's slot in db
+      // 4. send back the updated info
+      // 5. re-set the user state so it's reflected in profile
+      // 6. set paid state to true so we can thank the user on the next page
+
+      // after all goes thru, make another post request
+
+    // R. Pretty seamless checkout experience and the info is always reflected in profile
+
     // get whatever's in localstorage
     // post request it to be added to user profile
 
