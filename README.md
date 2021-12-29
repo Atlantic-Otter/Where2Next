@@ -1,5 +1,5 @@
 # Where2Next
-A multi-booking trip organizer &nbsp; 🌴
+A multi-booking trip organizer
 
 ### Built with &nbsp; ⚙️
 - React
@@ -7,20 +7,19 @@ A multi-booking trip organizer &nbsp; 🌴
 - Node/Express
 - MongoDB
 
-### API 🔌
-GET /nearbyEvents/:city/:state/:startDate/:endDate
-city: string
-state: string
-startDate: string (YYYY-MM-DD)
-endDate: string (YYYY-MM-DD)
+### API &nbsp; 🔌
+`GET /nearbyEvents/:city/:state/:startDate/:endDate`
+`city`: string
+`state`: string
+`startDate`: string (YYYY-MM-DD)
+`endDate`: string (YYYY-MM-DD)
 
-GET /flights/:arrivalCode
-arrivalCode: string (3-letter airport abbreviation code)
+`GET /flights/:arrivalCode`
+`arrivalCode`: string (3-letter airport abbreviation code)
 
-GET /hotels/:city/:destinationId
-city: string (case-sensitive)
-destinationId: number -> retrieved and queried on protocol for https://hotels4.p.rapidapi.com/properties/list
-
+`GET /hotels/:city/:destinationId`
+`city`: string (case-sensitive)
+`destinationId`: number -> retrieved and queried on protocol for https://hotels4.p.rapidapi.com/properties/list
 
 ### Landing page and header &nbsp; 🏠
 - Enter the location and time frame you're looking to book through
@@ -28,7 +27,7 @@ destinationId: number -> retrieved and queried on protocol for https://hotels4.p
 - Login - optional until checkout
 - The URL updates based to reflect search parameters - share it via the header's social media buttons at any time while browsing.
 
-### Selecting and navigating 🔀
+### Selecting and navigating &nbsp; 🔀
 
 #### Events:
 - Lists upcoming events in the selected timeframe and destination
@@ -42,7 +41,7 @@ destinationId: number -> retrieved and queried on protocol for https://hotels4.p
 - Opens to a neighborhood list based on destination
 - Lists hotel options in selected neighborhood and timeframe
 
-### Your trips 👤
+### Your trips &nbsp; 👤
 
 #### Itinerary:
 - View the events, flights and hotels added to your trip so far
