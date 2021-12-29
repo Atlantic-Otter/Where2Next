@@ -40,43 +40,7 @@ button {
   }
 }
 
-/* MOBILE */
-@media screen and (max-width: 600px) {
-  #yourTripButton {
-    width: 15vw;
-    height: 15vw;
-    bottom: 3%;
-    right: 5%;
-  }
 
-  #inputForm {
-    width: 80%;
-    z-index: 0;
-  }
-
-  #logoName h1 {
-    font-size: 2rem;
-  }
-
-  #logoImg {
-    width: 4em;
-  }
-  #slogan {
-    width: 100%;
-  }
-  .dateSelect {
-    width: 100%;
-    font-size: 0.7em;
-  }
-  #rightArrow {
-    font-size: 1em;
-    position: absolute;
-    bottom: 50%;
-    left: 50%;
-    transform: translate(-60%, 85%);
-  }
-
-}
 
 /* BOTH */
 
@@ -242,6 +206,8 @@ button {
   position: relative;
   top: 20px;
 }
+
+/* margin bottom in mobile view */
 #navLinks {
   display: flex;
   flex-direction: row;
@@ -249,6 +215,7 @@ button {
   margin-bottom: 5em;
 }
 
+/* no margin in mobile view */
 .nav-link {
   margin: 2em;
 }
@@ -492,6 +459,7 @@ body {
   padding-right: 10rem;
 }
 
+/* font size 0.75rem in mobile view */
 .neon-button {
   font-size: 1.75rem;
   width: 1em;
@@ -510,6 +478,7 @@ body {
   position: relative;
 }
 
+/* font size 0.75rem in mobile view */
 .neon-button.active {
   font-size: 1.75rem;
   width: 1em;
@@ -569,4 +538,59 @@ body {
 .neon-button:hover::after,
 .neon-button:focus::after {
   opacity: 1;
+}
+
+
+/* MOBILE */
+@media screen and (max-width: 600px) {
+  #yourTripButton {
+    width: 15vw;
+    height: 15vw;
+    bottom: 3%;
+    right: 5%;
+  }
+
+  #inputForm {
+    width: 80%;
+    z-index: 0;
+  }
+
+  #logoName h1 {
+    font-size: 2rem;
+  }
+
+  #logoImg {
+    width: 4em;
+  }
+  #slogan {
+    width: 100%;
+  }
+  .dateSelect {
+    width: 100%;
+    font-size: 0.7em;
+  }
+  #rightArrow {
+    font-size: 1em;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-60%, 85%);
+  }
+
+  #navLinks {
+    margin-bottom: 5%;
+  }
+
+  .nav-link {
+    margin: 0;
+    padding: 0;
+  }
+
+  .neon-button {
+    font-size: 0.75rem;
+  }
+  .neon-button.active {
+    font-size: 0.75rem;
+  }
+
 }
