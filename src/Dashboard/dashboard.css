@@ -26,7 +26,8 @@
 .listItem {
   background-color: #5a175e;
   border-radius: 5mm;
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  box-shadow: 1px 1px 15px rgba(253, 106, 204, 0.7);
   margin: 1em;
   padding: 1em;
   /*  */
@@ -85,7 +86,6 @@
 }
 
 #scrollContainer {
-  margin-top: 1em;
   overflow: scroll;
   height: 90%;
   width: 80%;
@@ -163,7 +163,7 @@
   flex-direction: column;
   align-self: stetch;
   flex-grow: 1;
-  font-size: 0.9em;
+  font-size: 0.8em;
   margin-left: 1em;
   align-items: flex-start;
   justify-content: flex-start;

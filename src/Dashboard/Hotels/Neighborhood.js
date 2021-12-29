@@ -10,5 +10,4 @@ function Neighborhood({ data }) {
     </Link>
   );
 }
-
-// export default Neighborhood;
+export default Neighborhood;

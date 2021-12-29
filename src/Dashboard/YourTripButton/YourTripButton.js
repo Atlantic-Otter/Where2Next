@@ -3,7 +3,7 @@ import React from "react";
 function YourTripButton({ toggleTripToast }) {
   return (
     <button id="yourTripButton" onClick={toggleTripToast}>
-      your trip
+      YOUR TRIP
     </button>
   );
 }

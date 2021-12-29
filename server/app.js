@@ -18,7 +18,6 @@ app.post('/trips', trips.addTrips);
 
 app.get("/flights/:arrivalCode", flights.getFlights);
 
-// app.get(`/hotels/:city/:state/:startDate/:endDate`, hotels.fetchHotels);
 app.get(`/hotels/:city`, hotels.fetchCityGroups);
 app.get("/hotels/:city/:destinationId", hotels.fetchHotels);
 app.get("/hotels/city/:destinationId/photos", hotels.fetchPhotos);
