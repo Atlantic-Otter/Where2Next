@@ -33,13 +33,14 @@ A multi-booking trip organizer
 - Enter the location and time frame you're looking to book through
 - Fuzzy searching via <a href="https://github.com/reactjs/react-autocomplete">React Autocomplete</a>
 - Login - optional until checkout
-- The URL updates based to reflect search parameters - share it via the header's social media buttons at any time while browsing.
+- The URL changes to reflect search parameters - share it via the social media buttons at any time while browsing.
 
 ### Selecting and navigating &nbsp; 🔀
 
 #### Events:
-- Lists upcoming events in the selected timeframe and destination
-- Users may add events to their trip, see more info, and sort by date, price, or distance
+- Lists upcoming events in the selected timeframe/destination
+- Search keywords to filter results
+- Users may add events to their trip, see more info and sort by date/price/distance
 
 #### Flights:
 - Lists flights to destination in selected timeframe
@@ -47,12 +48,12 @@ A multi-booking trip organizer
 
 #### Hotels:
 - Opens to a neighborhood list based on destination
-- Lists hotel options in selected neighborhood and timeframe
+- Lists hotel options in selected neighborhood/timeframe
 
 ### Your trips &nbsp; 👤
 
-#### Itinerary:
-- View the events, flights and hotels added to your trip so far
+#### Current trip menu:
+- View the events, flights and hotels added to your current trip
 - Selections are hosted in local storage regardless of login status. Once you check out, an itinerary will be available on your account page.
 
 #### Account page:
