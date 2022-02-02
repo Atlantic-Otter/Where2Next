@@ -136,34 +136,3 @@ describe.only('Handling invalid/incomplete input', function() {
   });
 });
 
-
-
-// throws errors for some reason
-
-// const addUsersBefore = function(users) {
-//   return function(done) {
-//     User.create([...arguments])
-//     .then(() => {
-//       done();
-//     })
-//     .catch((err) => {
-//       done(err);
-//     });
-//   };
-// };
-
-// const removeUsersAfter = function(usernames) {
-//   return function(done) {
-//     // remove all entries
-//     User.deleteMany({
-//       username: { $in: usernames }
-//     })
-//     .then(() => {
-//       done();
-//     })
-//     .catch((err) => {
-//       done(err);
-//     });
-//   };
-// };
-
