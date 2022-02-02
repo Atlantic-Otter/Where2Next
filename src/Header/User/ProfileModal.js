@@ -11,21 +11,17 @@ const { user, toggleProfileModal } = React.useContext(UserContext);
   return(
     <div className="modal-background" onClick={toggleProfileModal}>
       <div className="profile-modal-window" onClick={(event) => { event.stopPropagation(); }}>
-      <div id="profile-header">
-        <h2 >Welcome, {user.username}</h2>
-        <span id="profile-close-button" onClick={toggleProfileModal}>&times;</span>
-      </div>
-      <hr />
-      <PersonalInfo user={user}/>
-      <hr />
-      <div id="my-trips">
-        <UpcomingTrips trips={user.upcomingTrips}/>
-        {/* <PreviousTrips /> */}
-      </div>
-
-
-
-
+        <div id="profile-header">
+          <h2 >Welcome, {user.username}</h2>
+          <span id="profile-close-button" onClick={toggleProfileModal}>&times;</span>
+        </div>
+        <hr />
+        <PersonalInfo user={user}/>
+        <hr />
+        <div id="my-trips">
+          <UpcomingTrips trips={user.upcomingTrips}/>
+          {/* <PreviousTrips /> */}
+        </div>
       </div>
     </div>
   );
