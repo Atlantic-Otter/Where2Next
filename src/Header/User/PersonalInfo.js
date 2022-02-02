@@ -6,7 +6,6 @@ const PersonalInfo = ({ user }) => {
     <>
     <h4>My Info:</h4>
     <div id="user-info">
-
         <div className="user-info-row">
           Username: <span className="user-info-value">{user.username}</span>
         </div>
@@ -18,8 +17,6 @@ const PersonalInfo = ({ user }) => {
         <div className="user-info-row">
           Date Joined: <span className="user-info-value">{new Date(user.created_at).toLocaleDateString()}</span>
         </div>
-
-
     </div>
     </>
   )
